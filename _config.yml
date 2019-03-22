@@ -16,7 +16,7 @@ description: "A forgiven sinner and also a Lecturer at Maranatha Christian Unive
 image: "/assets/images/me-gullit-model.png"
 
 # Display the left bar
-left_bar: true
+left_bar: false
 
 # enable latex
 latex: true
