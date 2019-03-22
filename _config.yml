@@ -45,8 +45,8 @@ googleplus: # anything in your profile username that comes after plus.google.com
 
 # profil you recommand : (displayed on the left bar)
 profiles:
-  - username: "John Rambo"
-    link: "https://github.com/mpgn/copper-jekyll-theme" 
+  - username:
+    link:
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
