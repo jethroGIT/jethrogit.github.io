@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Pembuktian Ruang Vektor dengan sangat detil
+title: Contoh Pembuktian Ruang Vektor dengan sangat detil
 category: Aljabar-Linier
 lang: ID
-description: Pembuktian suatu himpunan adalah ruang vektor.
+description: Contoh Pembuktian suatu himpunan adalah ruang vektor.
 ---
 
 Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ merupakan sebuah **ruang vektor**.    
