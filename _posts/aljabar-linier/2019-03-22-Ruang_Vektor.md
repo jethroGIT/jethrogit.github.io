@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Contoh Pembuktian Ruang Vektor dengan sangat detil
+title: Contoh Pembuktian Ruang Vektor dengan sangat Detil
 category: Aljabar-Linier
 lang: ID
 description: Contoh pembuktikan suatu himpunan merupakan ruang vektor
