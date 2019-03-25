@@ -13,6 +13,27 @@
 /* BASE RULES OF YOUR SITE */
 /***************************/
 
+  @font-face {
+    font-family: "Computer Modern";
+    src: url("assets/fonts/cmunss.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "Computer Modern";
+    src: url("assets/fonts/cmunsx.otf") format("opentype");
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: "Computer Modern";
+    src: url("assets/fonts/cmunsi.otf") format("opentype");
+    font-style: italic, oblique;
+  }
+  @font-face {
+    font-family: "Computer Modern";
+    src: url("assets/fonts/cmunbxo.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic, oblique;
+  }
+
 /* magic append */
 .vertical-center {
     margin-top: 20px;
@@ -49,6 +70,8 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+// "Computer Modern", sans-serif, 
 
 .entry > p {
     text-align: justify;
