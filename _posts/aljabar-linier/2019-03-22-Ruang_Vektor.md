@@ -8,7 +8,7 @@ description: Contoh pembuktikan suatu himpunan merupakan ruang vektor
 
 Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ merupakan sebuah **ruang vektor**.    
        
-**Jawab**:   
+**Bukti**:   
 Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ adalah $V$.      
 <br/>
 Diketahui juga $A$, $B$, dan $C$ adalah matriks berukuran $2 \times 3$ dan $c$, $d$ adalah skalar dengan spesifikasi sebagai berikut:   
@@ -169,7 +169,7 @@ $$ \begin{align} 1(A) &= 1 \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
 $$
 <br/>
 
-Karena $V$ memenuhi 10 aksioma dari definisi suatu ruang vektor, $V$ atau himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ merupakan sebuah **ruang vektor**.
+Karena $V$ memenuhi 10 aksioma dari definisi suatu ruang vektor, $V$ atau himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ merupakan sebuah **ruang vektor**.   $\square$
 
 
 
