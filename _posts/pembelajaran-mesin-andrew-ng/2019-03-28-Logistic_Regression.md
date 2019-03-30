@@ -11,7 +11,7 @@ Dalam perkuliahan [_Machine Learning_ yang dibawakan oleh Andrew Ng](https://www
 <br/>     
 Seperti yang dijelaskan di minggu ke-1 bahwa model _linear regression_ merupakan model untuk menyelesaikan masalah klasifikasi (_classification problem_) dengan model prediksi (_hypothesis_) adalah   
 
-$$  \begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \theta^T x} \tag{1}\label{eq:linear-regression} \end{equation} $$
+$$ \begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \theta^T x} \tag{1}\label{eq:linear-regression} \end{equation} $$
 
 dengan $$ \theta = \begin{bmatrix} \theta_0 & \theta_1 & \theta_2 & \cdots & \theta_n \end{bmatrix}^T $$ adalah parameter model dan $$ x = \begin{bmatrix} 1 & x_1 & x_2 & \cdots & x_n \end{bmatrix}^T $$ adalah _instance_ atau data yang hendak diprediksi $$y$$-nya.    
 <br/>
@@ -41,4 +41,4 @@ Jadi model **logistic regression** yang diperoleh adalah
 
 $$ \begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \frac{1}{1+e^{-\theta^T x}}} \tag{4}\label{eq:sigmoid} \end{equation} $$
 
-Model **logistic regression** pada Persamaan \eqref{eq:sigmoid} juga disebut **fungsi sigmoid**. 
+Model **logistic regression** pada Persamaan \eqref{eq:sigmoid} juga disebut **fungsi sigmoid**. Akhirnya, kita berhasil memperoleh model **logistic regression** (Persamaan \eqref{eq:sigmoid}) dari model _linear regression_ (Persamaan \eqref{eq:linear-regression}).
