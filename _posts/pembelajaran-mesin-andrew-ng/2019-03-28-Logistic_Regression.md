@@ -4,7 +4,7 @@ title: Membangun Model Logistic Regression dari Linear Regression
 category: Pembelajaran-Mesin-Andrew-Ng
 lang: ID
 description: Hubungan logistic regression dan linear regression
-sticky: true
+sticky: false
 ---
 
 Dalam perkuliahan [_Machine Learning_ yang dibawakan oleh Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome) di minggu ke-4 dibahas mengenai sebuah model yang bernama model **logistic regression**. Tulisan ini hendak menjelaskan bagaimana memperoleh model **logistic regression** tersebut dari model **linear regression** yang dijelaskan di minggu ke-1 dan ke-2.
