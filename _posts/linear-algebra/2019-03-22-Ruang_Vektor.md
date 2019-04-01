@@ -169,6 +169,8 @@ $$ \begin{align} 1(A) &= 1 \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
 	\end{align}
 $$    
 <br/>
+
+
 Karena $V$ memenuhi 10 aksioma dari definisi suatu ruang vektor, $V$ atau himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ merupakan sebuah **ruang vektor**.   $\square$
 
 
