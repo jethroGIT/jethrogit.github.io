@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Contoh Pembuktian Ruang Vektor dengan sangat Detil
-category: Aljabar-Linier
+category: Linear-Algebra
 lang: ID
 description: Contoh pembuktikan suatu himpunan merupakan ruang vektor
 ---

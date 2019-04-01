@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Membangun Model Logistic Regression dari Linear Regression
-category: Pembelajaran-Mesin-Andrew-Ng
+category: Machine-Learning
 lang: ID
 description: Hubungan logistic regression dan linear regression
 sticky: false
