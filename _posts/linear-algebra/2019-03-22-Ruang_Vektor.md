@@ -10,10 +10,11 @@ Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta opera
        
 **Bukti**:   
 Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ adalah $V$.      
-<br/>
+
 Diketahui juga $A$, $B$, dan $C$ adalah matriks berukuran $2 \times 3$ dan $c$, $d$ adalah skalar dengan spesifikasi sebagai berikut:   
-$$A = \begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\end{bmatrix}$$, $$B = \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23}\end{bmatrix}$$, dan $$C = \begin{bmatrix} 	c_{11} & c_{12} & c_{13} \\ c_{21} & c_{22} & c_{23} \end{bmatrix}$$.    
-<br/>
+
+$$ A = \begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\end{bmatrix}$$, $$B = \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23}\end{bmatrix}$$, dan $$C = \begin{bmatrix} 	c_{11} & c_{12} & c_{13} \\ c_{21} & c_{22} & c_{23} \end{bmatrix} $$.    
+
 [Larson](https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/) (2016) subbab 4.2 hlm. 161 menyatakan bahwa pembuktian suatu himpunan merupakan ruang vektor harus memenuhi 10 aksioma. Berikut akan dibuktikan untuk 10 aksioma tersebut.
 1. Apakah $A+B$ juga ada di dalam $V$?    
 Ya karena     
@@ -42,7 +43,7 @@ $$\begin{align} A+B &= \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
 	a_{21} & a_{22} & a_{23} \end{bmatrix} \\
                     &= B + A.
 \end{align}$$        
-<br/>    
+<br/>
 3. Apakah $A + (B + C) = (A+B) + C$?    
 Ya karena    
 $$ \begin{align} A+(B+C) &= \begin{bmatrix} a_{11} & a_{12} & a_{13} \\
@@ -166,12 +167,8 @@ $$ \begin{align} 1(A) &= 1 \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
 	a_{21} & a_{22} & a_{23} \end{bmatrix}  \\
 	                  &= A.
 	\end{align}
-$$
+$$    
 <br/>
-
 Karena $V$ memenuhi 10 aksioma dari definisi suatu ruang vektor, $V$ atau himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ merupakan sebuah **ruang vektor**.   $\square$
-
-
-
 
 
