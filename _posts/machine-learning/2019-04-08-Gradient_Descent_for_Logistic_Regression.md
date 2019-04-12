@@ -14,7 +14,7 @@ $$ \begin{equation} X = \begin{bmatrix} 1 & x^{(1)} \\
 \vdots & \vdots  \\
 1      & x^{(m)}   \end{bmatrix}.  \end{equation} \tag{1}\label{eq:x-dataset}$$
 
-Jadi dataset $X$ memiliki $m$ _instances_ dan 1 _feature_, $x$.    
+Jadi _design matrix_ $X$ memiliki $m$ _instances_ dan 1 _feature_, $x$.    
 
 Model **logistic regression** akan dilatih terhadap dataset $X$ ini. Perkuliahan [_Machine Learning_](https://www.coursera.org/learn/machine-learning/home/welcome) di minggu ke-4 membahas model **logistic regression** yang memiliki bentuk
 
