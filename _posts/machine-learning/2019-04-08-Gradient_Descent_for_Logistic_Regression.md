@@ -125,15 +125,15 @@ $$ \begin{align} \frac{\partial J}{\partial \theta_1} &= -\frac{1}{m} \sum_{i=1}
 
 Jadi _gradient_ untuk model **logistic regression** dengan 1 variabel, $x$ dan 2 parameter, $\theta_0$ dan $\theta_1$ adalah
 
-$$ \begin{equation} \bbox[5px,border:2px solid blue] {\frac{\partial J}{\partial \theta_0} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) } \end{equation} $$ 
+$$ \begin{equation} \frac{\partial J}{\partial \theta_0} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} )  \end{equation} $$ 
 
 dan 
 
-$$ \begin{equation} \bbox[5px,border:2px solid blue] {\frac{\partial J}{\partial \theta_1} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x^{(i)} }. \end{equation} $$ 
+$$ \begin{equation} \frac{\partial J}{\partial \theta_1} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x^{(i)} . \end{equation} $$ 
 
 Secara umum, _gradient_ untuk model **logistic regression** dengan $n$ variabel, $x_1, x_2, \ldots, x_n$ dan $n+1$ parameter, $\theta_0, \theta_1, \ldots, \theta_n$ adalah
 
-$$ $$ \begin{equation} \bbox[5px,border:2px solid blue] {\frac{\partial J}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x_{j}^{(i)} } \end{equation} $$ 
+$$ $$ \begin{equation} \frac{\partial J}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x_{j}^{(i)}  \end{equation} $$ 
  $$
 
 dengan ketika $j=0$, $x_0^{(i)} = 1$ untuk $i = 1, 2, \ldots, m$.
