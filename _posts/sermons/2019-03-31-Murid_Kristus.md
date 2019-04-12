@@ -4,7 +4,7 @@ title: Gereja Menghasilkan Murid Kristus
 category: Sermons
 lang: ID
 description: Gereja yang menghasilkan murid Kristus
-sticky: true
+sticky: false
 ---
 Khotbah ini merupakan ringkasan khotbah yang dibawakan oleh Pnt. Kurdijanto Harsono pada tanggal 31 April 2019 di KU 2.    
 
