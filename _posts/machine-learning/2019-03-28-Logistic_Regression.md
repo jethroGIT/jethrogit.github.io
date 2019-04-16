@@ -13,7 +13,7 @@ Seperti yang dijelaskan di minggu ke-1 bahwa model _linear regression_ merupakan
 
 $$ \begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \theta^T x} \tag{1}\label{eq:linear-regression} \end{equation} $$
 
-dengan $$ \theta = \begin{bmatrix} \theta_0 & \theta_1 & \theta_2 & \cdots & \theta_n \end{bmatrix}^T $$ adalah parameter model dan $$ x = \begin{bmatrix} 1 & x_1 & x_2 & \cdots & x_n \end{bmatrix}^T $$ adalah _instance_ atau data yang hendak diprediksi $$y$$-nya.    
+dengan $$ \theta = \begin{bmatrix} \theta_0 & \theta_1 & \theta_2 & \cdots & \theta_n \end{bmatrix}^T $$ adalah parameter model dan $$ x = \begin{bmatrix} 1 & x_1 & x_2 & \cdots & x_n \end{bmatrix}^T $$ adalah sebuah _test example_ atau data yang hendak diprediksi $$y$$-nya.    
 
 Bagaimanakah model **logistic regression** dapat diperoleh dari model _linear regression_ ini?     
 Seperti yang kita ketahui $ h_\theta(x) $ dalam **logistic regression** memiliki range nilai antara $0$ dan $1$ sedangkan $ h_\theta(x) $ dalam _linear regression_ memiliki range nilai antara $-\infty$ dan $\infty$. Oleh karena itu, $ h_\theta(x) $ kepunyaan **logistic regression** perlu dikonversi menjadi $-\infty < h_\theta(x) < \infty$ dan disubstitusi ke dalam Persamaan \eqref{eq:linear-regression}.   

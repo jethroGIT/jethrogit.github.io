@@ -14,7 +14,7 @@ $$ \begin{equation} X = \begin{bmatrix} 1 & x^{(1)} \\
 \vdots & \vdots  \\
 1      & x^{(m)}   \end{bmatrix}.  \end{equation} \tag{1}\label{eq:x-dataset}$$
 
-Jadi _design matrix_ $X$ memiliki $m$ _instances_ dan 1 _feature_, $x$.    
+Jadi _design matrix_ $X$ memiliki $m$ _training examples_ dan 1 _feature_, $x$.    
 
 Model **logistic regression** akan dilatih terhadap dataset $X$ ini. Perkuliahan [_Machine Learning_](https://www.coursera.org/learn/machine-learning/home/welcome) di minggu ke-4 membahas model **logistic regression** yang memiliki bentuk
 
@@ -28,7 +28,7 @@ dengan
 
 $$ \begin{equation} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) = -y^{(i)} \log( h_{\theta}(x^{(i)}) ) - (1-y^{(i)}) \log(1-h_{\theta}(x^{(i)})) \end{equation} \tag{4}\label{eq:cost-logistic} $$   
 
-dan diketahui juga bahwa $x^{(i)}$ adalah _instance_ ke-$i$, dan $y^{(i)}$ adalah label atau class dari _instance_ $x^{(i)}$.   
+dan diketahui juga bahwa $x^{(i)}$ adalah _training example_ ke-$i$, dan $y^{(i)}$ adalah label atau class dari _training example_ $x^{(i)}$.   
 Tulisan ini hendak menjelaskan bagaimana menghitung turunan parsial dari _cost function_ model **logistic regression** terhadap $\theta_0$ dan $\theta_1$. Turunan parsial ini juga sering disebut dengan _gradient_, $\frac{\partial J}{\partial \theta}$.    
 <br/>
 #### **Bentuk Komplit _Cost Function_ dari Model Logistic Regression**
