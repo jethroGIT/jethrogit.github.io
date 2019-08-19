@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Menghitung Gradient dari Cost Function Logistic Regression – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Diberikan suatu design matrix $X$ yang berbentuk
+
+" />
+    <meta property="og:description" content="Diberikan suatu design matrix $X$ yang berbentuk
+
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Menghitung Gradient dari Cost Function Logistic Regression" />
+    <meta property="twitter:title" content="Menghitung Gradient dari Cost Function Logistic Regression" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-md-12 col-sm-12 col-xs-12 left-bar">
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p>
+    <p class="text-center">
+        <a href="http://localhost:4000/" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+        
+
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+<a href="https://www.linkedin.com/in/hendra-bunyamin-895655136" class="color-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a>
+
+
+
+
+    </p>
+</div>
+
+                
+              </div>
+              <div class=" col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/machine-learning">machine-learning</a> / menghitung gradient dari cost function logistic regression</span></p>
+          <h3>Menghitung Gradient dari Cost Function Logistic Regression<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Menghitung turunan parsial cost function dari Logistic Regression">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Menghitung Gradient dari Cost Function Logistic Regression <br> 
+                  <span class="text-small">Menghitung turunan parsial cost function dari Logistic Regression</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>Diberikan suatu <em>design matrix</em> $X$ yang berbentuk</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation} X = \begin{bmatrix} 1 & x^{(1)} \\
+1      & x^{(2)} \\
+\vdots & \vdots  \\
+1      & x^{(m)}   \end{bmatrix}.  \end{equation} \tag{1}\label{eq:x-dataset} %]]></script>
+
+<p>Jadi <em>design matrix</em> $X$ memiliki $m$ <em>training examples</em> dan 1 <em>feature</em>, $x$.</p>
+
+<p>Model <strong>logistic regression</strong> akan dilatih terhadap dataset $X$ ini. Perkuliahan <a href="https://www.coursera.org/learn/machine-learning/home/welcome"><em>Machine Learning</em></a> di minggu ke-4 membahas model <strong>logistic regression</strong> yang memiliki bentuk</p>
+
+<script type="math/tex; mode=display">\require{cancel} \begin{equation} h_{\theta}(x^{(i)}) = \frac{1}{1 + e^{-\theta_0 - \theta_1 x^{(i)}}}. \tag{2}\label{eq:model-logistic}\end{equation}</script>
+
+<p>Lebih lanjut, model <strong>logistic regression</strong> memiliki <em>cost function</em> $J(\theta)$ sebagai berikut:</p>
+
+<script type="math/tex; mode=display">\begin{equation} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) \tag{3}\label{eq:cost-function} \end{equation}</script>
+
+<p>dengan</p>
+
+<script type="math/tex; mode=display">\begin{equation} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) = -y^{(i)} \log( h_{\theta}(x^{(i)}) ) - (1-y^{(i)}) \log(1-h_{\theta}(x^{(i)})) \end{equation} \tag{4}\label{eq:cost-logistic}</script>
+
+<p>dan diketahui juga bahwa $x^{(i)}$ adalah <em>training example</em> ke-$i$, dan $y^{(i)}$ adalah label atau class dari <em>training example</em> $x^{(i)}$. <br />
+Tulisan ini hendak menjelaskan bagaimana menghitung turunan parsial dari <em>cost function</em> model <strong>logistic regression</strong> terhadap $\theta_0$ dan $\theta_1$. Turunan parsial ini juga sering disebut dengan <em>gradient</em>, $\frac{\partial J}{\partial \theta}$.  <br />
+<br /></p>
+<h4 id="bentuk-komplit-cost-function-dari-model-logistic-regression"><strong>Bentuk Komplit <em>Cost Function</em> dari Model Logistic Regression</strong></h4>
+<p>Dengan menggabungkan Persamaan \eqref{eq:cost-function} dan \eqref{eq:cost-logistic} diperoleh <em>cost function</em> yang detil sebagai berikut:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} J(\theta) &= \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) \\
+                           &= \frac{1}{m} \sum_{i=1}^{m} \left( -y^{(i)} \log (h_{\theta}(x^{(i)})) - (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \\
+                           &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right). \tag{5}\label{eq:cost-function-complete} \end{align} %]]></script>
+
+<p>Selanjutnya, akan dicari $\frac{\partial J}{\partial \theta_0}$ dan $\frac{\partial J}{\partial \theta_1}$ tetapi sebelumnya, kita perlu menghitung $\frac{\partial h_{\theta}}{ \partial \theta_0 }$ dan $\frac{\partial h_{\theta}}{ \partial \theta_1 }$. <br />
+Sekarang kita akan menghitung turunan partial dari $h_{\theta}(x)$ terhadap $\theta_0$ atau $\frac{\partial h_{\theta}}{ \partial \theta_0 }$. <br />
+Dari pelajaran <strong>Kalkulus</strong>, diketahui bahwa turunan dari $\frac{u(x)}{v(x)}$  dengan masing-masing $u(x)$ dan $v(x)$ merupakan fungsi dari $x$ adalah</p>
+
+<script type="math/tex; mode=display">\begin{equation} \frac{u^{\prime} v - u v^{\prime} }{ v^2 }. \tag{6}\label{eq:formula-derivatif} \end{equation}</script>
+
+<p>dengan $u^{\prime}$ adalah turunan pertama fungsi $u$ dan $v^{\prime}$ adalah turunan pertama fungsi $v$. <br />
+Kita akan menggunakan formula turunan di Persamaan \eqref{eq:formula-derivatif} untuk menghitung $\frac{\partial h_{\theta}}{ \partial \theta_0 }$ dan $\frac{\partial h_{\theta}}{ \partial \theta_1 }$ sebagai berikut:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial h_{\theta}}{ \partial \theta_0 } &= \frac{0 + e^{-\theta_0 - \theta_1 x}}{(1 + e^{-\theta_0 - \theta_1 x})^2} = \frac{e^{-\theta_0 - \theta_1 x}}{(1 + e^{-\theta_0 - \theta_1 x})^2} \\ 
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( \frac{e^{-\theta_0 - \theta_1 x}}{1 + e^{-\theta_0 - \theta_1 x}} \right)  \\
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( 1 - \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \\
+ &= h_\theta(x) (1 - h_\theta(x)) \tag{7}\label{eq:formula-derivatif-theta0}
+  \end{align} %]]></script>
+
+<p>dan</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{align} \frac{\partial h_{\theta}}{ \partial \theta_1 } &= \frac{0 + e^{-\theta_0 - \theta_1 x} x}{(1 + e^{-\theta_0 - \theta_1 x})^2} = \frac{e^{-\theta_0 - \theta_1 x} x}{(1 + e^{-\theta_0 - \theta_1 x})^2} \\ 
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( \frac{e^{-\theta_0 - \theta_1 x}}{1 + e^{-\theta_0 - \theta_1 x}} \right)x  \\
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( 1 - \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right)x \\
+ &= h_\theta(x) (1 - h_\theta(x)) x. \tag{8}\label{eq:formula-derivatif-theta1}
+  \end{align} %]]></script>  <br />
+<br /></p>
+<h4 id="menghitung-fracpartial-jpartial-theta_0"><strong>Menghitung $\frac{\partial J}{\partial \theta_0}$</strong></h4>
+<p>Turunan parsial $\frac{\partial J}{\partial \theta_0}$ dapat dihitung sbb:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_0} &= \frac{\partial }{\partial \theta_0} \left( -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \frac{\partial }{\partial \theta_0} \left( \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_0} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Bagian I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_0} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Bagian II}} \right). \tag{9}\label{eq:bagian2-theta0} \end{align} %]]></script>
+
+<p>Bagian I dari Persamaan \eqref{eq:bagian2-theta0} dihitung dengan teknik aturan rantai (<em>chain rule</em>) dan hasil Persamaan \eqref{eq:formula-derivatif-theta0} menjadi sebagai berikut:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_0} \left( \log (h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log (h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_0} \\
+ &= \frac{1}{h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) \\
+ &= \frac{1}{ \cancel{h_{\theta}(x^{(i)})} } \cancel{h_\theta(x^{(i)})} (1 - h_\theta(x^{(i)}))  \\
+ &= (1 - h_\theta(x^{(i)})). \tag{10}\label{eq:bagian-I-theta0} \end{align} %]]></script>
+
+<p>Bagian II dari Persamaan \eqref{eq:bagian2-theta0} juga dihitung dengan teknik aturan rantai dan hasil Persamaan \eqref{eq:formula-derivatif-theta0}menjadi sebagai berikut:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_0} \left( \log (1 - h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log ( 1- h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_0} \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} (1 - h_\theta(x^{(i)})) h_\theta(x^{(i)})  \\
+ &= - \frac{1}{ \cancel{1 - h_{\theta}(x^{(i)})} } \cancel{(1- h_\theta(x^{(i)}))} h_\theta(x^{(i)})  \\
+ &= -h_\theta(x^{(i)}). \tag{11}\label{eq:bagian-II-theta0} \end{align} %]]></script>
+
+<p>Dengan mensubstitusi Persamaan \eqref{eq:bagian-I-theta0} dan Persamaan \eqref{eq:bagian-II-theta0} ke Persamaan \eqref{eq:bagian2-theta0} diperoleh</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_0} &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_0} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Bagian I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_0} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Bagian II}} \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} (1 - h_{\theta}(x^{(i)}))  - (1-y^{(i)}) h_{\theta}(x^{(i)}) \right)  \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} - y^{(i)} h_{\theta}(x^{(i)})  - h_{\theta}(x^{(i)}) + y^{(i)} h_{\theta}(x^{(i)}) \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \cancel{- y^{(i)} h_{\theta}(x^{(i)})}  - h_{\theta}(x^{(i)}) \cancel{+ y^{(i)} h_{\theta}(x^{(i)})} \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} ( y^{(i)} - h_{\theta}(x^{(i)}) )  \\
+&= \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ). \end{align} %]]></script>  <br />
+<br /></p>
+<h4 id="menghitung-fracpartial-jpartial-theta_1"><strong>Menghitung $\frac{\partial J}{\partial \theta_1}$</strong></h4>
+<p>Turunan parsial $\frac{\partial J}{\partial \theta_1}$ dapat dihitung dengan cara yang sama sbb:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_1} &= \frac{\partial }{\partial \theta_1} \left( -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \frac{\partial }{\partial \theta_1} \left( \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_1} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Bagian I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_1} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Bagian II}} \right). \tag{12}\label{eq:bagian2-theta1} \end{align} %]]></script>
+
+<p>Bagian I dari Persamaan \eqref{eq:bagian2-theta1} dihitung dengan teknik aturan rantai (<em>chain rule</em>) dan hasil Persamaan \eqref{eq:formula-derivatif-theta1} menjadi sebagai berikut:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_1} \left( \log (h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log (h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_1} \\
+ &= \frac{1}{h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x^{(i)} \\
+ &= \frac{1}{ \cancel{h_{\theta}(x^{(i)})} } \cancel{h_\theta(x^{(i)})} (1 - h_\theta(x^{(i)})) x^{(i)} \\
+ &= (1 - h_\theta(x^{(i)})) x^{(i)}. \tag{13}\label{eq:bagian-I-theta1} \end{align} %]]></script>
+
+<p>Bagian II dari Persamaan \eqref{eq:bagian2-theta1} juga dihitung dengan teknik aturan rantai dan hasil Persamaan \eqref{eq:formula-derivatif-theta1}menjadi sebagai berikut:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_1} \left( \log (1 - h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log ( 1- h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_1} \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x^{(i)} \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} (1 - h_\theta(x^{(i)})) h_\theta(x^{(i)}) x^{(i)}  \\
+ &= - \frac{1}{ \cancel{1 - h_{\theta}(x^{(i)})} } \cancel{(1- h_\theta(x^{(i)}))} h_\theta(x^{(i)}) x^{(i)}  \\
+ &= -h_\theta(x^{(i)}) x^{(i)}. \tag{14}\label{eq:bagian-II-theta1} \end{align} %]]></script>
+
+<p>Kembali dengan mensubstitusi Persamaan \eqref{eq:bagian-I-theta1} dan Persamaan \eqref{eq:bagian-II-theta1} ke Persamaan \eqref{eq:bagian2-theta1} diperoleh</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_1} &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_1} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Bagian I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_1} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Bagian II}} \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} (1 - h_{\theta}(x^{(i)})) x^{(i)}  - (1-y^{(i)}) h_{\theta}(x^{(i)}) x^{(i)} \right)  \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} - y^{(i)} h_{\theta}(x^{(i)})  - h_{\theta}(x^{(i)}) + y^{(i)} h_{\theta}(x^{(i)}) \right) x^{(i)} \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \cancel{- y^{(i)} h_{\theta}(x^{(i)})}  - h_{\theta}(x^{(i)}) \cancel{+ y^{(i)} h_{\theta}(x^{(i)})} \right) x^{(i)} \\
+&= -\frac{1}{m} \sum_{i=1}^{m} ( y^{(i)} - h_{\theta}(x^{(i)}) ) x^{(i)}   \\
+&= \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x^{(i)}.  \end{align} %]]></script>
+
+<p>Jadi <em>gradient</em> untuk model <strong>logistic regression</strong> dengan 1 variabel, $x$ dan 2 parameter, $\theta_0$ dan $\theta_1$ adalah</p>
+
+<script type="math/tex; mode=display">\begin{equation} \frac{\partial J}{\partial \theta_0} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} )  \end{equation}</script>
+
+<p>dan</p>
+
+<script type="math/tex; mode=display">\begin{equation} \frac{\partial J}{\partial \theta_1} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x^{(i)} . \end{equation}</script>
+
+<p>Secara umum, <em>gradient</em> untuk model <strong>logistic regression</strong> dengan $n$ variabel, $x_1, x_2, \ldots, x_n$ dan $n+1$ parameter, $\theta_0, \theta_1, \ldots, \theta_n$ adalah</p>
+
+<p><script type="math/tex"></script> \begin{equation} \frac{\partial J}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x_{j}^{(i)}  \end{equation} <script type="math/tex"></script></p>
+
+<p>dengan ketika $j=0$, $x_0^{(i)} = 1$ untuk $i = 1, 2, \ldots, m$.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on April  8, 2019
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/machine-learning/Gradient_Descent_for_Logistic_Regression/',
+		  'title': 'Menghitung Gradient dari Cost Function Logistic Regression'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

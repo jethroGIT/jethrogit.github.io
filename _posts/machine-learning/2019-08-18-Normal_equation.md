@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Deriving Normal Equation for Linear Regression Model
+title: Deriving Normal Equation of Linear Regression Model
 category: Machine-Learning
 lang: EN
-description: How to derive normal equation for linear regression model
+description: How to derive normal equation of linear regression model
 sticky: true
 ---
 
@@ -30,7 +30,7 @@ $$ \begin{align}  J(\theta) &= \frac{1}{2m} \sum_{i=1}^{m}{(\theta_0 + \theta_1 
  &= \frac{1}{2m} \left( \begin{bmatrix} (\theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} - y^{(1)}) & \cdots & (\theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} - y^{(m)}) \end{bmatrix} - \begin{bmatrix} y^{(1)} & \cdots & y^{(m)} \end{bmatrix} \right) \left( \begin{bmatrix} \theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} \\
  \theta_0 + \theta_1 x_1^{(2)} + \cdots + \theta_n x_n^{(2)} \\
  \vdots \\
- \theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} \end{bmatrix} - \begin{bmatrix} y^{(1)} \\ 
+ \theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} \end{bmatrix}  - \begin{bmatrix} y^{(1)} \\ 
  y^{(2)} \\
  \vdots \\
  y^{(m)} \end{bmatrix} \right) \tag{6}\label{eq:derivation-4} \\
@@ -40,7 +40,10 @@ $$ \begin{align}  J(\theta) &= \frac{1}{2m} \sum_{i=1}^{m}{(\theta_0 + \theta_1 
  x_n^{(1)} & x_n^{(2)} & \cdots & x_n^{(m)} \\\end{bmatrix} - \begin{bmatrix} y^{(1)} & \cdots & y^{(m)} \end{bmatrix} \right) \left( \begin{bmatrix} 1 & x_1^{(1)} & \cdots & x_n^{(1)} \\
   1 & x_1^{(2)} & \cdots & x_n^{(2)} \\
   \vdots & \vdots & \cdots & \vdots \\
-  1 & x_1^{(m)} & \cdots & x_n^{(m)} \end{bmatrix} - \begin{bmatrix} y^{(1)} \\
+  1 & x_1^{(m)} & \cdots & x_n^{(m)} \end{bmatrix} \begin{bmatrix} \theta_0 \\ 
+ \theta_1 \\
+ \vdots \\
+ \theta_n \end{bmatrix} - \begin{bmatrix} y^{(1)} \\
   y^{(2)} \\ 
   \ldots \\
   y^{(m)} \end{bmatrix} \right) \tag{7}\label{eq:derivation-5}  \end{align}$$
