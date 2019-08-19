@@ -67,15 +67,15 @@ also
 $$ \begin{equation} Y = \begin{bmatrix} y^{(1)} \\ 
 y^{(2)} \\ 
 \vdots \\
-y^{(m)} \end{bmatrix}, \tag{9}\label{eq:defining-Y} \end{equation} $$
+y^{(m)} \end{bmatrix}, \tag{10}\label{eq:defining-Y} \end{equation} $$
 
 equation \eqref{eq:derivation-5} becomes
 
-$$ \begin{align} J(\theta) &= \frac{1}{2m} (\theta^T X^T - Y^T)(X \theta - Y) &&\text{by transpose property} \tag{10}\label{eq:derivation-6} \\
-&= \frac{1}{2m} (\theta^T X^T X \theta - \underbrace{\theta^T X^T Y}_{\text{a scalar}} - \underbrace{Y^T X \theta}_{\text{a scalar}} + Y^T Y)  &&\text{by matrix multiplication} \tag{11}\label{eq:derivation-7} \\
-&= \frac{1}{2m} (\theta^T X^T X \theta - \theta^T X^T Y - (X \theta)^T Y + Y^T Y) &&\text{by rearranging a scalar} \tag{12}\label{eq:derivation-8} \\
-&= \frac{1}{2m} (\theta^T X^T X \theta - \theta^T X^T Y - \theta^T X^T Y + Y^T Y) &&\text{by transpose property} \tag{13}\label{eq:derivation-9} \\
-&= \frac{1}{2m} (\underbrace{\theta^T X^T X \theta}_{\text{Part I}} - \underbrace{2 \theta^T X^T Y}_{\text{Part II}} + Y^T Y) &&\text{by summation property} \tag{14}\label{eq:derivation-10} \\
+$$ \begin{align} J(\theta) &= \frac{1}{2m} (\theta^T X^T - Y^T)(X \theta - Y) &&\text{by transpose property} \tag{11}\label{eq:derivation-6} \\
+&= \frac{1}{2m} (\theta^T X^T X \theta - \underbrace{\theta^T X^T Y}_{\text{a scalar}} - \underbrace{Y^T X \theta}_{\text{a scalar}} + Y^T Y)  &&\text{by matrix multiplication} \tag{12}\label{eq:derivation-7} \\
+&= \frac{1}{2m} (\theta^T X^T X \theta - \theta^T X^T Y - (X \theta)^T Y + Y^T Y) &&\text{by rearranging a scalar} \tag{13}\label{eq:derivation-8} \\
+&= \frac{1}{2m} (\theta^T X^T X \theta - \theta^T X^T Y - \theta^T X^T Y + Y^T Y) &&\text{by transpose property} \tag{14}\label{eq:derivation-9} \\
+&= \frac{1}{2m} (\underbrace{\theta^T X^T X \theta}_{\text{Part I}} - \underbrace{2 \theta^T X^T Y}_{\text{Part II}} + Y^T Y) &&\text{by summation property} \tag{15}\label{eq:derivation-10} \\
 \end{align}$$
 
 We have arrived into a matrix form from **linear regression cost function**. Our next step would be: 
@@ -85,19 +85,19 @@ We have arrived into a matrix form from **linear regression cost function**. Our
 We will employ the derivation formula from [Matrix Calculus](https://en.wikipedia.org/wiki/Matrix_calculus); specifically, we use **two scalar-by-vector identities** with **denominator layout** (result: column vector). The identities are as follows:
 
 $$ \begin{equation} 
-	\frac{\partial \mathbf{x}^T \mathbf{A} \mathbf{x} }{\partial \mathbf{x}} = 2 \mathbf{A} \mathbf{x} \tag{15}\label{eq:identity-1}
+	\frac{\partial \mathbf{x}^T \mathbf{A} \mathbf{x} }{\partial \mathbf{x}} = 2 \mathbf{A} \mathbf{x} \tag{16}\label{eq:identity-1}
 \end{equation} $$
 
 and 
 
 $$ \begin{equation} 
-	\frac{\partial \mathbf{a}^T \mathbf{x} }{\partial \mathbf{x}} = \frac{\partial \mathbf{x}^T \mathbf{a} }{\partial \mathbf{x}} = \mathbf{a} \tag{16}\label{eq:identity-2}
+	\frac{\partial \mathbf{a}^T \mathbf{x} }{\partial \mathbf{x}} = \frac{\partial \mathbf{x}^T \mathbf{a} }{\partial \mathbf{x}} = \mathbf{a} \tag{17}\label{eq:identity-2}
 \end{equation} $$
 
 Now equipped with these identities, let us minimize Equation \eqref{eq:derivation-10} by computing the first derivation of $J(\theta)$; specifically, the Part I is computed with Equation \eqref{eq:identity-1} and Part II with Equation \eqref{eq:identity-2}:
 
 $$ \begin{equation} 
-	\frac{\partial J }{\partial \theta} = \frac{1}{2m} ( 2 X^T X \theta - 2 X^T Y ) \tag{16}\label{eq:derivation-of-J}
+	\frac{\partial J }{\partial \theta} = \frac{1}{2m} ( 2 X^T X \theta - 2 X^T Y ) \tag{18}\label{eq:derivation-of-J}
 \end{equation} $$
 
 In order to find $\theta$ which minimize Equation \eqref{eq:derivation-10}, we need to solve 
@@ -106,7 +106,7 @@ $$ \begin{align} \frac{\partial J}{\partial \theta} = 0 &\Longleftrightarrow \fr
  &\Longleftrightarrow 2 X^T X \theta - 2 X^T Y = 0 \\
    &\Longleftrightarrow 2 X^T X \theta = 2 X^T Y  \\ 
    &\Longleftrightarrow X^T X \theta = X^T Y \\ 
-   &\Longleftrightarrow \theta = (X^T X)^{-1} X^T Y &&\text{by inverse matrix} \tag{17}\label{eq:final-result} \end{align} $$
+   &\Longleftrightarrow \theta = (X^T X)^{-1} X^T Y &&\text{by inverse matrix} \tag{19}\label{eq:final-result} \end{align} $$
 
 
 At last, we have derived **the normal equation of linear regression model** that is 
