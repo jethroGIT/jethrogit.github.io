@@ -7,6 +7,8 @@ description: How to derive normal equation of linear regression model
 sticky: true
 ---
 
+This article is inspired by [an excellent post by Eli Bendersky](https://eli.thegreenplace.net/2015/the-normal-equation-and-matrix-calculus). Let's continue with the derivation.
+
 **Cost function** has been explained in [Week 1](https://www.coursera.org/learn/machine-learning/home/week/1) and [Week 2](https://www.coursera.org/learn/machine-learning/home/week/2) of [_Machine Learning_ course taught by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome). This post tries to explain how to derive **normal equation** for _linear regression with multiple variables_. It is a good thing if all readers has studied [Week 1](https://www.coursera.org/learn/machine-learning/home/week/1) and [Week 2](https://www.coursera.org/learn/machine-learning/home/week/2) before reading this post.
 
 The **cost function** of _linear regression with multiple variables_, $J(\theta)$ is formulated as follows:   
