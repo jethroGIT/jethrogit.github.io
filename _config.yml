@@ -28,10 +28,10 @@ pgp :
 
 # Your twitter github etc username if you have one
 twitter: "hendrabunyamin"
-github: "hbunyamin"
+github: 
 stackoverflow: "1473726"
 dribbble:
-email:
+email: "hendra.bunyamin@gmail.com"
 facebook:
 flickr:
 instagram:
@@ -60,7 +60,7 @@ google_analytics: "UA-27831864-1"
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "https://hbunyamin.github.io"
+url: "http://it.maranatha.edu/resume/hendra-bunyamin"
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
