@@ -3,7 +3,7 @@ layout: post
 title: Building Logistic Regression Model from Linear Regression Model
 category: Machine-Learning
 lang: EN
-description: The relationship between logistic regression and linear regression
+description: The relationship logistic regression & linear regression
 sticky: false
 ---
 
@@ -45,4 +45,7 @@ Accordingly, **logistic regression** model that we have derived is
 
 $$ \begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \frac{1}{1+e^{-\theta^T x}}} \tag{4}\label{eq:sigmoid} \end{equation} $$
 
-**Logistic regression** model in Equation \eqref{eq:sigmoid} is popularly also called **sigmoid function**. Finally, we have successfully derived **logistic regression** model (Equation \eqref{eq:sigmoid}) from _linear regression_ model (Equation \eqref{eq:linear-regression}).
+**Logistic regression** model in Equation \eqref{eq:sigmoid} is popularly also called **sigmoid function**. Finally, we have successfully derived **logistic regression** model (Equation \eqref{eq:sigmoid}) from _linear regression_ model (Equation \eqref{eq:linear-regression}).     
+<br/>
+### References
+Raschka, S. and Mirjalili, V. (2017) _Python Machine Learning Second Edition_. Packt Publishing Ltd. Page 59-60.

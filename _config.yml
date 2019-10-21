@@ -16,7 +16,7 @@ description: "Forgiven sinner and Lecturer at Maranatha Christian University"
 image: "/assets/images/me-gullit-model.png"
 
 # Display the left bar
-left_bar: false
+left_bar: true
 
 # enable latex
 latex: true
@@ -60,7 +60,7 @@ google_analytics: "UA-27831864-1"
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "http://it.maranatha.edu/resume/hendra-bunyamin"
+url: "http://hbunyamin.github.io"
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)

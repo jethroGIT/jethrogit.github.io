@@ -1,22 +1,22 @@
 ---
 layout: post
-title: Menghitung Gradient dari Cost Function Logistic Regression
+title: Compute the Gradient of Cost Function from Logistic Regression
 category: Machine-Learning
-lang: ID
-description: Menghitung turunan parsial cost function dari Logistic Regression 
-sticky: true
+lang: EN
+description: Deriving partial derivatives of cost function from Logistic Regression 
+sticky: false
 ---
 
-Diberikan suatu _design matrix_ $X$ yang berbentuk
+In Machine Learning literature, we have a _design matrix_ ($X$) that represents our dataset and specifically has a shape as follows
 
 $$ \begin{equation} X = \begin{bmatrix} 1 & x^{(1)} \\
 1      & x^{(2)} \\
 \vdots & \vdots  \\
 1      & x^{(m)}   \end{bmatrix}.  \end{equation} \tag{1}\label{eq:x-dataset}$$
 
-Jadi _design matrix_ $X$ memiliki $m$ _training examples_ dan 1 _feature_, $x$.    
+We say that the _design matrix_ ($X$) in \eqref{eq:x-dataset} has $m$ _training examples_ and 1 _feature_, $x$.    
 
-Model **logistic regression** akan dilatih terhadap dataset $X$ ini. Perkuliahan [_Machine Learning_](https://www.coursera.org/learn/machine-learning/home/welcome) di minggu ke-4 membahas model **logistic regression** yang memiliki bentuk
+The **logistic regression** model shall be trained on the $X$ dataset. For those who are not familiar with logistic regression model can study the model in [_Machine Learning Course by Andrew Ng_](https://www.coursera.org/learn/machine-learning/home/welcome) in Week 4. The  membahas model **logistic regression** yang memiliki bentuk
 
 $$ \require{cancel} \begin{equation} h_{\theta}(x^{(i)}) = \frac{1}{1 + e^{-\theta_0 - \theta_1 x^{(i)}}}. \tag{2}\label{eq:model-logistic}\end{equation} $$
 

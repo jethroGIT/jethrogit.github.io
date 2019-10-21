@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Contoh Pembuktian Ruang Vektor dengan sangat Detil – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi matrix addition dan scalar multiplication merupakan sebuah ruang vektor.
+
+Bukti: 
+Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi matrix addition dan scalar multiplication adalah $V$.
+
+" />
+    <meta property="og:description" content="Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi matrix addition dan scalar multiplication merupakan sebuah ruang vektor.
+
+Bukti: 
+Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi matrix addition dan scalar multiplication adalah $V$.
+
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Contoh Pembuktian Ruang Vektor dengan sangat Detil" />
+    <meta property="twitter:title" content="Contoh Pembuktian Ruang Vektor dengan sangat Detil" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-md-12 col-sm-12 col-xs-12 left-bar">
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p>
+    <p class="text-center">
+        <a href="http://localhost:4000/" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+        
+<a href="mailto:hendra.bunyamin@gmail.com" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+<a href="https://www.linkedin.com/in/hendra-bunyamin-895655136" class="color-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a>
+
+
+
+
+    </p>
+</div>
+
+                
+              </div>
+              <div class=" col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/linear-algebra">linear-algebra</a> / contoh pembuktian ruang vektor dengan sangat detil</span></p>
+          <h3>Contoh Pembuktian Ruang Vektor dengan sangat Detil<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Contoh pembuktikan suatu himpunan merupakan ruang vektor">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Contoh Pembuktian Ruang Vektor dengan sangat Detil <br> 
+                  <span class="text-small">Contoh pembuktikan suatu himpunan merupakan ruang vektor</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> merupakan sebuah <strong>ruang vektor</strong>.</p>
+
+<p><strong>Bukti</strong>: <br />
+Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> adalah $V$.</p>
+
+<p>Diketahui juga $A$, $B$, dan $C$ adalah matriks berukuran $2 \times 3$ dan $c$, $d$ adalah skalar dengan spesifikasi sebagai berikut:</p>
+
+<p><script type="math/tex">% <![CDATA[
+A = \begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\end{bmatrix} %]]></script>, <script type="math/tex">% <![CDATA[
+B = \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23}\end{bmatrix} %]]></script>, dan <script type="math/tex">% <![CDATA[
+C = \begin{bmatrix} 	c_{11} & c_{12} & c_{13} \\ c_{21} & c_{22} & c_{23} \end{bmatrix} %]]></script>.</p>
+
+<p><a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) subbab 4.2 hlm. 161 menyatakan bahwa pembuktian suatu himpunan merupakan ruang vektor harus memenuhi 10 aksioma. Berikut akan dibuktikan untuk 10 aksioma tersebut.</p>
+<ol>
+  <li>Apakah $A+B$ juga ada di dalam $V$?  <br />
+Ya karena   <br />
+<script type="math/tex">% <![CDATA[
+\begin{align}
+ A + B &= \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \end{bmatrix}  \\
+       &= \begin{bmatrix} 	a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13} \\ a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23}	 \end{bmatrix}.
+\end{align} %]]></script>  <br />
+<br />
+<script type="math/tex">% <![CDATA[
+\begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13} \\
+ a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23} \end{bmatrix} %]]></script> merupakan matriks berukuran $2 \times 3 $, berarti $A+B$ juga ada di dalam $V$.  <br />
+<br /></li>
+  <li>Apakah $A+B = B+A$?  <br />
+Ya karena  <br />
+<script type="math/tex">% <![CDATA[
+\begin{align} A+B &= \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} +  \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
+ b_{21} & b_{22} & b_{23} \end{bmatrix} \\
+                 &= \begin{bmatrix}  a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13} \\
+ a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23}	
+ \end{bmatrix} \\
+                 &= \begin{bmatrix} 	b_{11}+a_{11} & b_{12}+a_{12} & b_{13}+a_{13} \\
+ b_{21}+a_{21} & b_{22}+a_{22} & b_{23}+a_{23} \end{bmatrix} \\
+                 &= \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
+ b_{21} & b_{22} & b_{23} \end{bmatrix} + \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} \\
+                 &= B + A.
+\end{align} %]]></script>      <br />
+<br /></li>
+  <li>Apakah $A + (B + C) = (A+B) + C$?  <br />
+Ya karena  <br />
+<script type="math/tex">% <![CDATA[
+\begin{align} A+(B+C) &= \begin{bmatrix} a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} + \left( \begin{bmatrix} b_{11} & b_{12} & b_{13} \\
+ b_{21} & b_{22} & b_{23} \end{bmatrix} + \begin{bmatrix} c_{11} & c_{12} & c_{13} \\
+ c_{21} & c_{22} & c_{23} \end{bmatrix} \right) \\
+                      &= \begin{bmatrix} a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} + \left( \begin{bmatrix} b_{11} + c_{11} & b_{12} + c_{12} & b_{13} + c_{13} \\
+ b_{21} + c_{21} & b_{22} + c_{22} & b_{23} + c_{23}	\end{bmatrix} \right) \\
+                      &= \begin{bmatrix} a_{11} + b_{11} + c_{11}  & a_{12} + b_{12} + c_{12} & a_{13} + b_{13} + c_{13} \\
+ a_{21} + b_{21} + c_{21}  & a_{22} + b_{22} + c_{22} & a_{23} + b_{23} + c_{23} \end{bmatrix} \\
+                      &= \begin{bmatrix} a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} \\
+ a_{21} + b_{21} & a_{22} + b_{22} & a_{23} + b_{23} \end{bmatrix} + \begin{bmatrix} 	 c_{11} &  c_{12} &  c_{13} \\
+ c_{21} & c_{22} & c_{23} \end{bmatrix} \\
+                      &= \left( \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
+ b_{21} & b_{22} & b_{23}	  \end{bmatrix} \right) + \begin{bmatrix} 	c_{11} & c_{12} & c_{13} \\
+ c_{21} & c_{22} & c_{23}	  \end{bmatrix} \\
+                      &= (A+B)+C.
+  \end{align} %]]></script>   <br />
+<br /></li>
+  <li>Apakah $V$ mempunyai <strong>matriks nol</strong> $\textbf{0}$ sedemikian sehingga untuk setiap matriks $A$ di $V$, $A + \textbf{0} = A$?  <br />
+Ada, matriks $\mathbf{0}$ tersebut adalah  <br />
+<script type="math/tex">% <![CDATA[
+\begin{bmatrix} 0 & 0 & 0 \\
+     0 & 0 & 0 \end{bmatrix} %]]></script> karena
+     <script type="math/tex">% <![CDATA[
+A + \mathbf{0} = \begin{bmatrix} a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 0 & 0 & 0 \\
+     0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} = A. %]]></script>  <br />
+<br /></li>
+  <li>Untuk setiap matriks $A$ di dalam $V$, apakah $V$ mempunyai matriks yang dilambangkan dengan $-A$ sedemikian sehingga $A + (-A) = \mathbf{0}$? <br />
+Ada, matriks $-A$ tersebut adalah 
+<script type="math/tex">% <![CDATA[
+\begin{bmatrix} -a_{11} & -a_{12} & -a_{13} \\
+ -a_{21} & -a_{22} & -a_{23} \end{bmatrix} %]]></script>	karena
+ <script type="math/tex">% <![CDATA[
+\begin{align} A + (-A) &= \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	-a_{11} & -a_{12} & -a_{13} \\
+ -a_{21} & -a_{22} & -a_{23} \end{bmatrix} \\
+                           &= \begin{bmatrix} 	a_{11}-a_{11} & a_{12}-a_{12} & a_{13}-a_{13} \\
+ a_{21}-a_{21} & a_{22}-a_{22} & a_{23}-a_{23} \end{bmatrix} \\
+                           &= \begin{bmatrix} 		0 & 0 & 0 \\
+     0 & 0 & 0 \end{bmatrix} \\
+                           &= \mathbf{0}.
+ \end{align} %]]></script>	<br />
+<br /></li>
+  <li>Apakah $cA$ juga ada di dalam $V$?  <br />
+Ya, karena
+<script type="math/tex">% <![CDATA[
+cA = c \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23}
+ \end{bmatrix} = \begin{bmatrix} 	ca_{11} & ca_{12} & ca_{13} \\
+ ca_{21} & ca_{22} & ca_{23} \end{bmatrix}. %]]></script>  <br />
+<br />
+<script type="math/tex">% <![CDATA[
+\begin{bmatrix} 	ca_{11} & ca_{12} & ca_{13} \\
+ ca_{21} & ca_{22} & ca_{23} \end{bmatrix} %]]></script> adalah matriks berukuran $2 \times 3$ sehingga $cA$ juga berada di dalam $V$. <br />
+<br /></li>
+  <li>Apakah $c(A+B) = cA + cB$?  <br />
+Ya karena <br />
+<script type="math/tex">% <![CDATA[
+\begin{align} c(A+B) &= c \left( \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
+ b_{21} & b_{22} & b_{23} \end{bmatrix} \right) \\
+                     &= c \left( \begin{bmatrix} 	a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} \\
+ a_{21} + b_{21} & a_{22} + b_{22} & a_{23} + b_{23} \end{bmatrix} \right) \\
+                     &= \begin{bmatrix} 	c(a_{11} + b_{11}) & c(a_{12} + b_{12}) & c(a_{13} + b_{13}) \\
+ c(a_{21} + b_{21}) & c(a_{22} + b_{22}) & c(a_{23} + b_{23}) \end{bmatrix} \\
+                     &= \begin{bmatrix} 	ca_{11} + cb_{11} & ca_{12} + cb_{12} & ca_{13} + cb_{13} \\
+ ca_{21} + cb_{21} & ca_{22} + cb_{22} & ca_{23} + cb_{23} \end{bmatrix} \\
+                     &= \begin{bmatrix} 	ca_{11} & ca_{12} & ca_{13}  \\
+ ca_{21} & ca_{22} & ca_{23}  \end{bmatrix} + \begin{bmatrix} 	cb_{11} & cb_{12} & cb_{13} \\
+ cb_{21} & cb_{22} & cb_{23} \end{bmatrix} \\
+                     &= c \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+ a_{21} & a_{22} & a_{23}  \end{bmatrix} + c \begin{bmatrix} 	b_{11} & b_{12} & b_{13}  \\
+ b_{21} & b_{22} & b_{23}  \end{bmatrix} \\
+                     &= cA + cB.
+\end{align} %]]></script>  <br />
+<br /></li>
+  <li>Apakah $(c+d)A = cA + dA$?  <br />
+Ya karena  <br />
+<script type="math/tex">% <![CDATA[
+\begin{align} (c+d) A &= (c+d) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+ a_{21} & a_{22} & a_{23} \\ 		
+\end{bmatrix}  \\
+                      &= \begin{bmatrix} (c+d) a_{11} & (c+d) a_{12} & (c+d) a_{13}  \\
+ (c+d) a_{21} & (c+d) a_{22} & (c+d) a_{23} 	 \end{bmatrix} \\
+                      &= \begin{bmatrix} 	c a_{11} +d a_{11} & c a_{12} + d a_{12} & c a_{13} +d a_{13}  \\
+ c a_{21} +d a_{21} & c a_{22} + d a_{22} & c a_{23} +d a_{23} 	\end{bmatrix} \\
+                      &= \begin{bmatrix} 	c a_{11} & c a_{12}  & c a_{13}   \\
+ c a_{21} & c a_{22}  & c a_{23}  \end{bmatrix} + \begin{bmatrix} 	d a_{11} & d a_{12} & d a_{13}  \\
+ d a_{21} & d a_{22} & d a_{23} \end{bmatrix} \\
+                      &= c \begin{bmatrix} 	a_{11} & a_{12}  & a_{13}   \\
+ a_{21} & a_{22}  & a_{23} \end{bmatrix} + d \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+ a_{21} & a_{22} & a_{23} 	\end{bmatrix} \\
+                      &= cA + dA.
+\end{align} %]]></script>  <br />
+<br /></li>
+  <li>Apakah $c(dA) = (cd)A$? <br />
+Ya karena <br />
+<script type="math/tex">% <![CDATA[
+\begin{align} c(dA) &= c \left( d \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+ a_{21} & a_{22} & a_{23}  \end{bmatrix} \right)  \\
+                    &= c \left( \begin{bmatrix} 	da_{11} & da_{12} & da_{13}  \\
+ da_{21} & da_{22} & da_{23} \end{bmatrix} \right)  \\
+                    &= c \begin{bmatrix} 	da_{11} & da_{12} & da_{13}  \\
+ da_{21} & da_{22} & da_{23} \end{bmatrix}  \\
+                    &= \begin{bmatrix} 	cda_{11} & cda_{12} & cda_{13}  \\
+ cda_{21} & cda_{22} & cda_{23} \end{bmatrix} \\
+                    &= \begin{bmatrix} 	(cd)a_{11} & (cd)a_{12} & (cd)a_{13}  \\
+ (cd)a_{21} & (cd)a_{22} & (cd)a_{23} \end{bmatrix} \\
+                    &= (cd) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+ a_{21} & a_{22} & a_{23} \end{bmatrix} \\
+                    &= (cd) A. 
+\end{align} %]]></script> <br />
+<br /></li>
+  <li>Apakah $1(A) = A$? <br />
+Ya karena  <br />
+<script type="math/tex">% <![CDATA[
+\begin{align} 1(A) &= 1 \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23} \end{bmatrix} \\
+                  &= \begin{bmatrix} 	1a_{11} & 1a_{12} & 1a_{13}  \\
+1a_{21} & 1a_{22} & 1a_{23} \end{bmatrix} \\
+                  &= \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23} \end{bmatrix}  \\
+                  &= A.
+\end{align} %]]></script>  <br />
+<br /></li>
+</ol>
+
+<p>Karena $V$ memenuhi 10 aksioma dari definisi suatu ruang vektor, $V$ atau himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> merupakan sebuah <strong>ruang vektor</strong>.   $\square$</p>
+
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on March 22, 2019
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/linear-algebra/Ruang_Vektor/',
+		  'title': 'Contoh Pembuktian Ruang Vektor dengan sangat Detil'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

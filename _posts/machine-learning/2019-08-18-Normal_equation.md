@@ -3,8 +3,8 @@ layout: post
 title: Deriving Normal Equation of Linear Regression Model
 category: Machine-Learning
 lang: EN
-description: How to derive normal equation of linear regression model
-sticky: true
+description: How to derive normal equation
+sticky: false
 ---
 
 This article is inspired by [an excellent post by Eli Bendersky](https://eli.thegreenplace.net/2015/the-normal-equation-and-matrix-calculus). Let's continue with the derivation.
