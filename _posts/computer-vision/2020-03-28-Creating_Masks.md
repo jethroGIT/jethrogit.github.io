@@ -6,7 +6,7 @@ lang: EN
 description: How to Create Mask Images from Polygons
 ---
 
-This tutorial will show you how to create a mask from [Shapely](https://shapely.readthedocs.io/en/stable/manual.html) polygons. Specifically, a Shapely polygon has a [WKT format](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) and we will convert this WKT format into a mask. OK, concretely, suppose [we have installed Shapely library](https://pypi.org/project/Shapely) and have _an image like the one on left side of images below_. In this tutorial, we will convert _this image_ into _a mask image like the one on the right side_.  
+This tutorial will show you how to create a mask from [Shapely](https://shapely.readthedocs.io/en/stable/manual.html) polygons. Specifically, a Shapely polygon has a [WKT format](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) and we will convert this WKT format into a mask. OK, concretely, suppose we have installed [Shapely library](https://pypi.org/project/Shapely), [Anaconda](https://www.anaconda.com/distribution), and have _an image like the one on left side of images below_. In this tutorial, we will convert _this image_ into _a mask image like the one on the right side_.  
 
 {: .center-image }
 [![img4]({{ site.baseurl }}/assets/images/palu-tsunami_00000195_pre_disaster.png){:class="img-resize-2"}]({{ site.baseurl }}/assets/images/palu-tsunami_00000195_pre_disaster.png)
