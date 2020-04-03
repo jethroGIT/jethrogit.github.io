@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creating a Mask Image from Shapely Polygons
+title: Creating Mask Images from Shapely Polygons
 category: Computer-Vision
 lang: EN
 description: How to Create Mask Images from Polygons
