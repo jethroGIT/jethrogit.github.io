@@ -1,0 +1,100 @@
+I"%<p>This tutorial will show you how to create a mask from <a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> polygons. Specifically, a Shapely polygon has a <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">WKT format</a> and we will convert this WKT format into a mask. OK, concretely, suppose <a href="https://pypi.org/project/Shapely">we have installed Shapely library</a> and have <em>an image like the one on left side of images below</em>. In this tutorial, we will convert <em>this image</em> into <em>a mask image like the one on the right side</em>.</p>
+
+<p class="center-image"><a href="/assets/images/palu-tsunami_00000195_pre_disaster.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster.png" alt="img4" class="img-resize-2" /></a>
+<a href="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png" alt="img5" class="img-resize-2" /></a></p>
+
+<p>The image on right side is called a mask image. It contains only binary pixels (<em>black</em> and <em>white</em>). Particularly, this mask contains <em>black pixels as buildings</em> and <em>white pixels otherwise</em>.</p>
+
+<p>Let’s get started with the code!
+We are going to show all these codes as <em>codes in Jupyter notebook cells</em>.</p>
+
+<p>Firstly, we import the libraries</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">reload_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+
+<span class="c1"># To load wkt; this is a specific method in shapely library 
+</span><span class="kn">from</span> <span class="nn">shapely.wkt</span> <span class="kn">import</span> <span class="n">loads</span>
+</code></pre></div></div>
+
+<p><strong>PHP code</strong></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"foo"</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span><span class="p">,</span>
+    <span class="s2">"bar"</span> <span class="o">=&gt;</span> <span class="s2">"foo"</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="c1">// depuis PHP 5.4</span>
+<span class="nv">$array</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"foo"</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span><span class="p">,</span>
+    <span class="s2">"bar"</span> <span class="o">=&gt;</span> <span class="s2">"foo"</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<p>Praesent quis nisl nisi. Vestibulum diam dui, tincidunt ac euismod et, finibus nec lorem. Duis non fringilla arcu. Sed sagittis non ante quis placerat. Maecenas et sapien magna. Vivamus et diam et metus consequat pharetra. Curabitur ut orci ante. Fusce euismod eros eu sagittis pellentesque. Morbi semper lorem non ipsum pharetra, sit amet varius tortor ultrices. Ut massa ante, dapibus sit amet vehicula at, faucibus ut enim. Sed facilisis tempus ultrices. Duis purus turpis, laoreet eget orci id, interdum dapibus justo. Duis vitae quam tincidunt, pulvinar turpis in, aliquet velit.</p>
+
+<p><strong>Ruby code</strong></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Let the user guess.</span>
+<span class="nb">print</span> <span class="s2">"Enter heads or tails? "</span>
+<span class="n">hort</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+<span class="k">unless</span> <span class="n">hort</span> <span class="o">==</span> <span class="s1">'heads'</span> <span class="o">||</span> <span class="n">hort</span> <span class="o">==</span> <span class="s1">'tails'</span> 
+    <span class="nb">print</span> <span class="s2">"I _said_ heads or tails.  Can't you read?</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># Now toss the coin.</span>
+<span class="n">toss</span> <span class="o">=</span> <span class="k">if</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">then</span>
+    <span class="s2">"heads"</span>
+<span class="k">else</span>
+    <span class="s2">"tails"</span>
+<span class="k">end</span>
+
+<span class="c1"># Report.</span>
+<span class="nb">print</span> <span class="s2">"Toss was "</span><span class="p">,</span> <span class="n">toss</span><span class="p">,</span> <span class="s2">".</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nb">print</span> <span class="s2">"You Win!</span><span class="se">\n</span><span class="s2">"</span> <span class="k">if</span> <span class="n">hort</span> <span class="o">==</span> <span class="n">toss</span>
+</code></pre></div></div>
+
+<p>Donec ut commodo risus, sollicitudin dapibus ligula. Integer cursus facilisis justo, sed imperdiet nibh. Nulla in consectetur nunc, ac interdum nunc. In molestie nulla nulla, et hendrerit odio iaculis ac. Integer quis nisi id ipsum consequat finibus. Sed interdum hendrerit diam vel vehicula. Phasellus tincidunt mauris pellentesque placerat semper.</p>
+
+<p><strong>C code</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">year</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Enter a year: "</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">year</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">year</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span> <span class="n">year</span><span class="o">%</span><span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// year is divisible by 400, hence the year is a leap year</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">year</span><span class="o">%</span><span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"%d is a leap year."</span><span class="p">,</span> <span class="n">year</span><span class="p">);</span>
+            <span class="k">else</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"%d is not a leap year."</span><span class="p">,</span> <span class="n">year</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"%d is a leap year."</span><span class="p">,</span> <span class="n">year</span> <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%d is not a leap year."</span><span class="p">,</span> <span class="n">year</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Sed et enim rhoncus, molestie massa quis, tristique sem. Ut sit amet ultrices arcu. Nam faucibus vitae neque at vulputate. Nullam consectetur volutpat elit ut tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus ullamcorper, nisi vel hendrerit finibus, ligula ligula suscipit dolor, vitae luctus orci purus eget ante. Vivamus arcu eros, consectetur non erat at, tristique placerat enim. Ut blandit bibendum efficitur. Ut lacinia cursus vulputate. Aliquam erat volutpat. Fusce purus ligula, commodo vitae odio at, ultrices rutrum nunc. Praesent eleifend velit non leo pretium bibendum.</p>
+:ET

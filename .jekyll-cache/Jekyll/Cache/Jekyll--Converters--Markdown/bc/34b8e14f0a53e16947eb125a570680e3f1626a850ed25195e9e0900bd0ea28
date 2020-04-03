@@ -1,0 +1,100 @@
+I"ü-<p>This tutorial will show you how to create a mask from <a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> polygons. Specifically, a Shapely polygon has a <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">WKT format</a> and we will convert this WKT format into a mask. OK, concretely, suppose <a href="https://pypi.org/project/Shapely">we have installed Shapely library</a> and have <em>an image like the one on left side of images below</em>. In this tutorial, we will convert <em>this image</em> into <em>a mask image like the one on the right side</em>.</p>
+
+<p class="center-image"><a href="/assets/images/palu-tsunami_00000195_pre_disaster.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster.png" alt="img4" class="img-resize-2" /></a>
+<a href="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png" alt="img5" class="img-resize-2" /></a></p>
+
+<p>The image on right side is called a mask image. It contains only binary pixels (<em>black</em> and <em>white</em>). Particularly, this mask contains <em>black pixels as buildings</em> and <em>white pixels otherwise</em>.</p>
+
+<p>Letâ€™s get started with the code!
+We are going to show all these codes as <em>codes in Jupyter notebook cells</em>.</p>
+
+<p>Firstly, we import the libraries</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">reload_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+
+<span class="c1"># To read files in a directory
+</span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="c1"># To load wkt; this is a specific method in shapely library 
+</span><span class="kn">from</span> <span class="nn">shapely.wkt</span> <span class="kn">import</span> <span class="n">loads</span>
+</code></pre></div></div>
+
+<p>Next, we construct paths to <em>the images</em>, <em>the binary labels</em> where the masks will be saved, and <em>the labels</em> where the json files are saved.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We construct the path to the image 
+</span><span class="n">images_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/images'</span><span class="p">)</span>
+
+<span class="c1"># We construct the path to label path where we want to put the mask image 
+</span><span class="n">label_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/binaryLabels'</span><span class="p">)</span>
+
+<span class="c1"># We construct the path to the json file; the json file contains 
+</span><span class="n">json_path</span>  <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/labels'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then, we put all the image files in a list.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">images_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">images_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+</code></pre></div></div>
+
+<p>Finally, we process all the images and convert them into mask images.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">img_name</span> <span class="ow">in</span> <span class="n">list_files</span><span class="p">:</span>
+    <span class="c1"># split the file name
+</span>    <span class="n">prefix_file_name</span> <span class="o">=</span> <span class="n">img_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+    
+    <span class="c1"># construct the path to the image
+</span>    <span class="n">temp_image_path</span> <span class="o">=</span> <span class="n">images_path</span> <span class="o">/</span> <span class="n">img_name</span>    
+    
+    <span class="c1"># construct the path to the json    
+</span>    <span class="n">temp_json_path</span> <span class="o">=</span> <span class="n">json_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">prefix_file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">".json"</span><span class="p">)</span>
+    
+    <span class="c1"># read the json
+</span>    <span class="n">json_dict</span> <span class="o">=</span> <span class="bp">None</span> 
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">temp_json_path</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">json_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>  
+    
+    <span class="c1"># construct the list of xy of buildings
+</span>    <span class="n">props_xy_list</span> <span class="o">=</span> <span class="n">json_dict</span><span class="p">[</span><span class="s">'features'</span><span class="p">][</span><span class="s">'xy'</span><span class="p">]</span>     
+    
+    <span class="c1"># construct list of polygons 
+</span>    <span class="n">polygon_geom_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">props_xy_list</span><span class="p">:</span>
+        <span class="n">polygon_temp</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="n">prop</span><span class="p">[</span><span class="s">'wkt'</span><span class="p">])</span>
+        <span class="n">polygon_geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">polygon_temp</span><span class="p">)</span>    
+    
+    <span class="c1"># read the image which we want to draw the polygons
+</span>    <span class="n">the_image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span> <span class="n">temp_image_path</span> <span class="p">)</span>    
+    
+    <span class="c1"># Create the basic mask
+</span>    <span class="n">a_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">the_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">"bool"</span><span class="p">)</span> <span class="c1"># original
+</span>    
+    <span class="c1"># For each polygon, draw the polygon inside the mask
+</span>    <span class="k">for</span> <span class="n">polygon_geom</span> <span class="ow">in</span> <span class="n">polygon_geom_list</span><span class="p">:</span>
+        <span class="n">poly_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">polygon_geom</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">))</span>
+        <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">(</span><span class="n">poly_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">poly_coordinates</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">the_image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">a_mask</span><span class="p">[</span><span class="n">cc</span><span class="p">,</span><span class="n">rr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>        
+    
+    <span class="c1"># Convert numpy array of the mask into an image with the help of PIL
+</span>    <span class="n">mask_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">a_mask</span><span class="p">)</span>
+    
+    <span class="c1"># Save the image of the mask into the "binaryLabels" folder 
+</span>    <span class="n">mask_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span> <span class="n">label_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">prefix_file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">"_mask.png"</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s">"PNG"</span> <span class="p">)</span>
+    
+    <span class="c1"># For debugging purposes
+</span>    <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Number of images have been processed:"</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>For conclusion, all <em>the mask images</em> are saved in <code class="highlighter-rouge">label_path</code>.</p>
+:ET
