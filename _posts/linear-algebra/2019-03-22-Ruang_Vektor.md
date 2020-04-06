@@ -11,7 +11,7 @@ Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta opera
 **Bukti**:   
 Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi _matrix addition_ dan _scalar multiplication_ adalah $V$.      
 
-Diketahui juga $A$, $B$, dan $C$ adalah matriks berukuran $2 \times 3$ dan $c$, $d$ adalah skalar dengan spesifikasi sebagai berikut:   
+Diketahui juga $A$, $B$, dan $C$ adalah matriks berukuran $2 \times 3$ dan $k$, $l$ adalah skalar dengan spesifikasi sebagai berikut:   
 
 $$ A = \begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\end{bmatrix}$$, $$B = \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23}\end{bmatrix}$$, dan $$C = \begin{bmatrix} 	c_{11} & c_{12} & c_{13} \\ c_{21} & c_{22} & c_{23} \end{bmatrix} $$.    
 
@@ -91,70 +91,70 @@ $$ \begin{bmatrix} -a_{11} & -a_{12} & -a_{13} \\
 	\end{align}
 	$$	  
 <br/>	
-6. Apakah $cA$ juga ada di dalam $V$?    
+6. Apakah $kA$ juga ada di dalam $V$?    
 Ya, karena
-$$ cA = c \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+$$ kA = k \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
 	a_{21} & a_{22} & a_{23}
- \end{bmatrix} = \begin{bmatrix} 	ca_{11} & ca_{12} & ca_{13} \\
-	ca_{21} & ca_{22} & ca_{23} \end{bmatrix}.
+ \end{bmatrix} = \begin{bmatrix} 	ka_{11} & ka_{12} & ka_{13} \\
+	ka_{21} & ka_{22} & ka_{23} \end{bmatrix}.
 $$    
 <br/>
-$$\begin{bmatrix} 	ca_{11} & ca_{12} & ca_{13} \\
-	ca_{21} & ca_{22} & ca_{23} \end{bmatrix}$$ adalah matriks berukuran $2 \times 3$ sehingga $cA$ juga berada di dalam $V$.   
+$$\begin{bmatrix} 	ka_{11} & ka_{12} & ka_{13} \\
+	ka_{21} & ka_{22} & ka_{23} \end{bmatrix}$$ adalah matriks berukuran $2 \times 3$ sehingga $cA$ juga berada di dalam $V$.   
 <br/>
-7. Apakah $c(A+B) = cA + cB$?    
+7. Apakah $k(A+B) = kA + kB$?    
 Ya karena   
-$$ \begin{align} c(A+B) &= c \left( \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
+$$ \begin{align} k(A+B) &= k \left( \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
 	a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
 	b_{21} & b_{22} & b_{23} \end{bmatrix} \right) \\
-	                    &= c \left( \begin{bmatrix} 	a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} \\
+	                    &= k \left( \begin{bmatrix} 	a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} \\
 	a_{21} + b_{21} & a_{22} + b_{22} & a_{23} + b_{23} \end{bmatrix} \right) \\
-	                    &= \begin{bmatrix} 	c(a_{11} + b_{11}) & c(a_{12} + b_{12}) & c(a_{13} + b_{13}) \\
-	c(a_{21} + b_{21}) & c(a_{22} + b_{22}) & c(a_{23} + b_{23}) \end{bmatrix} \\
-	                    &= \begin{bmatrix} 	ca_{11} + cb_{11} & ca_{12} + cb_{12} & ca_{13} + cb_{13} \\
-	ca_{21} + cb_{21} & ca_{22} + cb_{22} & ca_{23} + cb_{23} \end{bmatrix} \\
-	                    &= \begin{bmatrix} 	ca_{11} & ca_{12} & ca_{13}  \\
-	ca_{21} & ca_{22} & ca_{23}  \end{bmatrix} + \begin{bmatrix} 	cb_{11} & cb_{12} & cb_{13} \\
-	cb_{21} & cb_{22} & cb_{23} \end{bmatrix} \\
-	                    &= c \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
-	a_{21} & a_{22} & a_{23}  \end{bmatrix} + c \begin{bmatrix} 	b_{11} & b_{12} & b_{13}  \\
+	                    &= \begin{bmatrix} 	k(a_{11} + b_{11}) & k(a_{12} + b_{12}) & k(a_{13} + b_{13}) \\
+	k(a_{21} + b_{21}) & k(a_{22} + b_{22}) & k(a_{23} + b_{23}) \end{bmatrix} \\
+	                    &= \begin{bmatrix} 	ka_{11} + kb_{11} & ka_{12} + kb_{12} & ka_{13} + kb_{13} \\
+	ka_{21} + kb_{21} & ka_{22} + kb_{22} & ka_{23} + kb_{23} \end{bmatrix} \\
+	                    &= \begin{bmatrix} 	ka_{11} & ka_{12} & ka_{13}  \\
+	ka_{21} & ka_{22} & ka_{23}  \end{bmatrix} + \begin{bmatrix} 	kb_{11} & kb_{12} & kb_{13} \\
+	kb_{21} & kb_{22} & kb_{23} \end{bmatrix} \\
+	                    &= k \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+	a_{21} & a_{22} & a_{23}  \end{bmatrix} + k \begin{bmatrix} 	b_{11} & b_{12} & b_{13}  \\
 	b_{21} & b_{22} & b_{23}  \end{bmatrix} \\
-	                    &= cA + cB.
+	                    &= kA + kB.
 \end{align}$$    
 <br/>
-8. Apakah $(c+d)A = cA + dA$?    
+8. Apakah $(k+l)A = kA + lA$?    
 Ya karena    
-$$ \begin{align} (c+d) A &= (c+d) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+$$ \begin{align} (k+l) A &= (k+l) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
 	a_{21} & a_{22} & a_{23} \\ 		
 \end{bmatrix}  \\
-                         &= \begin{bmatrix} (c+d) a_{11} & (c+d) a_{12} & (c+d) a_{13}  \\
-	(c+d) a_{21} & (c+d) a_{22} & (c+d) a_{23} 	 \end{bmatrix} \\
-	                     &= \begin{bmatrix} 	c a_{11} +d a_{11} & c a_{12} + d a_{12} & c a_{13} +d a_{13}  \\
-	c a_{21} +d a_{21} & c a_{22} + d a_{22} & c a_{23} +d a_{23} 	\end{bmatrix} \\
-	                     &= \begin{bmatrix} 	c a_{11} & c a_{12}  & c a_{13}   \\
-	c a_{21} & c a_{22}  & c a_{23}  \end{bmatrix} + \begin{bmatrix} 	d a_{11} & d a_{12} & d a_{13}  \\
-	d a_{21} & d a_{22} & d a_{23} \end{bmatrix} \\
-	                     &= c \begin{bmatrix} 	a_{11} & a_{12}  & a_{13}   \\
-	a_{21} & a_{22}  & a_{23} \end{bmatrix} + d \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+                         &= \begin{bmatrix} (k+l) a_{11} & (k+l) a_{12} & (k+l) a_{13}  \\
+	(k+l) a_{21} & (k+l) a_{22} & (k+l) a_{23} 	 \end{bmatrix} \\
+	                     &= \begin{bmatrix} 	k a_{11} + l a_{11} & k a_{12} + l a_{12} & k a_{13} + l a_{13}  \\
+	k a_{21} + l a_{21} & k a_{22} + l a_{22} & k a_{23} + l a_{23} 	\end{bmatrix} \\
+	                     &= \begin{bmatrix} 	k a_{11} & k a_{12}  & k a_{13}   \\
+	k a_{21} & k a_{22}  & k a_{23}  \end{bmatrix} + \begin{bmatrix} 	l a_{11} & l a_{12} & l a_{13}  \\
+	l a_{21} & l a_{22} & l a_{23} \end{bmatrix} \\
+	                     &= k \begin{bmatrix} 	a_{11} & a_{12}  & a_{13}   \\
+	a_{21} & a_{22}  & a_{23} \end{bmatrix} + l \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
 	a_{21} & a_{22} & a_{23} 	\end{bmatrix} \\
-	                     &= cA + dA.
+	                     &= kA + lA.
 \end{align} $$    
 <br/>
-9. Apakah $c(dA) = (cd)A$?   
+9. Apakah $k(lA) = (kl)A$?   
 Ya karena   
-$$ \begin{align} c(dA) &= c \left( d \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+$$ \begin{align} k(l A) &= k \left( l \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
 	a_{21} & a_{22} & a_{23}  \end{bmatrix} \right)  \\
-	                   &= c \left( \begin{bmatrix} 	da_{11} & da_{12} & da_{13}  \\
-	da_{21} & da_{22} & da_{23} \end{bmatrix} \right)  \\
-	                   &= c \begin{bmatrix} 	da_{11} & da_{12} & da_{13}  \\
-	da_{21} & da_{22} & da_{23} \end{bmatrix}  \\
-	                   &= \begin{bmatrix} 	cda_{11} & cda_{12} & cda_{13}  \\
-	cda_{21} & cda_{22} & cda_{23} \end{bmatrix} \\
-	                   &= \begin{bmatrix} 	(cd)a_{11} & (cd)a_{12} & (cd)a_{13}  \\
-	(cd)a_{21} & (cd)a_{22} & (cd)a_{23} \end{bmatrix} \\
-	                   &= (cd) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
+	                   &= k \left( \begin{bmatrix} 	l a_{11} & l a_{12} & l a_{13}  \\
+	l a_{21} & l a_{22} & l a_{23} \end{bmatrix} \right)  \\
+	                   &= k \begin{bmatrix} 	l a_{11} & l a_{12} & l a_{13}  \\
+	l a_{21} & l a_{22} & l a_{23} \end{bmatrix}  \\
+	                   &= \begin{bmatrix} 	kl a_{11} & kl a_{12} & kl a_{13}  \\
+	kl a_{21} & kl a_{22} & kl a_{23} \end{bmatrix} \\
+	                   &= \begin{bmatrix} 	(kl)a_{11} & (kl)a_{12} & (kl)a_{13}  \\
+	(kl)a_{21} & (kl)a_{22} & (kl)a_{23} \end{bmatrix} \\
+	                   &= (kl) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
 	a_{21} & a_{22} & a_{23} \end{bmatrix} \\
-	                   &= (cd) A. 
+	                   &= (kl) A. 
 \end{align} $$   
 <br/>
 10. Apakah $1(A) = A$?   
