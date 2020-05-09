@@ -23,6 +23,7 @@ Firstly, we import the libraries
 %autoreload 2
 %matplotlib inline
 
+from skimage.draw import line, polygon, circle, ellipse
 import matplotlib.pyplot as plt
 from pathlib import Path
 from PIL import Image
