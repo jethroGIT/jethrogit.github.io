@@ -76,7 +76,7 @@ $$
 	[\pmb{v}_2]_{B^{\prime}} = Q \pmb{v}_2, \ldots, [\pmb{v}_n]_{B^{\prime}} = Q \pmb{v}_n \tag{3}\label{eq:q-akhir}
 $$
 
-Persamaan \eqref{eq:q-akhir} memperlihatkan bahwa perubahan $$\pmb{v}_1$$ yang merupakan vektor di basis $$B$$ menjadi $$[\pmb{v}_1]_{B^{\prime}}$$ dilakukan dengan cara mengalikan $$\pmb{v}_1$$ dengan $$Q$$. Dengan kata lain, perubahan dari basis $$B$$ menjadi basis $B^{\prime}$ dilakukan dengan mengalikan vektor di basis $$B$$ dengan matriks transisi $$Q$$.
+Persamaan \eqref{eq:q-akhir} memperlihatkan bahwa perubahan $$\pmb{v}_1$$ yang merupakan vektor di basis $$B$$ menjadi $$[\pmb{v}_1]_{B^{\prime}}$$ dilakukan dengan cara mengalikan $$\pmb{v}_1$$ dengan $$Q$$. Dengan kata lain, perubahan dari suatu vektor di basis $$B$$ menjadi vektor di basis $B^{\prime}$ dilakukan dengan mengalikan vektor di basis $$B$$ tersebut dengan matriks transisi $$Q$$.
 
 > Selanjutnya, kita akan mencari matriks transisi $$Q$$ tersebut.    
 
