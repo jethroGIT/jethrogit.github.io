@@ -1,4 +1,4 @@
-I"j<p>Artikel ini hendak memberikan penjelasan yang lebih detil tentang <strong>Teorema 4.21</strong> yang berjudul <em>Transition Matrix from</em> $B$ <em>to</em> $B^{\prime}$ dari buku <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) di halaman 212.</p>
+I"\<p>Artikel ini hendak memberikan penjelasan yang lebih detil tentang <strong>Teorema 4.21</strong> yang berjudul <em>Transition Matrix from</em> $B$ <em>to</em> $B^{\prime}$ dari buku <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) di halaman 212.</p>
 
 <p>Diketahui 2 basis bagi $R^n$, yaitu 
 <script type="math/tex">B = \{ \pmb{v}_1, \pmb{v}_2, \ldots, \pmb{v}_n \}</script> dan 
@@ -28,7 +28,7 @@ u_{2n} \\
 \vdots \\
 u_{nn} \end{bmatrix}.</script>
 
-<p>Langkah pertama adalah menulis setiap vektor di $B$ sebagai kombinasi linier dari setiap vektor di $B^{\prime}$ sebagai berikut:</p>
+<p><strong>Teorema 4.21</strong> bertujuan untuk menghitung matriks transisi yang mengkonversi suatu vektor di basis <script type="math/tex">B</script> menjadi vektor di basis <script type="math/tex">B^{\prime}</script>. Karena kita hendak mencari bentuk vektor-vektor di basis <script type="math/tex">B^{\prime}</script> apabila vektor-vektor tersebut dikonversi dari basis <script type="math/tex">B</script> ke basis <script type="math/tex">B^{\prime}</script>, langkah pertama adalah menulis setiap vektor di $B$ sebagai kombinasi linier dari setiap vektor di $B^{\prime}$ sebagai berikut:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align}
@@ -62,7 +62,7 @@ u_{nn} \end{bmatrix}.</script>
 <script type="math/tex; mode=display">[\pmb{v}_1]_{B^{\prime}} = Q \pmb{v}_1, \; 
 	[\pmb{v}_2]_{B^{\prime}} = Q \pmb{v}_2, \ldots, [\pmb{v}_n]_{B^{\prime}} = Q \pmb{v}_n \tag{3}\label{eq:q-akhir}</script>
 
-<p>Persamaan \eqref{eq:q-akhir} memperlihatkan bahwa perubahan <script type="math/tex">\pmb{v}_1</script> yang merupakan vektor di basis <script type="math/tex">B</script> menjadi <script type="math/tex">[\pmb{v}_1]_{B^{\prime}}</script> dilakukan dengan cara mengalikan <script type="math/tex">\pmb{v}_1</script> dengan <script type="math/tex">Q</script>. Dengan kata lain, perubahan dari basis <script type="math/tex">B</script> menjadi basis $B^{\prime}$ dilakukan dengan mengalikan vektor di basis <script type="math/tex">B</script> dengan matriks transisi <script type="math/tex">Q</script>.</p>
+<p>Persamaan \eqref{eq:q-akhir} memperlihatkan bahwa perubahan <script type="math/tex">\pmb{v}_1</script> yang merupakan vektor di basis <script type="math/tex">B</script> menjadi <script type="math/tex">[\pmb{v}_1]_{B^{\prime}}</script> dilakukan dengan cara mengalikan <script type="math/tex">\pmb{v}_1</script> dengan <script type="math/tex">Q</script>. Dengan kata lain, perubahan dari suatu vektor di basis <script type="math/tex">B</script> menjadi vektor di basis $B^{\prime}$ dilakukan dengan mengalikan vektor di basis <script type="math/tex">B</script> tersebut dengan matriks transisi <script type="math/tex">Q</script>.</p>
 
 <blockquote>
   <p>Selanjutnya, kita akan mencari matriks transisi <script type="math/tex">Q</script> tersebut.</p>
@@ -100,7 +100,7 @@ u_{nn} \end{bmatrix}.</script>
 	 	d_{21} \\
 	 	\vdots \\
 	 	d_{n1}
-	 \end{bmatrix}	& \text{Menggunakan bentuk matriks} \\
+	 \end{bmatrix}	&& \text{Menggunakan bentuk matriks} \\
 \Leftrightarrow  \begin{bmatrix} d_{11} \\
 		d_{21}  \\
 		\vdots \\
@@ -114,7 +114,7 @@ u_{nn} \end{bmatrix}.</script>
 	 	v_{21} \\
 	 	\vdots \\
 	 	v_{n1}
-	 \end{bmatrix}}_{\pmb{v}_1} & \text{Cari solusi SPL dengan teknik invers} \\
+	 \end{bmatrix}}_{\pmb{v}_1} && \text{Cari solusi SPL dengan teknik invers} \\
 \Leftrightarrow  [\pmb{v}_1]_{B^{\prime}} &= Q \pmb{v}_1
 \end{align} %]]></script>
 
