@@ -112,7 +112,7 @@ $$
 	 	d_{21} \\
 	 	\vdots \\
 	 	d_{n1}
-	 \end{bmatrix}	& \text{Menggunakan bentuk matriks} \\
+	 \end{bmatrix}	&& \text{Menggunakan bentuk matriks} \\
 \Leftrightarrow  \begin{bmatrix} d_{11} \\
 		d_{21}  \\
 		\vdots \\
@@ -126,7 +126,7 @@ $$
 	 	v_{21} \\
 	 	\vdots \\
 	 	v_{n1}
-	 \end{bmatrix}}_{\pmb{v}_1} & \text{Cari solusi SPL dengan teknik invers} \\
+	 \end{bmatrix}}_{\pmb{v}_1} && \text{Cari solusi SPL dengan teknik invers} \\
 \Leftrightarrow  [\pmb{v}_1]_{B^{\prime}} &= Q \pmb{v}_1
 \end{align}
 $$
