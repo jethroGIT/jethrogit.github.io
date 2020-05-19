@@ -4,6 +4,7 @@ title: Matriks Transisi Antara 2 Basis di Suatu Ruang Vektor
 category: Linear-Algebra
 lang: ID
 description: Matriks transisi antara 2 basis
+sticky: true
 ---
 
 Artikel ini hendak memberikan penjelasan yang lebih detil tentang **Teorema 4.21** yang berjudul _Transition Matrix from_ $B$ _to_ $B^{\prime}$ dari buku [Larson](https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/) (2016) di halaman 212. 
