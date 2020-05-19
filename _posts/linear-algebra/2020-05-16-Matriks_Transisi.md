@@ -37,7 +37,7 @@ u_{2n} \\
 \vdots \\
 u_{nn} \end{bmatrix}. $$
 
-Langkah pertama adalah menulis setiap vektor di $B$ sebagai kombinasi linier dari setiap vektor di $B^{\prime}$ sebagai berikut:
+**Teorema 4.21** bertujuan untuk menghitung matriks transisi yang bertujuan mengkonversi suatu vektor di basis $$B$$ menjadi vektor di basis $$B^{\prime}$$. Karena kita hendak mencari bentuk vektor-vektor di basis $$B^{\prime}$$ apabila vektor-vektor tersebut dikonversi dari basis $$B$$ ke basis $$B^{\prime}$$, langkah pertama adalah menulis setiap vektor di $B$ sebagai kombinasi linier dari setiap vektor di $B^{\prime}$ sebagai berikut:
 
 $$
 \begin{align}
