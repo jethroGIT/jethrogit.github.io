@@ -3,7 +3,7 @@ layout: post
 title: Building Logistic Regression Model from Linear Regression Model
 category: Machine-Learning
 lang: EN
-description: The relationship logistic regression & linear regression
+description: Relationship logistic & linear regression
 sticky: false
 ---
 
