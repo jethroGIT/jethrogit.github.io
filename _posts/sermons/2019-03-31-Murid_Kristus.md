@@ -31,7 +31,7 @@ Contoh **yang Melakukan tetapi tidak Menjadi** adalah _orang muda yang kaya_ (Ma
 <br/>
 #### **Melalui proses intensional**
 **1 Korintus 3:6** (NLT) menyatakan bahwa 
-> _My job was to plant the seed in your hearts, and Apollos watered it, but it was God, not we, who made it grow_
+> _My job was to plant the seed in your hearts, and Apollos watered it, but it was God, not we, who made it grow_.
 
 Ayat ini berkata bahwa dalam pertumbuhan iman, **perlu juga usaha & kerinduan** untuk bertumbuh. Menjadi **murid Kristus** merupakan proses kontinyu dan berulang. Kita menerima Firman Tuhan dan mencoba menerapkanNya dalam kehidupan kita dan pada akhirnya multiplikasi akan terjadi.   
 <br/>
@@ -41,6 +41,6 @@ Matius 28:20b berkata:
 > _Dan ketahuilah, Aku menyertai kamu senantiasa sampai kepada akhir zaman_.
 
 Dalam versi NKJV:
-> _I am with you always_
+> _I am with you always_.
 
-Tuhan bersama dengan kita senantiasa. Tuhan ada di depan kita dan memimpin kita.
+Tuhan bersama dengan kita senantiasa. Tuhan ada di depan kita dan memimpin kita. Amin!
