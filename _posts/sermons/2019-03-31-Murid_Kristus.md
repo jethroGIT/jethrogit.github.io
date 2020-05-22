@@ -15,11 +15,11 @@ Khotbah didasarkan dari kitab Matius 28:19-20 yang berbunyi:
 
 > _Karena itu **pergilah**, **jadikanlah** semua bangsa murid-Ku dan **baptislah** mereka dalam nama Bapa dan Anak dan Roh Kudus, dan **ajarlah** mereka melakukan segala sesuatu yang telah Kuperintahkan kepadamu. Dan ketahuilah, Aku menyertai kamu senantiasa sampai kepada akhir zaman_.    
 
-Terdapat 4 kata kerja di 2 ayat tersebut, yaitu:
-1. pergilah,
-2. jadikanlah,
-3. baptislah, dan
-4. ajarlah.
+Terdapat 4 kata kerja di 2 ayat tersebut, yaitu:    
+1. **Pergilah**,
+2. **Jadikanlah**,
+3. **Baptislah**, dan
+4. **Ajarlah**.
 
 Dari 4 kata kerja tersebut, yang terutama adalah **menjadikan murid** (bahasa asli: _matheteuo_). Perlu ditekankan bahwa **pemuridan** bukan hanya berfokus ke dalam tetapi juga berfokus ke luar; contohnya, bagaimana orang lain dapat melihat kehidupan kita.
 

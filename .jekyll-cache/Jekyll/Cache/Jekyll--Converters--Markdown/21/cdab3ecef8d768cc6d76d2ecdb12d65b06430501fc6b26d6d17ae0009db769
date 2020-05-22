@@ -1,4 +1,4 @@
-I"Z/<p>This tutorial will show you how to create masks from <a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> polygons. Specifically, a Shapely polygon has a <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">WKT format</a> and we will convert this WKT format into a mask. OK, concretely, suppose we have installed <a href="https://pypi.org/project/Shapely">Shapely library</a>, <a href="https://www.anaconda.com/distribution">Anaconda</a>, and had <em>an image like the one on left side of images below</em>. In this tutorial, we will convert <em>this image</em> into <em>a mask image like the one on the right side</em>.</p>
+I"q/<p>This tutorial will show you how to create masks from <a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> polygons. Specifically, a Shapely polygon has a <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">WKT format</a> and we will convert this WKT format into a mask. OK, concretely, suppose we have installed <a href="https://pypi.org/project/Shapely">Shapely library</a>, <a href="https://www.anaconda.com/distribution">Anaconda</a>, and had <em>an image like the one on left side of images below</em>. In this tutorial, we will convert <em>this image</em> into <em>a mask image like the one on the right side</em>.</p>
 
 <p class="center-image"><a href="/assets/images/palu-tsunami_00000195_pre_disaster.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster.png" alt="img4" class="img-resize-2" /></a>
 <a href="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png" alt="img5" class="img-resize-2" /></a></p>
@@ -36,7 +36,7 @@ We are going to show all these codes as <em>codes in Jupyter notebook cells</em>
 <span class="c1"># We construct the path to label path where we want to put the mask image 
 </span><span class="n">label_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/binaryLabels'</span><span class="p">)</span>
 
-<span class="c1"># We construct the path to the json file; the json file contains 
+<span class="c1"># We construct the path to the json file; the json file contains coordinates of polygons
 </span><span class="n">json_path</span>  <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/labels'</span><span class="p">)</span>
 </code></pre></div></div>
 
