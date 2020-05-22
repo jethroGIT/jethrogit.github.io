@@ -47,7 +47,7 @@ images_path = Path('/home/hbunyamin/Datasets/asses-building-damage/train/images'
 # We construct the path to label path where we want to put the mask image 
 label_path = Path('/home/hbunyamin/Datasets/asses-building-damage/train/binaryLabels')
 
-# We construct the path to the json file; the json file contains 
+# We construct the path to the json file; the json file contains coordinates of polygons
 json_path  = Path('/home/hbunyamin/Datasets/asses-building-damage/train/labels')
 ```
 
