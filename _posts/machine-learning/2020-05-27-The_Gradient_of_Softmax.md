@@ -7,7 +7,7 @@ description: The gradients of softmax output layer
 sticky: true
 ---
 
-This article attempts to find gradients of a [_softmax_](https://en.wikipedia.org/wiki/Softmax_function) output layer. This knowledge proves useful when we want to utilize _backpropagation algorithm_ to compute gradients of neural networks with a softmax output layer. Furthermore, [page 3 from the **Notes on Backpropagation** by _Peter Sadowski_](https://drive.google.com/file/d/1UV_psOTNXZ0SB_-varbllZ79dLDSp5qU/view?usp=sharing) has inspired this article a lot!
+This article attempts to find gradients of a [_softmax_](https://en.wikipedia.org/wiki/Softmax_function) output layer. This knowledge proves useful when we want to utilize _backpropagation algorithm_ to compute gradients of neural networks with a softmax output layer. Furthermore, [page 3 from the outstanding **Notes on Backpropagation** by _Peter Sadowski_](https://drive.google.com/file/d/1UV_psOTNXZ0SB_-varbllZ79dLDSp5qU/view?usp=sharing) has inspired this article a lot.
 
 Suppose that we have a multiclass classification problem with 3 (three) choices that are label $1$, label $2$, and label $3$. Concretely, we utilize one-hot encoding for the three choices as follows:
 
