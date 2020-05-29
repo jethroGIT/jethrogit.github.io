@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Computing the Gradient of Cost Function from Logistic Regression
+title: Computing Gradients of Cost Function from Logistic Regression
 category: Machine-Learning
 lang: EN
-description: The gradient of logistic regression
+description: The gradients of logistic regression
 sticky: false
 ---
 

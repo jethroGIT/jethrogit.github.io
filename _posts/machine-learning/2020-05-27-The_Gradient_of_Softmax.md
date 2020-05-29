@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Finding Gradients of Softmax Output Layer
+title: Gradients of Softmax Output Layer in Gory Details
 category: Machine-Learning
 lang: EN
 description: The gradients of softmax output layer
@@ -9,7 +9,11 @@ sticky: true
 
 This article attempts to find gradients of a [_softmax_](https://en.wikipedia.org/wiki/Softmax_function) output layer. This knowledge proves useful when we want to utilize _backpropagation algorithm_ to compute gradients of neural networks with a softmax output layer. Furthermore, [page 3 from the outstanding **Notes on Backpropagation** by _Peter Sadowski_](https://drive.google.com/file/d/1UV_psOTNXZ0SB_-varbllZ79dLDSp5qU/view?usp=sharing) has inspired this article a lot.
 
-Suppose that we have a multiclass classification problem with 3 (three) choices that are label $1$, label $2$, and label $3$. Concretely, we utilize one-hot encoding for the three choices as follows:
+Suppose that we have a multiclass classification problem with 3 (three) choices that are label $1$, label $2$, and label $3$. The image below shows the very simple artificial neural networks with two layers; particulary, we set the output layer as a softmax output layer. 
+
+[![img1]({{ site.baseurl }}/assets/images/ann-with-softmax.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/ann-with-softmax.png)
+
+Concretely, we utilize one-hot encoding for the three choices as follows:
 
 $$\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}$$, $$\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}$$, and $$\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$$ are the representations for label $1$, label $2$, and label $3$ respectively.
 

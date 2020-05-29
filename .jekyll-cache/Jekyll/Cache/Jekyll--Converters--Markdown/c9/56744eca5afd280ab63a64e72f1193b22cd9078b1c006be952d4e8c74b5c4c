@@ -1,0 +1,2 @@
+I"<p>This article attempts to find gradients of a <a href="https://en.wikipedia.org/wiki/Softmax_function"><em>softmax</em></a> output layer. This knowledge proves useful when we want to utilize <em>backpropagation algorithm</em> to compute gradients of neural networks with a softmax output layer. Furthermore, <a href="https://drive.google.com/file/d/1UV_psOTNXZ0SB_-varbllZ79dLDSp5qU/view?usp=sharing">page 3 from the outstanding <strong>Notes on Backpropagation</strong> by <em>Peter Sadowski</em></a> has inspired this article a lot.</p>
+:ET
