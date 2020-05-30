@@ -1,0 +1,26 @@
+I"‹
+<p>Artikel ini hendak memberikan penjelasan yang lebih detil mengenai hubungan antara <strong>hasil kali titik</strong> (<em>dot product</em>) dengan <strong>sudut</strong> antara 2 vektor. Buku <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) pada halaman 235 kembali direkomendasikan menjadi referensi utama.</p>
+
+<p>Diketahui dua buah vektor $\mathbf{u} = (u_1, u_2)$ dan $\mathbf{v} = (v_1, v_2)$ dan sudut $\theta$ adalah sudut yang dibentuk oleh vektor $\mathbf{u}$ dan $\mathbf{v}$ seperti pada gambar berikut:</p>
+
+<p><a href="/assets/images/angle-between-two-vectors.png"><img src="/assets/images/angle-between-two-vectors.png" alt="img1" class="img-responsive" /></a></p>
+
+<p>Gambar di atas sepenuhnya merupakan hak cipta dari <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016). <em>For your information, buku <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) is highly recommended</em>.</p>
+
+<p>Berdasarkan konsep yang bernama <a href="https://www.khanacademy.org/math/geometry/hs-geo-trig/hs-geo-law-of-cosines/v/law-of-cosines-example">Aturan Kosinus</a> (<em>The Law of Cosines</em>), diperoleh</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\require{cancel} \begin{align} \lVert \mathbf{v} - \mathbf{u} \rVert^2 &= \lVert \mathbf{u} \rVert^2 + \lVert \mathbf{v} \rVert^2 - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow  (v_1 - u_1)^2 + (v_2 - u_2)^2 &= u_1^2 + u_2^2 + v_1^2 + v_2^2 - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow \cancel{v_1^2} - 2 v_1 u_1 + \cancel{u_1^2} + \cancel{v_2^2} - 2 v_2 u_2 + \cancel{u_2^2} &=  \cancel{u_1^2} + \cancel{u_2^2} + \cancel{v_1^2} + \cancel{v_2^2} - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow u_1 v_1 + u_2 v_2 &= \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow \cos \theta &= \frac{u_1 v_1 + u_2 v_2}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert} \tag{1}\label{eq:final-eq}
+\end{align} %]]></script>
+
+<p>Pembilang dari pecahan di ruas kanan dari Persamaan \eqref{eq:final-eq} merupakan <strong>hasil kali titik</strong> (<em>dot product</em>) dari $\mathbf{u}$ dan $\mathbf{v}$ sehingga Persamaan \eqref{eq:final-eq} dapat ditulis menjadi</p>
+
+<script type="math/tex; mode=display">\begin{equation} \cos \theta = \frac{\mathbf{u} \centerdot \mathbf{v}}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert} 
+\end{equation} \tag{2}\label{eq:dot-product}</script>
+
+<p>Jadi Persamaan \eqref{eq:dot-product}</p>
+:ET
