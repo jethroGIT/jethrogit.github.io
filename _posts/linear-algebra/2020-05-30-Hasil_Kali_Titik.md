@@ -21,13 +21,13 @@ $$ \require{cancel} \begin{align} \lVert \mathbf{v} - \mathbf{u} \rVert^2 &= \lV
 \Longleftrightarrow  (v_1 - u_1)^2 + (v_2 - u_2)^2 &= u_1^2 + u_2^2 + v_1^2 + v_2^2 - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
 \Longleftrightarrow \cancel{v_1^2} - 2 v_1 u_1 + \cancel{u_1^2} + \cancel{v_2^2} - 2 v_2 u_2 + \cancel{u_2^2} &=  \cancel{u_1^2} + \cancel{u_2^2} + \cancel{v_1^2} + \cancel{v_2^2} - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
 \Longleftrightarrow u_1 v_1 + u_2 v_2 &= \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
-\Longleftrightarrow \cos \theta &= \frac{u_1 v_1 + u_2 v_2}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert} \tag{1}\label{eq:final-eq}
+\Longleftrightarrow \cos \theta &= \frac{u_1 v_1 + u_2 v_2}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert}. \tag{1}\label{eq:final-eq}
 \end{align}
 $$
 
 Pembilang dari pecahan di ruas kanan dari Persamaan \eqref{eq:final-eq} merupakan **hasil kali titik** (_dot product_) dari $\mathbf{u}$ dan $\mathbf{v}$ sehingga Persamaan \eqref{eq:final-eq} dapat ditulis menjadi
 
-$$ \begin{equation} \cos \theta = \frac{\mathbf{u} \centerdot \mathbf{v}}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert} 
+$$ \begin{equation} \cos \theta = \frac{\mathbf{u} \centerdot \mathbf{v}}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert}. 
 \end{equation} \tag{2}\label{eq:dot-product}$$
 
 Jadi dapat disimpulkan bahwa Persamaan \eqref{eq:dot-product} menjelaskan hubungan antara **hasil kali titik** (_dot product_) antara 2 vektor dan sudut yang dibentuk oleh keduanya.  
