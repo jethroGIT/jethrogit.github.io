@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mencari Arti di Dalam Penderitaan
+title: Mencari Arti Hidup di dalam Penderitaan
 category: Sermons
 lang: ID
 description: Finding Meaning in Suffering
