@@ -4,7 +4,7 @@ title: Mencari Arti Hidup di dalam Penderitaan
 category: Sermons
 lang: ID
 description: Finding Meaning in Suffering
-sticky: true
+sticky: false
 ---
 Mama saya sakit saraf kejepit sejak September 2019 dan akhir-akhir ini penderitaannya begitu luar biasa sehingga seringkali mama berbicara "_Untuk apa saya hidup? Mending mati saja_". Saat itu saya sedih sekali dan tidak dapat menjelaskan kepada Mama mengapa penderitaannya harus terjadi; malahan sampai detik ini pun saya masih bergumul dengan pertanyaan tersebut.
 
