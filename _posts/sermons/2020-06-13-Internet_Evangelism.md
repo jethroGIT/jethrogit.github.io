@@ -9,7 +9,7 @@ sticky: true
 Internet Evangelism merupakan misi pemberitaan kabar baik melalui Internet. Sesi ini dibawakan oleh Pak Johan Setiawan yang juga adalah Dosen Teologia Praktika Sekolah Tinggi Teologi Bandung.     
 Sesi dimulai dengan sebuah pertanyaan:
 
-> _Perasaan apa saja yang mungkin timbul dalam hari Saudara ketika melihat banyak orang?_  
+> _Perasaan apa saja yang mungkin timbul dalam hati Saudara ketika melihat banyak orang?_  
 
 Teman-teman ada yang menjawab _grogi_, _ingin tahu pergumulannya_, _kasihan_, dan lain sebagainya. 
 
@@ -23,7 +23,7 @@ Idealnya, kita sebagai anak Tuhan semakin hari, kita semakin bertumbuh menyerupa
 Karena mereka lelah dan terlantar seperti **domba** yang tidak mempunyai gembala.    
 
 Apakah binatang yang banyak predatornya?      
-Domba. Domba adalah binatang bodoh. Sebagai contoh, domba hanya mengikuti kelompok domba yang ada di  depannya. Jika domba di depannya masuk ke jurang, domba di belakangnya akan ikut masuk ke jurang. Lebih lagi, apabila domba tidak mempunyai gembala, tidak ada gembala yang mencarinya.
+Domba. Domba adalah binatang bodoh. Sebagai contoh, domba hanya mengikuti kelompok domba yang ada di  depannya. Jika domba di depannya masuk ke jurang, domba di belakangnya juga akan ikut masuk ke jurang. Lebih lagi, apabila domba tidak mempunyai gembala dan domba tersebut tersesat, tidak ada gembala yang akan mencarinya.
 
 Hidup kita di dunia ini sama seperti hidup domba. Hidup di dalam dunia yang penuh dosa ini memerlukan Kristus dan keteladanan Kristus.    
 

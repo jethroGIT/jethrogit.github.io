@@ -72,7 +72,7 @@ Here is the backpropagation steps.
 $$
 	\begin{align} 
 		\underbrace{\delta^{(3)}}_{1 \times 1} &= \underbrace{a^{(3)}}_{1 \times 1} - \underbrace{y}_{1 \times 1} \tag{10}\label{eq:delta-3} \\
-		\underbrace{\delta^{(2)}}_{4 \times 1} &= \underbrace{(\Theta^{(2)})^T}_{4 \times 1} * \underbrace{\delta^{(3)}}_{1 \times 1} \odot \underbrace{a^{(2)}}_{4 \times 1} \odot \underbrace{(1 - a^{(2)})}_{4 \times 1} & \odot = \text{ element-wise multiplication} \tag{11}\label{eq:delta-2} \\
+		\underbrace{\delta^{(2)}}_{4 \times 1} &= \underbrace{(\Theta^{(2)})^T}_{4 \times 1} \underbrace{\delta^{(3)}}_{1 \times 1} \odot \underbrace{a^{(2)}}_{4 \times 1} \odot \underbrace{(1 - a^{(2)})}_{4 \times 1} & \odot = \text{element-wise multiplication} \tag{11}\label{eq:delta-2} \\
 		\delta^{(2)} &= \begin{bmatrix} 
 			\delta_1^{(2)} \\
 			\delta_2^{(2)} \\
@@ -86,7 +86,7 @@ Finally we can update our weight matrices as follows:
 
 $$
 	\begin{align}
-		\Theta^{(2)} &= \Theta^{(2)} - \alpha \times \delta^{(3)} (a^{(2)})^T & \alpha = \text{ learning rate} \tag{13}\label{eq:update-theta-2} \\
+		\Theta^{(2)} &= \Theta^{(2)} - \alpha \times \delta^{(3)} (a^{(2)})^T & \alpha = \text{learning rate} \tag{13}\label{eq:update-theta-2} \\
 		\Theta^{(1)} &= \Theta^{(1)} - \alpha \times \delta^{(2)} (x)^T. \tag{14}\label{eq:update-theta-1} 		
 	\end{align}
 $$
