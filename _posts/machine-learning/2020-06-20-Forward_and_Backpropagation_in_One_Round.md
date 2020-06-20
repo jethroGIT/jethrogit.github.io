@@ -77,7 +77,7 @@ $$
 			\delta_1^{(2)} \\
 			\delta_2^{(2)} \\
 			\delta_3^{(2)}
-		\end{bmatrix} & \text{remove }\delta_0^{(2).} \tag{12}\label{eq:delta-2-remove-bias}
+		\end{bmatrix} & \text{remove }\delta_0^{(2)}. \tag{12}\label{eq:delta-2-remove-bias}
 	\end{align}
 $$
 
