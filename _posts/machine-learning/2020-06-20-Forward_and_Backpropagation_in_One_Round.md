@@ -51,7 +51,7 @@ $$
 			a_1^{(2)} \\
 			a_2^{(2)} \\
 			a_3^{(2)}
-		\end{bmatrix}  & \text{add a bias unit} \tag{6}\label{eq:a-2-bias}
+		\end{bmatrix}  & \text{add a bias unit.} \tag{6}\label{eq:a-2-bias}
 	\end{align}
 $$
 
@@ -77,7 +77,7 @@ $$
 			\delta_1^{(2)} \\
 			\delta_2^{(2)} \\
 			\delta_3^{(2)}
-		\end{bmatrix}. & \text{remove }\delta_0^{(2)} \tag{12}\label{eq:delta-2-remove-bias}
+		\end{bmatrix} & \text{remove }\delta_0^{(2).} \tag{12}\label{eq:delta-2-remove-bias}
 	\end{align}
 $$
 
