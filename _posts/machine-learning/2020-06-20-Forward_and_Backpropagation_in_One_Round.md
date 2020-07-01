@@ -3,7 +3,7 @@ layout: post
 title: Forward and Backpropagation in One Round
 category: Machine-Learning
 lang: EN
-description: Forward Prop and Backprop
+description: Forward prop and backprop
 sticky: true
 ---
 
