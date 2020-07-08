@@ -4,7 +4,7 @@ title: Gradients of Softmax Output Layer in Gory Details
 category: Machine-Learning
 lang: EN
 description: The gradients of softmax output layer
-sticky: true
+sticky: false
 ---
 
 This article attempts to find gradients of a [_softmax_](https://en.wikipedia.org/wiki/Softmax_function) output layer. This knowledge proves useful when we want to utilize _backpropagation algorithm_ to compute gradients of neural networks with a softmax output layer. Furthermore, [page 3 from the outstanding **Notes on Backpropagation** by _Peter Sadowski_](https://drive.google.com/file/d/1UV_psOTNXZ0SB_-varbllZ79dLDSp5qU/view?usp=sharing) has inspired this article a lot.
