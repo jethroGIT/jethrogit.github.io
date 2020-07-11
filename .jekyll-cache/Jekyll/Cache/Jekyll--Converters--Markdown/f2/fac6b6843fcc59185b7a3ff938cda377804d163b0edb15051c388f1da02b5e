@@ -1,4 +1,4 @@
-I"P<p>This article is inspired by the <em>masterpiece</em> of <a href="https://maranathaedu-my.sharepoint.com/:b:/g/personal/hendra_bunyamin_it_maranatha_edu/EZA9beLgBdZPip9br-UrdSAB024P8IBGESYAbJP3MfRQFQ?e=HdMzZ9"><strong>Gibbs Sampling tutorial</strong></a> by <em>Resnik and Hardisty</em> and also an <em>awesome</em> <a href="https://github.com/bobflagg/gibbs-sampling-for-the-uninitiated"><strong>github repo</strong></a> by <em>Bob Flagg</em>.    Both of these resources are excellent and highly recommended for anyone to read.</p>
+I"¿T<p>This article is inspired by the <em>masterpiece</em> of <a href="https://maranathaedu-my.sharepoint.com/:b:/g/personal/hendra_bunyamin_it_maranatha_edu/EZA9beLgBdZPip9br-UrdSAB024P8IBGESYAbJP3MfRQFQ?e=HdMzZ9"><strong>Gibbs Sampling tutorial</strong></a> by <em>Resnik and Hardisty</em> and also an <em>awesome</em> <a href="https://github.com/bobflagg/gibbs-sampling-for-the-uninitiated"><strong>github repo</strong></a> by <em>Bob Flagg</em>.    Both of these resources are excellent and highly recommended for anyone to read.</p>
 
 <p>This article will show a <em>step by step implementation of a Gibbs sampler</em> for a <strong>Naive Bayes</strong> model in Python.</p>
 
@@ -198,5 +198,16 @@ Letâ€™s define a function to <em>sample labels</em> for <code class="highlighter
 
     <span class="k">return</span> <span class="p">{</span><span class="s">'C'</span><span class="p">:</span><span class="n">C</span><span class="p">,</span> <span class="s">'N'</span><span class="p">:</span><span class="n">cnts</span><span class="p">,</span> <span class="s">'L'</span><span class="p">:</span><span class="n">L</span><span class="p">,</span> <span class="s">'theta'</span><span class="p">:</span><span class="n">theta</span><span class="p">}</span>    
 </code></pre></div></div>
-<p>Variables <code class="highlighter-rouge">C</code> and <code class="highlighter-rouge">cnts</code> denotes <script type="math/tex">\begin{bmatrix} C_0 + \gamma_{\pi 0} \\ C_1 + \gamma_{\pi 1} \end{bmatrix}</script> and <script type="math/tex">\begin{bmatrix} \pmb{\mathcal{N}_{\mathbb{C}_0} + \pmb{\gamma_{\theta 0}}  \\  \end{bmatrix}</script> in the paper</p>
+<p>Variables <code class="highlighter-rouge">C</code> and <code class="highlighter-rouge">cnts</code> denotes <script type="math/tex">\begin{bmatrix} C_0 + \gamma_{\pi 0} \\ C_1 + \gamma_{\pi 1} \end{bmatrix}</script> and <script type="math/tex">\begin{bmatrix} 
+\pmb{\mathcal{N}_{\mathbb{C}_0}} + \pmb{\gamma_{\theta 0}}  \\ 
+\pmb{\mathcal{N}_{\mathbb{C}_1}} + \pmb{\gamma_{\theta 1}}  
+\end{bmatrix}</script> in the paper respectively. Particularly, <script type="math/tex">\pmb{\mathcal{N}_{\mathbb{C}_0}}</script>, <script type="math/tex">\pmb{\mathcal{N}_{\mathbb{C}_1}}</script>, <script type="math/tex">\pmb{\gamma_{\theta 0}}</script>, and <script type="math/tex">\pmb{\gamma_{\theta 1}}</script> are vectors with the size <script type="math/tex">1 \times V</script>.</p>
+
+<p>We have reached the end of the first part of <em>Gibbs Sampling for the Uninitiated part 1</em>. In part 2, we shall discuss the building of Gibbs sampler, specifically, how to implement Equation ($49$) on page $16$ of the paper:</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+        \text{Pr(L}_j = x | \mathbf{L}^{(-j)}, \mathbb{C}^{(-j)}, \mathbf{\theta_0}, \mathbf{\theta_1}; \mathbf{\mu}) = \frac{C_x + \gamma_{\pi x} - 1}{N + \gamma_{\pi 1} + \gamma_{\pi 0} - 1} \prod_{i=1}^{V}{\theta_{x,i}^{\text{W}_{ji}}}.\tag{8}\label{eq:update-equation}
+    \end{equation}</script>
+
+<p>The playground of this tutorial is also provided as <em>Jupyter notebook</em> in this <a href="https://github.com/hbunyamin/gibbs-sampling-for-uninitiated-with-python">repo</a>.</p>
 :ET

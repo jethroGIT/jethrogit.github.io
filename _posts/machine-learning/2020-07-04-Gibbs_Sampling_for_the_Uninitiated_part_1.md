@@ -215,7 +215,7 @@ def initialize(W, labels, gamma_pi, gamma_theta):
 Variables `C` and `cnts` denotes $$\begin{bmatrix} C_0 + \gamma_{\pi 0} \\ C_1 + \gamma_{\pi 1} \end{bmatrix}$$ and $$\begin{bmatrix} 
 \pmb{\mathcal{N}_{\mathbb{C}_0}} + \pmb{\gamma_{\theta 0}}  \\ 
 \pmb{\mathcal{N}_{\mathbb{C}_1}} + \pmb{\gamma_{\theta 1}}  
-\end{bmatrix}$$ in the paper respectively.
+\end{bmatrix}$$ in the paper respectively. Particularly, $$\pmb{\mathcal{N}_{\mathbb{C}_0}} $$, $$\pmb{\mathcal{N}_{\mathbb{C}_1}}$$, $$\pmb{\gamma_{\theta 0}}$$, and $$\pmb{\gamma_{\theta 1}}$$ are vectors with the size $$1 \times V$$.
 
 We have reached the end of the first part of _Gibbs Sampling for the Uninitiated part 1_. In part 2, we shall discuss the building of Gibbs sampler, specifically, how to implement Equation ($49$) on page $16$ of the paper:
 
@@ -225,4 +225,4 @@ $$
     \end{equation}
 $$ 
 
-The playground of this tutorial is also provided as _Jupyter notebook_ in this [repo](https://github.com/hbunyamin/gibbs-sampling-for-uninitiated-with-python).      
+The playground of this tutorial is also provided as _Jupyter notebook_ in this [repo](https://github.com/hbunyamin/gibbs-sampling-for-uninitiated-with-python).     
