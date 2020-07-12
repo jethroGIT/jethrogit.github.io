@@ -225,4 +225,4 @@ $$
     \end{equation}
 $$ 
 
-The playground of this tutorial is also provided as _Jupyter notebook_ in this [repo](https://github.com/hbunyamin/gibbs-sampling-for-uninitiated-with-python).     
+The playground of this tutorial is also provided as _Jupyter notebook_ in this [**repo**](https://github.com/hbunyamin/gibbs-sampling-for-uninitiated-with-python).     
