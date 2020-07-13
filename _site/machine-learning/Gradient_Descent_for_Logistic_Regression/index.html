@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Computing Gradients of Cost Function from Logistic Regression – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="In linear regression with one variable, we have a design matrix ($X$) that represents our dataset and specifically has a shape as follows:
+" />
+    <meta property="og:description" content="In linear regression with one variable, we have a design matrix ($X$) that represents our dataset and specifically has a shape as follows:
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Computing Gradients of Cost Function from Logistic Regression" />
+    <meta property="twitter:title" content="Computing Gradients of Cost Function from Logistic Regression" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;">Forgiven sinner and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/machine-learning">machine-learning</a> / computing gradients of cost function from logistic regression</span></p>
+          <h3>Computing Gradients of Cost Function from Logistic Regression<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=The gradients of logistic regression">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Computing Gradients of Cost Function from Logistic Regression <br> 
+                  <span class="text-small">The gradients of logistic regression</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>In <a href="https://www.coursera.org/learn/machine-learning/lecture/db3jS/model-representation">linear regression with one variable</a>, we have a <em>design matrix</em> ($X$) that represents our dataset and specifically has a shape as follows:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation} X = \begin{bmatrix} 1 & x^{(1)} \\
+1      & x^{(2)} \\
+\vdots & \vdots  \\
+1      & x^{(m)}   \end{bmatrix}.  \end{equation} \tag{1}\label{eq:x-dataset} %]]></script>
+
+<p>We say that the <em>design matrix</em> ($X$) in Equation \eqref{eq:x-dataset} has $m$ <em>training examples</em> and 1 <em>feature</em>, $x$.</p>
+
+<p>The <strong>logistic regression</strong> model shall be trained on $X$. For those who are not familiar with logistic regression model can study the model in <a href="https://www.coursera.org/learn/machine-learning/lecture/1XG8G/cost-function"><em>Machine Learning Course by Andrew Ng</em></a> in Week 4. The <strong>logistic regression</strong> model has a model as follows:</p>
+
+<script type="math/tex; mode=display">\require{cancel} \begin{equation} h_{\theta}(x^{(i)}) = \frac{1}{1 + e^{-\theta_0 - \theta_1 x^{(i)}}}. \tag{2}\label{eq:model-logistic}\end{equation}</script>
+
+<p>Furthermore, <strong>logistic regression</strong> model has a <em>cost function</em> $J(\theta)$,</p>
+
+<script type="math/tex; mode=display">\begin{equation} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) \tag{3}\label{eq:cost-function} \end{equation}</script>
+
+<p>with</p>
+
+<script type="math/tex; mode=display">\begin{equation} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) = -y^{(i)} \log( h_{\theta}(x^{(i)}) ) - (1-y^{(i)}) \log(1-h_{\theta}(x^{(i)})) \end{equation} \tag{4}\label{eq:cost-logistic}</script>
+
+<p>and $x^{(i)}$ is an $i$th <em>training example</em>, and $y^{(i)}$ is label or class from a <em>training example</em> $x^{(i)}$. <br />
+This article attempts to explain how to calculate partial derivatives from <strong>logistic regression</strong> <em>cost function</em> on $\theta_0$ and $\theta_1$. This partial derivatives are also called <em>gradient</em>, $\frac{\partial J}{\partial \theta}$.  <br />
+<br /></p>
+<h4 id="the-complete-form-of-logistic-regression-cost-function"><strong>The Complete Form of Logistic Regression <em>Cost Function</em></strong></h4>
+<p>By combining Equation \eqref{eq:cost-function} and \eqref{eq:cost-logistic}, a more detailed <em>cost function</em> can be obtained as follows:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} J(\theta) &= \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) \\
+                           &= \frac{1}{m} \sum_{i=1}^{m} \left( -y^{(i)} \log (h_{\theta}(x^{(i)})) - (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \\
+                           &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right). \tag{5}\label{eq:cost-function-complete} \end{align} %]]></script>
+
+<p>Next, $\frac{\partial J}{\partial \theta_0}$ and $\frac{\partial J}{\partial \theta_1}$ shall be computed. Now we compute the partial derivative of $h_{\theta}(x)$ on $\theta_0$ or $\frac{\partial h_{\theta}}{ \partial \theta_0 }$. <br />
+From <a href="https://www.khanacademy.org/math/multivariable-calculus">Calculus</a>, the derivatives of $\frac{u(x)}{v(x)}$ with each $u(x)$ dan $v(x)$ is a function of $x$ are</p>
+
+<script type="math/tex; mode=display">\begin{equation} \frac{u^{\prime} v - u v^{\prime} }{ v^2 }. \tag{6}\label{eq:formula-derivatif} \end{equation}</script>
+
+<p>with $u^{\prime}$ and $v^{\prime}$ are the first derivatives of $u$ and $v$, respectively. <br />
+We shall utilize this formula in Equation \eqref{eq:formula-derivatif} to calculate $\frac{\partial h_{\theta}}{ \partial \theta_0 }$ and $\frac{\partial h_{\theta}}{ \partial \theta_1 }$ as follows:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial h_{\theta}}{ \partial \theta_0 } &= \frac{0 + e^{-\theta_0 - \theta_1 x}}{(1 + e^{-\theta_0 - \theta_1 x})^2} = \frac{e^{-\theta_0 - \theta_1 x}}{(1 + e^{-\theta_0 - \theta_1 x})^2} \\ 
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( \frac{e^{-\theta_0 - \theta_1 x}}{1 + e^{-\theta_0 - \theta_1 x}} \right)  \\
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( 1 - \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \\
+ &= h_\theta(x) (1 - h_\theta(x)) \tag{7}\label{eq:formula-derivatif-theta0}
+  \end{align} %]]></script>
+
+<p>and</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{align} \frac{\partial h_{\theta}}{ \partial \theta_1 } &= \frac{0 + e^{-\theta_0 - \theta_1 x} x}{(1 + e^{-\theta_0 - \theta_1 x})^2} = \frac{e^{-\theta_0 - \theta_1 x} x}{(1 + e^{-\theta_0 - \theta_1 x})^2} \\ 
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( \frac{e^{-\theta_0 - \theta_1 x}}{1 + e^{-\theta_0 - \theta_1 x}} \right)x  \\
+ &= \left( \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right) \left( 1 - \frac{1}{1 + e^{-\theta_0 - \theta_1 x}} \right)x \\
+ &= h_\theta(x) (1 - h_\theta(x)) x. \tag{8}\label{eq:formula-derivatif-theta1}
+  \end{align} %]]></script>  <br />
+<br /></p>
+<h4 id="calculate-fracpartial-jpartial-theta_0"><strong>Calculate $\frac{\partial J}{\partial \theta_0}$</strong></h4>
+<p>The partial derivative $\frac{\partial J}{\partial \theta_0}$ is calculated as follows:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_0} &= \frac{\partial }{\partial \theta_0} \left( -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \frac{\partial }{\partial \theta_0} \left( \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_0} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Part I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_0} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Part II}} \right). \tag{9}\label{eq:bagian2-theta0} \end{align} %]]></script>
+
+<p>Part I from Equation \eqref{eq:bagian2-theta0} is calculated with <em>chain rules</em> technique and Equation \eqref{eq:formula-derivatif-theta0} becomes</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_0} \left( \log (h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log (h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_0} \\
+ &= \frac{1}{h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) \\
+ &= \frac{1}{ \cancel{h_{\theta}(x^{(i)})} } \cancel{h_\theta(x^{(i)})} (1 - h_\theta(x^{(i)}))  \\
+ &= (1 - h_\theta(x^{(i)})). \tag{10}\label{eq:bagian-I-theta0} \end{align} %]]></script>
+
+<p>Part II from Equation \eqref{eq:bagian2-theta0} is also calculated with the chain rules and Equation \eqref{eq:formula-derivatif-theta0} becomes</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_0} \left( \log (1 - h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log ( 1- h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_0} \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} (1 - h_\theta(x^{(i)})) h_\theta(x^{(i)})  \\
+ &= - \frac{1}{ \cancel{1 - h_{\theta}(x^{(i)})} } \cancel{(1- h_\theta(x^{(i)}))} h_\theta(x^{(i)})  \\
+ &= -h_\theta(x^{(i)}). \tag{11}\label{eq:bagian-II-theta0} \end{align} %]]></script>
+
+<p>By substituting Equation \eqref{eq:bagian-I-theta0} and Equation \eqref{eq:bagian-II-theta0} into Equation \eqref{eq:bagian2-theta0} we obtain</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_0} &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_0} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Part I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_0} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Part II}} \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} (1 - h_{\theta}(x^{(i)}))  - (1-y^{(i)}) h_{\theta}(x^{(i)}) \right)  \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} - y^{(i)} h_{\theta}(x^{(i)})  - h_{\theta}(x^{(i)}) + y^{(i)} h_{\theta}(x^{(i)}) \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \cancel{- y^{(i)} h_{\theta}(x^{(i)})}  - h_{\theta}(x^{(i)}) \cancel{+ y^{(i)} h_{\theta}(x^{(i)})} \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} ( y^{(i)} - h_{\theta}(x^{(i)}) )  \\
+&= \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ). \end{align} %]]></script>  <br />
+<br /></p>
+<h4 id="calculate-fracpartial-jpartial-theta_1"><strong>Calculate $\frac{\partial J}{\partial \theta_1}$</strong></h4>
+<p>The partial derivative $\frac{\partial J}{\partial \theta_1}$ can be calculated as follows:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_1} &= \frac{\partial }{\partial \theta_1} \left( -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \frac{\partial }{\partial \theta_1} \left( \sum_{i=1}^{m} \left( y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \right) \right) \\
+ &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_1} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Part I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_1} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Part II}} \right). \tag{12}\label{eq:bagian2-theta1} \end{align} %]]></script>
+
+<p>Part I from Persamaan \eqref{eq:bagian2-theta1} is calculated by <em>chain rules</em> and Equation \eqref{eq:formula-derivatif-theta1} becomes</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_1} \left( \log (h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log (h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_1} \\
+ &= \frac{1}{h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x^{(i)} \\
+ &= \frac{1}{ \cancel{h_{\theta}(x^{(i)})} } \cancel{h_\theta(x^{(i)})} (1 - h_\theta(x^{(i)})) x^{(i)} \\
+ &= (1 - h_\theta(x^{(i)})) x^{(i)}. \tag{13}\label{eq:bagian-I-theta1} \end{align} %]]></script>
+
+<p>Part II from Equation \eqref{eq:bagian2-theta1} is also calculated with chain rules and Equation \eqref{eq:formula-derivatif-theta1} becomes</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial }{\partial \theta_1} \left( \log (1 - h_{\theta}(x^{(i)})) \right) &= \frac{\partial }{\partial h_{\theta} } \left( \log ( 1- h_{\theta}(x^{(i)})) \right) \frac{\partial h_{\theta}}{\partial \theta_1} \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x^{(i)} \\
+ &= - \frac{1}{1 - h_{\theta}(x^{(i)})} (1 - h_\theta(x^{(i)})) h_\theta(x^{(i)}) x^{(i)}  \\
+ &= - \frac{1}{ \cancel{1 - h_{\theta}(x^{(i)})} } \cancel{(1- h_\theta(x^{(i)}))} h_\theta(x^{(i)}) x^{(i)}  \\
+ &= -h_\theta(x^{(i)}) x^{(i)}. \tag{14}\label{eq:bagian-II-theta1} \end{align} %]]></script>
+
+<p>Again, by substituting Equation \eqref{eq:bagian-I-theta1} and Equation \eqref{eq:bagian-II-theta1} into Equation  \eqref{eq:bagian2-theta1}, we obtain</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align} \frac{\partial J}{\partial \theta_1} &= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \underbrace{\frac{\partial }{\partial \theta_1} \left( \log (h_{\theta}(x^{(i)})) \right)}_{\text{Bagian I}}  + (1-y^{(i)}) \underbrace{\frac{\partial }{\partial \theta_1} \left(\log (1 - h_{\theta}(x^{(i)})) \right)}_{\text{Bagian II}} \right) \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} (1 - h_{\theta}(x^{(i)})) x^{(i)}  - (1-y^{(i)}) h_{\theta}(x^{(i)}) x^{(i)} \right)  \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} - y^{(i)} h_{\theta}(x^{(i)})  - h_{\theta}(x^{(i)}) + y^{(i)} h_{\theta}(x^{(i)}) \right) x^{(i)} \\
+&= -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \cancel{- y^{(i)} h_{\theta}(x^{(i)})}  - h_{\theta}(x^{(i)}) \cancel{+ y^{(i)} h_{\theta}(x^{(i)})} \right) x^{(i)} \\
+&= -\frac{1}{m} \sum_{i=1}^{m} ( y^{(i)} - h_{\theta}(x^{(i)}) ) x^{(i)}   \\
+&= \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x^{(i)}.  \end{align} %]]></script>
+
+<p>Therefore, the <em>gradient</em> of <strong>logistic regression</strong> model with 1 variable, $x$ and 2 parameters, $\theta_0$ dan $\theta_1$ is</p>
+
+<script type="math/tex; mode=display">\begin{equation} \frac{\partial J}{\partial \theta_0} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} )  \end{equation}</script>
+
+<p>and</p>
+
+<script type="math/tex; mode=display">\begin{equation} \frac{\partial J}{\partial \theta_1} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x^{(i)} . \end{equation}</script>
+
+<p>In general, <em>gradient</em> of <strong>logistic regression</strong> model dengan $n$ variables, $x_1, x_2, \ldots, x_n$ and $n+1$ parameters, $\theta_0, \theta_1, \ldots, \theta_n$ is</p>
+
+<p><script type="math/tex"></script> \begin{equation} \frac{\partial J}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^{m} ( h_{\theta}(x^{(i)}) - y^{(i)} ) x_{j}^{(i)}.  \end{equation} <script type="math/tex"></script></p>
+
+<p>Additionally, in case $j=0$, we have $x_0^{(i)} = 1$ for $i = 1, 2, \ldots, m$.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on April  8, 2019
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/machine-learning/Gradient_Descent_for_Logistic_Regression/',
+		  'title': 'Computing Gradients of Cost Function from Logistic Regression'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
