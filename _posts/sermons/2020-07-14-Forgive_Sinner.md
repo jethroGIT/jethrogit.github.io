@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is a Forgiven Sinner?
+title: Who is a Forgiven Sinner?
 category: Sermons
 lang: EN
 description: A forgiven sinner
@@ -12,5 +12,5 @@ Before we discuss what a forgiven sinner is, let me explain what **the gospel** 
 
 Historically, the gospel is understood as the good news that by God's unmerited grace, guilty sinners who deserve His just punishment have been fully pardoned and accepted on the grounds of the death and resurrection of Jesus Christ. The gospel tells us that we have been saved from God, by God, and for God alone.
 
-God saved sinners through the death and resurrection of Christ for Himself. We are recipients, but not the ultimate goal, of salvation. The grand story of salvation is the story of God's renewing all creation, restoring the broken world. Moreover, as His redeemed people, we now live and work for His glory, advancing His kingdom, redeeming all things towards the new heaven and earth. We are the _Forgiven Sinners_.
+God saved sinners through the death and resurrection of Christ for Himself. We are recipients, but not the ultimate goal, of salvation. The grand story of salvation is the story of God's renewing all creation, restoring the broken world. Moreover, as His redeemed people, we now _live_ and _work for His glory_, _advancing His kingdom_, _redeeming all things towards the new heaven and earth_. We are the _Forgiven Sinners_.
 
