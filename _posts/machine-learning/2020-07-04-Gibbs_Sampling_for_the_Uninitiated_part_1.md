@@ -13,11 +13,11 @@ This article will show a _step by step implementation of a Gibbs sampler_ for a 
    
 Let's start with the problem definition. Assume that we would like to classify whether or not the sentiment of a document is either $0$ (negative) or $1$ (positive) visualized by the following image.
 
-[![img1]({{ site.baseurl }}/assets/images/sentiment-positive-negative.jpeg){:class="img-responsive"}]({{ site.baseurl }}/assets/images/sentiment-positive-negative.jpeg)*An illustration of positive and negative sentiments. Image taken from [Saad Arshad](https://towardsdatascience.com/cnn-sentiment-analysis-1d16b7c5a0e7), some rights reserved.*    
+[![img1]({{ site.baseurl }}/assets/images/sentiment-positive-negative.jpeg){:class="img-responsive"}]({{ site.baseurl }}/assets/images/sentiment-positive-negative.jpeg)*<center>An illustration of positive and negative sentiments. Image taken from <a href="https://towardsdatascience.com/cnn-sentiment-analysis-1d16b7c5a0e7">Saad Arshad</a>, some rights reserved.</center>*    
 
 Moreover, the generative story of how the documents are generated as explained in $\S$2.1 of the paper is shown in the following image.    
 
-[![img1]({{ site.baseurl }}/assets/images/naive-bayes-graphical-model.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/naive-bayes-graphical-model.png)*The graphical model of the simple Naive Bayes model.*
+[![img1]({{ site.baseurl }}/assets/images/naive-bayes-graphical-model.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/naive-bayes-graphical-model.png)*<center>The graphical model of the simple Naive Bayes model.</center>*
 
 Let's recall some of the notations from the paper. There are $6$ variables in the image and we shall discuss these variables one by one.       
 
