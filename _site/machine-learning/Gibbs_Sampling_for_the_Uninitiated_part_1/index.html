@@ -1,14 +1,151 @@
-I"�T<p>This article is inspired by the <em>masterpiece</em> of <a href="https://maranathaedu-my.sharepoint.com/:b:/g/personal/hendra_bunyamin_it_maranatha_edu/EZA9beLgBdZPip9br-UrdSAB024P8IBGESYAbJP3MfRQFQ?e=HdMzZ9"><strong>Gibbs Sampling tutorial</strong></a> by <em>Resnik and Hardisty</em> and also an <em>awesome</em> <a href="https://github.com/bobflagg/gibbs-sampling-for-the-uninitiated"><strong>github repo</strong></a> by <em>Bob Flagg</em>.    Both of these resources are excellent and highly recommended for anyone to read.</p>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Gibbs Sampling for the Uninitiated part 1 – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This article is inspired by the masterpiece of Gibbs Sampling tutorial by Resnik and Hardisty and also an awesome github repo by Bob Flagg.    Both of these resources are excellent and highly recommended for anyone to read.
+" />
+    <meta property="og:description" content="This article is inspired by the masterpiece of Gibbs Sampling tutorial by Resnik and Hardisty and also an awesome github repo by Bob Flagg.    Both of these resources are excellent and highly recommended for anyone to read.
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Gibbs Sampling for the Uninitiated part 1" />
+    <meta property="twitter:title" content="Gibbs Sampling for the Uninitiated part 1" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/machine-learning">machine-learning</a> / gibbs sampling for the uninitiated part 1</span></p>
+          <h3>Gibbs Sampling for the Uninitiated part 1<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Gibbs sampling for dummies">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Gibbs Sampling for the Uninitiated part 1 <br> 
+                  <span class="text-small">Gibbs sampling for dummies</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>This article is inspired by the <em>masterpiece</em> of <a href="https://maranathaedu-my.sharepoint.com/:b:/g/personal/hendra_bunyamin_it_maranatha_edu/EZA9beLgBdZPip9br-UrdSAB024P8IBGESYAbJP3MfRQFQ?e=HdMzZ9"><strong>Gibbs Sampling tutorial</strong></a> by <em>Resnik and Hardisty</em> and also an <em>awesome</em> <a href="https://github.com/bobflagg/gibbs-sampling-for-the-uninitiated"><strong>github repo</strong></a> by <em>Bob Flagg</em>.    Both of these resources are excellent and highly recommended for anyone to read.</p>
 
 <p>This article will show a <em>step by step implementation of a Gibbs sampler</em> for a <strong>Naive Bayes</strong> model in Python.</p>
 
 <p>Let’s start with the problem definition. Assume that we would like to classify whether or not the sentiment of a document is either $0$ (negative) or $1$ (positive) visualized by the following image.</p>
 
-<p><a href="/assets/images/sentiment-positive-negative.jpeg"><img src="/assets/images/sentiment-positive-negative.jpeg" alt="img1" class="img-responsive" /></a><em><center>An illustration of positive and negative sentiments. Image taken from [Saad Arshad](https://towardsdatascience.com/cnn-sentiment-analysis-1d16b7c5a0e7), some rights reserved.</center></em></p>
+<p><a href="/assets/images/sentiment-positive-negative.jpeg"><img src="/assets/images/sentiment-positive-negative.jpeg" alt="img1" class="img-responsive" /></a><em><center>An illustration of positive and negative sentiments. Image taken from <a href="https://towardsdatascience.com/cnn-sentiment-analysis-1d16b7c5a0e7">Saad Arshad</a>, some rights reserved.</center></em></p>
 
 <p>Moreover, the generative story of how the documents are generated as explained in $\S$2.1 of the paper is shown in the following image.</p>
 
-<p><a href="/assets/images/naive-bayes-graphical-model.png"><img src="/assets/images/naive-bayes-graphical-model.png" alt="img1" class="img-responsive" /></a><em>The graphical model of the simple Naive Bayes model.</em></p>
+<p><a href="/assets/images/naive-bayes-graphical-model.png"><img src="/assets/images/naive-bayes-graphical-model.png" alt="img1" class="img-responsive" /></a><em><center>The graphical model of the simple Naive Bayes model.</center></em></p>
 
 <p>Let’s recall some of the notations from the paper. There are $6$ variables in the image and we shall discuss these variables one by one.</p>
 
@@ -210,4 +347,65 @@ Let’s define a function to <em>sample labels</em> for <code class="highlighter
     \end{equation}</script>
 
 <p>The playground of this tutorial is also provided as <em>Jupyter notebook</em> in this <a href="https://github.com/hbunyamin/gibbs-sampling-for-uninitiated-with-python"><strong>repo</strong></a>.</p>
-:ET
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on July  4, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/machine-learning/Gibbs_Sampling_for_the_Uninitiated_part_1/',
+		  'title': 'Gibbs Sampling for the Uninitiated part 1'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

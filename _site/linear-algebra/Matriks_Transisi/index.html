@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Matriks Transisi Antara 2 Basis di Suatu Ruang Vektor – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Artikel ini hendak memberikan penjelasan yang lebih detil tentang Teorema 4.21 yang berjudul Transition Matrix from $B$ to $B^{\prime}$ dari buku Larson (2016) di halaman 212.
+" />
+    <meta property="og:description" content="Artikel ini hendak memberikan penjelasan yang lebih detil tentang Teorema 4.21 yang berjudul Transition Matrix from $B$ to $B^{\prime}$ dari buku Larson (2016) di halaman 212.
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Matriks Transisi Antara 2 Basis di Suatu Ruang Vektor" />
+    <meta property="twitter:title" content="Matriks Transisi Antara 2 Basis di Suatu Ruang Vektor" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/linear-algebra">linear-algebra</a> / matriks transisi antara 2 basis di suatu ruang vektor</span></p>
+          <h3>Matriks Transisi Antara 2 Basis di Suatu Ruang Vektor<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Matriks transisi antara 2 basis">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Matriks Transisi Antara 2 Basis di Suatu Ruang Vektor <br> 
+                  <span class="text-small">Matriks transisi antara 2 basis</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>Artikel ini hendak memberikan penjelasan yang lebih detil tentang <strong>Teorema 4.21</strong> yang berjudul <em>Transition Matrix from</em> $B$ <em>to</em> $B^{\prime}$ dari buku <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) di halaman 212.</p>
+
+<p>Diketahui 2 basis bagi $R^n$, yaitu 
+<script type="math/tex">B = \{ \pmb{v}_1, \pmb{v}_2, \ldots, \pmb{v}_n \}</script> dan 
+<script type="math/tex">B^{\prime} = \{ \pmb{u}_1, \pmb{u}_2, \ldots, \pmb{u}_n \}</script> dengan</p>
+
+<script type="math/tex; mode=display">\pmb{v}_1 = \begin{bmatrix} v_{11} \\ 
+v_{21} \\ 
+\vdots \\
+v_{n1} \end{bmatrix}, \; \pmb{v}_2 = \begin{bmatrix} v_{12} \\ 
+v_{22} \\ 
+\vdots \\
+v_{n2} \end{bmatrix}, \; \ldots,  \text{ dan } \pmb{v}_n = \begin{bmatrix} v_{1n} \\ 
+v_{2n} \\ 
+\vdots \\
+v_{nn} \end{bmatrix}</script>
+
+<p>dan</p>
+
+<script type="math/tex; mode=display">\pmb{u}_1 = \begin{bmatrix} u_{11} \\ 
+u_{21} \\ 
+\vdots \\
+u_{n1} \end{bmatrix}, \; \pmb{u}_2 = \begin{bmatrix} u_{12} \\ 
+u_{22} \\ 
+\vdots \\
+u_{n2} \end{bmatrix}, \; \ldots,  \text{ dan } \pmb{u}_n = \begin{bmatrix} u_{1n} \\ 
+u_{2n} \\ 
+\vdots \\
+u_{nn} \end{bmatrix}.</script>
+
+<p><strong>Teorema 4.21</strong> bertujuan untuk menghitung matriks transisi yang mengkonversi suatu vektor di basis <script type="math/tex">B</script> menjadi vektor di basis <script type="math/tex">B^{\prime}</script>. Karena kita hendak mencari bentuk vektor-vektor di basis <script type="math/tex">B^{\prime}</script> apabila vektor-vektor tersebut dikonversi dari basis <script type="math/tex">B</script> ke basis <script type="math/tex">B^{\prime}</script>, langkah pertama adalah menulis setiap vektor di $B$ sebagai kombinasi linier dari setiap vektor di $B^{\prime}$ sebagai berikut:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+	\pmb{v}_1 &= d_{11} \pmb{u}_1 + d_{21} \pmb{u}_2 + \cdots + d_{n1} \pmb{u}_n \tag{1}\label{eq:definisi-v}  \\
+	\pmb{v}_2 &= d_{12} \pmb{u}_1 + d_{22} \pmb{u}_2 + \cdots + d_{n2} \pmb{u}_n \\
+	   \vdots &=  \vdots \\
+	\pmb{v}_n &= d_{1n} \pmb{u}_1 + d_{2n} \pmb{u}_2 + \cdots + d_{nn} \pmb{u}_n 
+\end{align} %]]></script>
+
+<p>Selanjutnya, matriks transisi dari basis $B$ ke basis $B^{\prime} $adalah $Q$ sedemikian sehingga</p>
+
+<script type="math/tex; mode=display">\begin{bmatrix}
+		d_{11} \\
+		d_{21} \\
+		\vdots \\
+		d_{n1} 
+	\end{bmatrix} = Q \pmb{v}_1, \; 	\begin{bmatrix}
+		d_{12} \\
+		d_{22} \\
+		\vdots \\
+		d_{n2} 
+	\end{bmatrix} = Q \pmb{v}_2, \ldots, \begin{bmatrix}
+		d_{1n} \\
+		d_{2n} \\
+		\vdots \\
+		d_{nn} 
+	\end{bmatrix} = Q \pmb{v}_n \tag{2}\label{eq:q-awal}</script>
+
+<p>Dengan menggunakan notasi <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) di <strong>Subbab 4.7</strong> <em>Coordinate Representation Relative to a Basis</em> pada halaman 208, Persamaan \eqref{eq:q-awal} dapat ditulis menjadi</p>
+
+<script type="math/tex; mode=display">[\pmb{v}_1]_{B^{\prime}} = Q \pmb{v}_1, \; 
+	[\pmb{v}_2]_{B^{\prime}} = Q \pmb{v}_2, \ldots, [\pmb{v}_n]_{B^{\prime}} = Q \pmb{v}_n \tag{3}\label{eq:q-akhir}</script>
+
+<p>Persamaan \eqref{eq:q-akhir} memperlihatkan bahwa perubahan <script type="math/tex">\pmb{v}_1</script> yang merupakan vektor di basis <script type="math/tex">B</script> menjadi <script type="math/tex">[\pmb{v}_1]_{B^{\prime}}</script> dilakukan dengan cara mengalikan <script type="math/tex">\pmb{v}_1</script> dengan <script type="math/tex">Q</script>. Dengan kata lain, perubahan dari suatu vektor di basis <script type="math/tex">B</script> menjadi vektor di basis $B^{\prime}$ dilakukan dengan mengalikan vektor di basis <script type="math/tex">B</script> tersebut dengan matriks transisi <script type="math/tex">Q</script>.</p>
+
+<blockquote>
+  <p>Selanjutnya, kita akan mencari matriks transisi <script type="math/tex">Q</script> tersebut.</p>
+</blockquote>
+
+<p>Kita mulai dengan Persamaan \eqref{eq:definisi-v}, yaitu</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+	\pmb{v}_1 &= d_{11} \pmb{u}_1 + d_{21} \pmb{u}_2 + \cdots + d_{n1} \pmb{u}_n \\
+	\Leftrightarrow  \begin{bmatrix} v_{11} \\
+		v_{21}  \\
+		\vdots \\
+		v_{n1}  
+	 \end{bmatrix} &= d_{11}  \begin{bmatrix} u_{11} \\
+	 	u_{21} \\
+	 	\vdots \\
+	 	u_{n1}	\end{bmatrix} + d_{21}  \begin{bmatrix} u_{12} \\
+	 	u_{22} \\
+	 	\vdots \\
+	 	u_{n2}	\end{bmatrix} + \cdots + d_{n1}  \begin{bmatrix} u_{1n} \\
+	 	u_{2n} \\
+	 	\vdots \\
+	 	u_{nn}	\end{bmatrix} \\
+	\Leftrightarrow  \begin{bmatrix} v_{11} \\
+		v_{21}  \\
+		\vdots \\
+		v_{n1}  
+	 \end{bmatrix} &= \begin{bmatrix} u_{11} & u_{12} & \cdots & u_{1n} \\
+	 	u_{21} & u_{22}   & \cdots & u_{2n} \\
+	 	\vdots &   \vdots & \cdots & \vdots \\
+	 	u_{n1} & u_{n2}   & \cdots & u_{nn}	 	 
+	 \end{bmatrix} \begin{bmatrix} 
+	 	d_{11} \\
+	 	d_{21} \\
+	 	\vdots \\
+	 	d_{n1}
+	 \end{bmatrix}	&& \text{Menggunakan bentuk matriks} \\
+\Leftrightarrow  \begin{bmatrix} d_{11} \\
+		d_{21}  \\
+		\vdots \\
+		d_{n1}  
+	 \end{bmatrix} &= \underbrace{\begin{bmatrix} u_{11} & u_{12} & \cdots & u_{1n} \\
+	 	u_{21} & u_{22}   & \cdots & u_{2n} \\
+	 	\vdots &   \vdots & \cdots & \vdots \\
+	 	u_{n1} & u_{n2}   & \cdots & u_{nn}	 	 
+	 \end{bmatrix}^{-1}}_{Q}  \underbrace{\begin{bmatrix} 
+	 	v_{11} \\
+	 	v_{21} \\
+	 	\vdots \\
+	 	v_{n1}
+	 \end{bmatrix}}_{\pmb{v}_1} && \text{Cari solusi SPL dengan teknik invers} \\
+\Leftrightarrow  [\pmb{v}_1]_{B^{\prime}} &= Q \pmb{v}_1
+\end{align} %]]></script>
+
+<p>Untuk <script type="math/tex">\pmb{v}_2</script>, <script type="math/tex">\pmb{v}_3</script> <script type="math/tex">\ldots</script>, <script type="math/tex">\pmb{v}_n</script>, dengan cara yang sama juga akan diperoleh bahwa</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+Q = \begin{bmatrix} u_{11} & u_{12} & \cdots & u_{1n} \\
+	 	u_{21} & u_{22}   & \cdots & u_{2n} \\
+	 	\vdots &   \vdots & \cdots & \vdots \\
+	 	u_{n1} & u_{n2}   & \cdots & u_{nn}	 	 
+	 \end{bmatrix}^{-1} %]]></script>
+
+<p>Jadi kesimpulannya adalah</p>
+<blockquote>
+  <p><em>Matriks transisi dari</em> <script type="math/tex">B</script> <em>ke</em> <script type="math/tex">B^{\prime}</script>, yaitu <script type="math/tex">Q</script> <em>adalah invers dari matriks yang setiap kolom-kolomnya merupakan vektor-vektor dari basis</em> <script type="math/tex">B^{\prime}</script> atau
+<script type="math/tex">% <![CDATA[
+Q = \begin{bmatrix} \pmb{u}_1 & \pmb{u}_2 & \pmb{u}_3 & \cdots & \pmb{u}_n \end{bmatrix}^{-1} %]]></script>.</p>
+</blockquote>
+
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on May 16, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/linear-algebra/Matriks_Transisi/',
+		  'title': 'Matriks Transisi Antara 2 Basis di Suatu Ruang Vektor'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

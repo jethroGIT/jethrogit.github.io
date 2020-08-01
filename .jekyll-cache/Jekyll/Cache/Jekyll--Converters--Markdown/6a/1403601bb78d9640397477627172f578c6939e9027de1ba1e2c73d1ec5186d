@@ -1,4 +1,5 @@
-I"áT<p>This article is inspired by the <em>masterpiece</em> of <a href="https://maranathaedu-my.sharepoint.com/:b:/g/personal/hendra_bunyamin_it_maranatha_edu/EZA9beLgBdZPip9br-UrdSAB024P8IBGESYAbJP3MfRQFQ?e=HdMzZ9"><strong>Gibbs Sampling tutorial</strong></a> by <em>Resnik and Hardisty</em> and also an <em>awesome</em> <a href="https://github.com/bobflagg/gibbs-sampling-for-the-uninitiated"><strong>github repo</strong></a> by <em>Bob Flagg</em>.    Both of these resources are excellent and highly recommended for anyone to read.</p>
+I"U<h2 id="motivation">Motivation</h2>
+<p>This article is inspired by the <em>masterpiece</em> of <a href="https://maranathaedu-my.sharepoint.com/:b:/g/personal/hendra_bunyamin_it_maranatha_edu/EZA9beLgBdZPip9br-UrdSAB024P8IBGESYAbJP3MfRQFQ?e=HdMzZ9"><strong>Gibbs Sampling tutorial</strong></a> by <em>Resnik and Hardisty</em> and also an <em>awesome</em> <a href="https://github.com/bobflagg/gibbs-sampling-for-the-uninitiated"><strong>github repo</strong></a> by <em>Bob Flagg</em>.    Both of these resources are excellent and highly recommended for anyone to read.</p>
 
 <p>This article will show a <em>step by step implementation of a Gibbs sampler</em> for a <strong>Naive Bayes</strong> model in Python.</p>
 
@@ -8,7 +9,7 @@
 
 <p>Moreover, the generative story of how the documents are generated as explained in $\S$2.1 of the paper is shown in the following image.</p>
 
-<p><a href="/assets/images/naive-bayes-graphical-model.png"><img src="/assets/images/naive-bayes-graphical-model.png" alt="img1" class="img-responsive" /></a><em>The graphical model of the simple Naive Bayes model.</em></p>
+<p><a href="/assets/images/naive-bayes-graphical-model.png"><img src="/assets/images/naive-bayes-graphical-model.png" alt="img1" class="img-responsive" /></a><em><center>The graphical model of the simple Naive Bayes model.</center></em></p>
 
 <p>Letâ€™s recall some of the notations from the paper. There are $6$ variables in the image and we shall discuss these variables one by one.</p>
 
