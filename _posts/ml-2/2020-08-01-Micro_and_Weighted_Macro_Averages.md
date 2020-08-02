@@ -89,6 +89,7 @@ $$\require{cancel} \begin{align}
 
 \end{align}$$
 
+Finally we have reached the end of this post. In brief, we have shown how to compute **macro-average**, **micro-average**, and **weighted macro-average**. Moreover, we have also shown that the **micro-average** equals to **weighted macro-average**.
 
 <br/>   
 #### References
