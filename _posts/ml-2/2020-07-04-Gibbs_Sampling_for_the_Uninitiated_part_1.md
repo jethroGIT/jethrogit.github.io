@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Gibbs Sampling for the Uninitiated part 1 
-category: Machine-Learning
+category: ML-2
 lang: EN
 description: Gibbs sampling for dummies
 sticky: true

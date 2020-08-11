@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Hasil Kali Titik dan Sudut Antara 2 Vektor – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Artikel ini hendak memberikan penjelasan yang lebih detil mengenai hubungan antara hasil kali titik (dot product) dengan sudut antara 2 vektor. Buku Larson (2016) pada halaman 235 kembali direkomendasikan menjadi referensi utama.
+" />
+    <meta property="og:description" content="Artikel ini hendak memberikan penjelasan yang lebih detil mengenai hubungan antara hasil kali titik (dot product) dengan sudut antara 2 vektor. Buku Larson (2016) pada halaman 235 kembali direkomendasikan menjadi referensi utama.
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Hasil Kali Titik dan Sudut Antara 2 Vektor" />
+    <meta property="twitter:title" content="Hasil Kali Titik dan Sudut Antara 2 Vektor" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/linear-algebra">linear-algebra</a> / hasil kali titik dan sudut antara 2 vektor</span></p>
+          <h3>Hasil Kali Titik dan Sudut Antara 2 Vektor<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Hubungan Hasil Kali Titik dan Sudut">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Hasil Kali Titik dan Sudut Antara 2 Vektor <br> 
+                  <span class="text-small">Hubungan Hasil Kali Titik dan Sudut</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>Artikel ini hendak memberikan penjelasan yang lebih detil mengenai hubungan antara <strong>hasil kali titik</strong> (<em>dot product</em>) dengan <strong>sudut</strong> antara 2 vektor. Buku <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) pada halaman 235 kembali direkomendasikan menjadi referensi utama.</p>
+
+<p>Diketahui dua buah vektor $\mathbf{u} = (u_1, u_2)$ dan $\mathbf{v} = (v_1, v_2)$ dan sudut $\theta$ adalah sudut yang dibentuk oleh vektor $\mathbf{u}$ dan $\mathbf{v}$ seperti pada gambar berikut:</p>
+
+<p><a href="/assets/images/angle-between-two-vectors.png"><img src="/assets/images/angle-between-two-vectors.png" alt="img1" class="img-responsive" /></a></p>
+
+<p>Gambar di atas sepenuhnya merupakan hak cipta dari <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016). <em>For your information, buku <a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) is highly recommended</em>.</p>
+
+<p>Berdasarkan konsep yang bernama <a href="https://www.khanacademy.org/math/geometry/hs-geo-trig/hs-geo-law-of-cosines/v/law-of-cosines-example">Aturan Kosinus</a> (<em>The Law of Cosines</em>), diperoleh</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\require{cancel} \begin{align} \lVert \mathbf{v} - \mathbf{u} \rVert^2 &= \lVert \mathbf{u} \rVert^2 + \lVert \mathbf{v} \rVert^2 - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow  (v_1 - u_1)^2 + (v_2 - u_2)^2 &= u_1^2 + u_2^2 + v_1^2 + v_2^2 - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow \cancel{v_1^2} - 2 v_1 u_1 + \cancel{u_1^2} + \cancel{v_2^2} - 2 v_2 u_2 + \cancel{u_2^2} &=  \cancel{u_1^2} + \cancel{u_2^2} + \cancel{v_1^2} + \cancel{v_2^2} - 2 \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow u_1 v_1 + u_2 v_2 &= \lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert \cos \theta \\
+\Longleftrightarrow \cos \theta &= \frac{u_1 v_1 + u_2 v_2}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert}. \tag{1}\label{eq:final-eq}
+\end{align} %]]></script>
+
+<p>Pembilang dari pecahan di ruas kanan dari Persamaan \eqref{eq:final-eq} merupakan <strong>hasil kali titik</strong> (<em>dot product</em>) dari $\mathbf{u}$ dan $\mathbf{v}$ sehingga Persamaan \eqref{eq:final-eq} dapat ditulis menjadi</p>
+
+<script type="math/tex; mode=display">\begin{equation} \cos \theta = \frac{\mathbf{u} \centerdot \mathbf{v}}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert}. 
+\end{equation} \tag{2}\label{eq:dot-product}</script>
+
+<p>Jadi dapat disimpulkan bahwa Persamaan \eqref{eq:dot-product} menjelaskan hubungan antara <strong>hasil kali titik</strong> (<em>dot product</em>) antara 2 vektor dan sudut yang dibentuk oleh keduanya.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on May 30, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/linear-algebra/Hasil_Kali_Titik/',
+		  'title': 'Hasil Kali Titik dan Sudut Antara 2 Vektor'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
