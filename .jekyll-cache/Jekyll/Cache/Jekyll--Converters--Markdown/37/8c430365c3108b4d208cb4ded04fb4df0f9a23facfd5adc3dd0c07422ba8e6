@@ -1,0 +1,155 @@
+I"�C<p>This article explains the implementation of <strong>Macro-averages</strong> and <strong>Weighted Macro-averages</strong> as explained in this <a href="https://hbunyamin.github.io/ml-2/Micro_and_Weighted_Macro_Averages">post</a> and this <a href="https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin">Data Science post</a>. Specifically, we add <strong>macro-averages</strong> and <strong>weighted macro-averages precision</strong> metrics into the <a href="https://course.fast.ai/videos/?lesson=3">lesson 3 of Practical Deep Learning for Coders, v3</a>.  <br />
+Lesson 3 describes how to deal with <em>image segmentation</em> problem, that is predicting a category for each pixel in an image. The image dataset comes from <a href="https://course.fast.ai/datasets">CamVid dataset</a>.</p>
+
+<p>In order to run the codes below, you need to install the <a href="https://github.com/fastai/fastai"><strong>fastai library</strong></a>.    <br />
+Let’s start by importing all the required libraries.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">reload_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">from</span> <span class="nn">fastai.vision</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">fastai.callbacks.hooks</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">fastai.utils.mem</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div></div>
+<p>We <code class="highlighter-rouge">untar</code> the CamVid dataset.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">CAMVID</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
+</code></pre></div></div>
+<p>Out:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[PosixPath('/home/jupyter/.fastai/data/camvid/codes.txt'),
+ PosixPath('/home/jupyter/.fastai/data/camvid/labels'),
+ PosixPath('/home/jupyter/.fastai/data/camvid/valid.txt'),
+ PosixPath('/home/jupyter/.fastai/data/camvid/images')]
+</code></pre></div></div>
+
+<p>We create a path to the <code class="highlighter-rouge">labels</code> and all <code class="highlighter-rouge">images</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">path_lbl</span> <span class="o">=</span> <span class="n">path</span><span class="o">/</span><span class="s">'labels'</span>
+<span class="n">path_img</span> <span class="o">=</span> <span class="n">path</span><span class="o">/</span><span class="s">'images'</span>
+</code></pre></div></div>
+<p>Let’s get the images.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fnames</span> <span class="o">=</span> <span class="n">get_image_files</span><span class="p">(</span><span class="n">path_img</span><span class="p">)</span>
+<span class="n">fnames</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+<p>Out:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[PosixPath('/home/jupyter/.fastai/data/camvid/images/0001TP_008730.png'),
+ PosixPath('/home/jupyter/.fastai/data/camvid/images/Seq05VD_f00090.png'),
+ PosixPath('/home/jupyter/.fastai/data/camvid/images/0006R0_f03570.png')]
+</code></pre></div></div>
+<p>Let’s show some image labels.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lbl_names</span> <span class="o">=</span> <span class="n">get_image_files</span><span class="p">(</span><span class="n">path_lbl</span><span class="p">)</span>
+<span class="n">lbl_names</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+<p>Out:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[PosixPath('/home/jupyter/.fastai/data/camvid/labels/0016E5_08067_P.png'),
+ PosixPath('/home/jupyter/.fastai/data/camvid/labels/Seq05VD_f03870_P.png'),
+ PosixPath('/home/jupyter/.fastai/data/camvid/labels/0016E5_01200_P.png')]
+</code></pre></div></div>
+
+<p>Let’s show one image.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">img_f</span> <span class="o">=</span> <span class="n">fnames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">open_image</span><span class="p">(</span><span class="n">img_f</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</code></pre></div></div>
+<p>Out:
+<a href="/assets/images/one-image.png"><img src="/assets/images/one-image.png" alt="img1" class="img-responsive" /></a></p>
+
+<p>Next, we create a method to open a mask and show the mask.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_y_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">path_lbl</span><span class="o">/</span><span class="n">f</span><span class="s">'{x.stem}_P{x.suffix}'</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">open_mask</span><span class="p">(</span><span class="n">get_y_fn</span><span class="p">(</span><span class="n">img_f</span><span class="p">))</span>
+<span class="n">mask</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Out:
+<a href="/assets/images/one-mask.png"><img src="/assets/images/one-mask.png" alt="img1" class="img-responsive" /></a></p>
+
+<p>Let’s view the mask data.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">src_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">src_size</span><span class="p">,</span><span class="n">mask</span><span class="o">.</span><span class="n">data</span>
+</code></pre></div></div>
+<p>Out:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(array([720, 960]),
+ tensor([[[26, 26, 26,  ...,  4,  4,  4],
+          [26, 26, 26,  ...,  4,  4,  4],
+          [26, 26, 26,  ...,  4,  4,  4],
+          ...,
+          [17, 17, 17,  ..., 30, 30, 30],
+          [17, 17, 17,  ..., 30, 30, 30],
+          [17, 17, 17,  ..., 30, 30, 30]]]))
+</code></pre></div></div>
+
+<p>Particularly, the categories for each pixel are shown in code below.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">codes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s">'codes.txt'</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">);</span> <span class="n">codes</span>
+</code></pre></div></div>
+<p>Out:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We construct the path to the image 
+</span><span class="n">images_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/images'</span><span class="p">)</span>
+
+<span class="c1"># We construct the path to label path where we want to put the mask image 
+</span><span class="n">label_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/binaryLabels'</span><span class="p">)</span>
+
+<span class="c1"># We construct the path to the json file; the json file contains coordinates of polygons
+</span><span class="n">json_path</span>  <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/labels'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then, we put all the image files in a list.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">images_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">images_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+</code></pre></div></div>
+
+<p>Finally, we process all the images and convert them into mask images.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">img_name</span> <span class="ow">in</span> <span class="n">list_files</span><span class="p">:</span>
+    <span class="c1"># split the file name
+</span>    <span class="n">prefix_file_name</span> <span class="o">=</span> <span class="n">img_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+    
+    <span class="c1"># construct the path to the image
+</span>    <span class="n">temp_image_path</span> <span class="o">=</span> <span class="n">images_path</span> <span class="o">/</span> <span class="n">img_name</span>    
+    
+    <span class="c1"># construct the path to the json    
+</span>    <span class="n">temp_json_path</span> <span class="o">=</span> <span class="n">json_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">prefix_file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">".json"</span><span class="p">)</span>
+    
+    <span class="c1"># read the json
+</span>    <span class="n">json_dict</span> <span class="o">=</span> <span class="bp">None</span> 
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">temp_json_path</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">json_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>  
+    
+    <span class="c1"># construct the list of xy of buildings
+</span>    <span class="n">props_xy_list</span> <span class="o">=</span> <span class="n">json_dict</span><span class="p">[</span><span class="s">'features'</span><span class="p">][</span><span class="s">'xy'</span><span class="p">]</span>     
+    
+    <span class="c1"># construct list of polygons 
+</span>    <span class="n">polygon_geom_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">props_xy_list</span><span class="p">:</span>
+        <span class="n">polygon_temp</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="n">prop</span><span class="p">[</span><span class="s">'wkt'</span><span class="p">])</span>
+        <span class="n">polygon_geom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">polygon_temp</span><span class="p">)</span>    
+    
+    <span class="c1"># read the image which we want to draw the polygons
+</span>    <span class="n">the_image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span> <span class="n">temp_image_path</span> <span class="p">)</span>    
+    
+    <span class="c1"># Create the basic mask
+</span>    <span class="n">a_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">the_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">"bool"</span><span class="p">)</span> <span class="c1"># original
+</span>    
+    <span class="c1"># For each polygon, draw the polygon inside the mask
+</span>    <span class="k">for</span> <span class="n">polygon_geom</span> <span class="ow">in</span> <span class="n">polygon_geom_list</span><span class="p">:</span>
+        <span class="n">poly_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">polygon_geom</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">))</span>
+        <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">(</span><span class="n">poly_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">poly_coordinates</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">the_image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">a_mask</span><span class="p">[</span><span class="n">cc</span><span class="p">,</span><span class="n">rr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>        
+    
+    <span class="c1"># Convert numpy array of the mask into an image with the help of PIL
+</span>    <span class="n">mask_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">a_mask</span><span class="p">)</span>
+    
+    <span class="c1"># Save the image of the mask into the "binaryLabels" folder 
+</span>    <span class="n">mask_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span> <span class="n">label_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">prefix_file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">"_mask.png"</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s">"PNG"</span> <span class="p">)</span>
+    
+    <span class="c1"># For debugging purposes
+</span>    <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Number of images have been processed:"</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>For conclusion, all <em>the mask images</em> are saved in <code class="highlighter-rouge">label_path</code>.</p>
+:ET
