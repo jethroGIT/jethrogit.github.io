@@ -20,7 +20,7 @@ Tidak ada apapun atau siapapun yang dapat menghentikan Tuhan mengasihimu. Tuhan 
 
 Berikut ayat-ayat yang menyatakan karakteristik ini.   
 Pertama, _Yesaya 49:15_ berkata:
-> _Dapatkah seorang perempuan melupakan bayinya, sehingga ia tidak menyayangi anak dari kandungannya? Sekalipun dia melupakannya, **Aku tidak akan melupakan engkau!**_.       
+> _Dapatkah seorang perempuan melupakan bayinya, sehingga ia tidak menyayangi anak dari kandungannya? Sekalipun dia melupakannya, **Aku tidak akan melupakan engkau!**_     
 
 Kedua, _Roma 8:38-39_ menyatakan:      
 > _Sebab aku yakin, bahwa baik maut, maupun hidup, baik malaikat-malaikat, maupun pemerintah-pemerintah, baik yang ada sekarang, maupun yang akan datang, atau kuasa-kuasa, baik yang di atas, maupun yang di bawah, ataupun sesuatu makhluk lain, **tidak akan dapat memisahkan kita dari kasih Tuhan, yang ada di dalam Kristus Yesus, Tuhan kita**_.    
