@@ -47,5 +47,5 @@ $$ \begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \frac{1}{1+e
 
 **Logistic regression** model in Equation \eqref{eq:sigmoid} is popularly also called **sigmoid function**. Finally, we have successfully derived **logistic regression** model (Equation \eqref{eq:sigmoid}) from _linear regression_ model (Equation \eqref{eq:linear-regression}).     
 <br/>
-### References
+#### References
 Raschka, S. and Mirjalili, V. (2017) _Python Machine Learning Second Edition_. Packt Publishing Ltd. Page 59-60.
