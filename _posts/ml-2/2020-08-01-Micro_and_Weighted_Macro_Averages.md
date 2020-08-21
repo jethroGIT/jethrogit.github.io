@@ -9,7 +9,7 @@ sticky: true
 
 Common classification problems in Machine Learning (ML) are binary and multi-class (Sokolova and Lapalme, 2009). For binary classification, we have _accuracy_, _precision_, _recall_, and a combination of _precision_ and _recall_ which is so-called $$F_1$$ score. However, the _precision_ and _recall_ from binary classification cannot be utilized literally to measure multi-class classification.
 
-To measure the performance of multi-class classification, two important modifications on precision and recall of binary classification are introduced. Their names are **macro-average** and **micro-average**. Therefore, for example, the precision of multi-class classification shall be **macro-average** precision and **micro-average** precision.
+To measure the performance of multi-class classification, two important modifications on precision and recall of binary classification are introduced. Their names are **macro-average** and **micro-average**. Therefore, for example, the precision of multi-class classification shall become **macro-average** precision and **micro-average** precision.
 
 Let's begin with an example of multi-class classification with $$4$$ classes ($$0$$, $$1$$, $$2$$, and $$3$$). Suppose we have $$\text{our predictions}$$ and the $$\text{true labels}$$ for five data instances as follows:
 
