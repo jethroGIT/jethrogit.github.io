@@ -66,6 +66,7 @@ Out:
 ```
 array([2, 0, 1])
 ```
+Now the values in `pclass` consist of `0`, `1`, and `2`.
 <br/>
 Subsequently, we convert the `pclass` into a tensor.
 ```python
