@@ -9,7 +9,7 @@ sticky: false
 
 This article explains how to create a_one-hot encoding_ of categorical values using PyTorch library. The idea of this post is inspired by "[_Deep Learning with PyTorch_](https://www.manning.com/books/deep-learning-with-pytorch?query=deep%20lea)" by Eli Stevens, Luca Antiga, and Thomas Viehmann.     
 
-Sooner or later everyone meets categorical values in one's dataset. For example, the size of a t-shirt which ranges from _small_ (S), _medium_ (M), _large_ (L), and  _extra large_ (XL), has four categorical values. Next, the question will be 
+Sooner or later every data scientist meets categorical values in one's dataset. For example, the size of a t-shirt (_small_ (S), _medium_ (M), _large_ (L), and  _extra large_ (XL)) has four categorical values. Therefore, the problem formulation of this post will be 
 
 > How do we encode these categorical values before we feed them into Machine Learning algorithms?  
     
