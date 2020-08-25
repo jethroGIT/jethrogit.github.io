@@ -9,7 +9,7 @@ sticky: false
 
 This article explains how to create a_one-hot encoding_ of categorical values using PyTorch library. The idea of this post is inspired by "[_Deep Learning with PyTorch_](https://www.manning.com/books/deep-learning-with-pytorch?query=deep%20lea)" by Eli Stevens, Luca Antiga, and Thomas Viehmann.     
 
-Sooner or later every data scientist meets categorical values in one's dataset. For example, the size of a t-shirt (_small_ (S), _medium_ (M), _large_ (L), and  _extra large_ (XL)) has four categorical values. Therefore, the problem formulation of this post will be 
+Sooner or later every data scientist _does_ meet categorical values in one's dataset. For example, the size of a t-shirt (_small_ (S), _medium_ (M), _large_ (L), and  _extra large_ (XL)) has four categorical values. Therefore, the problem formulation of this post will be 
 
 > How do we encode these categorical values before we feed them into Machine Learning algorithms?  
     
@@ -110,9 +110,10 @@ tensor([[0., 0., 1.],
         [1., 0., 0.],
         [0., 0., 1.]])
 ```
-The second argument (`pclass.unsqueeze(1)`) adds a new dimension to tensor `pclass`. Therefore, the dimension of `pclass` changes from `torch.Size([891])` to `torch.Size([891, 1])`. The first argument (`1`) states that the axis `1` (column) of `pclass` that will be expanded from `1` into `3`. We need to make sure that the column size of `pclass_onehot` is the same as the number of unique values in `pclass` with each value represents a column index.   
+The second argument (`pclass.unsqueeze(1)`) adds a new dimension to tensor `pclass`. Therefore, the dimension of `pclass` changes from `torch.Size([891])` to `torch.Size([891, 1])`.      
+The first argument (`1`) states that the axis `1` (column) of `pclass` that will be expanded from `1` into `3`. We need to make sure that the column size of `pclass_onehot` is the same as the number of unique values in `pclass` with each value represents a column index. Please write a comment if there is anything unclear about this explanation.   
    
-We conclude the post by showing that our conversion works well.    
+We conclude the post by showing that indeed our conversion works well.    
 This is the `pclass`.
 ```python
 pclass[:10]
@@ -123,7 +124,7 @@ tensor([2, 0, 2, 0, 2, 2, 0, 2, 2, 1])
 ```
 Next, this is the one-hot encoding of `pclass`.
 ```python
-pclass_onehot[0:10]
+pclass_onehot[:10]
 ```
 Out:
 ```
