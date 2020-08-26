@@ -4,7 +4,7 @@ title: Micro-average = Weighted Macro-average
 category: ML-2
 lang: EN
 description: Micro-average & Weighted Macro-average 
-sticky: true
+sticky: false
 ---
 
 Common classification problems in Machine Learning (ML) are binary and multi-class (Sokolova and Lapalme, 2009). For binary classification, we have _accuracy_, _precision_, _recall_, and a combination of _precision_ and _recall_ which is so-called $$F_1$$ score. However, the _precision_ and _recall_ from binary classification cannot be utilized literally to measure multi-class classification.
