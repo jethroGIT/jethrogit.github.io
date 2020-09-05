@@ -1,0 +1,4 @@
+I"{<p>This article summarizes the topic “<em><strong>Exponentially Weighted Moving Averages</strong></em>” (<a href="https://www.coursera.org/learn/deep-neural-network/home/week/2">Week 2 of <em>Improving Deep Neural Networks: Hyperparameters tuning, Regularization and Optimization</em></a>) from <a href="https://www.coursera.org/specializations/deep-learning?">deeplearning.ai</a>.</p>
+
+<p>There are a few optimization algorithms which are faster than <em>gradient descent</em>. In order to understand these optimization algorithms, we need to understand the concept of <strong>exponentially weighted moving averages</strong>.</p>
+:ET
