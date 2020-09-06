@@ -11,10 +11,10 @@ This article summarizes the topic "_**Exponentially Weighted Moving Averages**_"
    
 There are a few optimization algorithms which are faster than _gradient descent_. In order to understand these optimization algorithms, we need to understand the concept of **exponentially weighted moving averages**. 
 
-[![img1]({{ site.baseurl }}/assets/images/temperature-and-days.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/temperature-and-days.png)*<center>A plot of temperatures for each day in a year. Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
+[![img1]({{ site.baseurl }}/assets/images/temperature-and-days.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/temperature-and-days.png)*<center>$\pmb{\text{Figure 1}}$: A plot of temperatures for each day in a year. Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
 <br/>      
 
-Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$ (how many days in one year?). Visually, the temperatures are shown in the image above. Furthermore, we show several examples of the temperatures as follows:
+Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$ (how many days in one year?). Visually, the temperatures are shown in $\pmb{\text{Figure 1}}$. Furthermore, we show several examples of the temperatures as follows:
 
 $$ \begin{align}
 	\theta_1 &= 40^{\circ} \text{F} \\
@@ -55,14 +55,14 @@ $$ \begin{align}
 $$
 
 Similarly, $\beta = 0.98$ gives approximately an average over $50 \text{ days}$.
-The plot of these weighted averages is shown below.
+$\pmb{\text{Figure 2}}$ shows the plot of these weighted averages.
 
-[![img1]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.9-and-0.98.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.9-and-0.98.png)*<center>A plot of $v_t$ at $\beta=0.9$ ($\pmb{\text{red}}$) and $\beta=0.98$ ($\pmb{\text{green}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
+[![img1]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.9-and-0.98.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.9-and-0.98.png)*<center>$\pmb{\text{Figure 2}}$: A plot of $v_t$ at $\beta=0.9$ ($\pmb{\text{red}}$) and $\beta=0.98$ ($\pmb{\text{green}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
 <br/>   
 
-As an extreme example, $\beta = 0.5$ computes approximately an average over $2 \text{ days}$ as depicted in image below. These weighted averages are noisy because the computation of these averages takes only $2 \text{ days}$ before.  
+As an extreme example, $\beta = 0.5$ computes approximately an average over $2 \text{ days}$ as depicted in $\pmb{\text{Figure 3}}$. These weighted averages are noisy because the computation of these averages takes only $2 \text{ days}$ before.  
 
-[![img1]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.5.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.5.png)*<center>A plot of $v_t$ at $\beta=0.5$ ($\pmb{\text{yellow}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
+[![img1]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.5.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.5.png)*<center>$\pmb{\text{Figure 3}}$: A plot of $v_t$ at $\beta=0.5$ ($\pmb{\text{yellow}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
 <br/>      
 
 From those three different values of $\beta$, we can see that as $\beta$ is getting larger and larger, the plot is going smoother and smoother. On the other hand, if $\beta$ is getting smaller and smaller, the plot will become noisier and noisier. As a conclusion, 

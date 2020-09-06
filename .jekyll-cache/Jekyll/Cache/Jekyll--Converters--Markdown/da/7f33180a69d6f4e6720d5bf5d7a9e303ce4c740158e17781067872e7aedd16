@@ -1,11 +1,11 @@
-I"s!<p>This article summarizes the topic “<em><strong>Exponentially Weighted Moving Averages</strong></em>” (<a href="https://www.coursera.org/learn/deep-neural-network/home/week/2">Week 2 of <em>Improving Deep Neural Networks: Hyperparameters tuning, Regularization and Optimization</em></a>) from <a href="https://www.coursera.org/specializations/deep-learning?">deeplearning.ai</a>.</p>
+I"�"<p>This article summarizes the topic “<em><strong>Exponentially Weighted Moving Averages</strong></em>” (<a href="https://www.coursera.org/learn/deep-neural-network/home/week/2">Week 2 of <em>Improving Deep Neural Networks: Hyperparameters tuning, Regularization and Optimization</em></a>) from <a href="https://www.coursera.org/specializations/deep-learning?">deeplearning.ai</a>.</p>
 
 <p>There are a few optimization algorithms which are faster than <em>gradient descent</em>. In order to understand these optimization algorithms, we need to understand the concept of <strong>exponentially weighted moving averages</strong>.</p>
 
-<p><a href="/assets/images/temperature-and-days.png"><img src="/assets/images/temperature-and-days.png" alt="img1" class="img-responsive" /></a><em><center>A plot of temperatures for each day in a year. Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
+<p><a href="/assets/images/temperature-and-days.png"><img src="/assets/images/temperature-and-days.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: A plot of temperatures for each day in a year. Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
 <br /></p>
 
-<p>Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$. Visually the temperatures are shown in the image above. Concretely, we show several examples of the temperatures as follows:</p>
+<p>Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$ (how many days in one year?). Visually, the temperatures are shown in $\pmb{\text{Figure 1}}$. Furthermore, we show several examples of the temperatures as follows:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align}
@@ -21,10 +21,10 @@
 <p>As we can see in the image above, the values of temperatures during a year are <em>noisy</em> which means that there is considerable variation in the values. The variation is caused by <em>noise</em> and <em>we need to remove the variation</em> if we want to expose the underlying values of temperatures (Brownlee, 2019).</p>
 
 <blockquote>
-  <p>How do remove the noise which resides in the values of time series?</p>
+  <p>How do we remove the noise which resides in the values of time series?</p>
 </blockquote>
 
-<p>One of the techniques to remove the noise is called <strong>smoothing</strong>. The common technique used commonly in time series forecasting is <strong>exponentially weighted averages</strong>. Computing <strong>exponentially weighted averages</strong> involves constructing a new series whose values are calculated by the average of raw observations in the original time series. Let’s denote the new series as $v_t$ for $t=1, 2, \ldots, 365$ as follows:</p>
+<p>One of the techniques to remove the noise is called <strong>smoothing</strong>. Particularly, the common technique used commonly in time series forecasting is <strong>exponentially weighted averages</strong>. Computing <strong>exponentially weighted averages</strong> involves constructing a new series whose values are calculated by the average of raw observations in the original time series. Let’s denote the new series as $v_t$ for $t=1, 2, \ldots, 365$ as follows:</p>
 
 <script type="math/tex; mode=display">\begin{equation}
  		v_t = \beta v_{t-1} + (1-\beta) \theta_t \tag{1}\label{eq:weighted-averages}. 
@@ -36,7 +36,7 @@
 v_t \approx \pmb{\text{average }} \text{over } \frac{1}{1-\beta} \text{ days' temperature} \tag{2}\label{eq:parameter-beta}. 
 \end{equation}</script>
 
-<p>For example, let’s define $\beta = 0.9$ which means that we compute $v_t$ as approximately average over</p>
+<p>For example, let’s define $\beta = 0.9$ which means that we compute $v_t$ as approximately an average over</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align}
@@ -45,17 +45,18 @@ v_t \approx \pmb{\text{average }} \text{over } \frac{1}{1-\beta} \text{ days' te
 	                  &= 10 \text{ days}.
 \end{align} %]]></script>
 
-<p>Similarly, $\beta = 0.98$ gives approximately average over $50 \text{ days}$.
-The plot of these weighted averages is shown below.</p>
+<p>Similarly, $\beta = 0.98$ gives approximately an average over $50 \text{ days}$.
+$\pmb{\text{Figure 2}}$ shows the plot of these weighted averages.</p>
 
-<p><a href="/assets/images/moving-average-at-beta-0.9-and-0.98.png"><img src="/assets/images/moving-average-at-beta-0.9-and-0.98.png" alt="img1" class="img-responsive" /></a><em><center>A plot of $v_t$ at $\beta=0.9$ ($\pmb{\text{red}}$) and $\beta=0.98$ ($\pmb{\text{green}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
-<br /> <br />
-As an extreme example, $\beta = 0.5$ computes approximately average over $2 \text{ days}$ as depicted in image below.</p>
-
-<p><a href="/assets/images/moving-average-at-beta-0.5.png"><img src="/assets/images/moving-average-at-beta-0.5.png" alt="img1" class="img-responsive" /></a><em><center>A plot of $v_t$ at $\beta=0.5$ ($\pmb{\text{yellow}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
+<p><a href="/assets/images/moving-average-at-beta-0.9-and-0.98.png"><img src="/assets/images/moving-average-at-beta-0.9-and-0.98.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 2}}$: A plot of $v_t$ at $\beta=0.9$ ($\pmb{\text{red}}$) and $\beta=0.98$ ($\pmb{\text{green}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
 <br /></p>
 
-<p>From those three different values of $\beta$, we can see that as $\beta$ is getting larger and larger, the plot is going smoother and smoother. On the other hand, $\beta$ is getting smaller and smaller, the plot becomes noisier and noisier. As a conclusion,</p>
+<p>As an extreme example, $\beta = 0.5$ computes approximately an average over $2 \text{ days}$ as depicted in $\pmb{\text{Figure 3}}$. These weighted averages are noisy because the computation of these averages takes only $2 \text{ days}$ before.</p>
+
+<p><a href="/assets/images/moving-average-at-beta-0.5.png"><img src="/assets/images/moving-average-at-beta-0.5.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 3}}$: A plot of $v_t$ at $\beta=0.5$ ($\pmb{\text{yellow}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
+<br /></p>
+
+<p>From those three different values of $\beta$, we can see that as $\beta$ is getting larger and larger, the plot is going smoother and smoother. On the other hand, if $\beta$ is getting smaller and smaller, the plot will become noisier and noisier. As a conclusion,</p>
 
 <p><script type="math/tex">% <![CDATA[
 \begin{align}
@@ -64,7 +65,7 @@ As an extreme example, $\beta = 0.5$ computes approximately average over $2 \tex
 \end{align} %]]></script> <br />
 <br /></p>
 <h4 id="bias-correction"><strong>Bias Correction</strong></h4>
-<p>Previously, we have defined Equation \eqref{eq:weighted-averages}</p>
+<p>Previously, we have defined Equation \eqref{eq:weighted-averages} which is</p>
 
 <script type="math/tex; mode=display">\begin{equation}
  		v_t = \beta v_{t-1} + (1-\beta) \theta_t. 
@@ -90,7 +91,7 @@ At $t=1$,</p>
 <p>With the assumption that $\theta_1$, $\theta_2 &gt; 0$, we arrive at</p>
 
 <script type="math/tex; mode=display">\begin{equation}
-v_1 \ll \theta_1 \text{ and } v_2 \ll \theta_2
+v_2 \ll \theta_1 \text{ and } v_2 \ll \theta_2
  \end{equation}</script>
 
 <p>which means that $v_2$ <em>is not a very good estimate</em> of the first two days’ temperature of the year.</p>
@@ -128,7 +129,7 @@ Therefore, the <strong>bias correction</strong> for $v_2$ will be</p>
 	\end{equation}</script>
 with $t=1,2, \ldots, 365$.</p>
 
-<p>As a final note, the <strong>bias correction</strong> <em>helps us find better estimates of a series during the initial phase of learning</em> as we will see in the Part 2 of this blog. As $t$ is getting larger and larger, $\beta^t$ $\approx 0$. Therefore, if $t$ is large, the effect of <strong>bias correction</strong> will be diminished into nothing.  <br />
+<p>As a final note, the <strong>bias correction</strong> <em>helps us find better estimates of a series during the initial phase of learning</em> as we will see in the Part 2 of this blog. As $t$ is getting larger and larger, $\beta^t \approx 0$. Therefore, if $t$ is large, the <strong>bias correction</strong> will have no effect on the series.  <br />
 <br /></p>
 <h4 id="references"><strong>References</strong></h4>
 <p>Brownlee, J. (2019). <em>Introduction to Time Series Forecasting in Python</em>. <code class="highlighter-rouge">https://machinelearningmastery.com/introduction-to-time-series-forecasting-with-python/</code>. Accessed: 2020-09-5</p>
