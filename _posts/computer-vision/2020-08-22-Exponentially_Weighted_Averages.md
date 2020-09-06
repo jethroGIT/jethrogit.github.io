@@ -30,7 +30,7 @@ As we can see in the image above, the values of temperatures during a year are _
 
 > How do we remove the noise which resides in the values of time series?
    
-One of the techniques to remove the noise is called **smoothing**. The common technique used commonly in time series forecasting is **exponentially weighted averages**. Computing **exponentially weighted averages** involves constructing a new series whose values are calculated by the average of raw observations in the original time series. Let's denote the new series as $v_t$ for $t=1, 2, \ldots, 365$ as follows:
+One of the techniques to remove the noise is called **smoothing**. Particularly, the common technique used commonly in time series forecasting is **exponentially weighted averages**. Computing **exponentially weighted averages** involves constructing a new series whose values are calculated by the average of raw observations in the original time series. Let's denote the new series as $v_t$ for $t=1, 2, \ldots, 365$ as follows:
 
 $$
 	\begin{equation}
