@@ -14,7 +14,7 @@ There are a few optimization algorithms which are faster than _gradient descent_
 [![img1]({{ site.baseurl }}/assets/images/temperature-and-days.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/temperature-and-days.png)*<center>A plot of temperatures for each day in a year. Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
 <br/>      
 
-Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$ (how many days in one year?). Visually the temperatures are shown in the image above. Concretely, we show several examples of the temperatures as follows:
+Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$ (how many days in one year?). Visually, the temperatures are shown in the image above. Furthermore, we show several examples of the temperatures as follows:
 
 $$ \begin{align}
 	\theta_1 &= 40^{\circ} \text{F} \\
@@ -28,7 +28,7 @@ $$ \begin{align}
 
 As we can see in the image above, the values of temperatures during a year are _noisy_ which means that there is considerable variation in the values. The variation is caused by _noise_ and _we need to remove the variation_ if we want to expose the underlying values of temperatures (Brownlee, 2019).    
 
-> How do remove the noise which resides in the values of time series?
+> How do we remove the noise which resides in the values of time series?
    
 One of the techniques to remove the noise is called **smoothing**. The common technique used commonly in time series forecasting is **exponentially weighted averages**. Computing **exponentially weighted averages** involves constructing a new series whose values are calculated by the average of raw observations in the original time series. Let's denote the new series as $v_t$ for $t=1, 2, \ldots, 365$ as follows:
 
@@ -45,7 +45,7 @@ v_t \approx \pmb{\text{average }} \text{over } \frac{1}{1-\beta} \text{ days' te
 \end{equation}
 $$
 
-For example, let's define $\beta = 0.9$ which means that we compute $v_t$ as approximately average over
+For example, let's define $\beta = 0.9$ which means that we compute $v_t$ as approximately an average over
 
 $$ \begin{align}
 	\frac{1}{1-\beta} &= \frac{1}{1-0.9} \\
@@ -54,18 +54,18 @@ $$ \begin{align}
 \end{align}
 $$
 
-Similarly, $\beta = 0.98$ gives approximately average over $50 \text{ days}$.
+Similarly, $\beta = 0.98$ gives approximately an average over $50 \text{ days}$.
 The plot of these weighted averages is shown below.
 
 [![img1]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.9-and-0.98.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.9-and-0.98.png)*<center>A plot of $v_t$ at $\beta=0.9$ ($\pmb{\text{red}}$) and $\beta=0.98$ ($\pmb{\text{green}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
 <br/>   
 
-As an extreme example, $\beta = 0.5$ computes approximately average over $2 \text{ days}$ as depicted in image below. These weighted averages are noisy because the computation of these averages takes only $2 \text{ days}$ before.  
+As an extreme example, $\beta = 0.5$ computes approximately an average over $2 \text{ days}$ as depicted in image below. These weighted averages are noisy because the computation of these averages takes only $2 \text{ days}$ before.  
 
 [![img1]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.5.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/moving-average-at-beta-0.5.png)*<center>A plot of $v_t$ at $\beta=0.5$ ($\pmb{\text{yellow}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center>*
 <br/>      
 
-From those three different values of $\beta$, we can see that as $\beta$ is getting larger and larger, the plot is going smoother and smoother. On the other hand, $\beta$ is getting smaller and smaller, the plot becomes noisier and noisier. As a conclusion, 
+From those three different values of $\beta$, we can see that as $\beta$ is getting larger and larger, the plot is going smoother and smoother. On the other hand, if $\beta$ is getting smaller and smaller, the plot will become noisier and noisier. As a conclusion, 
 
 $$ \begin{align}
 	\beta \ggg \; &\Longrightarrow \pmb{ \text{ smoother}}  \text{ because we are averaging more days} \\
@@ -74,7 +74,7 @@ $$ \begin{align}
 $$   
 <br/>
 #### **Bias Correction**
-Previously, we have defined Equation \eqref{eq:weighted-averages}
+Previously, we have defined Equation \eqref{eq:weighted-averages} which is
 
 $$
 	\begin{equation}
@@ -104,7 +104,7 @@ $$
 With the assumption that $\theta_1$, $\theta_2 > 0$, we arrive at 
 
 $$ \begin{equation}
-v_1 \ll \theta_1 \text{ and } v_2 \ll \theta_2
+v_2 \ll \theta_1 \text{ and } v_2 \ll \theta_2
  \end{equation}$$
 
 which means that $v_2$ _is not a very good estimate_ of the first two days' temperature of the year. 
