@@ -41,7 +41,7 @@ $$ \begin{align} J(\theta) &= \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(
 Next, $\frac{\partial J}{\partial \theta_0}$ and $\frac{\partial J}{\partial \theta_1}$ shall be computed. Now we compute the partial derivative of $h_{\theta}(x)$ on $\theta_0$ or $\frac{\partial h_{\theta}}{ \partial \theta_0 }$.   
 From [Calculus](https://www.khanacademy.org/math/multivariable-calculus), the derivatives of $\frac{u(x)}{v(x)}$ with each $u(x)$ dan $v(x)$ is a function of $x$ are 
 
-$$ \begin{equation} \frac{u^{\prime} v - u v^{\prime} }{ v^2 }. \tag{6}\label{eq:formula-derivatif} \end{equation}$$
+$$ \begin{equation} \frac{u^{\prime} v - u v^{\prime} }{ v^2 } \tag{6}\label{eq:formula-derivatif} \end{equation}$$
 
 with $u^{\prime}$ and $v^{\prime}$ are the first derivatives of $u$ and $v$, respectively.   
 We shall utilize this formula in Equation \eqref{eq:formula-derivatif} to calculate $\frac{\partial h_{\theta}}{ \partial \theta_0 }$ and $\frac{\partial h_{\theta}}{ \partial \theta_1 }$ as follows:
