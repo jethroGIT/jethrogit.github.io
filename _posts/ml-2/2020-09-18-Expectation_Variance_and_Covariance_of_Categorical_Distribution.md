@@ -39,7 +39,7 @@ $$ \begin{equation}
   \sum_{k=1}^{K}{\theta_k} = 1 \text{ and } 0 \leq \theta_k \leq 1 \text{ for }k=1, \ldots, K. \tag{3}\label{eq:theta-constraints}
 \end{equation}$$
 
-Suppose that $X^{(k)}$ is a random _categorical_ variable which takes one of $K$ values. Moreover, since $X^{(k)}$ is random variable, it has **_categorical distribution_** that is described by a discrete probability distribution,
+Consider that $X^{(k)}$ is a random _categorical_ variable which takes one of $K$ values. Moreover, since $X^{(k)}$ is random variable, it has **_categorical distribution_** that is described by a discrete probability distribution,
 
 $$ \begin{equation}
   \text{p}(x^{(k)}) = \prod_{l=1}^{K}{\theta_{l}^{x^{(l)}}} \tag{4}\label{eq:pdf-categorical}
