@@ -1,11 +1,11 @@
-I"�"<p>This article summarizes the topic “<em><strong>Exponentially Weighted Moving Averages</strong></em>” (<a href="https://www.coursera.org/learn/deep-neural-network/home/week/2">Week 2 of <em>Improving Deep Neural Networks: Hyperparameters tuning, Regularization and Optimization</em></a>) from <a href="https://www.coursera.org/specializations/deep-learning?">deeplearning.ai</a>.</p>
+I""<p>This article summarizes the topic “<em><strong>Exponentially Weighted Moving Averages</strong></em>” (<a href="https://www.coursera.org/learn/deep-neural-network/home/week/2">Week 2 of <em>Improving Deep Neural Networks: Hyperparameters tuning, Regularization and Optimization</em></a>) from <a href="https://www.coursera.org/specializations/deep-learning?">deeplearning.ai</a>.</p>
 
 <p>There are a few optimization algorithms which are faster than <em>gradient descent</em>. In order to understand these optimization algorithms, we need to understand the concept of <strong>exponentially weighted moving averages</strong>.</p>
 
 <p><a href="/assets/images/temperature-and-days.png"><img src="/assets/images/temperature-and-days.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: A plot of temperatures for each day in a year. Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
 <br /></p>
 
-<p>Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$ (how many days in one year?). Visually, the temperatures are shown in $\pmb{\text{Figure 1}}$. Furthermore, we show several examples of the temperatures as follows:</p>
+<p>Suppose that the temperature of day $i$ is denoted by $\theta_i$ from $i=1, \ldots, 365$ (how many days in one year?). Visually, the temperatures are shown in $\text{Figure 1}$. Furthermore, we show several examples of the temperatures as follows:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align}
@@ -46,12 +46,12 @@ v_t \approx \pmb{\text{average }} \text{over } \frac{1}{1-\beta} \text{ days' te
 \end{align} %]]></script>
 
 <p>Similarly, $\beta = 0.98$ gives approximately an average over $50 \text{ days}$.
-$\pmb{\text{Figure 2}}$ shows the plot of these weighted averages.</p>
+$\text{Figure 2}$ shows the plot of these weighted averages.</p>
 
 <p><a href="/assets/images/moving-average-at-beta-0.9-and-0.98.png"><img src="/assets/images/moving-average-at-beta-0.9-and-0.98.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 2}}$: A plot of $v_t$ at $\beta=0.9$ ($\pmb{\text{red}}$) and $\beta=0.98$ ($\pmb{\text{green}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
 <br /></p>
 
-<p>As an extreme example, $\beta = 0.5$ computes approximately an average over $2 \text{ days}$ as depicted in $\pmb{\text{Figure 3}}$. These weighted averages are noisy because the computation of these averages takes only $2 \text{ days}$ before.</p>
+<p>As an extreme example, $\beta = 0.5$ computes approximately an average over $2 \text{ days}$ as depicted in $\text{Figure 3}$. These weighted averages are noisy because the computation of these averages takes only $2 \text{ days}$ before.</p>
 
 <p><a href="/assets/images/moving-average-at-beta-0.5.png"><img src="/assets/images/moving-average-at-beta-0.5.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 3}}$: A plot of $v_t$ at $\beta=0.5$ ($\pmb{\text{yellow}}$). Image taken from <a href="https://www.coursera.org/learn/deep-neural-network/lecture/duStO/exponentially-weighted-averages">Deeplearning.ai</a>, some rights reserved.</center></em>
 <br /></p>

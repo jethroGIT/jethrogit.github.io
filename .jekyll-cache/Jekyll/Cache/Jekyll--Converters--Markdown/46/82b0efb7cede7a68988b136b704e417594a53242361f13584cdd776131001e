@@ -1,4 +1,4 @@
-I"i5<p>In <a href="https://www.coursera.org/learn/machine-learning/lecture/db3jS/model-representation">linear regression with one variable</a>, we have a <em>design matrix</em> ($X$) that represents our dataset and specifically has a shape as follows:</p>
+I"h5<p>In <a href="https://www.coursera.org/learn/machine-learning/lecture/db3jS/model-representation">linear regression with one variable</a>, we have a <em>design matrix</em> ($X$) that represents our dataset and specifically has a shape as follows:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{equation} X = \begin{bmatrix} 1 & x^{(1)} \\
@@ -34,7 +34,7 @@ This article attempts to explain how to calculate partial derivatives from <stro
 <p>Next, $\frac{\partial J}{\partial \theta_0}$ and $\frac{\partial J}{\partial \theta_1}$ shall be computed. Now we compute the partial derivative of $h_{\theta}(x)$ on $\theta_0$ or $\frac{\partial h_{\theta}}{ \partial \theta_0 }$. <br />
 From <a href="https://www.khanacademy.org/math/multivariable-calculus">Calculus</a>, the derivatives of $\frac{u(x)}{v(x)}$ with each $u(x)$ dan $v(x)$ is a function of $x$ are</p>
 
-<script type="math/tex; mode=display">\begin{equation} \frac{u^{\prime} v - u v^{\prime} }{ v^2 }. \tag{6}\label{eq:formula-derivatif} \end{equation}</script>
+<script type="math/tex; mode=display">\begin{equation} \frac{u^{\prime} v - u v^{\prime} }{ v^2 } \tag{6}\label{eq:formula-derivatif} \end{equation}</script>
 
 <p>with $u^{\prime}$ and $v^{\prime}$ are the first derivatives of $u$ and $v$, respectively. <br />
 We shall utilize this formula in Equation \eqref{eq:formula-derivatif} to calculate $\frac{\partial h_{\theta}}{ \partial \theta_0 }$ and $\frac{\partial h_{\theta}}{ \partial \theta_1 }$ as follows:</p>
