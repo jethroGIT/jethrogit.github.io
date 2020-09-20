@@ -7,7 +7,7 @@ description: Properties of Categorical Distribution
 sticky: false
 ---
 
-This post is inspired by [the lectures given by David Blei](http://www.cs.columbia.edu/~blei/fogm/2020F/index.html) on Thursday, 17 September 2020. One of the topics he explained was related to **_categorical variable_** and a **_categorical distribution_**. This post attempts to elaborate more on those two concepts.
+This post is inspired by [the lecture given by David Blei](http://www.cs.columbia.edu/~blei/fogm/2020F/index.html) on Thursday, 17 September 2020. One of the topics he explained was related to **_categorical variable_** and a **_categorical distribution_**. This post attempts to elaborate more on those two concepts.
 
 [![img1]({{ site.baseurl }}/assets/images/one-hot-encoding.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/one-hot-encoding.png)*<center>$\pmb{\text{Figure 1}}$: A categorical variable ( $\text{Color}$) and its values ( $\text{Red}$, $\text{Yellow}$, and $\text{Green}$ ). Image taken from <a href="https://www.kaggle.com/alexisbcook/categorical-variables">Kaggle</a>, some rights reserved.</center>*
 
