@@ -50,7 +50,7 @@ $$ \begin{align}
   \text{p}(x^{(k)}) &= \prod_{l=1}^{K}{\theta_{l}^{x^{(l)}}} \\
                              &= \theta_{1}^{x^{(1)}} \times \theta_{2}^{x^{(2)}} \times \cdots \times \theta_{k}^{x^{(k)}} \times \cdots \times \theta_{K}^{x^{(K)}}   \\
                              &= \theta_{1}^{0} \times \theta_{2}^{0} \times \cdots \times \theta_{k}^{1} \times \cdots \times \theta_{K}^{0} \\
-                             &= \theta_{k} \tag{5}\label{eq:pdf-categorical-simplified}
+                             &= \theta_{k}. \tag{5}\label{eq:pdf-categorical-simplified}
 \end{align}$$
 
 Let's put Equation \eqref{eq:pdf-categorical-simplified} into practice and demonstrate it in one example. Suppose we want to compute $\text{p}(\text{Yellow})$ in Equation \eqref{eq:yellow},
@@ -70,13 +70,13 @@ $$ \begin{align}
   \text{E}(X^{(k)}) &= \sum_{l=1}^{K}{x^{(l)} \text{p}(x^{(l)})} \\
                     &= \underbrace{0 \times \text{p}(x^{(1)})}_{1\text{st}} + \underbrace{0 \times \text{p}(x^{(2)})}_{2\text{nd}} + \cdots + \underbrace{1 \times \text{p}(x^{(k)})}_{k\text{th}} + \cdots + \underbrace{0 \times \text{p}(x^{(K)}}_{K\text{th}})  \\ 
                     &= \text{p}(x^{(k)}) \\ 
-                    &= \theta_k \tag{6}\label{eq:expectation}
+                    &= \theta_k. \tag{6}\label{eq:expectation}
 \end{align}$$
 
 Next, we compute the Variance, $\text{Var}$, as follows:
 
 $$ \begin{align}
-  \text{Var}(X^{(k)}) &= \underbrace{\text{E}((X^{(k)})^2)}_{\text{Part I}} - \underbrace{(\text{E}(X^{(k)}))^2}_{\text{Part II}} & \text{the definition of variance} \tag{7}\label{eq:variance-definition} \\
+  \text{Var}(X^{(k)}) &= \underbrace{\text{E}((X^{(k)})^2)}_{\text{Part I}} - \underbrace{(\text{E}(X^{(k)}))^2}_{\text{Part II}} & \text{the definition of variance}. \tag{7}\label{eq:variance-definition} \\
 
 \end{align}$$
 
@@ -86,7 +86,7 @@ $$ \begin{align}
   \text{E}((X^{(k)})^2) &= \sum_{l=1}^{K}{(x^{(l))^2} \text{p}(x^{(l)})} \\
                     &= \underbrace{0^2 \times \text{p}(x^{(1)})}_{1\text{st}} + \underbrace{0^2 \times \text{p}(x^{(2)})}_{2\text{nd}} + \cdots + \underbrace{1^2 \times \text{p}(x^{(k)})}_{k\text{th}} + \cdots + \underbrace{0^2 \times \text{p}(x^{(K)}}_{K\text{th}})  \\ 
                     &= \text{p}(x^{(k)}) \\ 
-                    &= \theta_k \tag{8}\label{eq:expectation-x-square}
+                    &= \theta_k. \tag{8}\label{eq:expectation-x-square}
 \end{align}$$
 
 Now, we can finalize computing the Variance in Equation \eqref{eq:variance-definition},
@@ -94,13 +94,13 @@ Now, we can finalize computing the Variance in Equation \eqref{eq:variance-defin
 $$ \begin{align}
   \text{Var}(X^{(k)}) &= \text{E}((X^{(k)})^2) - (\text{E}(X^{(k)}))^2 & \text{the definition of variance} \\
                       &= \theta_k - (\theta_k)^2 & \text{using Equation }\eqref{eq:expectation} \text{ and }\eqref{eq:expectation-x-square}  \\
-                      &= \theta_k (1 - \theta_k) & \text{using distribute property} \tag{9}\label{eq:variance}
+                      &= \theta_k (1 - \theta_k). & \text{using distribute property} \tag{9}\label{eq:variance}
 \end{align}$$
 
 Last but not least, we shall compute the Covariance, $\text{Cov}(X^{(j)}, X^{(k)})$. We start by the definition of Covariance,
 
 $$ \begin{align}
-  \text{Cov}(X^{(j)}, X^{(k)}) &= \underbrace{\text{E}(X^{(j)} X^{(k)})}_{\text{Part I}} - \underbrace{(\text{E}(X^{(j)}) E(X^{(k)}))}_{\text{Part II}} & \text{by definition} \tag{10}\label{eq:covariance}                             
+  \text{Cov}(X^{(j)}, X^{(k)}) &= \underbrace{\text{E}(X^{(j)} X^{(k)})}_{\text{Part I}} - \underbrace{(\text{E}(X^{(j)}) E(X^{(k)}))}_{\text{Part II}}. & \text{by definition} \tag{10}\label{eq:covariance}                             
 \end{align}$$
 
 Let's compute the $\text{Part I}$ as follows:
@@ -118,4 +118,4 @@ $$ \begin{align}
                                &= - \theta_j \theta_k.
 \end{align}$$
 
-To conclude, we have shown how to derive the **_expectation_**, **_variance_**, and **_covariance_** of a _categorical distribution_.
+To conclude, we have shown how to derive the **_expectation_**, **_variance_**, and **_covariance_** of a _categorical distribution_. We hope this post help anyone who want to understand a _categorical distribution_.
