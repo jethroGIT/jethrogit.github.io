@@ -27,7 +27,7 @@ $$
 
 The $K$-vector with single $1$ and otherwise $0$s is commonly named [**one-hot vector**](https://machinelearningmastery.com/why-one-hot-encode-data-in-machine-learning/).
 
-A **_categorical distribution_** is parameterized by $\theta$. Moreover, $\theta$ specifies the probability of each categorical value. Suppose we have $K$ categorical values; therefore, 
+A **_categorical distribution_** is parameterized by $\theta$. Moreover, $\pmb{\theta}$ **specifies the probability of each categorical value**. Suppose we have $K$ categorical values; therefore, 
 
 $$ \begin{equation}
 \theta = (\theta_1, \theta_2, \ldots, \theta_K) \tag{2}\label{eq:theta}
