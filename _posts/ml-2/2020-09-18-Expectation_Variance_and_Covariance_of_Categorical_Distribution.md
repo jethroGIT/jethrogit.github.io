@@ -76,7 +76,7 @@ $$ \begin{align}
 Next, we compute the Variance, $\text{Var}$, as follows:
 
 $$ \begin{align}
-  \text{Var}(X^{(k)}) &= \underbrace{\text{E}((X^{(k)})^2)}_{\text{Part I}} - \underbrace{(\text{E}(X^{(k)}))^2}_{\text{Part II}} & \text{the definition of variance}. \tag{7}\label{eq:variance-definition} \\
+  \text{Var}(X^{(k)}) &= \underbrace{\text{E}((X^{(k)})^2)}_{\text{Part I}} - \underbrace{(\text{E}(X^{(k)}))^2}_{\text{Part II}}. & \text{the definition of variance} \tag{7}\label{eq:variance-definition} \\
 
 \end{align}$$
 
