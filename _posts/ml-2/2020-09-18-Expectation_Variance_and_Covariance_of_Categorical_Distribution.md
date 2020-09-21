@@ -94,7 +94,7 @@ Now, we can finalize computing the Variance in Equation \eqref{eq:variance-defin
 $$ \begin{align}
   \text{Var}(X^{(k)}) &= \text{E}((X^{(k)})^2) - (\text{E}(X^{(k)}))^2 & \text{the definition of variance} \\
                       &= \theta_k - (\theta_k)^2 & \text{using Equation }\eqref{eq:expectation} \text{ and }\eqref{eq:expectation-x-square}  \\
-                      &= \theta_k (1 - \theta_k). & \text{using distribute property} \tag{9}\label{eq:variance}
+                      &= \theta_k (1 - \theta_k). & \text{using distributive property} \tag{9}\label{eq:variance}
 \end{align}$$
 
 Last but not least, we shall compute the Covariance, $\text{Cov}(X^{(j)}, X^{(k)})$. We start by the definition of Covariance,
