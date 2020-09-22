@@ -118,4 +118,4 @@ $$ \begin{align}
                                &= - \theta_j \theta_k.
 \end{align}$$
 
-To conclude, we have shown how to derive the **_expectation_**, **_variance_**, and **_covariance_** of a _categorical distribution_. We hope this post help anyone who want to understand a _categorical distribution_.
+To conclude, we have shown how to derive the **_expectation_**, **_variance_**, and **_covariance_** of a _categorical distribution_. We hope this post helps anyone who wants to understand a _categorical distribution_.
