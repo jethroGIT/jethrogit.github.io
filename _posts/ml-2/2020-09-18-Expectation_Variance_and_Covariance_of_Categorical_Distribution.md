@@ -64,7 +64,7 @@ $$ \begin{align}
                               &= \theta_{2}.
 \end{align}$$
 
-Equipped with Equation \eqref{eq:pdf-categorical-simplified}, let's compute the _expectation_ of $X^{(k)}$ as
+With Equation \eqref{eq:pdf-categorical-simplified} in hand, let's compute the _expectation_ of $X^{(k)}$ as
 
 $$ \begin{align}
   \text{E}(X^{(k)}) &= \sum_{l=1}^{K}{x^{(l)} \text{p}(x^{(l)})} \\
