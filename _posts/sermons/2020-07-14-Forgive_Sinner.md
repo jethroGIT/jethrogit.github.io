@@ -4,7 +4,7 @@ title: Who is a Forgiven Sinner?
 category: Sermons
 lang: EN
 description: A forgiven sinner
-sticky: true
+sticky: false
 ---
 Before we discuss what a forgiven sinner is, let me explain what **the gospel** is. The reference of this post comes from "[**Leadership Reformed Why Leaders Need the Gospel to Change the World**](https://www.amazon.com/Leadership-Reformed-Sen-Sendjaya/dp/0367857510/ref=sr_1_1?crid=1SG1NN6NBYDP2&dchild=1&keywords=leadership+reformed+why+leaders+need+the+gospel+to+change+the+world&qid=1594708594&s=books&sprefix=leadership+reform%2Caps%2C378&sr=1-1)" by Sen Sendjaya. 
 

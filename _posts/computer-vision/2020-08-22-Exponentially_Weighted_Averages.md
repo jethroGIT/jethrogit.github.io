@@ -4,7 +4,7 @@ title: A Foundation of Faster Optimization Algorithms part 1
 category: Computer-Vision
 lang: EN
 description: Exponentially weighted averages
-sticky: false
+sticky: true
 ---
 
 This article summarizes the topic "_**Exponentially Weighted Moving Averages**_" ([Week 2 of _Improving Deep Neural Networks: Hyperparameters tuning, Regularization and Optimization_](https://www.coursera.org/learn/deep-neural-network/home/week/2)) from [deeplearning.ai](https://www.coursera.org/specializations/deep-learning?).

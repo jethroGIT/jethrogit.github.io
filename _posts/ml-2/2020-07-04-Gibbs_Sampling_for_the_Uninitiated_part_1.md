@@ -4,7 +4,7 @@ title: Gibbs Sampling for the Uninitiated part 1
 category: ML-2
 lang: EN
 description: Gibbs sampling for dummies
-sticky: true
+sticky: false
 ---
 
 This article is inspired by the _masterpiece_ of [**Gibbs Sampling tutorial**](https://maranathaedu-my.sharepoint.com/:b:/g/personal/hendra_bunyamin_it_maranatha_edu/EZA9beLgBdZPip9br-UrdSAB024P8IBGESYAbJP3MfRQFQ?e=HdMzZ9) by _Resnik and Hardisty_ and also an _awesome_ [**github repo**](https://github.com/bobflagg/gibbs-sampling-for-the-uninitiated) by _Bob Flagg_.    Both of these resources are excellent and highly recommended for anyone to read.

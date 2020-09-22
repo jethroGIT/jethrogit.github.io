@@ -4,7 +4,7 @@ title: Internet Evangelism
 category: Sermons
 lang: ID
 description: The Story Film
-sticky: true
+sticky: false
 ---
 Internet Evangelism merupakan misi pemberitaan kabar baik melalui Internet. Sesi ini dibawakan oleh Pak Johan Setiawan yang juga adalah Dosen Teologia Praktika Sekolah Tinggi Teologi Bandung.     
 Sesi dimulai dengan sebuah pertanyaan:

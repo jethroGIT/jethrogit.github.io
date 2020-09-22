@@ -4,7 +4,7 @@ title: Mengenal dan Memahami Bapa yang di Surga
 category: Sermons
 lang: ID
 description: Siapakah Bapa yang di Surga?
-sticky: false
+sticky: true
 ---
 Artikel ini hendak membahas Sesi 2 dari buku [**40 days of Prayer**](https://www.amazon.com/gp/product/142280464X?pf_rd_r=5DHAA5NQP1XVXJSQX9EQ&pf_rd_p=6fc81c8c-2a38-41c6-a68a-f78c79e7253f). Sesi 2 dari buku tersebut menjelaskan **_Bagaimana Berdoa dengan Penuh Keyakinan_**.     
 

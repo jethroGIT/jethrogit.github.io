@@ -4,7 +4,7 @@ title: Creating a One-Hot Encoding in PyTorch
 category: Machine-Learning
 lang: EN
 description: One-hot encoding in PyTorch
-sticky: false
+sticky: true
 ---
 
 This article explains how to create a _one-hot encoding_ of categorical values using PyTorch library. The idea of this post is inspired by "[_Deep Learning with PyTorch_](https://www.manning.com/books/deep-learning-with-pytorch?query=deep%20lea)" by Eli Stevens, Luca Antiga, and Thomas Viehmann.     
