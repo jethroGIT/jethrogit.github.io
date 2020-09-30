@@ -261,7 +261,7 @@ learn.save('stage-1-with-prec')
 
 Finally, we have shown how to implement **macro-averages precision** and **weighted macro-averages precision** for the CamVid dataset. This article only explains the precision.    
 <br/>   
-#### **Exercises** 
+#### **An Exercise for You to Try:** 
 You can also implement **macro-averages recall**, **weighted macro-averages recall**, and **macro-averages** $$\pmb{F}_1$$ **score**, **weighted macro-averages** $$\pmb{F}_1$$ **score**.  
 <br/>   
 #### **PS**:
