@@ -100,4 +100,4 @@ $$ \begin{align}
                  &\approx 3 && \text{rounding the number.}
 \end{align}$$
 
-This means that in order to _find a head_ after we have two **tails** regardless the coin we choose, we need $3$ more throws on average. 
+This means that in order to _find a head_ after we have two **tails** regardless the coin we choose, we need $3$ more throws **on average**. 
