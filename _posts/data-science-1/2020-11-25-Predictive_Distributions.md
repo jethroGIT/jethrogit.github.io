@@ -50,12 +50,12 @@ as follows:
 
 $$
   \begin{align}
-    \text{E}(N|TT) &= \int N \; \text{Pr}(N|TT) \; dN && \text{by definition} \tag{5}\label{eq:compute-1} \\ 
-                   &= \int \int N \; \text{Pr}(N, C|TT) \; dC \; dN && \text{by Bayes rule} \tag{6}\label{eq:compute-2} \\ 
-                   &= \int \int N \; \text{Pr}(N|TT,C) \text{Pr}(C|TT) \; dC \; dN && \text{by conditional probability} \tag{7}\label{eq:compute-3} \\ 
-                   &= \int \underbrace{\int N \; \text{Pr}(N|TT,C) \; dN}_{\text{E}(N|TT, C)} \; \text{Pr}(C|TT) \; dC && \text{just rearranging} \tag{8}\label{eq:compute-4} \\
-                   &= \int \text{E}(N|TT, C) \; \text{Pr}(C|TT) \; dC && \text{by expectation definition} \tag{9}\label{eq:compute-5} \\
-                   &= \sum_{i=1}^2 \text{E}(N|TT, C_i) \; \text{Pr}(C_i|TT) && \text{since }C \text{ is discrete .}   \tag{10}\label{eq:compute-6}                   
+    \text{E}(N|TT) &= \int N \, \text{Pr}(N|TT) \, dN && \text{by definition} \tag{5}\label{eq:compute-1} \\ 
+                   &= \int \int N \, \text{Pr}(N, C|TT) \, dC \, dN && \text{by Bayes rule} \tag{6}\label{eq:compute-2} \\ 
+                   &= \int \int N \, \text{Pr}(N|TT,C) \text{Pr}(C|TT) \, dC \, dN && \text{by conditional probability} \tag{7}\label{eq:compute-3} \\ 
+                   &= \int \underbrace{\int N \, \text{Pr}(N|TT,C) \, dN}_{\text{E}(N|TT, C)} \, \text{Pr}(C|TT) \, dC && \text{just rearranging} \tag{8}\label{eq:compute-4} \\
+                   &= \int \text{E}(N|TT, C) \, \text{Pr}(C|TT) \, dC && \text{by expectation definition} \tag{9}\label{eq:compute-5} \\
+                   &= \sum_{i=1}^2 \text{E}(N|TT, C_i) \, \text{Pr}(C_i|TT) && \text{since }C \text{ is discrete .}   \tag{10}\label{eq:compute-6}                   
   \end{align}
 $$
 
@@ -71,23 +71,23 @@ $$
 We proceed from Equation \eqref{eq:compute-6} as follows:
 
 $$ \begin{align}
-  \text{E}(N | TT) &= \text{E}(N | TT, C_1) \; \text{Pr}(C_1 | TT) +  \text{E}(N | TT, C_2) \; \text{Pr}(C_2 | TT) \tag{13}\label{eq:final-1} \\
+  \text{E}(N | TT) &= \text{E}(N | TT, C_1) \, \text{Pr}(C_1 | TT) +  \text{E}(N | TT, C_2) \, \text{Pr}(C_2 | TT) \tag{13}\label{eq:final-1} \\
                    &= \frac{1}{C_1} \text{Pr}(C_1 | TT) +  \frac{1}{C_2} \text{Pr}(C_2 | TT) \tag{14}\label{eq:final-2}   \\
-                   &= \frac{1}{C_1} \underbrace{\frac{\text{Pr}(TT|C_1) \; \text{Pr}(C_1)}{\text{Pr}(TT)}}_{\text{Part 1}} +  \frac{1}{C_2}  \underbrace{\frac{\text{Pr}(TT|C_2) \; \text{Pr}(C_2)}{\text{Pr}(TT)}}_{\text{Part 2}} \tag{15}\label{eq:final-3}   \\
+                   &= \frac{1}{C_1} \underbrace{\frac{\text{Pr}(TT|C_1) \, \text{Pr}(C_1)}{\text{Pr}(TT)}}_{\text{Part 1}} +  \frac{1}{C_2}  \underbrace{\frac{\text{Pr}(TT|C_2) \, \text{Pr}(C_2)}{\text{Pr}(TT)}}_{\text{Part 2}} \tag{15}\label{eq:final-3}   \\
 \end{align}
 $$
 
 Next, let's compute $\text{Part 1}$ as follows:
 
 $$\begin{align}
-  \frac{\text{Pr}(TT|C_1) \; \text{Pr}(C_1)}{\text{Pr}(TT)} &= \frac{\text{Pr}(TT|C_1) \; \text{Pr}(C_1)}{\text{Pr}(TT|C_1) \; \text{Pr}(C_1) + \text{Pr}(TT|C_2) \; \text{Pr}(C_2)} && \text{expanding Pr}(TT) \tag{16}\label{eq:part-1-1} \\
+  \frac{\text{Pr}(TT|C_1) \, \text{Pr}(C_1)}{\text{Pr}(TT)} &= \frac{\text{Pr}(TT|C_1) \, \text{Pr}(C_1)}{\text{Pr}(TT|C_1) \, \text{Pr}(C_1) + \text{Pr}(TT|C_2) \, \text{Pr}(C_2)} && \text{expanding Pr}(TT) \tag{16}\label{eq:part-1-1} \\
      &= \frac{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left(\frac{1}{2} \right)}{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left( \frac{1}{2} \right) + \left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right)}. \tag{17}\label{eq:part-1-2} \\
 \end{align}$$
 
 Subsequently, we also calculate $\text{Part 2}$ similarly as follows:
 
 $$\begin{align}
-  \frac{\text{Pr}(TT|C_2) \; \text{Pr}(C_2)}{\text{Pr}(TT)} &= \frac{\text{Pr}(TT|C_2) \; \text{Pr}(C_2)}{\text{Pr}(TT|C_1) \; \text{Pr}(C_1) + \text{Pr}(TT|C_2) \; \text{Pr}(C_2)} && \text{expanding Pr}(TT) \tag{18}\label{eq:part-2-1} \\
+  \frac{\text{Pr}(TT|C_2) \, \text{Pr}(C_2)}{\text{Pr}(TT)} &= \frac{\text{Pr}(TT|C_2) \, \text{Pr}(C_2)}{\text{Pr}(TT|C_1) \, \text{Pr}(C_1) + \text{Pr}(TT|C_2) \, \text{Pr}(C_2)} && \text{expanding Pr}(TT) \tag{18}\label{eq:part-2-1} \\
      &= \frac{\left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right) }{ \left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left( \frac{1}{2} \right) + \left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right) }. \tag{19}\label{eq:part-2-2} \\
 \end{align}$$
 
