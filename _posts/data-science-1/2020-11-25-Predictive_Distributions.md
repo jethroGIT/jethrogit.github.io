@@ -21,7 +21,7 @@ Here is the question:
 
 > Given that the **first two spins** from the chosen coin are **tails**, what is the **expectation of the number of additional spins until a head shows up**?
 
-To simply our writing, we denote $\text{head}$ and $\text{tail}$ as $H$ and $T$ respectively. Therefore, we have
+To simplify our writing, we denote $\text{head}$ and $\text{tail}$ as $H$ and $T$ respectively. Therefore, we have
 
 $$
   \begin{align*}
