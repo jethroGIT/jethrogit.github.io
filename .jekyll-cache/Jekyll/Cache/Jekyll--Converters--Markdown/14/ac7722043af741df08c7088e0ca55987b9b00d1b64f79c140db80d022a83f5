@@ -1,0 +1,84 @@
+I"�<p>This post provides an answer for Exercise 2 from Chapter 2 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><em><strong>Bayesian Data Analysis (BDA) 3rd Edition</strong></em></a>. Let’s state the problem from the beloved book.</p>
+
+<p>Consider two coins, $C_1$ and $C_2$, with the following characteristics:</p>
+
+\[\begin{equation}
+\text{Pr}(\text{heads}|C_1) = 0.6 \text{ and } \text{Pr}(\text{head}|C_2) = 0.4.     
+\end{equation}\]
+
+<p>Choose one of the coins at random and imagine spinning it repeatedly.   <br />
+Here is the question:</p>
+
+<blockquote>
+  <p>Given that the <strong>first two spins</strong> from the chosen coin are <strong>tails</strong>, what is the <strong>expectation of the number of additional spins until a head shows up</strong>?</p>
+</blockquote>
+
+<p>To simply our writing, we denote $\text{head}$ and $\text{tail}$ as $H$ and $T$ respectively. Therefore, we have</p>
+
+\[\begin{align*}
+    C_1 &amp;\rightarrow \text{Pr}(H|C_1) = 0.6 = \frac{3}{5}, \tag{1}\label{eq:c1}\\
+    C_2 &amp;\rightarrow \text{Pr}(H|C_2) = 0.4 = \frac{2}{5}. \tag{2}\label{eq:c2}
+  \end{align*}\]
+
+<p><a href="/assets/images/the-experiment.png"><img src="/assets/images/the-experiment.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: The problem poses an experiment consisting of two steps. Specifically, $N \sim$ geometric distribution.</center></em></p>
+
+<p>If we read the problem carefully, we may find that the problem consists of two steps as depicted in $\pmb{\text{Figure 1}}$. Particularly, random variable $N$ is a geometric distribution which has a <em>probability mass function</em> as follows:</p>
+
+<p>\(\begin{equation}
+    \text{Pr}(n) = (1-C_i)^{n-1} C_i \tag{3}\label{eq:pmf-geometri}
+  \end{equation}\)
+where $C_i$ depends on either $C_1$ or $C_2$.</p>
+
+<p>Now, let us compute:
+   \(\begin{equation}
+    \text{E}(N|TT) = ? \tag{4}\label{eq:problem} 
+   \end{equation}\).</p>
+
+<p>as follows:</p>
+
+\[\begin{align}
+    \text{E}(N|TT) &amp;= \int N \; \text{Pr}(N|TT) \; dN &amp;&amp; \text{by definition} \tag{5}\label{eq:compute-1} \\ 
+                   &amp;= \int \int N \; \text{Pr}(N, C|TT) \; dC \; dN &amp;&amp; \text{by Bayes rule} \tag{6}\label{eq:compute-2} \\ 
+                   &amp;= \int \int N \; \text{Pr}(N|TT,C) \text{Pr}(C|TT) \; dC \; dN &amp;&amp; \text{by conditional probability} \tag{7}\label{eq:compute-3} \\ 
+                   &amp;= \int \underbrace{\int N \; \text{Pr}(N|TT,C) \; dN}_{\text{E}(N|TT, C)} \; \text{Pr}(C|TT) \; dC &amp;&amp; \text{just rearranging} \tag{8}\label{eq:compute-4} \\
+                   &amp;= \int \text{E}(N|TT, C) \; \text{Pr}(C|TT) \; dC &amp;&amp; \text{by expectation definition} \tag{9}\label{eq:compute-5} \\
+                   &amp;= \sum_{i=1}^2 \text{E}(N|TT, C_i) \; \text{Pr}(C_i|TT) &amp;&amp; \text{since }C \text{ is discrete .}   \tag{10}\label{eq:compute-6}                   
+  \end{align}\]
+
+<p>Recall that $N \sim$ geometric distribution; therefore,</p>
+
+\[\begin{align}
+    \text{E}(N | TT, C_i) &amp;= \text{E}(N | C_i) &amp;&amp; \text{whether we have }TT\text{ as conditional or not} \tag{11}\label{eq:expectation-1} \\
+                          &amp;= \frac{1}{C_i}         \tag{12}\label{eq:expectation-2}.
+  \end{align}\]
+
+<p>We proceed from Equation \eqref{eq:compute-6} as follows:</p>
+
+\[\begin{align}
+  \text{E}(N | TT) &amp;= \text{E}(N | TT, C_1) \; \text{Pr}(C_1 | TT) +  \text{E}(N | TT, C_2) \; \text{Pr}(C_2 | TT) \tag{13}\label{eq:final-1} \\
+                   &amp;= \frac{1}{C_1} \text{Pr}(C_1 | TT) +  \frac{1}{C_2} \text{Pr}(C_2 | TT) \tag{14}\label{eq:final-2}   \\
+                   &amp;= \frac{1}{C_1} \underbrace{\frac{\text{Pr}(TT|C_1) \; \text{Pr}(C_1)}{\text{Pr}(TT)}}_{\text{Part 1}} +  \frac{1}{C_2}  \underbrace{\frac{\text{Pr}(TT|C_2) \; \text{Pr}(C_2)}{\text{Pr}(TT)}}_{\text{Part 2}} \tag{15}\label{eq:final-3}   \\
+\end{align}\]
+
+<p>Next, let’s compute $\text{Part 1}$ as follows:</p>
+
+\[\begin{align}
+  \frac{\text{Pr}(TT|C_1) \; \text{Pr}(C_1)}{\text{Pr}(TT)} &amp;= \frac{\text{Pr}(TT|C_1) \; \text{Pr}(C_1)}{\text{Pr}(TT|C_1) \; \text{Pr}(C_1) + \text{Pr}(TT|C_2) \; \text{Pr}(C_2)} &amp;&amp; \text{expanding Pr}(TT) \tag{16}\label{eq:part-1-1} \\
+     &amp;= \frac{(\frac{2}{5}) (\frac{2}{5}) (\frac{1}{2})}{(\frac{2}{5})(\frac{2}{5})(\frac{1}{2}) + (\frac{3}{5}) (\frac{3}{5}) (\frac{1}{2})}. \tag{17}\label{eq:part-1-2} \\
+\end{align}\]
+
+<p>Subsequently, we also calculate $\text{Part 2}$ similarly as follows:</p>
+
+\[\begin{align}
+  \frac{\text{Pr}(TT|C_2) \; \text{Pr}(C_2)}{\text{Pr}(TT)} &amp;= \frac{\text{Pr}(TT|C_2) \; \text{Pr}(C_2)}{\text{Pr}(TT|C_1) \; \text{Pr}(C_1) + \text{Pr}(TT|C_2) \; \text{Pr}(C_2)} &amp;&amp; \text{expanding Pr}(TT) \tag{18}\label{eq:part-2-1} \\
+     &amp;= \frac{(\frac{3}{5}) (\frac{3}{5}) (\frac{1}{2})}{(\frac{2}{5})(\frac{2}{5})(\frac{1}{2}) + (\frac{3}{5}) (\frac{3}{5}) (\frac{1}{2})}. \tag{19}\label{eq:part-2-2} \\
+\end{align}\]
+
+<p>Finally, we compute</p>
+
+\[\begin{align}
+  \text{E}(N|TT) &amp;= \frac{1}{C_1} \, \text{Part 1} + \frac{1}{C_2} \, \text{Part 2} \\
+                 &amp;= \frac{1}{3/5} \; \text{Part 1} + \frac{1}{2/5} \; \text{Part 2} \\
+                 &amp;\approx 2.2436   &amp;&amp; \text{utilizing Eq. }\eqref{eq:part-1-2}\text{ and Eq. }\eqref{eq:part-2-2}.
+\end{align}\]
+:ET

@@ -1,176 +1,159 @@
-I"¥)<p>Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> merupakan sebuah <strong>ruang vektor</strong>.</p>
+I"+<p>Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> merupakan sebuah <strong>ruang vektor</strong>.</p>
 
 <p><strong>Bukti</strong>: <br />
 Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> adalah $V$.</p>
 
 <p>Diketahui juga $A$, $B$, dan $C$ adalah matriks berukuran $2 \times 3$ dan $k$, $l$ adalah skalar dengan spesifikasi sebagai berikut:</p>
 
-<p><script type="math/tex">% <![CDATA[
-A = \begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\end{bmatrix} %]]></script>, <script type="math/tex">% <![CDATA[
-B = \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23}\end{bmatrix} %]]></script>, dan <script type="math/tex">% <![CDATA[
-C = \begin{bmatrix} 	c_{11} & c_{12} & c_{13} \\ c_{21} & c_{22} & c_{23} \end{bmatrix} %]]></script>.</p>
+<p>\(A = \begin{bmatrix}a_{11} &amp; a_{12} &amp; a_{13}\\a_{21} &amp; a_{22} &amp; a_{23}\end{bmatrix}\), \(B = \begin{bmatrix} 	b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21} &amp; b_{22} &amp; b_{23}\end{bmatrix}\), dan \(C = \begin{bmatrix} 	c_{11} &amp; c_{12} &amp; c_{13} \\ c_{21} &amp; c_{22} &amp; c_{23} \end{bmatrix}\).</p>
 
 <p><a href="https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/">Larson</a> (2016) subbab 4.2 hlm. 161 menyatakan bahwa pembuktian suatu himpunan merupakan ruang vektor harus memenuhi 10 aksioma. Berikut akan dibuktikan untuk 10 aksioma tersebut.</p>
 <ol>
   <li>Apakah $A+B$ juga ada di dalam $V$?  <br />
 Ya karena   <br />
-<script type="math/tex">% <![CDATA[
-\begin{align}
- A + B &= \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \end{bmatrix}  \\
-       &= \begin{bmatrix} 	a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13} \\ a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23}	 \end{bmatrix}.
-\end{align} %]]></script>  <br />
+\(\begin{align}
+ A + B &amp;= \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21} &amp; b_{22} &amp; b_{23} \end{bmatrix}  \\
+       &amp;= \begin{bmatrix} 	a_{11}+b_{11} &amp; a_{12}+b_{12} &amp; a_{13}+b_{13} \\ a_{21}+b_{21} &amp; a_{22}+b_{22} &amp; a_{23}+b_{23}	 \end{bmatrix}.
+\end{align}\)  <br />
 <br />
-<script type="math/tex">% <![CDATA[
-\begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13} \\
- a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23} \end{bmatrix} %]]></script> merupakan matriks berukuran $2 \times 3 $, berarti $A+B$ juga ada di dalam $V$.  <br />
+\(\begin{bmatrix} a_{11}+b_{11} &amp; a_{12}+b_{12} &amp; a_{13}+b_{13} \\
+ a_{21}+b_{21} &amp; a_{22}+b_{22} &amp; a_{23}+b_{23} \end{bmatrix}\) merupakan matriks berukuran $2 \times 3 $, berarti $A+B$ juga ada di dalam $V$.  <br />
 <br /></li>
   <li>Apakah $A+B = B+A$?  <br />
 Ya karena  <br />
-<script type="math/tex">% <![CDATA[
-\begin{align} A+B &= \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} +  \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
- b_{21} & b_{22} & b_{23} \end{bmatrix} \\
-                 &= \begin{bmatrix}  a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13} \\
- a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23}	
+\(\begin{align} A+B &amp;= \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} +  \begin{bmatrix} 	b_{11} &amp; b_{12} &amp; b_{13} \\
+ b_{21} &amp; b_{22} &amp; b_{23} \end{bmatrix} \\
+                 &amp;= \begin{bmatrix}  a_{11}+b_{11} &amp; a_{12}+b_{12} &amp; a_{13}+b_{13} \\
+ a_{21}+b_{21} &amp; a_{22}+b_{22} &amp; a_{23}+b_{23}	
  \end{bmatrix} \\
-                 &= \begin{bmatrix} 	b_{11}+a_{11} & b_{12}+a_{12} & b_{13}+a_{13} \\
- b_{21}+a_{21} & b_{22}+a_{22} & b_{23}+a_{23} \end{bmatrix} \\
-                 &= \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
- b_{21} & b_{22} & b_{23} \end{bmatrix} + \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} \\
-                 &= B + A.
-\end{align} %]]></script>      <br />
+                 &amp;= \begin{bmatrix} 	b_{11}+a_{11} &amp; b_{12}+a_{12} &amp; b_{13}+a_{13} \\
+ b_{21}+a_{21} &amp; b_{22}+a_{22} &amp; b_{23}+a_{23} \end{bmatrix} \\
+                 &amp;= \begin{bmatrix} 	b_{11} &amp; b_{12} &amp; b_{13} \\
+ b_{21} &amp; b_{22} &amp; b_{23} \end{bmatrix} + \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} \\
+                 &amp;= B + A.
+\end{align}\)      <br />
 <br /></li>
   <li>Apakah $A + (B + C) = (A+B) + C$?  <br />
 Ya karena  <br />
-<script type="math/tex">% <![CDATA[
-\begin{align} A+(B+C) &= \begin{bmatrix} a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} + \left( \begin{bmatrix} b_{11} & b_{12} & b_{13} \\
- b_{21} & b_{22} & b_{23} \end{bmatrix} + \begin{bmatrix} c_{11} & c_{12} & c_{13} \\
- c_{21} & c_{22} & c_{23} \end{bmatrix} \right) \\
-                      &= \begin{bmatrix} a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} + \left( \begin{bmatrix} b_{11} + c_{11} & b_{12} + c_{12} & b_{13} + c_{13} \\
- b_{21} + c_{21} & b_{22} + c_{22} & b_{23} + c_{23}	\end{bmatrix} \right) \\
-                      &= \begin{bmatrix} a_{11} + b_{11} + c_{11}  & a_{12} + b_{12} + c_{12} & a_{13} + b_{13} + c_{13} \\
- a_{21} + b_{21} + c_{21}  & a_{22} + b_{22} + c_{22} & a_{23} + b_{23} + c_{23} \end{bmatrix} \\
-                      &= \begin{bmatrix} a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} \\
- a_{21} + b_{21} & a_{22} + b_{22} & a_{23} + b_{23} \end{bmatrix} + \begin{bmatrix} 	 c_{11} &  c_{12} &  c_{13} \\
- c_{21} & c_{22} & c_{23} \end{bmatrix} \\
-                      &= \left( \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
- b_{21} & b_{22} & b_{23}	  \end{bmatrix} \right) + \begin{bmatrix} 	c_{11} & c_{12} & c_{13} \\
- c_{21} & c_{22} & c_{23}	  \end{bmatrix} \\
-                      &= (A+B)+C.
-  \end{align} %]]></script>   <br />
+\(\begin{align} A+(B+C) &amp;= \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} + \left( \begin{bmatrix} b_{11} &amp; b_{12} &amp; b_{13} \\
+ b_{21} &amp; b_{22} &amp; b_{23} \end{bmatrix} + \begin{bmatrix} c_{11} &amp; c_{12} &amp; c_{13} \\
+ c_{21} &amp; c_{22} &amp; c_{23} \end{bmatrix} \right) \\
+                      &amp;= \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} + \left( \begin{bmatrix} b_{11} + c_{11} &amp; b_{12} + c_{12} &amp; b_{13} + c_{13} \\
+ b_{21} + c_{21} &amp; b_{22} + c_{22} &amp; b_{23} + c_{23}	\end{bmatrix} \right) \\
+                      &amp;= \begin{bmatrix} a_{11} + b_{11} + c_{11}  &amp; a_{12} + b_{12} + c_{12} &amp; a_{13} + b_{13} + c_{13} \\
+ a_{21} + b_{21} + c_{21}  &amp; a_{22} + b_{22} + c_{22} &amp; a_{23} + b_{23} + c_{23} \end{bmatrix} \\
+                      &amp;= \begin{bmatrix} a_{11} + b_{11} &amp; a_{12} + b_{12} &amp; a_{13} + b_{13} \\
+ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23} \end{bmatrix} + \begin{bmatrix} 	 c_{11} &amp;  c_{12} &amp;  c_{13} \\
+ c_{21} &amp; c_{22} &amp; c_{23} \end{bmatrix} \\
+                      &amp;= \left( \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} &amp; b_{12} &amp; b_{13} \\
+ b_{21} &amp; b_{22} &amp; b_{23}	  \end{bmatrix} \right) + \begin{bmatrix} 	c_{11} &amp; c_{12} &amp; c_{13} \\
+ c_{21} &amp; c_{22} &amp; c_{23}	  \end{bmatrix} \\
+                      &amp;= (A+B)+C.
+  \end{align}\)   <br />
 <br /></li>
   <li>Apakah $V$ mempunyai <strong>matriks nol</strong> $\textbf{0}$ sedemikian sehingga untuk setiap matriks $A$ di $V$, $A + \textbf{0} = A$?  <br />
 Ada, matriks $\mathbf{0}$ tersebut adalah  <br />
-<script type="math/tex">% <![CDATA[
-\begin{bmatrix} 0 & 0 & 0 \\
-     0 & 0 & 0 \end{bmatrix} %]]></script> karena
-     <script type="math/tex">% <![CDATA[
-A + \mathbf{0} = \begin{bmatrix} a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 0 & 0 & 0 \\
-     0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} = A. %]]></script>  <br />
+\(\begin{bmatrix} 0 &amp; 0 &amp; 0 \\
+     0 &amp; 0 &amp; 0 \end{bmatrix}\) karena
+     \(A + \mathbf{0} = \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} + \begin{bmatrix} 0 &amp; 0 &amp; 0 \\
+     0 &amp; 0 &amp; 0 \end{bmatrix} = \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} = A.\)  <br />
 <br /></li>
   <li>Untuk setiap matriks $A$ di dalam $V$, apakah $V$ mempunyai matriks yang dilambangkan dengan $-A$ sedemikian sehingga $A + (-A) = \mathbf{0}$? <br />
 Ada, matriks $-A$ tersebut adalah 
-<script type="math/tex">% <![CDATA[
-\begin{bmatrix} -a_{11} & -a_{12} & -a_{13} \\
- -a_{21} & -a_{22} & -a_{23} \end{bmatrix} %]]></script>	karena
- <script type="math/tex">% <![CDATA[
-\begin{align} A + (-A) &= \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	-a_{11} & -a_{12} & -a_{13} \\
- -a_{21} & -a_{22} & -a_{23} \end{bmatrix} \\
-                           &= \begin{bmatrix} 	a_{11}-a_{11} & a_{12}-a_{12} & a_{13}-a_{13} \\
- a_{21}-a_{21} & a_{22}-a_{22} & a_{23}-a_{23} \end{bmatrix} \\
-                           &= \begin{bmatrix} 		0 & 0 & 0 \\
-     0 & 0 & 0 \end{bmatrix} \\
-                           &= \mathbf{0}.
- \end{align} %]]></script>	<br />
+\(\begin{bmatrix} -a_{11} &amp; -a_{12} &amp; -a_{13} \\
+ -a_{21} &amp; -a_{22} &amp; -a_{23} \end{bmatrix}\)	karena
+ \(\begin{align} A + (-A) &amp;= \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} + \begin{bmatrix} 	-a_{11} &amp; -a_{12} &amp; -a_{13} \\
+ -a_{21} &amp; -a_{22} &amp; -a_{23} \end{bmatrix} \\
+                           &amp;= \begin{bmatrix} 	a_{11}-a_{11} &amp; a_{12}-a_{12} &amp; a_{13}-a_{13} \\
+ a_{21}-a_{21} &amp; a_{22}-a_{22} &amp; a_{23}-a_{23} \end{bmatrix} \\
+                           &amp;= \begin{bmatrix} 		0 &amp; 0 &amp; 0 \\
+     0 &amp; 0 &amp; 0 \end{bmatrix} \\
+                           &amp;= \mathbf{0}.
+ \end{align}\)	<br />
 <br /></li>
   <li>Apakah $kA$ juga ada di dalam $V$?  <br />
 Ya, karena
-<script type="math/tex">% <![CDATA[
-kA = k \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23}
- \end{bmatrix} = \begin{bmatrix} 	ka_{11} & ka_{12} & ka_{13} \\
- ka_{21} & ka_{22} & ka_{23} \end{bmatrix}. %]]></script>  <br />
+\(kA = k \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23}
+ \end{bmatrix} = \begin{bmatrix} 	ka_{11} &amp; ka_{12} &amp; ka_{13} \\
+ ka_{21} &amp; ka_{22} &amp; ka_{23} \end{bmatrix}.\)  <br />
 <br />
-<script type="math/tex">% <![CDATA[
-\begin{bmatrix} 	ka_{11} & ka_{12} & ka_{13} \\
- ka_{21} & ka_{22} & ka_{23} \end{bmatrix} %]]></script> adalah matriks berukuran $2 \times 3$ sehingga $cA$ juga berada di dalam $V$. <br />
+\(\begin{bmatrix} 	ka_{11} &amp; ka_{12} &amp; ka_{13} \\
+ ka_{21} &amp; ka_{22} &amp; ka_{23} \end{bmatrix}\) adalah matriks berukuran $2 \times 3$ sehingga $cA$ juga berada di dalam $V$. <br />
 <br /></li>
   <li>Apakah $k(A+B) = kA + kB$?  <br />
 Ya karena <br />
-<script type="math/tex">% <![CDATA[
-\begin{align} k(A+B) &= k \left( \begin{bmatrix} 	a_{11} & a_{12} & a_{13} \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} & b_{12} & b_{13} \\
- b_{21} & b_{22} & b_{23} \end{bmatrix} \right) \\
-                     &= k \left( \begin{bmatrix} 	a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} \\
- a_{21} + b_{21} & a_{22} + b_{22} & a_{23} + b_{23} \end{bmatrix} \right) \\
-                     &= \begin{bmatrix} 	k(a_{11} + b_{11}) & k(a_{12} + b_{12}) & k(a_{13} + b_{13}) \\
- k(a_{21} + b_{21}) & k(a_{22} + b_{22}) & k(a_{23} + b_{23}) \end{bmatrix} \\
-                     &= \begin{bmatrix} 	ka_{11} + kb_{11} & ka_{12} + kb_{12} & ka_{13} + kb_{13} \\
- ka_{21} + kb_{21} & ka_{22} + kb_{22} & ka_{23} + kb_{23} \end{bmatrix} \\
-                     &= \begin{bmatrix} 	ka_{11} & ka_{12} & ka_{13}  \\
- ka_{21} & ka_{22} & ka_{23}  \end{bmatrix} + \begin{bmatrix} 	kb_{11} & kb_{12} & kb_{13} \\
- kb_{21} & kb_{22} & kb_{23} \end{bmatrix} \\
-                     &= k \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
- a_{21} & a_{22} & a_{23}  \end{bmatrix} + k \begin{bmatrix} 	b_{11} & b_{12} & b_{13}  \\
- b_{21} & b_{22} & b_{23}  \end{bmatrix} \\
-                     &= kA + kB.
-\end{align} %]]></script>  <br />
+\(\begin{align} k(A+B) &amp;= k \left( \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} + \begin{bmatrix} 	b_{11} &amp; b_{12} &amp; b_{13} \\
+ b_{21} &amp; b_{22} &amp; b_{23} \end{bmatrix} \right) \\
+                     &amp;= k \left( \begin{bmatrix} 	a_{11} + b_{11} &amp; a_{12} + b_{12} &amp; a_{13} + b_{13} \\
+ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23} \end{bmatrix} \right) \\
+                     &amp;= \begin{bmatrix} 	k(a_{11} + b_{11}) &amp; k(a_{12} + b_{12}) &amp; k(a_{13} + b_{13}) \\
+ k(a_{21} + b_{21}) &amp; k(a_{22} + b_{22}) &amp; k(a_{23} + b_{23}) \end{bmatrix} \\
+                     &amp;= \begin{bmatrix} 	ka_{11} + kb_{11} &amp; ka_{12} + kb_{12} &amp; ka_{13} + kb_{13} \\
+ ka_{21} + kb_{21} &amp; ka_{22} + kb_{22} &amp; ka_{23} + kb_{23} \end{bmatrix} \\
+                     &amp;= \begin{bmatrix} 	ka_{11} &amp; ka_{12} &amp; ka_{13}  \\
+ ka_{21} &amp; ka_{22} &amp; ka_{23}  \end{bmatrix} + \begin{bmatrix} 	kb_{11} &amp; kb_{12} &amp; kb_{13} \\
+ kb_{21} &amp; kb_{22} &amp; kb_{23} \end{bmatrix} \\
+                     &amp;= k \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13}  \\
+ a_{21} &amp; a_{22} &amp; a_{23}  \end{bmatrix} + k \begin{bmatrix} 	b_{11} &amp; b_{12} &amp; b_{13}  \\
+ b_{21} &amp; b_{22} &amp; b_{23}  \end{bmatrix} \\
+                     &amp;= kA + kB.
+\end{align}\)  <br />
 <br /></li>
   <li>Apakah $(k+l)A = kA + lA$?  <br />
 Ya karena  <br />
-<script type="math/tex">% <![CDATA[
-\begin{align} (k+l) A &= (k+l) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
- a_{21} & a_{22} & a_{23} \\ 		
+\(\begin{align} (k+l) A &amp;= (k+l) \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13}  \\
+ a_{21} &amp; a_{22} &amp; a_{23} \\ 		
 \end{bmatrix}  \\
-                      &= \begin{bmatrix} (k+l) a_{11} & (k+l) a_{12} & (k+l) a_{13}  \\
- (k+l) a_{21} & (k+l) a_{22} & (k+l) a_{23} 	 \end{bmatrix} \\
-                      &= \begin{bmatrix} 	k a_{11} + l a_{11} & k a_{12} + l a_{12} & k a_{13} + l a_{13}  \\
- k a_{21} + l a_{21} & k a_{22} + l a_{22} & k a_{23} + l a_{23} 	\end{bmatrix} \\
-                      &= \begin{bmatrix} 	k a_{11} & k a_{12}  & k a_{13}   \\
- k a_{21} & k a_{22}  & k a_{23}  \end{bmatrix} + \begin{bmatrix} 	l a_{11} & l a_{12} & l a_{13}  \\
- l a_{21} & l a_{22} & l a_{23} \end{bmatrix} \\
-                      &= k \begin{bmatrix} 	a_{11} & a_{12}  & a_{13}   \\
- a_{21} & a_{22}  & a_{23} \end{bmatrix} + l \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
- a_{21} & a_{22} & a_{23} 	\end{bmatrix} \\
-                      &= kA + lA.
-\end{align} %]]></script>  <br />
+                      &amp;= \begin{bmatrix} (k+l) a_{11} &amp; (k+l) a_{12} &amp; (k+l) a_{13}  \\
+ (k+l) a_{21} &amp; (k+l) a_{22} &amp; (k+l) a_{23} 	 \end{bmatrix} \\
+                      &amp;= \begin{bmatrix} 	k a_{11} + l a_{11} &amp; k a_{12} + l a_{12} &amp; k a_{13} + l a_{13}  \\
+ k a_{21} + l a_{21} &amp; k a_{22} + l a_{22} &amp; k a_{23} + l a_{23} 	\end{bmatrix} \\
+                      &amp;= \begin{bmatrix} 	k a_{11} &amp; k a_{12}  &amp; k a_{13}   \\
+ k a_{21} &amp; k a_{22}  &amp; k a_{23}  \end{bmatrix} + \begin{bmatrix} 	l a_{11} &amp; l a_{12} &amp; l a_{13}  \\
+ l a_{21} &amp; l a_{22} &amp; l a_{23} \end{bmatrix} \\
+                      &amp;= k \begin{bmatrix} 	a_{11} &amp; a_{12}  &amp; a_{13}   \\
+ a_{21} &amp; a_{22}  &amp; a_{23} \end{bmatrix} + l \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13}  \\
+ a_{21} &amp; a_{22} &amp; a_{23} 	\end{bmatrix} \\
+                      &amp;= kA + lA.
+\end{align}\)  <br />
 <br /></li>
   <li>Apakah $k(lA) = (kl)A$? <br />
 Ya karena <br />
-<script type="math/tex">% <![CDATA[
-\begin{align} k(l A) &= k \left( l \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
- a_{21} & a_{22} & a_{23}  \end{bmatrix} \right)  \\
-                    &= k \left( \begin{bmatrix} 	l a_{11} & l a_{12} & l a_{13}  \\
- l a_{21} & l a_{22} & l a_{23} \end{bmatrix} \right)  \\
-                    &= k \begin{bmatrix} 	l a_{11} & l a_{12} & l a_{13}  \\
- l a_{21} & l a_{22} & l a_{23} \end{bmatrix}  \\
-                    &= \begin{bmatrix} 	kl a_{11} & kl a_{12} & kl a_{13}  \\
- kl a_{21} & kl a_{22} & kl a_{23} \end{bmatrix} \\
-                    &= \begin{bmatrix} 	(kl)a_{11} & (kl)a_{12} & (kl)a_{13}  \\
- (kl)a_{21} & (kl)a_{22} & (kl)a_{23} \end{bmatrix} \\
-                    &= (kl) \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
- a_{21} & a_{22} & a_{23} \end{bmatrix} \\
-                    &= (kl) A. 
-\end{align} %]]></script> <br />
+\(\begin{align} k(l A) &amp;= k \left( l \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13}  \\
+ a_{21} &amp; a_{22} &amp; a_{23}  \end{bmatrix} \right)  \\
+                    &amp;= k \left( \begin{bmatrix} 	l a_{11} &amp; l a_{12} &amp; l a_{13}  \\
+ l a_{21} &amp; l a_{22} &amp; l a_{23} \end{bmatrix} \right)  \\
+                    &amp;= k \begin{bmatrix} 	l a_{11} &amp; l a_{12} &amp; l a_{13}  \\
+ l a_{21} &amp; l a_{22} &amp; l a_{23} \end{bmatrix}  \\
+                    &amp;= \begin{bmatrix} 	kl a_{11} &amp; kl a_{12} &amp; kl a_{13}  \\
+ kl a_{21} &amp; kl a_{22} &amp; kl a_{23} \end{bmatrix} \\
+                    &amp;= \begin{bmatrix} 	(kl)a_{11} &amp; (kl)a_{12} &amp; (kl)a_{13}  \\
+ (kl)a_{21} &amp; (kl)a_{22} &amp; (kl)a_{23} \end{bmatrix} \\
+                    &amp;= (kl) \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13}  \\
+ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} \\
+                    &amp;= (kl) A. 
+\end{align}\) <br />
 <br /></li>
   <li>Apakah $1(A) = A$? <br />
 Ya karena  <br />
-<script type="math/tex">% <![CDATA[
-\begin{align} 1(A) &= 1 \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
-a_{21} & a_{22} & a_{23} \end{bmatrix} \\
-                  &= \begin{bmatrix} 	1a_{11} & 1a_{12} & 1a_{13}  \\
-1a_{21} & 1a_{22} & 1a_{23} \end{bmatrix} \\
-                  &= \begin{bmatrix} 	a_{11} & a_{12} & a_{13}  \\
-a_{21} & a_{22} & a_{23} \end{bmatrix}  \\
-                  &= A.
-\end{align} %]]></script>  <br />
+\(\begin{align} 1(A) &amp;= 1 \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13}  \\
+a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix} \\
+                  &amp;= \begin{bmatrix} 	1a_{11} &amp; 1a_{12} &amp; 1a_{13}  \\
+1a_{21} &amp; 1a_{22} &amp; 1a_{23} \end{bmatrix} \\
+                  &amp;= \begin{bmatrix} 	a_{11} &amp; a_{12} &amp; a_{13}  \\
+a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix}  \\
+                  &amp;= A.
+\end{align}\)  <br />
 <br /></li>
 </ol>
 
