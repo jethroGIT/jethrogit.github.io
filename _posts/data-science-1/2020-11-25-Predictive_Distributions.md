@@ -97,7 +97,7 @@ $$ \begin{align}
   \text{E}(N|TT) &= \frac{1}{C_1} \, \text{Part 1} + \frac{1}{C_2} \, \text{Part 2} \tag{20}\label{eq:final-answer}\\
                  &= \frac{1}{3/5} \, \text{Part 1} + \frac{1}{2/5} \, \text{Part 2} \\
                  &= 2.2436   && \text{utilizing Eq. }\eqref{eq:part-1-2}\text{ and Eq. }\eqref{eq:part-2-2} \\
-                 &\approx 3 && \text{round the number.}
+                 &\approx 3 && \text{rounding the number.}
 \end{align}$$
 
 This means that in order to _find a head_ after we have two **tails** regardless the coin we choose, we need $3$ more throws on average. 
