@@ -42,11 +42,10 @@ $$
 $$
 where $C_i$ depends on either $C_1$ or $C_2$.    
     
-Now, let us compute:
+Now, let us compute
    $$ \begin{equation}
     \text{E}(N|TT) = ? \tag{4}\label{eq:problem} 
-   \end{equation}$$.
-
+   \end{equation}$$
 as follows:
 
 $$
