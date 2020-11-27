@@ -7,7 +7,7 @@ description: This post explores Exercise 2 in Chapter 2
 sticky: true
 ---
 
-This post provides an answer for Exercise 2 from Chapter 2 of [_**Bayesian Data Analysis (BDA) 3rd Edition**_](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf). Let's state the problem from the beloved book.   
+This post provides an answer for Exercise 2 from Chapter 2 of [_**Bayesian Data Analysis (BDA) 3rd Edition**_](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf). Let's state the problem from the _beloved_ book.   
 
 Consider two coins, $C_1$ and $C_2$, with the following characteristics:     
 
@@ -33,7 +33,7 @@ $$
 [![img1]({{ site.baseurl }}/assets/images/the-experiment.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/the-experiment.png)*<center>$\pmb{\text{Figure 1}}$: The problem poses an experiment consisting of two steps. Specifically, $N \sim$ geometric distribution.</center>*
     
 
-If we read the problem carefully, we may find that the problem consists of two steps as depicted in $\pmb{\text{Figure 1}}$. Particularly, random variable $N$ is a geometric distribution which has a _probability mass function_ as follows:
+If we read the problem carefully, we may find that the problem consists of two steps as depicted in $\pmb{\text{Figure 1}}$. Particularly, random variable $N$ is a geometric distribution which has a _probability mass function_ such that
 
 $$
   \begin{equation}
@@ -46,7 +46,7 @@ Now, let us compute
    $$ \begin{equation}
     \text{E}(N|TT) = ? \tag{4}\label{eq:problem} 
    \end{equation}$$
-as follows:
+as shown
 
 $$
   \begin{align}
@@ -59,7 +59,7 @@ $$
   \end{align}
 $$
 
-Recall that $N \sim$ geometric distribution; therefore, 
+Recall that $N \sim$ geometric distribution; accordingly, 
 
 $$
   \begin{align}
@@ -68,7 +68,7 @@ $$
   \end{align}
 $$
 
-We proceed from Equation \eqref{eq:compute-6} as follows:
+We proceed from Equation \eqref{eq:compute-6} as shown
 
 $$ \begin{align}
   \text{E}(N | TT) &= \text{E}(N | TT, C_1) \, \text{Pr}(C_1 | TT) +  \text{E}(N | TT, C_2) \, \text{Pr}(C_2 | TT) \tag{13}\label{eq:final-1} \\
@@ -77,14 +77,14 @@ $$ \begin{align}
 \end{align}
 $$
 
-Next, let's compute $\text{Part 1}$ as follows:
+Next, let's compute $\text{Part 1}$ which looks like
 
 $$\begin{align}
   \frac{\text{Pr}(TT|C_1) \, \text{Pr}(C_1)}{\text{Pr}(TT)} &= \frac{\text{Pr}(TT|C_1) \, \text{Pr}(C_1)}{\text{Pr}(TT|C_1) \, \text{Pr}(C_1) + \text{Pr}(TT|C_2) \, \text{Pr}(C_2)} && \text{expanding Pr}(TT) \tag{16}\label{eq:part-1-1} \\
      &= \frac{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left(\frac{1}{2} \right)}{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left( \frac{1}{2} \right) + \left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right)}. \tag{17}\label{eq:part-1-2} \\
 \end{align}$$
 
-Subsequently, we also calculate $\text{Part 2}$ similarly as follows:
+Similarly, we also calculate $\text{Part 2}$ in the following: 
 
 $$\begin{align}
   \frac{\text{Pr}(TT|C_2) \, \text{Pr}(C_2)}{\text{Pr}(TT)} &= \frac{\text{Pr}(TT|C_2) \, \text{Pr}(C_2)}{\text{Pr}(TT|C_1) \, \text{Pr}(C_1) + \text{Pr}(TT|C_2) \, \text{Pr}(C_2)} && \text{expanding Pr}(TT) \tag{18}\label{eq:part-2-1} \\
@@ -100,4 +100,4 @@ $$ \begin{align}
                  &\approx 3 && \text{rounding the number.}
 \end{align}$$
 
-This means that in order to _find a head_ after we have two **tails** regardless the coin we choose, we need $3$ more throws **on average**. 
+This means that in order to _find a head_ after we have two **tails** regardless the coin we choose, we need $\pmb{3}$ more throws **on average**. 
