@@ -12,7 +12,7 @@ This post provides an answer for Exercise 2 from Chapter 2 of [_**Bayesian Data 
 Consider two coins, $C_1$ and $C_2$, with the following characteristics:     
 
 $$\begin{align}
-\Pr(\text{heads} \mid C_1) &= 0.6, \\
+\Pr(\text{head} \mid C_1) &= 0.6, \\
 \Pr(\text{head} \mid C_2) &= 0.4.     
 \end{align}$$
 
