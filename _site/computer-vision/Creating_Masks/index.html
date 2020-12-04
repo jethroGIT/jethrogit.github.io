@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Creating Mask Images from Shapely Polygons – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This tutorial will show you how to create masks from Shapely polygons. Specifically, a Shapely polygon has a WKT format and we will convert this WKT format into a mask. OK, concretely, suppose we have installed Shapely library, Anaconda, and had an image like the one on left side of images below. In this tutorial, we will convert this image into a mask image like the one on the right side. The image on right side is called a mask image. It contains only binary pixels (black and white). Particularly, this mask contains black pixels as buildings and white pixels otherwise. Let’s get started with the code! We are going to show all these codes as codes in Jupyter notebook cells. Firstly, we import the libraries %reload_ext autoreload %autoreload 2 %matplotlib inline from skimage.draw import line, polygon, circle, ellipse import matplotlib.pyplot as plt from pathlib import Path from PIL import..." />
+    <meta property="og:description" content="This tutorial will show you how to create masks from Shapely polygons. Specifically, a Shapely polygon has a WKT format and we will convert this WKT format into a mask. OK, concretely, suppose we have installed Shapely library, Anaconda, and had an image like the one on left side of images below. In this tutorial, we will convert this image into a mask image like the one on the right side. The image on right side is called a mask image. It contains only binary pixels (black and white). Particularly, this mask contains black pixels as buildings and white pixels otherwise. Let’s get started with the code! We are going to show all these codes as codes in Jupyter notebook cells. Firstly, we import the libraries %reload_ext autoreload %autoreload 2 %matplotlib inline from skimage.draw import line, polygon, circle, ellipse import matplotlib.pyplot as plt from pathlib import Path from PIL import..." />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Creating Mask Images from Shapely Polygons" />
+    <meta property="twitter:title" content="Creating Mask Images from Shapely Polygons" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/computer-vision">computer-vision</a> / creating mask images from shapely polygons</span></p>
+          <h3>Creating Mask Images from Shapely Polygons<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=How to create mask images from polygons">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Creating Mask Images from Shapely Polygons <br> 
+                  <span class="text-small">How to create mask images from polygons</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>This tutorial will show you how to create masks from <a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> polygons. Specifically, a Shapely polygon has a <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">WKT format</a> and we will convert this WKT format into a mask. OK, concretely, suppose we have installed <a href="https://pypi.org/project/Shapely">Shapely library</a>, <a href="https://www.anaconda.com/distribution">Anaconda</a>, and had <em>an image like the one on left side of images below</em>. In this tutorial, we will convert <em>this image</em> into <em>a mask image like the one on the right side</em>.</p>
+
+<p class="center-image"><a href="/assets/images/palu-tsunami_00000195_pre_disaster.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster.png" alt="img4" class="img-resize-2" /></a>
+<a href="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png"><img src="/assets/images/palu-tsunami_00000195_pre_disaster_mask.png" alt="img5" class="img-resize-2" /></a></p>
+
+<p>The image on right side is called a mask image. It contains only binary pixels (<em>black</em> and <em>white</em>). Particularly, this mask contains <em>black pixels as buildings</em> and <em>white pixels otherwise</em>.</p>
+
+<p>Let’s get started with the code!
+We are going to show all these codes as <em>codes in Jupyter notebook cells</em>.</p>
+
+<p>Firstly, we import the libraries</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">reload_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">from</span> <span class="nn">skimage.draw</span> <span class="kn">import</span> <span class="n">line</span><span class="p">,</span> <span class="n">polygon</span><span class="p">,</span> <span class="n">circle</span><span class="p">,</span> <span class="n">ellipse</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+
+<span class="c1"># To read files in a directory
+</span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="c1"># To load wkt; this is a specific method in shapely library 
+</span><span class="kn">from</span> <span class="nn">shapely.wkt</span> <span class="kn">import</span> <span class="n">loads</span>
+</code></pre></div></div>
+
+<p>Next, we construct paths to <em>the images</em>, <em>the binary labels</em> where the masks will be saved, and <em>the labels</em> where the json files are saved.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We construct the path to the image 
+</span><span class="n">images_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/images'</span><span class="p">)</span>
+
+<span class="c1"># We construct the path to label path where we want to put the mask image 
+</span><span class="n">label_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/binaryLabels'</span><span class="p">)</span>
+
+<span class="c1"># We construct the path to the json file; the json file contains coordinates of polygons
+</span><span class="n">json_path</span>  <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'/home/hbunyamin/Datasets/asses-building-damage/train/labels'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then, we put all the image files in a list.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">images_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">images_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+</code></pre></div></div>
+
+<p>Finally, we process all the images and convert them into mask images.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">img_name</span> <span class="ow">in</span> <span class="n">list_files</span><span class="p">:</span>
+    <span class="c1"># split the file name
+</span>    <span class="n">prefix_file_name</span> <span class="o">=</span> <span class="n">img_name</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+    
+    <span class="c1"># construct the path to the image
+</span>    <span class="n">temp_image_path</span> <span class="o">=</span> <span class="n">images_path</span> <span class="o">/</span> <span class="n">img_name</span>    
+    
+    <span class="c1"># construct the path to the json    
+</span>    <span class="n">temp_json_path</span> <span class="o">=</span> <span class="n">json_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">prefix_file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">".json"</span><span class="p">)</span>
+    
+    <span class="c1"># read the json
+</span>    <span class="n">json_dict</span> <span class="o">=</span> <span class="bp">None</span> 
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">temp_json_path</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">json_dict</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>  
+    
+    <span class="c1"># construct the list of xy of buildings
+</span>    <span class="n">props_xy_list</span> <span class="o">=</span> <span class="n">json_dict</span><span class="p">[</span><span class="s">'features'</span><span class="p">][</span><span class="s">'xy'</span><span class="p">]</span>     
+    
+    <span class="c1"># construct list of polygons 
+</span>    <span class="n">polygon_geom_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">props_xy_list</span><span class="p">:</span>
+        <span class="n">polygon_temp</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="n">prop</span><span class="p">[</span><span class="s">'wkt'</span><span class="p">])</span>
+        <span class="n">polygon_geom_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">polygon_temp</span><span class="p">)</span>    
+    
+    <span class="c1"># read the image which we want to draw the polygons
+</span>    <span class="n">the_image</span> <span class="o">=</span> <span class="n">skimage</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">imread</span><span class="p">(</span> <span class="n">temp_image_path</span> <span class="p">)</span>    
+    
+    <span class="c1"># Create the basic mask
+</span>    <span class="n">a_mask</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">the_image</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">"bool"</span><span class="p">)</span> <span class="c1"># original
+</span>    
+    <span class="c1"># For each polygon, draw the polygon inside the mask
+</span>    <span class="k">for</span> <span class="n">polygon_geom</span> <span class="ow">in</span> <span class="n">polygon_geom_list</span><span class="p">:</span>
+        <span class="n">poly_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">polygon_geom</span><span class="p">.</span><span class="n">exterior</span><span class="p">.</span><span class="n">coords</span><span class="p">))</span>
+        <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">(</span><span class="n">poly_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">poly_coordinates</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">the_image</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">a_mask</span><span class="p">[</span><span class="n">cc</span><span class="p">,</span><span class="n">rr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>        
+    
+    <span class="c1"># Convert numpy array of the mask into an image with the help of PIL
+</span>    <span class="n">mask_image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">a_mask</span><span class="p">)</span>
+    
+    <span class="c1"># Save the image of the mask into the "binaryLabels" folder 
+</span>    <span class="n">mask_image</span><span class="p">.</span><span class="n">save</span><span class="p">(</span> <span class="n">label_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">prefix_file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">"_mask.png"</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s">"PNG"</span> <span class="p">)</span>
+    
+    <span class="c1"># For debugging purposes
+</span>    <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Number of images have been processed:"</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>For conclusion, all <em>the mask images</em> are saved in <code class="language-plaintext highlighter-rouge">label_path</code>.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on March 28, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/computer-vision/Creating_Masks/',
+		  'title': 'Creating Mask Images from Shapely Polygons'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

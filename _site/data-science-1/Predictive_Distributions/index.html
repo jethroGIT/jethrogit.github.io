@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Predictive Distributions (BDA 3rd Edition, Chapter 2) – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This post provides an answer for Exercise 2 from Chapter 2 of Bayesian Data Analysis (BDA) 3rd Edition. Let’s state the problem from the beloved book.
+" />
+    <meta property="og:description" content="This post provides an answer for Exercise 2 from Chapter 2 of Bayesian Data Analysis (BDA) 3rd Edition. Let’s state the problem from the beloved book.
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Predictive Distributions (BDA 3rd Edition, Chapter 2)" />
+    <meta property="twitter:title" content="Predictive Distributions (BDA 3rd Edition, Chapter 2)" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/data-science-1">data-science-1</a> / predictive distributions (bda 3rd edition, chapter 2)</span></p>
+          <h3>Predictive Distributions (BDA 3rd Edition, Chapter 2)<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=This post explores Exercise 2 in Chapter 2">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Predictive Distributions (BDA 3rd Edition, Chapter 2) <br> 
+                  <span class="text-small">This post explores Exercise 2 in Chapter 2</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>This post provides an answer for Exercise 2 from Chapter 2 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><em><strong>Bayesian Data Analysis (BDA) 3rd Edition</strong></em></a>. Let’s state the problem from the <em>beloved</em> book.</p>
+
+<p>Consider two coins, $C_1$ and $C_2$, with the following characteristics:</p>
+
+\[\begin{align}
+\Pr(\text{heads} \mid C_1) &amp;= 0.6, \\
+\Pr(\text{head} \mid C_2) &amp;= 0.4.     
+\end{align}\]
+
+<p>Choose one of the coins at random and imagine spinning it repeatedly.   <br />
+Here is the question:</p>
+
+<blockquote>
+  <p>Given that the <strong>first two spins</strong> from the chosen coin are <strong>tails</strong>, what is the <strong>expectation of the number of additional spins until a head shows up</strong>?</p>
+</blockquote>
+
+<p>To simplify our writing, we denote $\text{head}$ and $\text{tail}$ as $H$ and $T$ respectively. Therefore, we have</p>
+
+\[\begin{align*}
+    C_1 &amp;\rightarrow \Pr(H \mid C_1) = 0.6 = \frac{3}{5}, \tag{1}\label{eq:c1}\\
+    C_2 &amp;\rightarrow \Pr(H \mid C_2) = 0.4 = \frac{2}{5}. \tag{2}\label{eq:c2}
+  \end{align*}\]
+
+<p><a href="/assets/images/the-experiment.png"><img src="/assets/images/the-experiment.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: The problem poses an experiment consisting of two steps. Specifically, $N \sim$ geometric distribution.</center></em></p>
+
+<p>If we read the problem carefully, we may find that the problem consists of two steps as depicted in $\pmb{\text{Figure 1}}$. Particularly, random variable $N$ is a geometric distribution which has a <em>probability mass function</em> such that</p>
+
+<p>\(\begin{equation}
+    \Pr(n) = (1-C_i)^{n-1} C_i \tag{3}\label{eq:pmf-geometri}
+  \end{equation}\)
+where $C_i$ depends on either $C_1$ or $C_2$.</p>
+
+<p>Now, let us compute
+   \(\begin{equation}
+    E(N \mid TT) = ? \tag{4}\label{eq:problem} 
+   \end{equation}\)
+as shown</p>
+
+\[\begin{align}
+    \text{E}(N \mid TT) &amp;= \int N \, \Pr(N \mid TT) \, dN &amp;&amp; \text{by definition} \tag{5}\label{eq:compute-1} \\ 
+                   &amp;= \int \int N \, \Pr(N, C \mid TT) \, dC \, dN &amp;&amp; \text{by Bayes rule} \tag{6}\label{eq:compute-2} \\ 
+                   &amp;= \int \int N \, \Pr(N \mid TT,C) \Pr(C \mid TT) \, dC \, dN &amp;&amp; \text{by conditional probability} \tag{7}\label{eq:compute-3} \\ 
+                   &amp;= \int \underbrace{\int N \, \Pr(N \mid TT,C) \, dN}_{\text{E}(N \mid TT, C)} \, \Pr(C \mid TT) \, dC &amp;&amp; \text{just rearranging} \tag{8}\label{eq:compute-4} \\
+                   &amp;= \int \text{E}(N \mid TT, C) \, \Pr(C \mid TT) \, dC &amp;&amp; \text{by expectation definition} \tag{9}\label{eq:compute-5} \\
+                   &amp;= \sum_{i=1}^2 \text{E}(N \mid TT, C_i) \, \Pr(C_i \mid TT) &amp;&amp; \text{since }C \text{ is discrete .}   \tag{10}\label{eq:compute-6}                   
+  \end{align}\]
+
+<p>Recall that $N \sim$ geometric distribution; accordingly,</p>
+
+\[\begin{align}
+    \text{E}(N \mid TT, C_i) &amp;= \text{E}(N \mid C_i) &amp;&amp; \text{whether we have }TT\text{ as conditional or not} \tag{11}\label{eq:expectation-1} \\
+                          &amp;= \frac{1}{C_i}         \tag{12}\label{eq:expectation-2}.
+  \end{align}\]
+
+<p>We proceed from Equation \eqref{eq:compute-6} as shown</p>
+
+\[\begin{align}
+  \text{E}(N \mid TT) &amp;= \text{E}(N \mid TT, C_1) \, \Pr(C_1 \mid TT) +  \text{E}(N \mid TT, C_2) \, \Pr(C_2 \mid TT) \tag{13}\label{eq:final-1} \\
+                   &amp;= \frac{1}{C_1} \Pr(C_1 \mid TT) +  \frac{1}{C_2} \Pr(C_2 \mid TT) \tag{14}\label{eq:final-2}   \\
+                   &amp;= \frac{1}{C_1} \underbrace{\frac{\Pr(TT \mid C_1) \, \Pr(C_1)}{\Pr(TT)}}_{\text{Part 1}} +  \frac{1}{C_2}  \underbrace{\frac{\Pr(TT \mid C_2) \, \Pr(C_2)}{\Pr(TT)}}_{\text{Part 2}} \tag{15}\label{eq:final-3}   \\
+\end{align}\]
+
+<p>Next, let’s compute $\text{Part 1}$ which looks like</p>
+
+\[\begin{align}
+  \frac{\Pr(TT \mid C_1) \, \Pr(C_1)}{\Pr(TT)} &amp;= \frac{Pr(TT \mid C_1) \, \Pr(C_1)}{\Pr(TT \mid C_1) \, \Pr(C_1) + \Pr(TT \mid C_2) \, \Pr(C_2)} &amp;&amp; \text{expanding }\Pr(TT) \tag{16}\label{eq:part-1-1} \\
+     &amp;= \frac{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left(\frac{1}{2} \right)}{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left( \frac{1}{2} \right) + \left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right)}. \tag{17}\label{eq:part-1-2} \\
+\end{align}\]
+
+<p>Similarly, we also calculate $\text{Part 2}$ in the following:</p>
+
+\[\begin{align}
+  \frac{\Pr(TT \mid C_2) \, \Pr(C_2)}{\Pr(TT)} &amp;= \frac{\Pr(TT \mid C_2) \, \Pr(C_2)}{\Pr(TT \mid C_1) \, \Pr(C_1) + \Pr(TT \mid C_2) \, \Pr(C_2)} &amp;&amp; \text{expanding }\Pr(TT) \tag{18}\label{eq:part-2-1} \\
+     &amp;= \frac{\left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right) }{ \left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left( \frac{1}{2} \right) + \left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right) }. \tag{19}\label{eq:part-2-2} \\
+\end{align}\]
+
+<p>Finally, we are able to compute Equation \eqref{eq:problem} as</p>
+
+\[\begin{align}
+  \text{E}(N \mid TT) &amp;= \frac{1}{C_1} \, \text{Part 1} + \frac{1}{C_2} \, \text{Part 2} \tag{20}\label{eq:final-answer}\\
+                 &amp;= \frac{1}{3/5} \, \text{Part 1} + \frac{1}{2/5} \, \text{Part 2} \\
+                 &amp;= 2.2436   &amp;&amp; \text{utilizing Eq. }\eqref{eq:part-1-2}\text{ and Eq. }\eqref{eq:part-2-2} \\
+                 &amp;\approx 3 &amp;&amp; \text{rounding the number.}
+\end{align}\]
+
+<p>This means that in order to <em>find a head</em> after we have two <strong>tails</strong> regardless the coin we choose, we need $\pmb{3}$ more throws <strong>on average</strong>.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on November 25, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/data-science-1/Predictive_Distributions/',
+		  'title': 'Predictive Distributions (BDA 3rd Edition, Chapter 2)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
