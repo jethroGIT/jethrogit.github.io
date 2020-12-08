@@ -1,4 +1,9 @@
-I"·<p>This post provides an answer for Exercise 2 from Chapter 2 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><em><strong>Bayesian Data Analysis (BDA) 3rd Edition</strong></em></a>. Letâ€™s state the problem from the <em>beloved</em> book.</p>
+I"p<p>This post is an exercise for implementing R data structures. Specifically, the post is inspired by a guided project in <a href="https://www.dataquest.io/"><strong>Dataquest.io</strong></a>, an online platform for learning Data Science.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span><span class="w">
+</span><span class="n">dataset_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file.path</span><span class="p">(</span><span class="s2">"/home"</span><span class="p">,</span><span class="s2">"hbunyamin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Datasets"</span><span class="p">,</span><span class="s2">"Dataquest.io"</span><span class="p">)</span><span class="w">
+</span><span class="n">covid_df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_csv</span><span class="p">(</span><span class="n">file.path</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span><span class="w"> </span><span class="s2">"covid19.csv"</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Consider two coins, $C_1$ and $C_2$, with the following characteristics:</p>
 
@@ -21,7 +26,7 @@ Here is the question:</p>
     C_2 &amp;\rightarrow \Pr(H \mid C_2) = 0.4 = \frac{2}{5}. \tag{2}\label{eq:c2}
   \end{align*}\]
 
-<p><a href="/assets/images/the-experiment.png"><img src="/assets/images/the-experiment.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: The problem poses an experiment consisting of two steps. Specifically, $N \sim$ geometric distribution.</center></em></p>
+<p><a href="/assets/images/Covid19-Top10-Rank-global-1June-ENG-Blue.png"><img src="/assets/images/Covid19-Top10-Rank-global-1June-ENG-Blue.png" alt="img1" class="img-responsive" /></a><em><center>An illustration of positive and negative sentiments. Image taken from <a href="https://www.thaipbsworld.com/10-countries-with-highest-number-of-covid-19-infections-as-of-june-1-2020/ ">Saad Arshad</a>, some rights reserved.</center></em></p>
 
 <p>If we read the problem carefully, we may find that the problem consists of two steps as depicted in $\pmb{\text{Figure 1}}$. Particularly, random variable $N$ is a geometric distribution which has a <em>probability mass function</em> such that</p>
 
