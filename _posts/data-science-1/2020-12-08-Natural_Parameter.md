@@ -34,7 +34,7 @@ $$ \begin{align}
                       &\propto \theta^y (1- \theta)^{n-y} \, \theta^{\alpha - 1} (1 - \theta)^{\beta - 1} \\ 
                       &= \theta^{y+\alpha-1} (1 - \theta)^{n - y + \beta - 1} \\
                       &= \theta^{y+\alpha-1} \,  \frac{1}{(1 - \theta)^{-n+y-\beta +1}} \\
-                      &= \frac{\theta^{\alpha-1}}{(1 - \theta)^{-n-\beta+1}} \, \frac{\theta^y}{(1-\theta)^y} && \text{by rearranging} \\
+                      &= \frac{\theta^{\alpha-1}}{(1 - \theta)^{-n-\beta+1}} \, \frac{\theta^y}{(1-\theta)^y} && \text{by rearranging terms} \\
                       &= \frac{\theta^{\alpha-1}}{(1 - \theta)^{-n-\beta+1}} \, \exp{\left( \log{ \left( \frac{\theta}{1-\theta} \right)^y } \right)} \\
                       &= \theta^{\alpha-1} (1 - \theta)^{\beta-1} (1 - \theta)^n \, \exp{( y \; \text{logit}{ (\theta) } )} \\
                       &= \left( \theta^{\frac{\alpha - 1}{n}} (1 - \theta)^{\frac{\beta-1}{n}} (1-\theta)  \right)^n \, \exp{( \text{logit}{ (\theta) } \; y )} \\ 
