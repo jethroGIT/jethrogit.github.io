@@ -1,0 +1,111 @@
+I"�<p>This post shows that the binomial is indeed an <strong>exponential family</strong> with <strong>natural parameter</strong> $\text{logit}(\theta)$. Specifically, this exercise comes from Chapter 2 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><em><strong>Bayesian Data Analysis (BDA) 3rd Edition</strong></em></a> on page 37.</p>
+
+<p>Recall that a binomial distribution whose <strong>likelihood</strong> $\Pr(y \mid \theta, n ) = \text{Bin}(y \mid n, \theta)$ with $n$ known, the <strong>conjugate prior distribution</strong> on $\theta$ is a <strong>beta distribution</strong>. Particularly, the <strong>likelihood</strong> (a <em>binomial distribution</em>) is</p>
+
+<p>\(\begin{equation}
+  \Pr( y \mid \theta ) \propto \theta^y (1 - \theta)^{n-y} \tag{1}\label{eq:likelihood}
+\end{equation}\)  <br />
+with $\theta$ denotes a probability of a head occurrence, $n$ is a number of trials, and $y$ expresses a number of head occurences. Additionally, the prior (a <em>beta distribution</em>) is</p>
+
+<p>\(\begin{equation}
+  \Pr( \theta ) \propto \theta^{\alpha - 1} (1 - \theta)^{\beta - 1} \tag{2}\label{eq:prior}
+\end{equation}\)  <br />
+with $\alpha$ and $\beta$ denote a number of head and tail occurrences respectively.</p>
+
+<p>We will show that</p>
+
+\[\begin{equation}
+  \Pr(\theta \mid y ) \propto g(\theta)^{\eta + n} \exp{\left( \phi(\theta)^T (\nu + t(y)) \right)} \tag{3}\label{eq:posterior-density}
+\end{equation}\]
+
+<p>Actually, Equation \eqref{eq:posterior-density} is a general form which holds for vector $\phi(\theta)$ and both $\eta$ and $\nu$ are constants. Let’s start computing the posterior density as follows:</p>
+
+\[\begin{equation}
+  \Pr(\theta \mid y ) \propto \Pr(y \mid \theta) \Pr( \theta )  \tag{4}\label{eq:posterior-start}
+\end{equation}\]
+
+<p>Consider two coins, $C_1$ and $C_2$, with the following characteristics:</p>
+
+\[\begin{align}
+\Pr(\text{head} \mid C_1) &amp;= 0.6, \\
+\Pr(\text{head} \mid C_2) &amp;= 0.4.     
+\end{align}\]
+
+<p>Choose one of the coins at random and imagine spinning it repeatedly.   <br />
+Here is the question:</p>
+
+<blockquote>
+  <p>Given that the <strong>first two spins</strong> from the chosen coin are <strong>tails</strong>, what is the <strong>expectation of the number of additional spins until a head shows up</strong>?</p>
+</blockquote>
+
+<p>To simplify our writing, we denote $\text{head}$ and $\text{tail}$ as $H$ and $T$ respectively. Therefore, we have</p>
+
+\[\begin{align*}
+    C_1 &amp;\rightarrow \Pr(H \mid C_1) = 0.6 = \frac{3}{5}, \tag{1}\label{eq:c1}\\
+    C_2 &amp;\rightarrow \Pr(H \mid C_2) = 0.4 = \frac{2}{5}. \tag{2}\label{eq:c2}
+  \end{align*}\]
+
+<p><a href="/assets/images/the-experiment.png"><img src="/assets/images/the-experiment.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: The problem poses an experiment consisting of two steps. Specifically, $N \sim$ geometric distribution.</center></em></p>
+
+<p>If we read the problem carefully, we may find that the problem consists of two steps as depicted in $\pmb{\text{Figure 1}}$. Particularly, random variable $N$ is a geometric distribution which has a <em>probability mass function</em> such that</p>
+
+<p>\(\begin{equation}
+    \Pr(n) = (1-C_i)^{n-1} C_i \tag{3}\label{eq:pmf-geometri}
+  \end{equation}\)
+where $C_i$ depends on either $C_1$ or $C_2$.</p>
+
+<p>Now, let us compute
+   \(\begin{equation}
+    E(N \mid TT) = ? \tag{4}\label{eq:problem} 
+   \end{equation}\)
+as shown</p>
+
+\[\begin{align}
+    \text{E}(N \mid TT) &amp;= \int N \, \Pr(N \mid TT) \, dN &amp;&amp; \text{by definition} \tag{5}\label{eq:compute-1} \\ 
+                   &amp;= \int \int N \, \Pr(N, C \mid TT) \, dC \, dN &amp;&amp; \text{by Bayes rule} \tag{6}\label{eq:compute-2} \\ 
+                   &amp;= \int \int N \, \Pr(N \mid TT,C) \Pr(C \mid TT) \, dC \, dN &amp;&amp; \text{by conditional probability} \tag{7}\label{eq:compute-3} \\ 
+                   &amp;= \int \underbrace{\int N \, \Pr(N \mid TT,C) \, dN}_{\text{E}(N \mid TT, C)} \, \Pr(C \mid TT) \, dC &amp;&amp; \text{just rearranging} \tag{8}\label{eq:compute-4} \\
+                   &amp;= \int \text{E}(N \mid TT, C) \, \Pr(C \mid TT) \, dC &amp;&amp; \text{by expectation definition} \tag{9}\label{eq:compute-5} \\
+                   &amp;= \sum_{i=1}^2 \text{E}(N \mid TT, C_i) \, \Pr(C_i \mid TT) &amp;&amp; \text{since }C \text{ is discrete .}   \tag{10}\label{eq:compute-6}                   
+  \end{align}\]
+
+<p>Recall that $N \sim$ geometric distribution; accordingly,</p>
+
+\[\begin{align}
+    \text{E}(N \mid TT, C_i) &amp;= \text{E}(N \mid C_i) &amp;&amp; \text{whether we have }TT\text{ as conditional or not} \tag{11}\label{eq:expectation-1} \\
+                          &amp;= \frac{1}{C_i}         \tag{12}\label{eq:expectation-2}.
+  \end{align}\]
+
+<p>We proceed from Equation \eqref{eq:compute-6} as shown</p>
+
+\[\begin{align}
+  \text{E}(N \mid TT) &amp;= \text{E}(N \mid TT, C_1) \, \Pr(C_1 \mid TT) +  \text{E}(N \mid TT, C_2) \, \Pr(C_2 \mid TT) \tag{13}\label{eq:final-1} \\
+                   &amp;= \frac{1}{C_1} \Pr(C_1 \mid TT) +  \frac{1}{C_2} \Pr(C_2 \mid TT) \tag{14}\label{eq:final-2}   \\
+                   &amp;= \frac{1}{C_1} \underbrace{\frac{\Pr(TT \mid C_1) \, \Pr(C_1)}{\Pr(TT)}}_{\text{Part 1}} +  \frac{1}{C_2}  \underbrace{\frac{\Pr(TT \mid C_2) \, \Pr(C_2)}{\Pr(TT)}}_{\text{Part 2}} \tag{15}\label{eq:final-3}   \\
+\end{align}\]
+
+<p>Next, let’s compute $\text{Part 1}$ which looks like</p>
+
+\[\begin{align}
+  \frac{\Pr(TT \mid C_1) \, \Pr(C_1)}{\Pr(TT)} &amp;= \frac{Pr(TT \mid C_1) \, \Pr(C_1)}{\Pr(TT \mid C_1) \, \Pr(C_1) + \Pr(TT \mid C_2) \, \Pr(C_2)} &amp;&amp; \text{expanding }\Pr(TT) \tag{16}\label{eq:part-1-1} \\
+     &amp;= \frac{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left(\frac{1}{2} \right)}{\left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left( \frac{1}{2} \right) + \left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right)}. \tag{17}\label{eq:part-1-2} \\
+\end{align}\]
+
+<p>Similarly, we also calculate $\text{Part 2}$ in the following:</p>
+
+\[\begin{align}
+  \frac{\Pr(TT \mid C_2) \, \Pr(C_2)}{\Pr(TT)} &amp;= \frac{\Pr(TT \mid C_2) \, \Pr(C_2)}{\Pr(TT \mid C_1) \, \Pr(C_1) + \Pr(TT \mid C_2) \, \Pr(C_2)} &amp;&amp; \text{expanding }\Pr(TT) \tag{18}\label{eq:part-2-1} \\
+     &amp;= \frac{\left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right) }{ \left( \frac{2}{5} \right) \left( \frac{2}{5} \right) \left( \frac{1}{2} \right) + \left( \frac{3}{5} \right) \left( \frac{3}{5} \right) \left( \frac{1}{2} \right) }. \tag{19}\label{eq:part-2-2} \\
+\end{align}\]
+
+<p>Finally, we are able to compute Equation \eqref{eq:problem} as</p>
+
+\[\begin{align}
+  \text{E}(N \mid TT) &amp;= \frac{1}{C_1} \, \text{Part 1} + \frac{1}{C_2} \, \text{Part 2} \tag{20}\label{eq:final-answer}\\
+                 &amp;= \frac{1}{3/5} \, \text{Part 1} + \frac{1}{2/5} \, \text{Part 2} \\
+                 &amp;= 2.2436   &amp;&amp; \text{utilizing Eq. }\eqref{eq:part-1-2}\text{ and Eq. }\eqref{eq:part-2-2} \\
+                 &amp;\approx 3 &amp;&amp; \text{rounding the number.}
+\end{align}\]
+
+<p>This means that in order to <em>find a head</em> after we have two <strong>tails</strong> regardless the coin we choose, we need $\pmb{3}$ more throws <strong>on average</strong>.</p>
+:ET
