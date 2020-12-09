@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Showing Binomial is an Exponential Family with Natural Parameter
+title: Showing Binomial is an Exponential Family with a Natural Parameter
 category: Data-Science-1
 lang: EN
 description: This is an exercise from BDA on page 37
