@@ -1,4 +1,0 @@
-I"Œ<p>This post shows that the binomial is indeed an <strong>exponential family</strong> with <strong>natural parameter</strong> $\text{logit}(\theta)$. Specifically, this exercise comes from Chapter 2 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><em><strong>Bayesian Data Analysis (BDA) 3rd Edition</strong></em></a> on page 37.</p>
-
-<p>Recall that a binomial distribution whose <strong>likelihood</strong> $\Pr(y \mid \theta, n ) = \text{Bin}(y \mid n, \theta)$ with $n$ known, the <strong>conjugate prior distribution</strong> on $\theta$ is a <strong>beta distribution</strong>. Particularly, the <strong>likelihood</strong> is</p>
-:ET
