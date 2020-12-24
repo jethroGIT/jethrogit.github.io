@@ -85,10 +85,10 @@ $$ \begin{equation}
 	\theta \sim \binom{\theta + \alpha - 1}{\alpha - 1} \left( \frac{\beta}{\beta+1} \right)^\alpha \left( \frac{1}{\beta + 1} \right)^\theta, \qquad \theta = 0, 1, 2, \ldots \tag{17}\label{eq:derivation-10}
 \end{equation} $$
 
-Therefore, we can conclude that $\Pr(y_j)$ in Equation \eqref{eq:derivation-9} is indeed a **_negative binomial distribution_**,
+Therefore, we conclude that $\Pr(y_j)$ in Equation \eqref{eq:derivation-9} is indeed a **_negative binomial distribution_**,
 
 $$ \begin{equation}
-	y_j \sim \text{Neg-bin}(\alpha, \frac{\beta}{10 n_j}) \tag{18}\label{eq:final-derivation}
+	y_j \sim \text{Neg-bin}\left( \alpha, \frac{\beta}{10 n_j} \right) \tag{18}\label{eq:final-derivation}
 \end{equation}$$
 
-as explained on page **49** of [**the book**](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf).
+as explained on page 49 of [**the book**](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf).
