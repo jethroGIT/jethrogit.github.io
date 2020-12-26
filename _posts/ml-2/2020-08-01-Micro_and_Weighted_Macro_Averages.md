@@ -77,7 +77,7 @@ $$\begin{align}
                           &= 0.4.
 \end{align}$$
 
-Next, we shall show that the **weighted macro-average** precision equals to the **micro-average** precision. 
+Next, we shall show that the **weighted macro-average** precision does equal to the **micro-average** precision. 
 
 $$\require{cancel} \begin{align}
     \text{precision}_{WM} &= \sum_{i=0}^{3} \text{weight}_i \times \text{precision}_i   \\
