@@ -4,7 +4,7 @@ title: Deriving Marginal Distribution from Poisson & Gamma Conjugate Pair
 category: Data-Science-1
 lang: EN
 description: Deriving Neg-bin from BDA on page 49
-sticky: true
+sticky: false
 ---
 
 This post shows the derivation of _marginal distribution_ from a **Poisson** model with **Gamma** prior distribution. Specifically, the idea comes from Chapter 2 of [_**Bayesian Data Analysis (BDA) 3rd Edition**_](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf) on page 49.    

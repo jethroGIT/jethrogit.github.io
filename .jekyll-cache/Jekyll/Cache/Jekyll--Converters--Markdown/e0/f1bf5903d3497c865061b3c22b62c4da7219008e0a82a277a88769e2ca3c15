@@ -1,0 +1,87 @@
+I"•<p>This post is the continuation of <a href="https://hbunyamin.github.io/data-science-1/Derivation_Marginal_Distribution/"><strong>the post which derives predictive distribution from Poisson &amp; Gamma Conjugate Pair</strong></a>.</p>
+
+<p class="center-image"><a href="/assets/images/highest-cancer-death-rate.png"><img src="/assets/images/highest-cancer-death-rate.png" alt="img4" class="img-resize-2" /></a>
+<a href="/assets/images/lowest-cancer-death-rate.png"><img src="/assets/images/lowest-cancer-death-rate.png" alt="img5" class="img-resize-2" /></a><em><center>$\pmb{\text{Figure 1}}$: The counties of the United States with the highest ($\pmb{\text{left}}$) and the lowest ($\pmb{\text{right}}$) 10% age-standardized death rates for cancer of kidney/ureter for U.S. white males, 1980-1989. Image taken from <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">BDA 3rd Edition</a>, some rights reserved.</center></em></p>
+
+<p>Previously, $\text{Figure 1}$ shows misleading patterns in the maps of raw rates which are modeled by defining a <em>likelihood</em>,</p>
+
+\[\begin{equation}
+	y_j \mid \theta \sim \text{Poisson}(10 n_j \theta_j), \tag{1}\label{eq:likelihood}
+\end{equation}\]
+
+<p>a <em>prior distribution</em>,</p>
+
+\[\begin{equation}
+  \theta_j \sim \text{Gamma}(\alpha, \beta). \tag{2}\label{eq:prior}
+\end{equation}\]
+
+<p>Calculating the <em>posterior distribution</em> by multiplying Equation \eqref{eq:likelihood} and \eqref{eq:prior}, we arrive at</p>
+
+\[\begin{equation}
+  \theta_j \mid y_j \sim \text{Gamma}(\alpha + y_j, \beta + 10 \, n_j). \tag{3}\label{eq:posterior}
+\end{equation}\]
+
+<p><a href="https://hbunyamin.github.io/data-science-1/Derivation_Marginal_Distribution/"><strong>The previous post</strong></a> shows that</p>
+
+\[\begin{equation}
+	\Pr(y_j) = \int \Pr(y_j \mid \theta_j) \Pr(\theta_j) \, d\theta \tag{4}\label{eq:predictive-distribution}
+\end{equation}\]
+
+<p>is a <em>negative binomial distribution</em>, $\text{Neg-bin}( \alpha, \frac{\beta}{10 n_j} )$.</p>
+
+<blockquote>
+  <p>This post attempts to show the <strong>mean</strong> ($\text{E}(y_j)$) and <strong>variance</strong> ($\text{var}(y_j)$) of a <em>negative binomial distribution</em>.</p>
+</blockquote>
+
+<p>Specifically, we utilize the following two equations,</p>
+
+\[\begin{equation}
+	\text{E}(u) = \text{E}(\text{E}( u \mid v )) \tag{5}\label{eq:conditional-mean}
+\end{equation}\]
+
+<p>and</p>
+
+\[\begin{equation}
+	\text{var}(u) = \text{E}(\text{var}(u \mid v)) + \text{var}(\text{E}(u \mid v)) \tag{6}\label{eq:conditional-variance}
+\end{equation}\]
+
+<p>in our attempt.</p>
+
+<p>Firstly, we employ Equation \eqref{eq:conditional-mean} to find $\text{E}(y_j)$ as follows:</p>
+
+\[\begin{align}
+	\text{E}(y_j) &amp;= \iint y_j \Pr(y_j, \theta_j) \, dy_j \, d\theta_j &amp;&amp; \text{definition of expectation} \tag{7}\label{eq:definition-expectation} \\
+	              &amp;= \iint y_j \Pr(y_j \mid \theta_j) \Pr(\theta_j) \, dy_j \, d\theta_j &amp;&amp;  \text{definition of conditional probability} \tag{8}\label{eq:definition-conditional-prob} \\
+	              &amp;= \iint y_j \Pr(y_j \mid \theta_j) \, dy_j \Pr(\theta_j) \, d\theta_j &amp;&amp; \text{just rearranging} \tag{9}\label{eq:rearranging} \\
+	              &amp;= \int \underbrace{\int y_j \Pr(y_j \mid \theta_j) \, dy_j}_{\text{An expectation}} \Pr(\theta_j) \, d\theta_j &amp;&amp; \text{just rearranging} \tag{10}\label{eq:an-expectation} \\
+	              &amp;= \int \text{E}(y_j \mid \theta_j) \Pr(\theta_j) \, d\theta_j. \tag{11}\label{eq:gathering-expectation}           
+\end{align}\]
+
+<p>Recall that $y_j \mid \theta_j$ has $\text{Poisson}(10 n_j \theta_j)$ based on Equation \eqref{eq:likelihood}; therefore, we can proceed from Equation \eqref{eq:gathering-expectation} as follows:</p>
+
+\[\begin{align}
+	\text{E}(y_j) &amp;= \int 10 n_j \theta_j \Pr(\theta_j) \, d\theta_j \tag{12}\label{eq:inserting-expectation} \\
+			&amp;= \int 10 n_j \theta_j \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha-1} e^{-\beta \theta_j} \, d\theta_j &amp;&amp; \text{based on Equation }\eqref{eq:prior}, \text{a Gamma}  \tag{13}\label{eq:inserting-gamma} \\
+			&amp;= \int 10 n_j \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha} e^{-\beta \theta_j} \, d\theta_j &amp;&amp; \text{adding }\theta_j \text{ into }\theta_j^{\alpha-1}  \tag{14}\label{eq:mean-1} \\ 
+			&amp;= 10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \int \theta_j^{(\alpha+1)-1} e^{-\beta \theta_j} \, d\theta_j &amp;&amp; \text{getting out }10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \tag{15}\label{eq:mean-2}  
+\end{align}\]
+
+<p>Remember that if</p>
+
+\[\begin{equation}
+	\theta_j \sim \text{Gamma}(\alpha, \beta) \tag{16}\label{eq:gamma-dist}  
+\end{equation}\]
+
+<p>then, the integral of <em>probability density function</em> of $\theta_j$ over $[0, \infty]$ is $1$,</p>
+
+\[\begin{align}
+	\int_{0}^{\infty} \frac{\beta^{\alpha+1}}{\Gamma(\alpha+1)} \theta_j^{(\alpha+1)-1} e^{-\beta \theta_j} \, d\theta_j = 1 &amp;\Longleftrightarrow \int_{0}^{\infty} \theta_j^{(\alpha+1)-1} e^{-\beta \theta_j} \, d\theta_j = \frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}. \tag{17}\label{eq:gamma-dist-1}  
+\end{align}\]
+
+<p>Substituting Equation \eqref{eq:gamma-dist-1} into Equation \eqref{eq:mean-2}, we have</p>
+
+\[\require{cancel} \begin{align}
+	\text{E}(y_j) &amp;= 10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \frac{\Gamma(\alpha+1)}{\beta^\alpha}  \\
+	              &amp;= 10 n_j \frac{\cancel{\beta^\alpha}}{\Gamma(\alpha)} \frac{\Gamma(\alpha+1)}{\cancel{\beta^\alpha}}
+\end{align}\]
+:ET

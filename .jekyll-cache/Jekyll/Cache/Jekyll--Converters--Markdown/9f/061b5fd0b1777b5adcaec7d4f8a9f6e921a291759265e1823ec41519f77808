@@ -1,0 +1,125 @@
+I"�#<p>This post is the continuation of <a href="https://hbunyamin.github.io/data-science-1/Derivation_Marginal_Distribution/"><strong>the post which derives predictive distribution from Poisson &amp; Gamma Conjugate Pair</strong></a>.</p>
+
+<p class="center-image"><a href="/assets/images/highest-cancer-death-rate.png"><img src="/assets/images/highest-cancer-death-rate.png" alt="img4" class="img-resize-2" /></a>
+<a href="/assets/images/lowest-cancer-death-rate.png"><img src="/assets/images/lowest-cancer-death-rate.png" alt="img5" class="img-resize-2" /></a><em><center>$\pmb{\text{Figure 1}}$: The counties of the United States with the highest ($\pmb{\text{left}}$) and the lowest ($\pmb{\text{right}}$) 10% age-standardized death rates for cancer of kidney/ureter for U.S. white males, 1980-1989. Image taken from <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">BDA 3rd Edition</a>, some rights reserved.</center></em></p>
+
+<p>Previously, $\text{Figure 1}$ shows misleading patterns in the maps of raw rates which are modeled by defining a <em>likelihood</em>,</p>
+
+\[\begin{equation}
+	y_j \mid \theta \sim \text{Poisson}(10 n_j \theta_j), \tag{1}\label{eq:likelihood}
+\end{equation}\]
+
+<p>a <em>prior distribution</em>,</p>
+
+\[\begin{equation}
+  \theta_j \sim \text{Gamma}(\alpha, \beta). \tag{2}\label{eq:prior}
+\end{equation}\]
+
+<p>Calculating the <em>posterior distribution</em> by multiplying Equation \eqref{eq:likelihood} and \eqref{eq:prior}, we arrive at</p>
+
+\[\begin{equation}
+  \theta_j \mid y_j \sim \text{Gamma}(\alpha + y_j, \beta + 10 \, n_j). \tag{3}\label{eq:posterior}
+\end{equation}\]
+
+<p><a href="https://hbunyamin.github.io/data-science-1/Derivation_Marginal_Distribution/"><strong>The previous post</strong></a> shows that</p>
+
+\[\begin{equation}
+	\Pr(y_j) = \int \Pr(y_j \mid \theta_j) \Pr(\theta_j) \, d\theta \tag{4}\label{eq:predictive-distribution}
+\end{equation}\]
+
+<p>is a <em>negative binomial distribution</em>, $\text{Neg-bin}( \alpha, \frac{\beta}{10 n_j} )$.</p>
+
+<blockquote>
+  <p>This post attempts to show the <strong>mean</strong> ($\text{E}(y_j)$) and <strong>variance</strong> ($\text{var}(y_j)$) of a <em>negative binomial distribution</em>.</p>
+</blockquote>
+
+<p>Specifically, we utilize the following two equations,</p>
+
+\[\begin{equation}
+	\text{E}(u) = \text{E}(\text{E}( u \mid v )) \tag{5}\label{eq:conditional-mean}
+\end{equation}\]
+
+<p>and</p>
+
+\[\begin{equation}
+	\text{var}(u) = \text{E}(\text{var}(u \mid v)) + \text{var}(\text{E}(u \mid v)) \tag{6}\label{eq:conditional-variance}
+\end{equation}\]
+
+<p>in our attempt.</p>
+
+<p>Firstly, we employ Equation \eqref{eq:conditional-mean} to find $\text{E}(y_j)$ as follows:</p>
+
+\[\begin{align}
+	\text{E}(y_j) &amp;= \iint y_j \Pr(y_j, \theta_j) \, dy_j \, d\theta_j &amp;&amp; \text{definition of expectation} \tag{7}\label{eq:definition-expectation} \\
+	              &amp;= \iint y_j \Pr(y_j \mid \theta_j) \Pr(\theta_j) \, dy_j \, d\theta_j &amp;&amp;  \text{definition of conditional probability} \tag{8}\label{eq:definition-conditional-prob} \\
+	              &amp;= \iint y_j \Pr(y_j \mid \theta_j) \, dy_j \Pr(\theta_j) \, d\theta_j
+\end{align}\]
+
+<p>Both $\text{Figure 1}$ and $\text{Figure 2}$ show that the <em>Great Plains</em> has both the highest and lowest rates. Recall that the reason of this issue is <em>sample size</em>. <em>Great Plains</em> has many low-population counties; therefore rare cancer death rates, such as kidney cancer, are represented in both maps. There is no evidence from both maps that cancer rates are high (please read page 47 of the <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">excellent book</a> for more details).</p>
+
+<p>This misleading patterns in the maps of raw death rates suggest that a Poisson model-based approach to estimating the true underlying rates might be helpful. Let’s construct a <em>likelihood</em> from a Poisson distribution.</p>
+
+\[\begin{equation}
+  y_j \mid \theta_j \sim \text{Poisson}(10 \, n_j \, \theta_j) 
+\end{equation}\]
+
+<p>with $y_j$ denotes the number of kidney cancer deaths in county $j$ from 1980-1989, $n_j$ is the population of the county, and $\theta_j$ is the underlying rate in units of deaths per person per year.</p>
+
+<p>The conjugate prior for <em>Poisson</em> model is <em>Gamma</em> distribution with parameters $\alpha$ and $\beta$:</p>
+
+<p>By multiplying Equation \eqref{eq:likelihood} and \eqref{eq:prior}, we obtain the posterior</p>
+
+<p>Recall that the Bayes Rule states that</p>
+
+<p>Specifically, we will <strong>derive the predictive distribution</strong>, the marginal distribution of $y_j$, averaging over the prior distribution of $\theta_j$ or, in short, $\pmb{\Pr(y_j)}$.  <em><strong>The objective of this post is showing this derivation</strong></em>.</p>
+
+<blockquote>
+  <p><em>How do we derive $\Pr(y_j)$?</em></p>
+</blockquote>
+
+<p>Firstly, we have the likelihood, a Poisson distribution, as shown in Equation \eqref{eq:likelihood}</p>
+
+\[\begin{equation}
+	\Pr(y_j \mid \theta_j) = \frac{1}{y_j!} (10 n_j \theta_j)^{y_j} \, e^{-10  n_j  \theta_j}. \tag{5}\label{eq:likelihood-poisson}
+\end{equation}\]
+
+<p>Secondly, we also have the prior, a Gamma distribution, as described in Equation \eqref{eq:prior}</p>
+
+\[\begin{equation}
+	\Pr(\theta_j) = \frac{\beta^\alpha}{\Gamma (\alpha) } \theta_j^{\alpha - 1} e^{-\beta \theta_j}. \tag{6}\label{eq:prior-gamma}
+\end{equation}\]
+
+<p>Last but not least, we have our posterior distribution, a Gamma distribution, as shown in Equation \eqref{eq:posterior}</p>
+
+\[\begin{equation}
+	\Pr( \theta_j \mid y_j ) = \frac{(\beta + 10 n_j )^{\alpha + y_j}}{\Gamma (\alpha + y_j) } \theta_j^{\alpha + y_j -1} e^{-(\beta + 10 n_j) \theta_j}. \tag{7}\label{eq:posterior-gamma}
+\end{equation}\]
+
+<p>Let’s substitute Equation \eqref{eq:likelihood-poisson}, \eqref{eq:prior-gamma}, and \eqref{eq:posterior-gamma} into Equation \eqref{eq:bayes-rule} as follows:</p>
+
+\[\require{cancel} \begin{align}
+	\Pr(y_j) &amp;= \frac{\frac{1}{y_j!} (10 n_j \theta_j)^{y_j} \, e^{-10  n_j  \theta_j} \times \frac{\beta^\alpha}{\Gamma (\alpha) } \theta_j^{\alpha - 1} e^{-\beta \theta_j} }{\frac{(\beta + 10 n_j )^{\alpha + y_j}}{\Gamma (\alpha + y_j) } \theta_j^{\alpha + y_j -1} e^{-(\beta + 10 n_j) \theta_j}} \tag{8}\label{eq:derivation-1}\\
+	         &amp;= \frac{1}{y_j !} \frac{(10 n_j)^{y_j} \theta_j^{y_j} e^{-10 n_j \theta_j} \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha-1} e^{-\beta \theta_j} \Gamma (\alpha + y_j)}{(\beta + 10 n_j)^{\alpha+y_j} \theta_j^{y_j} \theta_j^{\alpha-1} e^{-\beta \theta_j} e^{-10 n_j \theta_j}} \tag{9}\label{eq:derivation-2} \\
+	         &amp;= \frac{1}{y_j !} \frac{(10 n_j)^{y_j} \cancel{\theta_j^{y_j}} \cancel{e^{-10 n_j \theta_j}} \frac{\beta^\alpha}{\Gamma (\alpha)} \cancel{\theta_j^{\alpha-1}} \cancel{e^{-\beta \theta_j}} \Gamma (\alpha + y_j)}{(\beta + 10 n_j)^{\alpha+y_j} \cancel{\theta_j^{y_j}} \cancel{\theta_j^{\alpha-1}} \cancel{e^{-\beta \theta_j}} \cancel{e^{-10 n_j \theta_j}}} \tag{10}\label{eq:derivation-3} \\
+	         &amp;= \frac{1}{y_j !} \frac{(10 n_j)^{y_j} \beta^{\alpha} \Gamma(\alpha + y_j)}{\Gamma(\alpha) (\beta + 10 n_j)^{\alpha + y_j}} \tag{11}\label{eq:derivation-4} \\
+	         &amp;= \frac{1}{y_j !} \frac{\Gamma(\alpha + y_j)}{\Gamma(\alpha)} \frac{(10 n_j)^{y_j}}{(\beta + 10 n_j )^{\alpha + y_j} } \beta^{\alpha} \tag{12}\label{eq:derivation-5} \\
+	         &amp;= \frac{1}{y_j !} \frac{\Gamma(\alpha + y_j)}{\Gamma(\alpha)} \frac{(10 n_j)^{y_j}}{(\beta + 10 n_j )^{y_j} } \frac{\beta^{\alpha}}{(\beta+10 n_j)^{\alpha}} \tag{13}\label{eq:derivation-6} \\	         
+			 &amp;= \frac{1}{y_j !} \frac{(\alpha + y_j - 1)!}{(\alpha - 1)!} \frac{(10 n_j)^{y_j}}{(\beta + 10 n_j )^{y_j} } \frac{\beta^{\alpha}}{(\beta+10 n_j)^{\alpha}} &amp;&amp; \text{because }\Gamma(n) = (n-1)! \tag{14}\label{eq:derivation-7} \\
+			 &amp;= \binom{\alpha + y_j - 1}{\alpha - 1} \left( \frac{\beta}{\beta + 10 n_j} \right)^\alpha \left( \frac{10 n_j}{\beta + 10 n_j} \right)^{y_j} &amp;&amp; \text{because }\binom{n}{r} = \frac{n!}{r! \, (n-r)!} \tag{15}\label{eq:derivation-8} \\ 	         	         
+			 &amp;= \binom{y_j + \alpha - 1}{\alpha - 1} \left( \frac{\frac{\beta}{10 n_j}}{ \frac{\beta}{10 n_j} + 1} \right)^\alpha \left( \frac{1}{\frac{\beta}{10 n_j } + 1 } \right)^{y_j}  \tag{16}\label{eq:derivation-9}
+\end{align}\]
+
+<p>As we know that a <strong><em>negative binomial</em></strong> distribution, $\text{Neg-bin}(\alpha, \beta)$, is</p>
+
+\[\begin{equation}
+	\theta \sim \binom{\theta + \alpha - 1}{\alpha - 1} \left( \frac{\beta}{\beta+1} \right)^\alpha \left( \frac{1}{\beta + 1} \right)^\theta, \qquad \theta = 0, 1, 2, \ldots \tag{17}\label{eq:derivation-10}
+\end{equation}\]
+
+<p>Therefore, we conclude that $\Pr(y_j)$ in Equation \eqref{eq:derivation-9} is indeed a <strong><em>negative binomial distribution</em></strong>,</p>
+
+\[\begin{equation}
+	y_j \sim \text{Neg-bin}\left( \alpha, \frac{\beta}{10 n_j} \right) \tag{18}\label{eq:final-derivation}
+\end{equation}\]
+
+<p>as explained on page 49 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><strong>the book</strong></a>.</p>
+:ET
