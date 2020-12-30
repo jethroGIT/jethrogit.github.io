@@ -61,7 +61,7 @@ $$\begin{align}
 	\text{E}(y_j) &= \iint y_j \Pr(y_j, \theta_j) \, dy_j \, d\theta_j && \text{definition of expectation} \tag{7}\label{eq:definition-expectation} \\
 	              &= \iint y_j \Pr(y_j \mid \theta_j) \Pr(\theta_j) \, dy_j \, d\theta_j &&  \text{definition of conditional probability} \tag{8}\label{eq:definition-conditional-prob} \\
 	              &= \iint y_j \Pr(y_j \mid \theta_j) \, dy_j \Pr(\theta_j) \, d\theta_j && \text{just rearranging} \tag{9}\label{eq:rearranging} \\
-	              &= \int \underbrace{\int y_j \Pr(y_j \mid \theta_j) \, dy_j}_{\text{An expectation}} \Pr(\theta_j) \, d\theta_j && \text{just rearranging} \tag{10}\label{eq:an-expectation} \\
+	              &= \int \underbrace{\int y_j \Pr(y_j \mid \theta_j) \, dy_j}_{\text{An expectation}} \Pr(\theta_j) \, d\theta_j &&  \tag{10}\label{eq:an-expectation} \\
 	              &= \int \text{E}(y_j \mid \theta_j) \Pr(\theta_j) \, d\theta_j. \tag{11}\label{eq:gathering-expectation}           
 \end{align}$$    
     
