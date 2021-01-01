@@ -119,7 +119,7 @@ By substituting Equation \eqref{eq:mean-variance-poisson} on Equation \eqref{eq:
 
 $$\begin{align}
 	\text{var}(y_j) &= \text{E}(10 n_j \theta_j) + \text{var}(10 n_j \theta_j) \\
-	                &= 10 n_j \text{E}(\theta_j) + (10 n_j)^2 \, \text{var}(\theta_j) && \text{remember: }\theta_j \sim \text{Gamma}(\alpha, \beta)  \\
+	                &= 10 n_j \text{E}(\theta_j) + (10 n_j)^2 \, \text{var}(\theta_j) && \text{note: }\theta_j \sim \text{Gamma}(\alpha, \beta) \text{ and var}(k \theta) = k^2 \text{var}(\theta)   \\
 	                &= 10 n_j \frac{\alpha}{\beta} + (10 n_j)^2 \frac{\alpha}{\beta^2}. && \text{E}(\theta_j) = \frac{\alpha}{\beta} \text{ and } \text{var}(\theta_j) = \frac{\alpha}{\beta^2} \tag{21}\label{eq:variance-negative-binomial}
 \end{align}$$
    
