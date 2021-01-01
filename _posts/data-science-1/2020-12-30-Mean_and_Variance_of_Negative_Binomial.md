@@ -68,7 +68,7 @@ $$\begin{align}
 Recall that $y_j \mid \theta_j$ has $\text{Poisson}(10 n_j \theta_j)$ based on Equation \eqref{eq:likelihood}; therefore, we can proceed from Equation \eqref{eq:gathering-expectation} as follows:
    
 $$\begin{align}
-	\text{E}(y_j) &= \int 10 n_j \theta_j \Pr(\theta_j) \, d\theta_j \tag{12}\label{eq:inserting-expectation} \\
+	\text{E}(y_j) &= \int 10 n_j \theta_j \Pr(\theta_j) \, d\theta_j && \text{because }\text{E}(y_j \mid \theta_j) = 10 n_j \theta_j \tag{12}\label{eq:inserting-expectation} \\
 			&= \int 10 n_j \theta_j \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha-1} e^{-\beta \theta_j} \, d\theta_j && \text{based on Equation }\eqref{eq:prior}, \text{a Gamma}  \tag{13}\label{eq:inserting-gamma} \\
 			&= \int 10 n_j \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha} e^{-\beta \theta_j} \, d\theta_j && \text{adding }\theta_j \text{ into }\theta_j^{\alpha-1}  \tag{14}\label{eq:mean-1} \\ 
 			&= 10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \int \theta_j^{(\alpha+1)-1} e^{-\beta \theta_j} \, d\theta_j && \text{getting out }10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \tag{15}\label{eq:mean-2}  
