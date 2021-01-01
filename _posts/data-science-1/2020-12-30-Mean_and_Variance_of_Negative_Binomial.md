@@ -13,7 +13,7 @@ This post is the continuation of [**the post which derives a predictive distribu
 [![img4]({{ site.baseurl }}/assets/images/highest-cancer-death-rate.png){:class="img-resize-2"}]({{ site.baseurl }}/assets/images/highest-cancer-death-rate.png)
 [![img5]({{ site.baseurl }}/assets/images/lowest-cancer-death-rate.png){:class="img-resize-2"}]({{ site.baseurl }}/assets/images/lowest-cancer-death-rate.png)*<center>$\pmb{\text{Figure 1}}$: The counties of the United States with the highest ($\pmb{\text{left}}$) and the lowest ($\pmb{\text{right}}$) 10% age-standardized death rates for cancer of kidney/ureter for U.S. white males, 1980-1989. Image taken from <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">BDA 3rd Edition</a>, some rights reserved.</center>*
      
-Previously, $\text{Figure 1}$ shows misleading patterns in the maps of raw rates which are modeled by a _posterior distribution_, in this case a _Gamma distribution_. The _likelihood_ is defined as 
+Previously, $\text{Figure 1}$ shows misleading patterns in the maps of cancer death rates which are modeled by a _posterior distribution_, in this case a _Gamma distribution_. The _likelihood_ is defined as 
 
 $$ \begin{equation}
 	y_j \mid \theta \sim \text{Poisson}(10 n_j \theta_j), \tag{1}\label{eq:likelihood}
