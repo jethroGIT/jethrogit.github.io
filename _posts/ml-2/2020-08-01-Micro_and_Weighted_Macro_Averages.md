@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Micro-average = Weighted Macro-average 
+title: Micro-average == Weighted Macro-average 
 category: ML-2
 lang: EN
 description: Micro-average & Weighted Macro-average 
