@@ -92,15 +92,15 @@ $$ \begin{align}
 Now, we can finalize computing the Variance in Equation \eqref{eq:variance-definition},
 
 $$ \begin{align}
-  \text{Var}(X^{(k)}) &= \text{E}((X^{(k)})^2) - (\text{E}(X^{(k)}))^2 & \text{the definition of variance} \\
-                      &= \theta_k - (\theta_k)^2 & \text{using Equation }\eqref{eq:expectation} \text{ and }\eqref{eq:expectation-x-square}  \\
-                      &= \theta_k (1 - \theta_k). & \text{using distributive property} \tag{9}\label{eq:variance}
+  \text{Var}(X^{(k)}) &= \text{E}((X^{(k)})^2) - (\text{E}(X^{(k)}))^2 && \text{by definition of variance} \\
+                      &= \theta_k - (\theta_k)^2 && \text{using Equation }\eqref{eq:expectation} \text{ and }\eqref{eq:expectation-x-square}  \\
+                      &= \theta_k (1 - \theta_k). && \text{using distributive property} \tag{9}\label{eq:variance}
 \end{align}$$
 
 Last but not least, we shall compute the Covariance, $\text{Cov}(X^{(j)}, X^{(k)})$. We start by the definition of Covariance,
 
 $$ \begin{align}
-  \text{Cov}(X^{(j)}, X^{(k)}) &= \underbrace{\text{E}(X^{(j)} X^{(k)})}_{\text{Part I}} - \underbrace{(\text{E}(X^{(j)}) E(X^{(k)}))}_{\text{Part II}}. & \text{by definition} \tag{10}\label{eq:covariance}                             
+  \text{Cov}(X^{(j)}, X^{(k)}) &= \underbrace{\text{E}(X^{(j)} X^{(k)})}_{\text{Part I}} - \underbrace{(\text{E}(X^{(j)}) E(X^{(k)}))}_{\text{Part II}}. && \text{by definition} \tag{10}\label{eq:covariance}                             
 \end{align}$$
 
 Let's compute the $\text{Part I}$ as follows:
@@ -114,7 +114,7 @@ Eventually, we can finalize Equation \eqref{eq:covariance} as
 
 $$ \begin{align}
   \text{Cov}(X^{(j)}, X^{(k)}) &= \text{E}(X^{(j)} X^{(k)}) - (\text{E}(X^{(j)}) E(X^{(k)})) \\
-                               &= 0 - \theta_j \theta_k & \text{using Equation } \eqref{eq:expectation} \text{ and }\eqref{eq:covariance-zero} \\
+                               &= 0 - \theta_j \theta_k && \text{using Equation } \eqref{eq:expectation} \text{ and }\eqref{eq:covariance-zero} \\
                                &= - \theta_j \theta_k.
 \end{align}$$
 
