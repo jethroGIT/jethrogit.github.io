@@ -4,7 +4,7 @@ title: Mean and Variance of The Negative Binomial through Conditionals
 category: Data-Science-1
 lang: EN
 description: Exercise 6 Solution from BDA on page 58
-sticky: true
+sticky: false
 ---
 
 This post is the continuation of [**the post which derives a predictive distribution from Poisson & Gamma Conjugate Pair**](https://hbunyamin.github.io/data-science-1/Derivation_Marginal_Distribution/). 

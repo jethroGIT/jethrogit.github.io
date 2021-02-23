@@ -4,7 +4,7 @@ title: Predictive Distributions (BDA 3rd Edition, Chapter 2)
 category: Data-Science-1
 lang: EN
 description: This post explores Exercise 2 in Chapter 2
-sticky: true
+sticky: false
 ---
 
 This post provides an answer for Exercise 2 from Chapter 2 of [_**Bayesian Data Analysis (BDA) 3rd Edition**_](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf). Let's state the problem from the _beloved_ book.   
