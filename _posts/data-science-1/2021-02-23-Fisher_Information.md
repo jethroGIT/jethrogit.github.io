@@ -36,7 +36,7 @@ $$ \require{cancel} \begin{align}
 	&= 0. \tag{10}\label{eq:dlog-8}
 \end{align}$$
 
-Consider Equation \eqref{eq:dlog-5}. We shall utilize this exchangeability between _integral_ and _differentiation_ again.
+Consider Equation \eqref{eq:dlog-5}, we shall utilize this exchangeability between _integral_ and _differentiation_ again later.
 
 Equation \eqref{eq:dlog-2} states that
 
