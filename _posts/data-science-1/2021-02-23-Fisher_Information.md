@@ -19,7 +19,7 @@ $$ \begin{equation}
 	J(\theta) = - \text{E}\left( \frac{d^2 \log \Pr(y \mid \theta)}{d\theta^2} \, \middle| \, \theta \right). \tag{2}\label{eq:end-point}
 \end{equation}$$
 
-The idea of this derivation comes from a [**lecture note by John Duchi from Stanford Statistics class**](https://web.stanford.edu/class/stats311/Lectures/lec-09.pdf). The difference between this post and the lecture note is that the lecture note deals with _multi-variables_ which employs second derivatives for multi-values ([_Hessian matrix_](https://en.wikipedia.org/wiki/Hessian_matrix)); on the other hand, this post deals with a single variable and employs a second derivative for one value.     
+The idea of this derivation comes from a [**lecture note by John Duchi from Stanford Statistics class**](https://web.stanford.edu/class/stats311/Lectures/lec-09.pdf). The difference between this post and the lecture note is that the lecture note deals with _multi-variables_ which employs second derivatives for multi-values ([_Hessian matrix_](https://en.wikipedia.org/wiki/Hessian_matrix)); on the other hand, this post deals with a single variable and employs a second derivative for just one value.     
 
 Let's start with computing 
 $$\begin{equation} 
