@@ -7,7 +7,11 @@ description: Equation (2.20) from BDA on page 53
 sticky: true
 ---
 
-This post elaborates a derivation of Equation (2.20) on page 53 of [**Bayesian Data Analysis Third Edition**](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf). Concretely, we want to show the derivation $J(\theta)$, the _Fisher Information_, from
+This post elaborates a derivation of Equation (2.20) on page 53 of [**Bayesian Data Analysis Third Edition**](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf).    
+
+[![img1]({{ site.baseurl }}/assets/images/Youngronaldfisher2.JPG){:class="img-responsive"}]({{ site.baseurl }}/assets/images/Youngronaldfisher2.JPG)*<center>$\pmb{\text{Figure 1}}$: Sir Ronald Aylmer Fisher (17 February 1890 - 29 July 1962). One of his many contributions is <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher Information</a>. Image taken from <a href="https://en.wikipedia.org/wiki/Ronald_Fisher">Wikipedia</a>, some rights reserved.</center>*   
+
+Concretely, we want to show the derivation $J(\theta)$, the _Fisher Information_, from
 
 $$ \begin{equation}
 	J(\theta) = \text{E}\left( \left( \frac{d \log \Pr(y \mid \theta )}{d\theta} \right)^2 \, \middle| \, \theta \right) \tag{1}\label{eq:start-point}
