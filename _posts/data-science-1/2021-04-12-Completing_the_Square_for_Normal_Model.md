@@ -21,7 +21,7 @@ $$\begin{align}
 Proceeding formally, the posterior density is    
 
 $$\begin{align}
-\Pr(\theta \mid y) &\propto \Pr(\theta) \Pr(y \mid \theta) && \text{Posterior definition} \tag{1}\label{eq:definition}\\
+\Pr(\theta \mid y) &\propto \Pr(\theta) \Pr(y \mid \theta) && \text{posterior definition} \tag{1}\label{eq:definition}\\
                    &= \Pr(\theta) \prod_{i=1}^{n} \Pr(y_i \mid \theta) && \text{i.i.d observations} \tag{2}\label{eq:iid} \\
                    &\propto \exp \left( -\frac{1}{2 \tau_0^2} (\theta - \mu_0)^2 \right) \prod_{i=1}^n \exp \left( - \frac{1}{2 \sigma^2} (y_i - \theta)^2 \right) && \text{normal distributions} \tag{3}\label{eq:exposition-normal} \\
                    &\propto \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} (\theta - \mu_0)^2 + \frac{1}{\sigma^2} \sum_{i=1}^{n} (y_i - \theta)^2 \right) \right)  && \text{sum all terms} \tag{4}\label{eq:sum-all-terms} \\
