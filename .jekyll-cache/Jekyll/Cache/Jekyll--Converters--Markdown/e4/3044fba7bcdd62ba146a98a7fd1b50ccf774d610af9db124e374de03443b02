@@ -1,0 +1,11 @@
+I"#<p>The subchapter 2.5 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><strong>Bayesian Data Analysis Third Edition</strong></a> explains how to estimate a normal mean with known variance; particularly, the subchapter extends the development of a normal model with a single observation into the more realistic situation where <em>a sample of independent and identically distributed observations</em> $y = (y_1, \ldots, y_n)$ are available.</p>
+
+<p><a href="/assets/images/normal-dist.jpg"><img src="/assets/images/normal-dist.jpg" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: Example of a normal distribution consisting a horde of rabbits. Image taken from <a href="https://vimeo.com/75089338">Casey Dunn</a>, some rights reserved.</center></em></p>
+
+<p>The <em>posterior</em> density of the normal model consists of a <em>likelihood</em> distribution, $\Pr(y \mid \theta)$, and a <em>prior</em> distribution, $\Pr(\theta)$. Specifically,</p>
+
+\[\begin{align}
+	y_i \mid \theta &amp;\sim \text{N}(\theta, \sigma^2) &amp;&amp; \text{A normal with mean = }\theta \text{ and variance = }\sigma^2\text{, for }i=1, \ldots, n \\
+	\theta          &amp;\sim \text{N}(\mu_0, \tau_0^2)  &amp;&amp;  \text{A normal with mean = }\mu_0 \text{ and variance = }\sigma^2
+\end{align}\]
+:ET

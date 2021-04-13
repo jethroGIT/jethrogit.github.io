@@ -4,7 +4,7 @@ title: A Quantum of the Fisher Information Derivation
 category: Data-Science-1
 lang: EN
 description: Equation (2.20) from BDA on page 53
-sticky: true
+sticky: false
 ---
 
 This post elaborates a derivation of Equation (2.20) on page 53 of [**Bayesian Data Analysis Third Edition**](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf).    
