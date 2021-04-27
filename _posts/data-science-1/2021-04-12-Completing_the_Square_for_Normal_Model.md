@@ -14,8 +14,8 @@ The subchapter 2.5 of [**Bayesian Data Analysis Third Edition**](http://www.stat
 The _posterior_ density of the normal model consists of a _likelihood_ distribution, $\Pr(y \mid \theta)$, and a _prior_ distribution, $\Pr(\theta)$. Specifically,    
     
 $$\begin{align}
-	y_i \mid \theta &\sim \text{N}(\theta, \sigma^2) && \text{A normal with mean = }\theta \text{ and variance = }\sigma^2\text{, for }i=1, \ldots, n \\
-	\theta          &\sim \text{N}(\mu_0, \tau_0^2)  &&  \text{A normal with mean = }\mu_0 \text{ and variance = }\tau_0^2.
+	y_i \mid \theta &\sim \text{N}(\theta, \sigma^2) && \text{A normal distribution with mean = }\theta \text{ and variance = }\sigma^2\text{, for }i=1, \ldots, n \\
+	\theta          &\sim \text{N}(\mu_0, \tau_0^2)  &&  \text{A normal distribution with mean = }\mu_0 \text{ and variance = }\tau_0^2.
 \end{align}$$
 
 Proceeding formally, the posterior density is    
@@ -24,7 +24,7 @@ $$\begin{align}
 \Pr(\theta \mid y) &\propto \Pr(\theta) \Pr(y \mid \theta) && \text{posterior definition} \tag{1}\label{eq:definition}\\
                    &= \Pr(\theta) \prod_{i=1}^{n} \Pr(y_i \mid \theta) && \text{i.i.d observations} \tag{2}\label{eq:iid} \\
                    &\propto \exp \left( -\frac{1}{2 \tau_0^2} (\theta - \mu_0)^2 \right) \prod_{i=1}^n \exp \left( - \frac{1}{2 \sigma^2} (y_i - \theta)^2 \right) && \text{normal distributions} \tag{3}\label{eq:exposition-normal} \\
-                   &\propto \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} (\theta - \mu_0)^2 + \frac{1}{\sigma^2} \sum_{i=1}^{n} (y_i - \theta)^2 \right) \right)  && \text{sum all terms} \tag{4}\label{eq:sum-all-terms} \\
+                   &= \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} (\theta - \mu_0)^2 + \frac{1}{\sigma^2} \sum_{i=1}^{n} (y_i - \theta)^2 \right) \right)  && \text{sum all terms} \tag{4}\label{eq:sum-all-terms} \\
                    &= \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} \theta^2 - \frac{2 \theta \mu_0}{\tau_0^2} + \frac{\mu_0^2}{\tau_0^2} + \frac{1}{\sigma^2} \sum_{i=1}^n (y_i^2 - 2 \theta y_i + \theta^2) \right) \right) && \text{expand all squares} \tag{5}\label{eq:expand-all} \\
                    &= \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} \theta^2 - \frac{2 \theta \mu_0}{\tau_0^2} + \frac{\mu_0^2}{\tau_0^2} + \frac{\sum_{i=1}^n y_i^2}{\sigma^2} - \frac{2 \theta \sum_{i=1}^n y_i}{\sigma^2} + \frac{n \theta^2}{\sigma^2} \right) \right) && \text{expand the last term} \tag{6}\label{eq:expand-again} \\
                    &= \exp \left( -\frac{1}{2} \left( \frac{\theta^2}{\tau_0^2} + \frac{n \theta^2}{\sigma^2} - 2 \theta \left( \frac{\mu_0}{\tau_0^2} + \frac{\sum_{i=1}^n y_i}{\sigma^2} \right) + \frac{\mu_0^2}{\tau_0^2} + \frac{\sum_{i=1}^n y_i^2}{\sigma^2} \right) \right) && \text{group all }\theta s \text{ & } \theta^2 s \tag{7}\label{eq:collect-all} \\
