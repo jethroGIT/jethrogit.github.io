@@ -77,7 +77,7 @@ Let's multiply out all terms in part $\text{B}$ in Equation \eqref{eq:complete-s
 
 $$\begin{align}
     \text{B} &= \mu^T \Lambda_0^{-1} \mu - \underbrace{\mu^T \Lambda_0^{-1} \mu_0}_{\text{a scalar}} - \underbrace{\mu_0^T \Lambda_0^{-1} \mu}_{\text{a scalar}} + \mu_0^T \Lambda_0^{-1} \mu_0  \tag{15}\label{eq:b-1} \\
-             &= \mu^T \Lambda_0^{-1} \mu - \mu^T \Lambda_0^{-1} \mu_0 - (\mu^T \Lambda_0^{-1} \mu_0)^T + \mu_0^T \Lambda_0^{-1} \mu_0  && \text{transpose property} \tag{16}\label{eq:b-2} \\
+             &= \mu^T \Lambda_0^{-1} \mu - \mu^T \Lambda_0^{-1} \mu_0 - (\mu^T \Lambda_0^{-1} \mu_0)^T + \mu_0^T \Lambda_0^{-1} \mu_0  && \text{by transpose property} \tag{16}\label{eq:b-2} \\
              &= \mu^T \Lambda_0^{-1} \mu - \mu^T \Lambda_0^{-1} \mu_0 - \mu^T \Lambda_0^{-1} \mu_0 + \mu_0^T \Lambda_0^{-1} \mu_0 && \text{as } \mu^T \Lambda_0^{-1} \mu_0 = (\mu^T \Lambda_0^{-1} \mu_0)^T  \tag{17}\label{eq:b-3}  \\             
              &= \mu^T \Lambda_0^{-1} \mu - 2 \mu^T \Lambda_0^{-1} \mu_0 + \mu_0^T \Lambda_0^{-1} \mu_0. \tag{18}\label{eq:b-4}  \\             
 \end{align}$$   
@@ -86,7 +86,7 @@ Let's also multiply out part $\text{C}$ in Equation \eqref{eq:complete-squares-2
     
 $$\begin{align}
     \text{C} &= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - \underbrace{y_i^T \Sigma^{-1} \mu}_{\text{scalar}} - \underbrace{\mu^T \Sigma^{-1} y_i}_{\text{scalar}} + \mu^T \Sigma^{-1} \mu)} \tag{19}\label{eq:c-1} \\
-    &= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - (\mu^T \Sigma^{-1} y_i)^T - \mu^T \Sigma^{-1} y_i + \mu^T \Sigma^{-1} \mu)} && \text{transpose property} \tag{20}\label{eq:c-2} \\    
+    &= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - (\mu^T \Sigma^{-1} y_i)^T - \mu^T \Sigma^{-1} y_i + \mu^T \Sigma^{-1} \mu)} && \text{by transpose property} \tag{20}\label{eq:c-2} \\    
     &= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - \mu^T \Sigma^{-1} y_i - \mu^T \Sigma^{-1} y_i + \mu^T \Sigma^{-1} \mu)} && \text{as } (\mu^T \Sigma^{-1} y_i)^T = \mu^T \Sigma^{-1} y_i \tag{21}\label{eq:c-3} \\        
     &= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - 2 \mu^T \Sigma^{-1} y_i + \mu^T \Sigma^{-1} \mu)}  \tag{22}\label{eq:c-4} \\
     &= \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} - \sum_{i=1}^{n}{2 \mu^T \Sigma^{-1} y_i}  + \sum_{i=1}^{n}{\mu^T \Sigma^{-1} \mu} && \text{by a linear operator of }\sum \tag{23}\label{eq:c-5} \\
@@ -105,12 +105,12 @@ $$\begin{align}
          =& \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \mu - 2 \mu^T ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} ) + \underbrace{\mu_0^T \Lambda_0^{-1} \mu_0 + \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i}}_{\text{constant}_1}  && \text{sum all terms accordingly} \tag{30}\label{eq:c-12} \\
          =& \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \mu - 2 \mu^T ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} ) + \text{constant}_1  \tag{31}\label{eq:c-13} \\         
          =& \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \mu - \underbrace{\mu^T ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} )}_{\text{scalar}} - \underbrace{\mu^T ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} )}_{\text{scalar}} + \text{constant}_1 && \text{separate the middle term}  \tag{32}\label{eq:c-14} \\         
-         =& \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \mu - \mu^T ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} ) - ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} )^T \mu  + \text{constant}_1 && \text{transpose property}  \tag{33}\label{eq:c-15} \\    
+         =& \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \mu - \mu^T ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} ) - ( \Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y} )^T \mu  + \text{constant}_1 && \text{by transpose property}  \tag{33}\label{eq:c-15} \\    
          =& \left( \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) - (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y})^T \right) \left( \mu - (\Lambda_0^{-1} + n \Sigma^{-1})^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y}) \right)  \underbrace{- (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y})^T (\Lambda_0^{-1} + n \Sigma^{-1})^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y}) + \text{constant}_1 }_{\text{constant}_2}  && \text{by factoring & inverse matrix}  \tag{34}\label{eq:c-16} \\             
          =& \left( \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) - (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y})^T \right) \left( \mu - (\Lambda_0^{-1} + n \Sigma^{-1})^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y}) \right) + \text{constant}_2    \tag{35}\label{eq:c-17} \\                      
          =& \left( \mu^T  - (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y})^T (\Lambda_0^{-1} + n \Sigma^{-1} )^{-1} \right) (\Lambda_0^{-1} + n \Sigma^{-1} ) \left( \mu - (\Lambda_0^{-1} + n \Sigma^{-1})^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y}) \right) + \text{constant}_2  && \text{get }(\Lambda_0^{-1} + n \Sigma^{-1} ) \text{ out}  \tag{36}\label{eq:c-18} \\                      
          =& \left( \mu^T  - (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y})^T (\Lambda_0^{-1} + n \Sigma^{-1} )^{-T} \right) (\Lambda_0^{-1} + n \Sigma^{-1} ) \left( \mu - (\Lambda_0^{-1} + n \Sigma^{-1})^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y}) \right) + \text{constant}_2  && \text{symmetric property, }A^{-T} = A^{-1}  \tag{37}\label{eq:c-19} \\                               
-         =& \left( \mu  - (\Lambda_0^{-1} + n \Sigma^{-1} )^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y})  \right)^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \left( \mu - (\Lambda_0^{-1} + n \Sigma^{-1})^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y}) \right) + \text{constant}_2  && \text{transpose property}  \tag{38}\label{eq:c-20} \\        
+         =& \left( \mu  - (\Lambda_0^{-1} + n \Sigma^{-1} )^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y})  \right)^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \left( \mu - (\Lambda_0^{-1} + n \Sigma^{-1})^{-1} (\Lambda_0^{-1} \mu_0 + n \Sigma^{-1} \overline{y}) \right) + \text{constant}_2  && \text{by transpose property}  \tag{38}\label{eq:c-20} \\        
          =& \left( \mu  - \mu_n  \right)^T \Lambda_n^{-1} \left( \mu - \mu_n \right) + \text{constant}_2    \tag{39}\label{eq:c-21} \\                                  
 \end{align}$$    
 
