@@ -1,0 +1,98 @@
+I"Q#<p>The subchapter 3.5 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><strong>Bayesian Data Analysis Third Edition</strong></a> gives distributional results of Bayesian inference for the parameters of a multivariate normal distribution with a <strong>known</strong> variance. <em>Additionally, this article discusses the derivation of those results in gory details.</em></p>
+
+<p><a href="/assets/images/bayes-theorem.jpg"><img src="/assets/images/bayes-theorem.jpg" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: A posterior distribution equals to a likelihood times a prior divided by a piece of evidence. Image taken from <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Wikipedia</a>, some rights reserved.</center></em></p>
+
+<p>Suppose we have a model for an observable vector $y$ of $d$ components, that is $y$ is a column vector of $d \times 1$, with the multivariate normal distribution,</p>
+
+\[\begin{equation}
+    y \mid \mu, \Sigma \sim \text{N}(\mu, \Sigma) \tag{1}\label{eq:mvn-one-sample} 
+\end{equation}\]
+
+<p>where $\mu$ is a column vector of length $d$ and $\Sigma$ is a known $d \times d$ variance matrix, which is <a href="https://en.wikipedia.org/wiki/Symmetric_matrix"><em>symmetric</em></a> and <a href="https://en.wikipedia.org/wiki/Definite_matrix"><em>positive definite</em></a>. Therefore, the <em>likelihood function</em> for a single observation is</p>
+
+\[\begin{equation}
+    \Pr(y \mid \mu, \Sigma) \propto \lvert \Sigma \rvert^{-1/2} \exp \left( - \frac{1}{2} (y-\mu)^T \Sigma^{-1} (y - \mu) \right),  \tag{2}\label{eq:likelihood-one-sample} 
+\end{equation}\]
+
+<p>and for a sample of $n$ independent and identically distributed observations, $y_1, \ldots, y_n$, is</p>
+
+\[\begin{align}
+   \Pr( y_1, \ldots, y_n \mid \mu, \Sigma ) &amp;\propto \prod_{i=1}^{n}{ \Pr( y_i \mid \mu, \Sigma ) }     \tag{3}\label{eq:likelihood-samples-1}  \\
+   &amp;= \prod_{i=1}^{n}{ \lvert \Sigma \rvert^{-1/2} \exp \left( - \frac{1}{2} (y_i-\mu)^T \Sigma^{-1} (y_i - \mu) \right) }     \tag{4}\label{eq:likelihood-samples-2} &amp;&amp; \text{using Equation }\eqref{eq:likelihood-one-sample} \\
+   &amp;= \prod_{i=1}^{n}{ \lvert \Sigma \rvert^{-1/2} } \prod_{i=1}^{n}{\exp \left( - \frac{1}{2} (y_i-\mu)^T \Sigma^{-1} (y_i - \mu) \right) }     \tag{5}\label{eq:likelihood-samples-3}  \\  
+   &amp;= \lvert \Sigma \rvert^{-n/2} \exp \left( - \frac{1}{2} \sum_{i=1}^{n}{(y_i-\mu)^T \Sigma^{-1} (y_i - \mu)} \right).  \tag{6}\label{eq:likelihood-samples-4}  \\     
+\end{align}\]
+
+<p>Actually, given the following nice <a href="https://en.wikipedia.org/wiki/Trace_(linear_algebra)"><em>trace property</em></a>,</p>
+
+\[\begin{equation}
+    \sum_{i=1}^{n}{x_i^T A x_i} = \text{tr}\left( A \sum_{i=1}^{n}{x_i x_i^T} \right) \tag{7}\label{eq:trace-property}
+\end{equation}\]
+
+<p>with $x_i$ is a column vector whose dimension is $d \times 1$, $A$ is a symmetric matrix whose dimension is $d \times d$, and $\text{tr}$ is a <a href="https://en.wikipedia.org/wiki/Trace_(linear_algebra)"><em>trace function</em></a>, we can rewrite Equation \eqref{eq:trace-property} as follows:</p>
+
+\[\begin{equation}
+\Pr( y_1, \ldots, y_n \mid \mu, \Sigma ) \propto \lvert \Sigma \rvert^{-n/2} \exp \left( -\frac{1}{2} \text{tr}(\Sigma^{-1} S_0) \right) \tag{8}\label{eq:likelihood-final-version}
+\end{equation}\]
+
+<p>where $S_0$ is the “<em>sums squares</em>” matrix relative to $\mu$,</p>
+
+\[\begin{equation}
+    S_0 = \sum_{i=1}^{n}{(y_i - \mu)(y_i - \mu)^T}. \tag{9}\label{eq:sum-of-squares}
+\end{equation}\]
+
+<p>Before we construct the posterior distribution of the model, let’s define the <em>prior distribution</em> as follows:</p>
+
+\[\begin{equation}
+\Pr( \mu ) \propto  \lvert \Lambda_0 \rvert^{-1/2} \exp \left(-\frac{1}{2} (\mu - \mu_0)^T \Lambda_0^{-1} (\mu - \mu_0)  \right) \tag{10}\label{eq:prior}
+\end{equation}\]
+
+<p>that is $\mu \sim \text{N}(\mu_0, \Lambda_0)$. By the way, $\Lambda_0$ is also a symmetric and positive definite matrix as well.</p>
+
+<p>Now that we have both likelihood and prior distributions; let’s compute the posterior distribution,</p>
+
+\[\begin{align}
+\Pr( \mu \mid y, \Sigma ) &amp;\propto \Pr( y \mid \mu, \Sigma ) \Pr(\mu \mid \Sigma) &amp;&amp; \text{by Bayes rule} \tag{11}\label{eq:posterior-def}  \\
+                          &amp;= \lvert \Sigma \rvert^{-n/2} \exp \left( - \frac{1}{2} \sum_{i=1}^{n}{(y_i-\mu)^T \Sigma^{-1} (y_i - \mu)} \right) \times \lvert \Lambda_0 \rvert^{-1/2} \exp \left(-\frac{1}{2} (\mu - \mu_0)^T \Lambda_0^{-1} (\mu - \mu_0)  \right)  \\
+                          &amp;\propto \exp \left( \underbrace{-\frac{1}{2} \left( (\mu - \mu_0)^T \Lambda_0^{-1} (\mu - \mu_0) + \sum_{i=1}^{n}{(y_i-\mu)^T \Sigma^{-1} (y_i - \mu)} \right)}_{\text{A}}   \right) \tag{12}\label{eq:posterior-1}
+\end{align}\]
+
+<p>Part $\text{A}$ in Equation \eqref{eq:posterior-1} is actually a “<em>completing the quadratic form</em>” problem. Let’s solve the problem as follows:</p>
+
+\[\begin{align}
+\text{A} &amp;= (\mu^T - \mu_0^T) \Lambda_0^{-1} (\mu - \mu_0)  + \sum_{i=1}^{n}{(y_i^T - \mu^T)\Sigma^{-1}(y_i - \mu)} &amp;&amp; \text{by transpose property} \tag{13}\label{eq:complete-squares-1}  \\
+&amp;= \underbrace{(\mu^T \Lambda_0^{-1} - \mu_0^T \Lambda_0^{-1}) (\mu - \mu_0)}_{\text{B}}  + \underbrace{\sum_{i=1}^{n}{(y_i^T \Sigma^{-1} - \mu^T \Sigma^{-1})(y_i - \mu)}}_{\text{C}} \tag{14}\label{eq:complete-squares-2} 
+\end{align}\]
+
+<p>Let’s multiply out all terms in part $\text{B}$ in Equation \eqref{eq:complete-squares-2} as follows:</p>
+
+\[\begin{align}
+    \text{B} &amp;= \mu^T \Lambda_0^{-1} \mu - \underbrace{\mu^T \Lambda_0^{-1} \mu_0}_{\text{a scalar}} - \underbrace{\mu_0^T \Lambda_0^{-1} \mu}_{\text{a scalar}} + \mu_0^T \Lambda_0^{-1} \mu_0  \tag{15}\label{eq:b-1} \\
+             &amp;= \mu^T \Lambda_0^{-1} \mu - \mu^T \Lambda_0^{-1} \mu_0 - (\mu^T \Lambda_0^{-1} \mu_0)^T + \mu_0^T \Lambda_0^{-1} \mu_0  &amp;&amp; \text{transpose property} \tag{16}\label{eq:b-2} \\
+             &amp;= \mu^T \Lambda_0^{-1} \mu - \mu^T \Lambda_0^{-1} \mu_0 - \mu^T \Lambda_0^{-1} \mu_0 + \mu_0^T \Lambda_0^{-1} \mu_0 &amp;&amp; \text{as } \mu^T \Lambda_0^{-1} \mu_0 = (\mu^T \Lambda_0^{-1} \mu_0)^T  \tag{17}\label{eq:b-3}  \\             
+             &amp;= \mu^T \Lambda_0^{-1} \mu - 2 \mu^T \Lambda_0^{-1} \mu_0 + \mu_0^T \Lambda_0^{-1} \mu_0. \tag{18}\label{eq:b-4}  \\             
+\end{align}\]
+
+<p>Let’s also multiply out part $\text{C}$ in Equation \eqref{eq:complete-squares-2},</p>
+
+\[\begin{align}
+    \text{C} &amp;= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - \underbrace{y_i^T \Sigma^{-1} \mu}_{\text{scalar}} - \underbrace{\mu^T \Sigma^{-1} y_i}_{\text{scalar}} + \mu^T \Sigma^{-1} \mu)} \tag{19}\label{eq:c-1} \\
+    &amp;= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - (\mu^T \Sigma^{-1} y_i)^T - \mu^T \Sigma^{-1} y_i + \mu^T \Sigma^{-1} \mu)} &amp;&amp; \text{transpose property} \tag{20}\label{eq:c-2} \\    
+    &amp;= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - \mu^T \Sigma^{-1} y_i - \mu^T \Sigma^{-1} y_i + \mu^T \Sigma^{-1} \mu)} &amp;&amp; \text{as } (\mu^T \Sigma^{-1} y_i)^T = \mu^T \Sigma^{-1} y_i \tag{21}\label{eq:c-3} \\        
+    &amp;= \sum_{i=1}^{n}{(y_i^T \Sigma^{-1} y_i - 2 \mu^T \Sigma^{-1} y_i + \mu^T \Sigma^{-1} \mu)}  \tag{22}\label{eq:c-4} \\
+    &amp;= \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} - \sum_{i=1}^{n}{2 \mu^T \Sigma^{-1} y_i}  + \sum_{i=1}^{n}{\mu^T \Sigma^{-1} \mu} &amp;&amp; \text{by a linear operator of }\sum \tag{23}\label{eq:c-5} \\
+    &amp;= \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} - 2 \mu^T \Sigma^{-1} \sum_{i=1}^{n}{y_i}  + \sum_{i=1}^{n}{\mu^T \Sigma^{-1} \mu} \tag{24}\label{eq:c-6}\\
+    &amp;= \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} - 2 \mu^T \Sigma^{-1} n \overline{y}  + \sum_{i=1}^{n}{\mu^T \Sigma^{-1} \mu}  &amp;&amp; \text{as }\overline{y} = \frac{\sum_{i=1}^n y_i}{n} \tag{25}\label{eq:c-7} \\
+    &amp;= \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} - 2 \mu^T \Sigma^{-1} n \overline{y}  + n \mu^T \Sigma^{-1} \mu  &amp;&amp; \text{as }\sum_{i=1}^{n}{\text{constant}} = n \times \text{constant} \tag{26}\label{eq:c-8} \\    
+    &amp;= \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} - 2 \mu^T n \Sigma^{-1}  \overline{y}  +  \mu^T n \Sigma^{-1} \mu  \tag{27}\label{eq:c-9}      \\
+    &amp;= \mu^T n \Sigma^{-1} \mu - 2 \mu^T \Sigma^{-1} n \overline{y} + \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} &amp;&amp; \text{just rearranging terms}   \tag{28}\label{eq:c-10}          
+\end{align}\]
+
+<p>Now let’s combine both part $\text{B}$ (Equation \eqref{eq:b-4}) and part $\text{C}$ (Equation \eqref{eq:c-10}) into part $\text{A}$ in Equation \eqref{eq:complete-squares-2},</p>
+
+\[\begin{align}
+\text{A} =&amp; \mu^T \Lambda_0^{-1} \mu - 2 \mu^T \Lambda_0^{-1} \mu_0 + \mu_0^T \Lambda_0^{-1} \mu_0 + \\
+          &amp; \mu^T n \Sigma^{-1} \mu - 2 \mu^T \Sigma^{-1} n \overline{y} + \sum_{i=1}^{n}{y_i^T \Sigma^{-1} y_i} \tag{29}\label{eq:c-11} \\
+         =&amp; \mu^T (\Lambda_0^{-1} + n \Sigma^{-1} ) \mu - 2 \mu^T ( \Lambda_0^{-1} \mu_0 + \Sigma^{-1} n \overline{y} ) 
+\end{align}\]
+:ET

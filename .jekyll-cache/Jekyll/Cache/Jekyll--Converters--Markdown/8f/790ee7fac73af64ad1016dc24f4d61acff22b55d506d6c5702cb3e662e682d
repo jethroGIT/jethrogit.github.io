@@ -1,0 +1,86 @@
+I"� <p>The subchapter 3.5 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><strong>Bayesian Data Analysis Third Edition</strong></a> gives distributional results of Bayesian inference for the parameters of a multivariate normal distribution with a known variance. <em>Additionally, this article discusses the derivation of those results in gory details.</em></p>
+
+<p><a href="/assets/images/bayes-theorem.jpg"><img src="/assets/images/bayes-theorem.jpg" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: A posterior distribution equals to a likelihood times a prior divided by a piece of evidence. Image taken from <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Wikipedia</a>, some rights reserved.</center></em></p>
+
+<p>Suppose we have a model for an observable vector $y$ of $d$ components, that is $y$ is a column vector of $d \times 1$, with the multivariate normal distribution,</p>
+
+\[\begin{equation}
+    y \mid \mu, \Sigma \sim \text{N}(\mu, \Sigma) \tag{1}\label{eq:mvn-one-sample} 
+\end{equation}\]
+
+<p>where $\mu$ is a column vector of length $d$ and $\Sigma$ is a known $d \times d$ variance matrix, which is <a href="https://en.wikipedia.org/wiki/Symmetric_matrix"><em>symmetric</em></a> and <a href="https://en.wikipedia.org/wiki/Definite_matrix"><em>positive definite</em></a>. Therefore, the <em>likelihood function</em> for a single observation is</p>
+
+\[\begin{equation}
+    \Pr(y \mid \mu, \Sigma) \propto \lvert \Sigma \rvert^{-1/2} \exp \left( - \frac{1}{2} (y-\mu)^T \Sigma^{-1} (y - \mu) \right),  \tag{2}\label{eq:likelihood-one-sample} 
+\end{equation}\]
+
+<p>and for a sample of $n$ independent and identically distributed observations, $y_1, \ldots, y_n$, is</p>
+
+\[\begin{align}
+   \Pr( y_1, \ldots, y_n \mid \mu, \Sigma ) &amp;\propto \prod_{i=1}^{n}{ \Pr( y_i \mid \mu, \Sigma ) }     \tag{3}\label{eq:likelihood-samples-1}  \\
+   &amp;= \prod_{i=1}^{n}{ \lvert \Sigma \rvert^{-1/2} \exp \left( - \frac{1}{2} (y_i-\mu)^T \Sigma^{-1} (y_i - \mu) \right) }     \tag{4}\label{eq:likelihood-samples-2} &amp;&amp; \text{using Equation }\eqref{eq:likelihood-one-sample} \\
+   &amp;= \prod_{i=1}^{n}{ \lvert \Sigma \rvert^{-1/2} } \prod_{i=1}^{n}{\exp \left( - \frac{1}{2} (y_i-\mu)^T \Sigma^{-1} (y_i - \mu) \right) }     \tag{5}\label{eq:likelihood-samples-3}  \\  
+   &amp;= \lvert \Sigma \rvert^{-n/2} \exp \left( - \frac{1}{2} \sum_{i=1}^{n}{(y_i-\mu)^T \Sigma^{-1} (y_i - \mu)} \right).  \tag{6}\label{eq:likelihood-samples-4}  \\     
+\end{align}\]
+
+<p>Actually, given the following nice <a href="https://en.wikipedia.org/wiki/Trace_(linear_algebra)"><em>trace property</em></a>,</p>
+
+\[\begin{equation}
+    \sum_{i=1}^{n}{x_i^T A x_i} = \text{tr}\left( A \sum_{i=1}^{n}{x_i x_i^T} \right) \tag{7}\label{eq:trace-property}
+\end{equation}\]
+
+<p>with $x_i$ is a column vector whose dimension is $d \times 1$, $A$ is a symmetric matrix whose dimension is $d \times d$, and $\text{tr}$ is a <a href="https://en.wikipedia.org/wiki/Trace_(linear_algebra)"><em>trace function</em></a>, we can rewrite Equation \eqref{eq:trace-property} as follows:</p>
+
+\[\begin{equation}
+\Pr( y_1, \ldots, y_n \mid \mu, \Sigma ) \propto \lvert \Sigma \rvert^{-n/2} \exp \left( -\frac{1}{2} \text{tr}(\Sigma^{-1} S_0) \right) \tag{8}\label{eq:likelihood-final-version}
+\end{equation}\]
+
+<p>where $S_0$ is the “<em>sums squares</em>” matrix relative to $\mu$,</p>
+
+\[\begin{equation}
+    S_0 = \sum_{i=1}^{n}{(y_i - \mu)(y_i - \mu)^T}. \tag{9}\label{eq:sum-of-squares}
+\end{equation}\]
+
+<p>Before we construct the posterior distribution of the model, let’s define the prior as follows:</p>
+
+\[\begin{equation}
+\Pr( \mu ) \propto 
+\end{equation}\]
+
+<p>The <em>posterior</em> density of the normal model consists of a <em>likelihood</em> distribution, $\Pr(y \mid \theta)$, and a <em>prior</em> distribution, $\Pr(\theta)$. Specifically,</p>
+
+\[\begin{align}
+	y_i \mid \theta &amp;\sim \text{N}(\theta, \sigma^2) &amp;&amp; \text{A normal distribution with mean = }\theta \text{ and variance = }\sigma^2\text{, for }i=1, \ldots, n \\
+	\theta          &amp;\sim \text{N}(\mu_0, \tau_0^2)  &amp;&amp;  \text{A normal distribution with mean = }\mu_0 \text{ and variance = }\tau_0^2.
+\end{align}\]
+
+<p>Proceeding formally, the posterior density is</p>
+
+<p>\(\begin{align}
+\Pr(\theta \mid y) &amp;\propto \Pr(\theta) \Pr(y \mid \theta) &amp;&amp; \text{posterior definition} \tag{1}\label{eq:definition}\\
+                   &amp;= \Pr(\theta) \prod_{i=1}^{n} \Pr(y_i \mid \theta) &amp;&amp; \text{i.i.d observations} \tag{2}\label{eq:iid} \\
+                   &amp;\propto \exp \left( -\frac{1}{2 \tau_0^2} (\theta - \mu_0)^2 \right) \prod_{i=1}^n \exp \left( - \frac{1}{2 \sigma^2} (y_i - \theta)^2 \right) &amp;&amp; \text{normal distributions} \tag{3}\label{eq:exposition-normal} \\
+                   &amp;= \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} (\theta - \mu_0)^2 + \frac{1}{\sigma^2} \sum_{i=1}^{n} (y_i - \theta)^2 \right) \right)  &amp;&amp; \text{sum all terms} \tag{4}\label{eq:sum-all-terms} \\
+                   &amp;= \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} \theta^2 - \frac{2 \theta \mu_0}{\tau_0^2} + \frac{\mu_0^2}{\tau_0^2} + \frac{1}{\sigma^2} \sum_{i=1}^n (y_i^2 - 2 \theta y_i + \theta^2) \right) \right) &amp;&amp; \text{expand all squares} \tag{5}\label{eq:expand-all} \\
+                   &amp;= \exp \left( -\frac{1}{2} \left( \frac{1}{\tau_0^2} \theta^2 - \frac{2 \theta \mu_0}{\tau_0^2} + \frac{\mu_0^2}{\tau_0^2} + \frac{\sum_{i=1}^n y_i^2}{\sigma^2} - \frac{2 \theta \sum_{i=1}^n y_i}{\sigma^2} + \frac{n \theta^2}{\sigma^2} \right) \right) &amp;&amp; \text{expand the last term} \tag{6}\label{eq:expand-again} \\
+                   &amp;= \exp \left( -\frac{1}{2} \left( \frac{\theta^2}{\tau_0^2} + \frac{n \theta^2}{\sigma^2} - 2 \theta \left( \frac{\mu_0}{\tau_0^2} + \frac{\sum_{i=1}^n y_i}{\sigma^2} \right) + \frac{\mu_0^2}{\tau_0^2} + \frac{\sum_{i=1}^n y_i^2}{\sigma^2} \right) \right) &amp;&amp; \text{group all }\theta s \text{ &amp; } \theta^2 s \tag{7}\label{eq:collect-all} \\
+                   &amp;= \exp \left( -\frac{1}{2} \left( \theta^2 \left( \frac{1}{\tau_0^2} + \frac{n}{\sigma^2} \right) - 2 \theta \left( \frac{\mu_0}{\tau_0^2} + \frac{\sum_{i=1}^n y_i}{\sigma^2} \right) + \frac{\mu_0^2}{\tau_0^2} + \frac{\sum_{i=1}^n y_i^2}{\sigma^2} \right) \times \frac{\frac{1}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2}}}{\frac{1}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2}}} \right) &amp;&amp; \text{use a trick} \tag{8}\label{eq:multiply-by} \\
+                   &amp;= \exp \left( - \frac{1}{2} \frac{  \left( \theta^2 - 2 \theta \frac{ \frac{\mu_0}{\tau_0^2} + \frac{\sum y_i}{\sigma^2}}{ \frac{1}{\tau_0^2} + \frac{n}{\sigma^2}} + \frac{\frac{\mu_0^2}{\tau_0^2}}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2}}  + \frac{\frac{\sum y_i^2}{\sigma^2}}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2}} \right)  }{\frac{1}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2}}} \right) \tag{9}\label{eq:atas-bawah} \\
+                   &amp;= \exp \left( - \frac{1}{2} \frac{\left( \theta - \frac{\frac{\mu_0}{\tau_0^2} + \frac{\sum y_i}{\sigma^2} }{ \frac{1}{\tau_0^2} + \frac{n}{\sigma^2}  }  \right)^2 + C}{\frac{1}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2}}}   \right) &amp;&amp; \text{with }C \text{ is a constant} \tag{10}\label{eq:a-constant} \\
+                   &amp;\propto \exp \left( -\frac{1}{2} \frac{(\theta - \mu_n)^2}{\tau_n^2} \right) \tag{10}\label{eq:almost} \\
+                   &amp;\propto \text{N}(\mu_n, \tau_n^2)  &amp;&amp; \text{a normal distribution}        \tag{11}\label{eq:finally}         
+\end{align}\)
+with</p>
+
+<p>\(\begin{align}
+	\mu_n &amp;= \frac{\frac{\mu_0}{\tau_0^2} + \frac{\sum_{i=1}^n y_i}{\sigma^2}}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2} } \tag{12}\label{eq:mu-n} \\
+	      &amp;= \frac{\frac{\mu_0}{\tau_0^2} + \frac{n \bar{y}}{\sigma^2}}{\frac{1}{\tau_0^2} + \frac{n}{\sigma^2} } &amp;&amp; \text{because }\bar{y} = \frac{\sum_{i=1}^n y_i}{n} \tag{13}\label{eq:mu-n-2}
+\end{align}\)
+and</p>
+
+\[\begin{equation}
+	\frac{1}{\tau_n^2} = \frac{1}{\tau_0^2} + \frac{n}{\sigma^2}. \tag{14}\label{eq:sigma-n}
+\end{equation}\]
+
+<p>At last, we have shown that the <em>posterior</em> distribution of the normal model is also a normal distribution as it is explained by Equation (2.11) and (2.12) on page 42 of the <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><strong>book</strong></a>.</p>
+:ET
