@@ -58,7 +58,7 @@ $$\begin{equation}
    
 that is $\mu \sim \text{N}(\mu_0, \Lambda_0)$. By the way, $\Lambda_0$ is also a symmetric and positive definite matrix as well.    
     
-Now that we have both likelihood and prior distributions; let's compute the posterior distribution,    
+> Now that we have both _likelihood_ and _prior_ distributions; let's compute the posterior distribution of the model,    
    
 $$\begin{align}
 \Pr( \mu \mid y, \Sigma ) &\propto \Pr( y \mid \mu, \Sigma ) \Pr(\mu \mid \Sigma) && \text{by Bayes rule} \tag{11}\label{eq:posterior-def}  \\
