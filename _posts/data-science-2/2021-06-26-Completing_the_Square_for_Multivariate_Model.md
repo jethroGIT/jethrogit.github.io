@@ -66,7 +66,9 @@ $$\begin{align}
                           &\propto \exp \left( -\frac{1}{2} \underbrace{ \left( (\mu - \mu_0)^T \Lambda_0^{-1} (\mu - \mu_0) + \sum_{i=1}^{n}{(y_i-\mu)^T \Sigma^{-1} (y_i - \mu)} \right)}_{\text{A}}   \right) \tag{12}\label{eq:posterior-1}
 \end{align}$$   
     
-Part $\text{A}$ in Equation \eqref{eq:posterior-1} is actually a "_completing the quadratic form_" problem. Let's solve the problem as follows:    
+> Part $\text{A}$ in Equation \eqref{eq:posterior-1} is actually a "_completing the quadratic form_" problem.     
+    
+Let's solve the problem as follows:    
      
 $$\begin{align}
 \text{A} &= (\mu^T - \mu_0^T) \Lambda_0^{-1} (\mu - \mu_0)  + \sum_{i=1}^{n}{(y_i^T - \mu^T)\Sigma^{-1}(y_i - \mu)} && \text{by transpose property} \tag{13}\label{eq:complete-squares-1}  \\
