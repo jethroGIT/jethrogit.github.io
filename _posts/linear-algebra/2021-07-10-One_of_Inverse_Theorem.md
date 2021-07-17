@@ -32,7 +32,7 @@ $$\begin{equation}
    
 where $I$ is an identity matrix.     
    
-> We need to prove both Eq. \eqref{eq:first-part} and Eq. \eqref{eq:second-part}
+> We need to prove both Eq. \eqref{eq:first-part} and Eq. \eqref{eq:second-part} are true.
     
 Firstly, let's prove Eq. \eqref{eq:first-part} by using Eq. \eqref{eq:the-theorem} as follows:
 
