@@ -1,0 +1,51 @@
+I"1
+<p>This article is inspired by <a href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html"><em>a website</em></a>, which is unfortunately has been down since around July 8, 2021. The website elaborately explained that both <strong>marginal distributions</strong> and <strong>conditional distributions</strong> of <em>subvector of multivariate normal random variables</em> given <em>the remaining elements</em> are indeed <strong>multivariate normal distributions</strong> as well. I feel obliged to write the content of the broken website in a blog which, hopefully, every learner can learn and benefit.</p>
+
+<p>Before we show the previous statement is indeed true, there is the inverse of a matrix theorem which needs explaining.</p>
+
+<p>Is that true that</p>
+
+\[\begin{equation}
+	(A + CBD)^{-1} = A^{-1} - A^{-1} C (B^{-1} + DA^{-1} C)^{-1} D A^{-1}?  \tag{1}\label{eq:the-theorem} 
+\end{equation}\]
+
+<h4 id="proof"><em>Proof:</em></h4>
+<p>We need to prove that</p>
+
+\[\begin{equation}
+	(A + CBD)(A + CBD)^{-1} = I  \tag{2}\label{eq:first-part} 
+\end{equation}\]
+
+<p>and</p>
+
+\[\begin{equation}
+	(A + CBD)^{-1}(A + CBD) = I  \tag{3}\label{eq:second-part} 
+\end{equation}\]
+
+<p>where $I$ is an identity matrix.</p>
+
+<blockquote>
+  <p>We need to prove both Eq. \eqref{eq:first-part} and Eq. \eqref{eq:second-part}</p>
+</blockquote>
+
+<p>Firstly, let’s prove Eq. \eqref{eq:first-part} by using Eq. \eqref{eq:the-theorem} as follows:</p>
+
+\[\begin{align}
+	(A + CBD)(A + CBD)^{-1} &amp;= (A + CBD)(A^{-1} - A^{-1} C (B^{-1} + D A^{-1} C)^{-1} D A^{-1}) \\
+	                        &amp;= (A + CBD)A^{-1} - (A + CBD) A^{-1} C (B^{-1} + D A^{-1} C)^{-1} D A^{-1} \\
+	                        &amp;= I + CBDA^{-1} - (C + CBDA^{-1}C)(B^{-1} + DA^{-1}C)^{-1}DA^{-1} \\
+	                        &amp;= I + CBDA^{-1} - CB(B^{-1} + DA^{-1}C)(B^{-1} + DA^{-1}C)^{-1}DA^{-1} \\
+	                        &amp;= I + CBDA^{-1} - CBDA^{-1} \\
+	                        &amp;= I.	                        
+\end{align}\]
+
+<p>Secondly, let’s prove Eq. \eqref{eq:second-part} by employing Eq. \eqref{eq:the-theorem},</p>
+
+\[\begin{align}
+	(A + CBD)^{-1}(A + CBD) &amp;= (A^{-1} - A^{-1} C (B^{-1} + D A^{-1} C)^{-1} D A^{-1})(A+CBD) \\
+	                        &amp;= A^{-1}(A + CBD) - A^{-1} C(B^{-1} + DA^{-1} C)^{-1} DA^{-1} (A + CBD) \\
+	                        &amp;= I + A^{-1} CBD - A^{-1} C (B^{-1} + DA^{-1} C)^{-1} (D + DA^{-1} CBD) \\
+	                        &amp;= I + A^{-1}CBD - A^{-1}C(B^{-1} + DA^{-1}C)^{-1} (B^{-1} + DA^{-1}C) BD \\
+	                        &amp;= I + A^{-1}CBD
+\end{align}\]
+:ET

@@ -1,0 +1,17 @@
+I"+<p>This article is inspired by <a href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html"><em>a website</em></a>, which is unfortunately has been down since around July 8, 2021. The website elaborately explained that both <strong>marginal distributions</strong> and <strong>conditional distributions</strong> of <em>subvector of multivariate normal random variables</em> given <em>the remaining elements</em> are indeed <strong>multivariate normal distributions</strong> as well. I feel obliged to write the content of the broken website in a blog which, hopefully, every learner can learn and benefit.</p>
+
+<p>Before we show the previous statement is indeed true, there is the inverse of a matrix theorem which needs explaining.</p>
+
+<p>Is that true that</p>
+
+\[\begin{equation}
+	(A + CBD)^{-1} = A^{-1} - A^{-1} C (B^{-1} + DA^{-1} C)^{-1} D A^{-1}  \tag{1}\label{eq:theorem} 
+\end{equation}\]
+
+<h4 id="proof">Proof:</h4>
+<p>We need to prove that 
+\(\begin{equation}
+	(A + CBD)(A + CBD)^{-1} = I  \tag{1}\label{eq:theorem} 
+\end{equation}\)</p>
+
+:ET

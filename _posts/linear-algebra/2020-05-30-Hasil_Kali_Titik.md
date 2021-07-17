@@ -4,7 +4,7 @@ title: Hasil Kali Titik dan Sudut Antara 2 Vektor
 category: Linear-Algebra
 lang: ID
 description: Hubungan Hasil Kali Titik dan Sudut
-sticky: true
+sticky: false
 ---
 
 Artikel ini hendak memberikan penjelasan yang lebih detil mengenai hubungan antara **hasil kali titik** (_dot product_) dengan **sudut** antara 2 vektor. Buku [Larson](https://www.amazon.com/Elementary-Linear-Algebra-Ron-Larson/dp/1305658000/) (2016) pada halaman 235 kembali direkomendasikan menjadi referensi utama. 
