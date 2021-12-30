@@ -4,7 +4,7 @@ title: Completing the Square for Multivariate Normal Model
 category: Data-Science-2
 lang: EN
 description: Equation (3.13) from BDA on page 71
-sticky: true
+sticky: false
 ---
 
 The subchapter 3.5 of [**Bayesian Data Analysis Third Edition**](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf) gives distributional results of Bayesian inference for the parameters of a multivariate normal distribution with a **known** variance. _Additionally, this article discusses the derivation of those results (Equation 3.13 of the book) in **gory details**._        
