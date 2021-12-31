@@ -16,7 +16,7 @@ In [Chapter 4 of the book](https://www.bayesrulesbook.com/chapter-4.html#ch4-pri
 -  these two women talk to each other, and 
 -  the two women also talk about something other than a man.
     
-$\text{Figure 1}$ summarizes the three rules mentioned before.     
+Furthermore, $\text{Figure 1}$ summarizes the three rules mentioned before.     
     
 Suppose that we review a sample of $n$ recent movies and record $Y$, the number of movies that pass the Bechdel test. Considering $Y$ as the number of "successes" in a fixed number of independence trials, $Y$ can be specified as a Binomial model with $\pi$ as its parameter. Moreover, $\pi$ can also be described as Beta distribution with prior hyperparameters $\alpha$ and $\beta$:
 
