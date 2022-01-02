@@ -9,7 +9,7 @@ sticky: false
 
 The subchapter 3.5 of [**Bayesian Data Analysis Third Edition**](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf) gives distributional results of Bayesian inference for the parameters of a multivariate normal distribution with a **known** variance. _Additionally, this article discusses the derivation of those results (Equation 3.13 of the book) in **gory details**._        
     
-[![img1]({{ site.baseurl }}/assets/images/bechdel-test.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/bayes-theorem.jpg)*<center>$\pmb{\text{Figure 1}}$: A posterior distribution equals to a likelihood times a prior divided by a piece of evidence. Image taken from <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Wikipedia</a>, some rights reserved.</center>*    
+[![img1]({{ site.baseurl }}/assets/images/bayes-theorem.jpg){:class="img-responsive"}]({{ site.baseurl }}/assets/images/bayes-theorem.jpg)*<center>$\pmb{\text{Figure 1}}$: A posterior distribution equals to a likelihood times a prior divided by a piece of evidence. Image taken from <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Wikipedia</a>, some rights reserved.</center>*    
 
 Suppose we have a model for an observable vector $y$ of $d$ components, that is $y$ is a column vector of $d \times 1$, with the multivariate normal distribution,     
 
