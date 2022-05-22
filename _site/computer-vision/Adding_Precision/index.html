@@ -1,4 +1,139 @@
-I"�}<p>This article explains the implementation of <strong>Macro-averages</strong> and <strong>Weighted Macro-averages</strong> as explained in this <a href="https://hbunyamin.github.io/ml-2/Micro_and_Weighted_Macro_Averages">post</a> and this <a href="https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin">Data Science post</a>. Specifically, we add <strong>macro-averages</strong> and <strong>weighted macro-averages precision</strong> metrics into the <a href="https://course.fast.ai/videos/?lesson=3">lesson 3 of Practical Deep Learning for Coders, v3</a>.  <br />
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Adding Macro-Averages Precision into Lesson 3 of Fast.ai – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This article explains the implementation of Macro-averages and Weighted Macro-averages as explained in this post and this Data Science post. Specifically, we add macro-averages and weighted macro-averages precision metrics into the lesson 3 of Practical Deep Learning for Coders, v3. Lesson 3 describes how to deal with image segmentation problem, that is predicting a category for each pixel in an image. The image dataset comes from CamVid dataset. In order to run the codes below, you need to install the fastai library. Let’s start by importing all the required libraries. %reload_ext autoreload %autoreload 2 %matplotlib inline from fastai.vision import * from fastai.callbacks.hooks import * from fastai.utils.mem import * We untar the CamVid dataset. path = untar_data(URLs.CAMVID) path.ls() Out: [PosixPath('/home/jupyter/.fastai/data/camvid/codes.txt'), PosixPath('/home/jupyter/.fastai/data/camvid/labels'), PosixPath('/home/jupyter/.fastai/data/camvid/valid.txt'), PosixPath('/home/jupyter/.fastai/data/camvid/images')] We create a path to the labels and all images. path_lbl = path/'labels' path_img = path/'images' Let’s get the images. fnames = get_image_files(path_img) fnames[:3] Out: [PosixPath('/home/jupyter/.fastai/data/camvid/images/0001TP_008730.png'), PosixPath('/home/jupyter/.fastai/data/camvid/images/Seq05VD_f00090.png'), PosixPath('/home/jupyter/.fastai/data/camvid/images/0006R0_f03570.png')]..." />
+    <meta property="og:description" content="This article explains the implementation of Macro-averages and Weighted Macro-averages as explained in this post and this Data Science post. Specifically, we add macro-averages and weighted macro-averages precision metrics into the lesson 3 of Practical Deep Learning for Coders, v3. Lesson 3 describes how to deal with image segmentation problem, that is predicting a category for each pixel in an image. The image dataset comes from CamVid dataset. In order to run the codes below, you need to install the fastai library. Let’s start by importing all the required libraries. %reload_ext autoreload %autoreload 2 %matplotlib inline from fastai.vision import * from fastai.callbacks.hooks import * from fastai.utils.mem import * We untar the CamVid dataset. path = untar_data(URLs.CAMVID) path.ls() Out: [PosixPath('/home/jupyter/.fastai/data/camvid/codes.txt'), PosixPath('/home/jupyter/.fastai/data/camvid/labels'), PosixPath('/home/jupyter/.fastai/data/camvid/valid.txt'), PosixPath('/home/jupyter/.fastai/data/camvid/images')] We create a path to the labels and all images. path_lbl = path/'labels' path_img = path/'images' Let’s get the images. fnames = get_image_files(path_img) fnames[:3] Out: [PosixPath('/home/jupyter/.fastai/data/camvid/images/0001TP_008730.png'), PosixPath('/home/jupyter/.fastai/data/camvid/images/Seq05VD_f00090.png'), PosixPath('/home/jupyter/.fastai/data/camvid/images/0006R0_f03570.png')]..." />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Adding Macro-Averages Precision into Lesson 3 of Fast.ai" />
+    <meta property="twitter:title" content="Adding Macro-Averages Precision into Lesson 3 of Fast.ai" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/computer-vision">computer-vision</a> / adding macro-averages precision into lesson 3 of fast.ai</span></p>
+          <h3>Adding Macro-Averages Precision into Lesson 3 of Fast.ai<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Implement Macro-Averages for Lesson 3">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Adding Macro-Averages Precision into Lesson 3 of Fast.ai <br> 
+                  <span class="text-small">Implement Macro-Averages for Lesson 3</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>This article explains the implementation of <strong>Macro-averages</strong> and <strong>Weighted Macro-averages</strong> as explained in this <a href="https://hbunyamin.github.io/ml-2/Micro_and_Weighted_Macro_Averages">post</a> and this <a href="https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin">Data Science post</a>. Specifically, we add <strong>macro-averages</strong> and <strong>weighted macro-averages precision</strong> metrics into the <a href="https://course.fast.ai/videos/?lesson=3">lesson 3 of Practical Deep Learning for Coders, v3</a>.  <br />
 Lesson 3 describes how to deal with <em>image segmentation</em> problem, that is predicting a category for each pixel in an image. The image dataset comes from <a href="https://course.fast.ai/datasets">CamVid dataset</a>.</p>
 
 <p>In order to run the codes below, you need to install the <a href="https://github.com/fastai/fastai"><strong>fastai library</strong></a>.    <br />
@@ -228,4 +363,65 @@ Let’s start by importing all the required libraries.</p>
 <h4 id="ps"><strong>PS</strong>:</h4>
 <p>If you do not need to modify the categories in your dataset, you can directly employ <em>ready-to-use</em> <code class="language-plaintext highlighter-rouge">metrics</code> classes such as <a href="https://docs.fast.ai/metrics.html#Precision"><code class="language-plaintext highlighter-rouge">Precision</code></a>, <a href="https://docs.fast.ai/metrics.html#Recall"><code class="language-plaintext highlighter-rouge">Recall</code></a>, and <a href="https://docs.fast.ai/metrics.html#FBeta"><code class="language-plaintext highlighter-rouge">FBeta</code></a>.</p>
 
-:ET
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on August 11, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/computer-vision/Adding_Precision/',
+		  'title': 'Adding Macro-Averages Precision into Lesson 3 of Fast.ai'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

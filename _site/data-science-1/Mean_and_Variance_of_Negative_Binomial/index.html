@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Mean and Variance of The Negative Binomial through Conditionals – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This post is the continuation of the post which derives a predictive distribution from Poisson &amp; Gamma Conjugate Pair.
+" />
+    <meta property="og:description" content="This post is the continuation of the post which derives a predictive distribution from Poisson &amp; Gamma Conjugate Pair.
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Mean and Variance of The Negative Binomial through Conditionals" />
+    <meta property="twitter:title" content="Mean and Variance of The Negative Binomial through Conditionals" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/data-science-1">data-science-1</a> / mean and variance of the negative binomial through conditionals</span></p>
+          <h3>Mean and Variance of The Negative Binomial through Conditionals<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Exercise 6 Solution from BDA on page 58">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Mean and Variance of The Negative Binomial through Conditionals <br> 
+                  <span class="text-small">Exercise 6 Solution from BDA on page 58</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>This post is the continuation of <a href="https://hbunyamin.github.io/data-science-1/Derivation_Marginal_Distribution/"><strong>the post which derives a predictive distribution from Poisson &amp; Gamma Conjugate Pair</strong></a>.</p>
+
+<p class="center-image"><a href="/assets/images/highest-cancer-death-rate.png"><img src="/assets/images/highest-cancer-death-rate.png" alt="img4" class="img-resize-2" /></a>
+<a href="/assets/images/lowest-cancer-death-rate.png"><img src="/assets/images/lowest-cancer-death-rate.png" alt="img5" class="img-resize-2" /></a><em><center>$\pmb{\text{Figure 1}}$: The counties of the United States with the highest ($\pmb{\text{left}}$) and the lowest ($\pmb{\text{right}}$) 10% age-standardized death rates for cancer of kidney/ureter for U.S. white males, 1980-1989. Image taken from <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">BDA 3rd Edition</a>, some rights reserved.</center></em></p>
+
+<p>Previously, $\text{Figure 1}$ shows misleading patterns in the maps of cancer death rates which are modeled by a <em>posterior distribution</em>, in this case a <em>Gamma distribution</em>. The <em>likelihood</em> is defined as</p>
+
+\[\begin{equation}
+	y_j \mid \theta \sim \text{Poisson}(10 n_j \theta_j), \tag{1}\label{eq:likelihood}
+\end{equation}\]
+
+<p>the <em>prior distribution</em> is</p>
+
+\[\begin{equation}
+  \theta_j \sim \text{Gamma}(\alpha, \beta). \tag{2}\label{eq:prior}
+\end{equation}\]
+
+<p>Calculating the <em>posterior distribution</em> by multiplying Equation \eqref{eq:likelihood} and \eqref{eq:prior}, we arrive at</p>
+
+\[\begin{equation}
+  \theta_j \mid y_j \sim \text{Gamma}(\alpha + y_j, \beta + 10 \, n_j). \tag{3}\label{eq:posterior}
+\end{equation}\]
+
+<p><a href="https://hbunyamin.github.io/data-science-1/Derivation_Marginal_Distribution/"><strong>The previous post</strong></a> shows that</p>
+
+\[\begin{equation}
+	\Pr(y_j) = \int \Pr(y_j \mid \theta_j) \Pr(\theta_j) \, d\theta \tag{4}\label{eq:predictive-distribution}
+\end{equation}\]
+
+<p>is a <em>negative binomial distribution</em>, $\text{Neg-bin}( \alpha, \frac{\beta}{10 n_j} )$.</p>
+
+<blockquote>
+  <p>This post attempts to show the <strong>mean</strong> ($\text{E}(y_j)$) and <strong>variance</strong> ($\text{var}(y_j)$) of a <em>negative binomial distribution</em>.</p>
+</blockquote>
+
+<p>Specifically, we utilize the following two equations,</p>
+
+\[\begin{equation}
+	\text{E}(u) = \text{E}(\text{E}( u \mid v )) \tag{5}\label{eq:conditional-mean}
+\end{equation}\]
+
+<p>and</p>
+
+\[\begin{equation}
+	\text{var}(u) = \text{E}(\text{var}(u \mid v)) + \text{var}(\text{E}(u \mid v)) \tag{6}\label{eq:conditional-variance}
+\end{equation}\]
+
+<p>in our attempt.</p>
+
+<p>Firstly, we employ Equation \eqref{eq:conditional-mean} to find $\text{E}(y_j)$ as follows:</p>
+
+\[\begin{align}
+	\text{E}(y_j) &amp;= \iint y_j \Pr(y_j, \theta_j) \, dy_j \, d\theta_j &amp;&amp; \text{definition of expectation} \tag{7}\label{eq:definition-expectation} \\
+	              &amp;= \iint y_j \Pr(y_j \mid \theta_j) \Pr(\theta_j) \, dy_j \, d\theta_j &amp;&amp;  \text{definition of conditional probability} \tag{8}\label{eq:definition-conditional-prob} \\
+	              &amp;= \iint y_j \Pr(y_j \mid \theta_j) \, dy_j \Pr(\theta_j) \, d\theta_j &amp;&amp; \text{just rearranging} \tag{9}\label{eq:rearranging} \\
+	              &amp;= \int \underbrace{\int y_j \Pr(y_j \mid \theta_j) \, dy_j}_{\text{An expectation}} \Pr(\theta_j) \, d\theta_j &amp;&amp;  \tag{10}\label{eq:an-expectation} \\
+	              &amp;= \int \text{E}(y_j \mid \theta_j) \Pr(\theta_j) \, d\theta_j. \tag{11}\label{eq:gathering-expectation}           
+\end{align}\]
+
+<p>Recall that $y_j \mid \theta_j$ has $\text{Poisson}(10 n_j \theta_j)$ based on Equation \eqref{eq:likelihood}; therefore, we can proceed from Equation \eqref{eq:gathering-expectation} as follows:</p>
+
+\[\begin{align}
+	\text{E}(y_j) &amp;= \int 10 n_j \theta_j \Pr(\theta_j) \, d\theta_j &amp;&amp; \text{because }\text{E}(y_j \mid \theta_j) = 10 n_j \theta_j \tag{12}\label{eq:inserting-expectation} \\
+			&amp;= \int 10 n_j \theta_j \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha-1} e^{-\beta \theta_j} \, d\theta_j &amp;&amp; \text{based on Equation }\eqref{eq:prior}, \text{a Gamma}  \tag{13}\label{eq:inserting-gamma} \\
+			&amp;= \int 10 n_j \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha} e^{-\beta \theta_j} \, d\theta_j &amp;&amp; \text{adding }\theta_j \text{ into }\theta_j^{\alpha-1}  \tag{14}\label{eq:mean-1} \\ 
+			&amp;= 10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \int \theta_j^{(\alpha+1)-1} e^{-\beta \theta_j} \, d\theta_j &amp;&amp; \text{getting out }10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \tag{15}\label{eq:mean-2}  
+\end{align}\]
+
+<p>Remember that if we have</p>
+
+\[\begin{equation}
+	\theta_j \sim \text{Gamma}(\alpha, \beta) \tag{16}\label{eq:gamma-dist}  
+\end{equation}\]
+
+<p>then, the integral of <em>probability density function</em> of $\theta_j$ over $[0, \infty]$ is $1$,</p>
+
+\[\begin{align}
+	\int_{0}^{\infty} \frac{\beta^{\alpha+1}}{\Gamma(\alpha+1)} \theta_j^{(\alpha+1)-1} e^{-\beta \theta_j} \, d\theta_j = 1 &amp;\Longleftrightarrow \int_{0}^{\infty} \theta_j^{(\alpha+1)-1} e^{-\beta \theta_j} \, d\theta_j = \frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}. \tag{17}\label{eq:gamma-dist-1}  
+\end{align}\]
+
+<p>Substituting Equation \eqref{eq:gamma-dist-1} into Equation \eqref{eq:mean-2}, we have the <strong>mean of negative binomial distribution</strong>:</p>
+
+\[\require{cancel} \begin{align}
+	\text{E}(y_j) &amp;= 10 n_j \frac{\beta^\alpha}{\Gamma(\alpha)} \frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}  \\
+	              &amp;= 10 n_j \frac{\cancel{\beta^\alpha}}{\Gamma(\alpha)} \frac{\Gamma(\alpha+1)}{\cancel{\beta^\alpha}\beta} \\
+	              &amp;= 10 n_j \frac{\alpha !}{(\alpha - 1)!} \frac{1}{\beta} &amp;&amp; \text{because }\Gamma(\alpha) = (\alpha-1)! \\
+	              &amp;= 10 n_j \frac{\alpha \cdot (\alpha-1)!}{(\alpha - 1)!} \frac{1}{\beta} \\
+	              &amp;= 10 n_j \frac{\alpha \cdot \cancel{(\alpha-1)!}}{\cancel{(\alpha - 1)!}} \frac{1}{\beta} \\
+	              &amp;= 10 n_j \frac{\alpha}{\beta}. \tag{18}\label{eq:mean-neg-bin}  
+\end{align}\]
+
+<p>Next, we shall compute $\text{var}(y_j)$ by utilizing Equation \eqref{eq:conditional-variance},</p>
+
+\[\begin{equation}
+	\text{var}(y_j) = \text{E}(\text{var}(y_j \mid \theta_j)) + \text{var}(\text{E}(y_j \mid \theta_j)). \tag{19}\label{eq:variance-1}
+\end{equation}\]
+
+<p>Recall that</p>
+
+\[\begin{equation}
+	y_j \mid \theta_j \sim \text{Poisson}(10 n_j \theta_j);
+\end{equation}\]
+
+<p>therefore, we have</p>
+
+\[\begin{equation}
+	\text{E}(y_j \mid \theta_j) = \text{var}(y_j \mid \theta_j) = 10 n_j \theta_j.  \tag{20}\label{eq:mean-variance-poisson}
+\end{equation}\]
+
+<p>By substituting Equation \eqref{eq:mean-variance-poisson} on Equation \eqref{eq:variance-1}, we get the <strong>variance of negative binomial distribution</strong></p>
+
+\[\begin{align}
+	\text{var}(y_j) &amp;= \text{E}(10 n_j \theta_j) + \text{var}(10 n_j \theta_j) \\
+	                &amp;= 10 n_j \text{E}(\theta_j) + (10 n_j)^2 \, \text{var}(\theta_j) &amp;&amp; \text{note: }\theta_j \sim \text{Gamma}(\alpha, \beta) \text{ and var}(k \theta_j) = k^2 \text{var}(\theta_j)   \\
+	                &amp;= 10 n_j \frac{\alpha}{\beta} + (10 n_j)^2 \frac{\alpha}{\beta^2}. &amp;&amp; \text{E}(\theta_j) = \frac{\alpha}{\beta} \text{ and } \text{var}(\theta_j) = \frac{\alpha}{\beta^2} \tag{21}\label{eq:variance-negative-binomial}
+\end{align}\]
+
+<p>At last, we have shown the <strong>mean</strong> and <strong>variance of negative binomial distribution</strong> in Equation \eqref{eq:mean-neg-bin} and \eqref{eq:variance-negative-binomial} respectively.</p>
+
+<p>This post is also a <strong>solution of exercise number 6</strong> from <em>Chapter 2</em> of the <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><strong>book</strong></a>.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on December 30, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/data-science-1/Mean_and_Variance_of_Negative_Binomial/',
+		  'title': 'Mean and Variance of The Negative Binomial through Conditionals'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Building Logistic Regression Model from Linear Regression Model – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="A model called logistic regression is introduced in Week 3 of Machine Learning course taught by Andrew Ng. This post tries to explain how to obtain logistic regression model from linear regression model which has been explained in Week 1 and Week 2 of the course. Therefore, I recommend all readers for studying Week 1 and Week 2 before reading this post.
+" />
+    <meta property="og:description" content="A model called logistic regression is introduced in Week 3 of Machine Learning course taught by Andrew Ng. This post tries to explain how to obtain logistic regression model from linear regression model which has been explained in Week 1 and Week 2 of the course. Therefore, I recommend all readers for studying Week 1 and Week 2 before reading this post.
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Building Logistic Regression Model from Linear Regression Model" />
+    <meta property="twitter:title" content="Building Logistic Regression Model from Linear Regression Model" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/machine-learning">machine-learning</a> / building logistic regression model from linear regression model</span></p>
+          <h3>Building Logistic Regression Model from Linear Regression Model<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Logistic & linear regression relationship">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Building Logistic Regression Model from Linear Regression Model <br> 
+                  <span class="text-small">Logistic & linear regression relationship</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>A model called <strong>logistic regression</strong> is introduced in <a href="https://www.coursera.org/learn/machine-learning/home/week/3">Week 3</a> of <a href="https://www.coursera.org/learn/machine-learning/home/welcome"><em>Machine Learning</em> course taught by Andrew Ng</a>. This post tries to explain how to obtain <strong>logistic regression</strong> model from <em>linear regression</em> model which has been explained in <a href="https://www.coursera.org/learn/machine-learning/home/week/1">Week 1</a> and <a href="https://www.coursera.org/learn/machine-learning/home/week/2">Week 2</a> of the course. Therefore, I recommend all readers for studying <a href="https://www.coursera.org/learn/machine-learning/home/week/1">Week 1</a> and <a href="https://www.coursera.org/learn/machine-learning/home/week/2">Week 2</a> before reading this post.</p>
+
+<p>Week 1 of the course shows that <em>linear regression</em> model has the capability to solve classification problem with prediction model (<em>hypothesis</em>) as follows:</p>
+
+\[\begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \theta^T x} \tag{1}\label{eq:linear-regression} \end{equation}\]
+
+<p>with \(\theta = \begin{bmatrix} \theta_0 &amp; \theta_1 &amp; \theta_2 &amp; \cdots &amp; \theta_n \end{bmatrix}^T\) is called parameter model and \(x = \begin{bmatrix} 1 &amp; x_1 &amp; x_2 &amp; \cdots &amp; x_n \end{bmatrix}^T\) is a <em>test example</em> whose \(y\) we would like to predict.</p>
+
+<p>The question arises as follows:</p>
+
+<blockquote>
+  <p>How can we derive <strong>logistic regression</strong> model from <em>linear regression</em> model?</p>
+</blockquote>
+
+<p>As we already know that $h_\theta(x)$ in <strong>logistic regression</strong> has a range of values between $0$ and $1$; on the other hand, $h_\theta(x)$ in <em>linear regression</em> has a range of values between $-\infty$ and $\infty$. Therefore, $h_\theta(x)$ which belongs to <strong>logistic regression</strong> needs to be converted into $-\infty &lt; h_\theta(x) &lt; \infty$. Moreover, after the conversion is done, the new $h_\theta(x)$ shall be substituted into Equation \eqref{eq:linear-regression}.<br />
+<br /></p>
+
+<p>Let us start by converting $h_\theta(x)$ which belongs to <strong>logistic regression</strong> and then substitute the new $h_\theta(x)$ into Equation \eqref{eq:linear-regression}.</p>
+
+\[\begin{align}  0 &lt; h_\theta(x) &lt; 1 &amp;\Longleftrightarrow  0 &lt; \frac{h_\theta(x)}{1-h_\theta(x)} &lt;  \infty \tag{2}\label{eq:odds-ratio} \\ 
+	                    &amp;\Longleftrightarrow  -\infty &lt; \underbrace{\log \left( \frac{h_\theta(x)}{1-h_\theta(x)} \right)}_{\text{the new }h_\theta(x)} &lt; \infty \tag{3}\label{eq:logit}.  \end{align}\]
+
+<p>$\frac{h_\theta(x)}{1-h_\theta(x)}$ in Equation \eqref{eq:odds-ratio} is called <strong>odds ratio</strong> and $\log \left( \frac{h_\theta(x)}{1-h_\theta(x)} \right)$ in Equation \eqref{eq:logit} is named as <strong>logit</strong> function <a href="https://www.packtpub.com/big-data-and-business-intelligence/python-machine-learning-second-edition">(Raschka &amp; Mirjalili, 2017)</a>.</p>
+
+<p>Now that the new $h_\theta(x)$ has the range of values between $-\infty &lt; h_\theta(x) &lt; \infty$, this new $ h_\theta(x) $ can be substituted into Equation \eqref{eq:linear-regression} as follows:</p>
+
+\[\begin{align} \log \left( \frac{h_\theta(x)}{1-h_\theta(x)} \right) = \theta^T x &amp;\Longleftrightarrow e^{\log \left( \frac{h_\theta(x)}{1-h_\theta(x)} \right)} = e^{\theta^T x}   \\
+	     &amp;\Longleftrightarrow  \frac{h_\theta(x)}{1-h_\theta(x)} = e^{\theta^T x} \\
+	     &amp;\Longleftrightarrow  h_\theta(x) = e^{\theta^T x} - h_\theta(x) e^{\theta^T x}  \\
+	     &amp;\Longleftrightarrow  h_\theta(x) + h_\theta(x) e^{\theta^T x} = e^{\theta^T x}   \\ 
+	     &amp;\Longleftrightarrow  h_\theta(x) \left( 1 + e^{\theta^T x} \right) = e^{\theta^T x} \\
+	     &amp;\Longleftrightarrow  h_\theta(x) = \frac{e^{\theta^T x}}{1 + e^{\theta^T x}}  \\
+	     &amp;\Longleftrightarrow  h_\theta(x) = \frac{e^{\theta^T x}}{1 + e^{\theta^T x}}  \times \frac{e^{-\theta^T x}}{e^{-\theta^T x}} \\
+	     &amp;\Longleftrightarrow h_\theta(x) = \frac{1}{1+e^{-\theta^T x}}.
+	\end{align}\]
+
+<p>Accordingly, <strong>logistic regression</strong> model that we have derived is</p>
+
+\[\begin{equation} \bbox[5px,border:2px solid blue] {h_\theta(x) = \frac{1}{1+e^{-\theta^T x}}} \tag{4}\label{eq:sigmoid} \end{equation}\]
+
+<p><strong>Logistic regression</strong> model in Equation \eqref{eq:sigmoid} is popularly also called <strong>sigmoid function</strong>. Finally, we have successfully derived <strong>logistic regression</strong> model (Equation \eqref{eq:sigmoid}) from <em>linear regression</em> model (Equation \eqref{eq:linear-regression}).   <br />
+<br /></p>
+<h4 id="references">References</h4>
+<p>Raschka, S. and Mirjalili, V. (2017) <em>Python Machine Learning Second Edition</em>. Packt Publishing Ltd. Page 59-60.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on August 17, 2019
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/machine-learning/Logistic_Regression/',
+		  'title': 'Building Logistic Regression Model from Linear Regression Model'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

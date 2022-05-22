@@ -27,9 +27,9 @@ $$ \begin{align}  J(\theta) &= \frac{1}{2m} \sum_{i=1}^{m}{(\theta_0 + \theta_1 
 &= \frac{1}{2m} ((\theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} - y^{(1)} )^2 + \cdots + (\theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} - y^{(m)} )^2 ) \tag{4}\label{eq:derivation-2} \\
 &= \frac{1}{2m} \underbrace{ \begin{bmatrix} (\theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} - y^{(1)}) & \cdots & (\theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} - y^{(m)}) \end{bmatrix}}_{\text{matrix with size: } 1 \times m} \underbrace{\begin{bmatrix} (\theta_0 +\theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} - y^{(1)}) \\
 \vdots \\
-(\theta_0 +\theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} - y^{(1)})
+(\theta_0 +\theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} - y^{(m)})
  \end{bmatrix}}_{\text{matrix with size: } m \times 1} \tag{5}\label{eq:derivation-3} \\
- &= \frac{1}{2m} \left( \begin{bmatrix} (\theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} - y^{(1)}) & \cdots & (\theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} - y^{(m)}) \end{bmatrix} - \begin{bmatrix} y^{(1)} & \cdots & y^{(m)} \end{bmatrix} \right) \left( \begin{bmatrix} \theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} \\
+ &= \frac{1}{2m} \left( \begin{bmatrix} (\theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} ) & \cdots & (\theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} ) \end{bmatrix} - \begin{bmatrix} y^{(1)} & \cdots & y^{(m)} \end{bmatrix} \right) \left( \begin{bmatrix} \theta_0 + \theta_1 x_1^{(1)} + \cdots + \theta_n x_n^{(1)} \\
  \theta_0 + \theta_1 x_1^{(2)} + \cdots + \theta_n x_n^{(2)} \\
  \vdots \\
  \theta_0 + \theta_1 x_1^{(m)} + \cdots + \theta_n x_n^{(m)} \end{bmatrix}  - \begin{bmatrix} y^{(1)} \\ 

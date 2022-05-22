@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Deriving Marginal Distribution from Poisson & Gamma Conjugate Pair – Hendra Bunyamin – Forgiven sinner and Lecturer at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This post shows the derivation of marginal distribution from a Poisson model with Gamma prior distribution. Specifically, the idea comes from Chapter 2 of Bayesian Data Analysis (BDA) 3rd Edition on page 49.
+" />
+    <meta property="og:description" content="This post shows the derivation of marginal distribution from a Poisson model with Gamma prior distribution. Specifically, the idea comes from Chapter 2 of Bayesian Data Analysis (BDA) 3rd Edition on page 49.
+" />
+    
+    <meta name="author" content="Hendra Bunyamin" />
+
+    
+    <meta property="og:title" content="Deriving Marginal Distribution from Poisson & Gamma Conjugate Pair" />
+    <meta property="twitter:title" content="Deriving Marginal Distribution from Poisson & Gamma Conjugate Pair" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Hendra Bunyamin - Forgiven sinner and Lecturer at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.png" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Hendra Bunyamin <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Lecturer at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://hbunyamin.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Lecturer at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:hendra.bunyamin@it.maranatha.edu" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/hbunyamin" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/hendrabunyamin" class="color-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/hbunyamin"> github.com/hbunyamin</a>    <br />
+         
+
+        
+        <i class="fa fa-twitter fw"></i><a href="https://twitter.com/hendrabunyamin"> twitter.com/hendrabunyamin</a>    <br />
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="hendra.bunyamin@it.maranatha.edu" target="_blank"> hendra.bunyamin@it.maranatha.edu</a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/data-science-1">data-science-1</a> / deriving marginal distribution from poisson & gamma conjugate pair</span></p>
+          <h3>Deriving Marginal Distribution from Poisson & Gamma Conjugate Pair<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=hendrabunyamin&text=Deriving Neg-bin from BDA on page 49">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               Deriving Marginal Distribution from Poisson & Gamma Conjugate Pair <br> 
+                  <span class="text-small">Deriving Neg-bin from BDA on page 49</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>This post shows the derivation of <em>marginal distribution</em> from a <strong>Poisson</strong> model with <strong>Gamma</strong> prior distribution. Specifically, the idea comes from Chapter 2 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><em><strong>Bayesian Data Analysis (BDA) 3rd Edition</strong></em></a> on page 49.</p>
+
+<p><a href="/assets/images/highest-cancer-death-rate.png"><img src="/assets/images/highest-cancer-death-rate.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: The counties of the United States with the highest 10% age-standardized death rates for cancer of kidney/ureter for U.S. white males, 1980-1989. Image taken from <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">BDA 3rd Edition</a>, some rights reserved.</center></em></p>
+
+<p>$\text{Figure 1}$ shows that most of the shaded counties are located in the middle of the country (<a href="https://en.wikipedia.org/wiki/Great_Plains"><strong>Great Plains</strong></a>).</p>
+
+<p><a href="/assets/images/lowest-cancer-death-rate.png"><img src="/assets/images/lowest-cancer-death-rate.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 2}}$: The counties of the United States with the lowest 10% age-standardized death rates for cancer of kidney/ureter for U.S. white males, 1980-1989. Interestingly, the pattern is somewhat similar to the map of the highest rates in $\text{Figure 1}$. Image taken from <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">BDA 3rd Edition</a>, some rights reserved.</center></em></p>
+
+<p>Both $\text{Figure 1}$ and $\text{Figure 2}$ show that the <em>Great Plains</em> has both the highest and lowest rates. Recall that the reason of this issue is <em>sample size</em>. <em>Great Plains</em> has many low-population counties; therefore rare cancer death rates, such as kidney cancer, are represented in both maps. There is no evidence from both maps that cancer rates are high (please read page 47 of the <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf">excellent book</a> for more details).</p>
+
+<p>This misleading patterns in the maps of raw death rates suggest that a Poisson model-based approach to estimating the true underlying rates might be helpful. Let’s construct a <em>likelihood</em> from a Poisson distribution.</p>
+
+\[\begin{equation}
+  y_j \mid \theta_j \sim \text{Poisson}(10 \, n_j \, \theta_j) \tag{1}\label{eq:likelihood}
+\end{equation}\]
+
+<p>with $y_j$ denotes the number of kidney cancer deaths in county $j$ from 1980-1989, $n_j$ is the population of the county, and $\theta_j$ is the underlying rate in units of deaths per person per year.</p>
+
+<p>The conjugate prior for <em>Poisson</em> model is <em>Gamma</em> distribution with parameters $\alpha$ and $\beta$:</p>
+
+\[\begin{equation}
+  \theta_j \sim \text{Gamma}(\alpha, \beta). \tag{2}\label{eq:prior}
+\end{equation}\]
+
+<p>By multiplying Equation \eqref{eq:likelihood} and \eqref{eq:prior}, we obtain the posterior</p>
+
+\[\begin{equation}
+  \theta_j \mid y_j \sim \text{Gamma}(\alpha + y_j, \beta + 10 \, n_j). \tag{3}\label{eq:posterior}
+\end{equation}\]
+
+<p>Recall that the Bayes Rule states that</p>
+
+\[\begin{equation}
+	\Pr( \theta_j \mid y_j ) = \frac{\Pr( y_j \mid \theta_j ) \Pr(\theta_j)}{\Pr(y_j)} \Longleftrightarrow \Pr(y_j) = \frac{\Pr( y_j \mid \theta_j ) \Pr(\theta_j)}{\Pr( \theta_j \mid y_j )}. \tag{4}\label{eq:bayes-rule}
+\end{equation}\]
+
+<p>Specifically, we will <strong>derive the predictive distribution</strong>, the marginal distribution of $y_j$, averaging over the prior distribution of $\theta_j$ or, in short, $\pmb{\Pr(y_j)}$.  <em><strong>The objective of this post is showing this derivation</strong></em>.</p>
+
+<blockquote>
+  <p><em>How do we derive $\Pr(y_j)$?</em></p>
+</blockquote>
+
+<p>Firstly, we have the likelihood, a Poisson distribution, as shown in Equation \eqref{eq:likelihood}</p>
+
+\[\begin{equation}
+	\Pr(y_j \mid \theta_j) = \frac{1}{y_j!} (10 n_j \theta_j)^{y_j} \, e^{-10  n_j  \theta_j}. \tag{5}\label{eq:likelihood-poisson}
+\end{equation}\]
+
+<p>Secondly, we also have the prior, a Gamma distribution, as described in Equation \eqref{eq:prior}</p>
+
+\[\begin{equation}
+	\Pr(\theta_j) = \frac{\beta^\alpha}{\Gamma (\alpha) } \theta_j^{\alpha - 1} e^{-\beta \theta_j}. \tag{6}\label{eq:prior-gamma}
+\end{equation}\]
+
+<p>Last but not least, we have our posterior distribution, a Gamma distribution, as shown in Equation \eqref{eq:posterior}</p>
+
+\[\begin{equation}
+	\Pr( \theta_j \mid y_j ) = \frac{(\beta + 10 n_j )^{\alpha + y_j}}{\Gamma (\alpha + y_j) } \theta_j^{\alpha + y_j -1} e^{-(\beta + 10 n_j) \theta_j}. \tag{7}\label{eq:posterior-gamma}
+\end{equation}\]
+
+<p>Let’s substitute Equation \eqref{eq:likelihood-poisson}, \eqref{eq:prior-gamma}, and \eqref{eq:posterior-gamma} into Equation \eqref{eq:bayes-rule} as follows:</p>
+
+\[\require{cancel} \begin{align}
+	\Pr(y_j) &amp;= \frac{\frac{1}{y_j!} (10 n_j \theta_j)^{y_j} \, e^{-10  n_j  \theta_j} \times \frac{\beta^\alpha}{\Gamma (\alpha) } \theta_j^{\alpha - 1} e^{-\beta \theta_j} }{\frac{(\beta + 10 n_j )^{\alpha + y_j}}{\Gamma (\alpha + y_j) } \theta_j^{\alpha + y_j -1} e^{-(\beta + 10 n_j) \theta_j}} \tag{8}\label{eq:derivation-1}\\
+	         &amp;= \frac{1}{y_j !} \frac{(10 n_j)^{y_j} \theta_j^{y_j} e^{-10 n_j \theta_j} \frac{\beta^\alpha}{\Gamma (\alpha)} \theta_j^{\alpha-1} e^{-\beta \theta_j} \Gamma (\alpha + y_j)}{(\beta + 10 n_j)^{\alpha+y_j} \theta_j^{y_j} \theta_j^{\alpha-1} e^{-\beta \theta_j} e^{-10 n_j \theta_j}} \tag{9}\label{eq:derivation-2} \\
+	         &amp;= \frac{1}{y_j !} \frac{(10 n_j)^{y_j} \cancel{\theta_j^{y_j}} \cancel{e^{-10 n_j \theta_j}} \frac{\beta^\alpha}{\Gamma (\alpha)} \cancel{\theta_j^{\alpha-1}} \cancel{e^{-\beta \theta_j}} \Gamma (\alpha + y_j)}{(\beta + 10 n_j)^{\alpha+y_j} \cancel{\theta_j^{y_j}} \cancel{\theta_j^{\alpha-1}} \cancel{e^{-\beta \theta_j}} \cancel{e^{-10 n_j \theta_j}}} \tag{10}\label{eq:derivation-3} \\
+	         &amp;= \frac{1}{y_j !} \frac{(10 n_j)^{y_j} \beta^{\alpha} \Gamma(\alpha + y_j)}{\Gamma(\alpha) (\beta + 10 n_j)^{\alpha + y_j}} \tag{11}\label{eq:derivation-4} \\
+	         &amp;= \frac{1}{y_j !} \frac{\Gamma(\alpha + y_j)}{\Gamma(\alpha)} \frac{(10 n_j)^{y_j}}{(\beta + 10 n_j )^{\alpha + y_j} } \beta^{\alpha} \tag{12}\label{eq:derivation-5} \\
+	         &amp;= \frac{1}{y_j !} \frac{\Gamma(\alpha + y_j)}{\Gamma(\alpha)} \frac{(10 n_j)^{y_j}}{(\beta + 10 n_j )^{y_j} } \frac{\beta^{\alpha}}{(\beta+10 n_j)^{\alpha}} \tag{13}\label{eq:derivation-6} \\	         
+			 &amp;= \frac{1}{y_j !} \frac{(\alpha + y_j - 1)!}{(\alpha - 1)!} \frac{(10 n_j)^{y_j}}{(\beta + 10 n_j )^{y_j} } \frac{\beta^{\alpha}}{(\beta+10 n_j)^{\alpha}} &amp;&amp; \text{because }\Gamma(n) = (n-1)! \tag{14}\label{eq:derivation-7} \\
+			 &amp;= \binom{\alpha + y_j - 1}{\alpha - 1} \left( \frac{\beta}{\beta + 10 n_j} \right)^\alpha \left( \frac{10 n_j}{\beta + 10 n_j} \right)^{y_j} &amp;&amp; \text{because }\binom{n}{r} = \frac{n!}{r! \, (n-r)!} \tag{15}\label{eq:derivation-8} \\ 	         	         
+			 &amp;= \binom{y_j + \alpha - 1}{\alpha - 1} \left( \frac{\frac{\beta}{10 n_j}}{ \frac{\beta}{10 n_j} + 1} \right)^\alpha \left( \frac{1}{\frac{\beta}{10 n_j } + 1 } \right)^{y_j}  \tag{16}\label{eq:derivation-9}
+\end{align}\]
+
+<p>As we know that a <strong><em>negative binomial</em></strong> distribution, $\text{Neg-bin}(\alpha, \beta)$, is</p>
+
+\[\begin{equation}
+	\theta \sim \binom{\theta + \alpha - 1}{\alpha - 1} \left( \frac{\beta}{\beta+1} \right)^\alpha \left( \frac{1}{\beta + 1} \right)^\theta, \qquad \theta = 0, 1, 2, \ldots \tag{17}\label{eq:derivation-10}
+\end{equation}\]
+
+<p>Therefore, we conclude that $\Pr(y_j)$ in Equation \eqref{eq:derivation-9} is indeed a <strong><em>negative binomial distribution</em></strong>,</p>
+
+\[\begin{equation}
+	y_j \sim \text{Neg-bin}\left( \alpha, \frac{\beta}{10 n_j} \right) \tag{18}\label{eq:final-derivation}
+\end{equation}\]
+
+<p>as explained on page 49 of <a href="http://www.stat.columbia.edu/~gelman/book/BDA3.pdf"><strong>the book</strong></a>.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on December 23, 2020
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/data-science-1/Derivation_Marginal_Distribution/',
+		  'title': 'Deriving Marginal Distribution from Poisson & Gamma Conjugate Pair'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
