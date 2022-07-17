@@ -4,7 +4,7 @@ title: Variance and Covariance of Categorical Distribution
 category: ML-2
 lang: EN
 description: Properties of Categorical Distribution
-sticky: true
+sticky: false
 ---
 
 This post is inspired by [the lecture given by David Blei](http://www.cs.columbia.edu/~blei/fogm/2020F/index.html) on Thursday, 17 September 2020. One of the topics he explained was related to a **_categorical variable_** and a **_categorical distribution_**. This post will elaborate those two concepts. Let's get started.

@@ -4,7 +4,7 @@ title: The Posterior Mode of Beta Distribution
 category: Data-Science-2
 lang: EN
 description: Exercise 4.14 from Bayes Rules!
-sticky: true
+sticky: false
 ---
 
 This article answers **Exercise 4.14** from the _highly recommended_ [**Bayes Rules!**](https://www.bayesrulesbook.com/chapter-4.html#practice-balancing-the-data-prior) book.     
