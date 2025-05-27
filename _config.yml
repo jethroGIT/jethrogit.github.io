@@ -9,11 +9,11 @@ name: "Jethro Andersson Apriliano Ofe"
 surname: 
 
 # Short bio or description (displayed on the left bar an top bar)
-description: "Forgiven sinner and Lecturer at Maranatha Christian University"
+description: "Forgiven sinner and Student at Maranatha Christian University"
 #description: "Look'up for the dragon but I found a princess"
 
 # path of the profile picture image (displayed on the left bar)
-image: "/assets/images/me-gullit-model.png"
+image: "/assets/images/me-gullit-model.jpg"
 
 # Display the left bar
 left_bar: true
@@ -27,11 +27,11 @@ latex: true
 pgp :
 
 # Your twitter github etc username if you have one
-twitter: "hendrabunyamin"
-github: "hbunyamin"
+twitter:
+github: "jethroGIT"
 stackoverflow: "1473726"
 dribbble:
-email: "hendra.bunyamin@it.maranatha.edu"
+email: "jethro.andersson02@gmail.com"
 facebook:
 flickr:
 instagram:
@@ -60,7 +60,7 @@ google_analytics: "UA-27831864-1"
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "http://hbunyamin.github.io"
+url: "http://jethrogit.github.io"
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
