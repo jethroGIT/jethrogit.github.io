@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>The Posterior Mode of Beta Distribution – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This article answers Exercise 4.14 from the highly recommended Bayes Rules! book.
+" />
+    <meta property="og:description" content="This article answers Exercise 4.14 from the highly recommended Bayes Rules! book.
+" />
+    
+    <meta name="author" content="Jethro Andersson Apriliano Ofe" />
+
+    
+    <meta property="og:title" content="The Posterior Mode of Beta Distribution" />
+    <meta property="twitter:title" content="The Posterior Mode of Beta Distribution" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.jpg" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Jethro Andersson Apriliano Ofe <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Student at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://jethrogit.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="http://it.maranatha.edu/resume/hendra-bunyamin/"><b>Student at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:jethro.andersson02@gmail.com" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/jethroGIT" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+<a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" class="color-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/jethroGIT"> github.com/jethroGIT</a>    <br />
+         
+
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="jethro.andersson02@gmail.com" target="_blank"> jethro.andersson02@gmail.com</a>
+        
+
+        
+
+        <br>
+
+        
+        <i class="fa fa-linkedin fw"></i><a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" target="_blank"> jethro-andersson-apriliano-ofe</a>
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content"> 
+      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/data-science-2">data-science-2</a> / the posterior mode of beta distribution</span></p>
+          <h3>The Posterior Mode of Beta Distribution<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=&text=Exercise 4.14 from Bayes Rules!">Tweet</a></small></h3> 
+          <!-- <hr>
+              <p class="text-center">
+               The Posterior Mode of Beta Distribution <br> 
+                  <span class="text-small">Exercise 4.14 from Bayes Rules!</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+            <div class="entry">
+              <p>This article answers <strong>Exercise 4.14</strong> from the <em>highly recommended</em> <a href="https://www.bayesrulesbook.com/chapter-4.html#practice-balancing-the-data-prior"><strong>Bayes Rules!</strong></a> book.</p>
+
+<p><a href="/assets/images/bechdel-test.png"><img src="/assets/images/bechdel-test.png" alt="img1" class="img-responsive" /></a><em><center>$\pmb{\text{Figure 1}}$: The Bechdel Test. Image taken from <a href="https://commons.wikimedia.org/wiki/File:Bechdel_test.png">Wikipedia</a>.</center></em></p>
+
+<p>In <a href="https://www.bayesrulesbook.com/chapter-4.html#ch4-priors">Chapter 4 of the book</a>, recall that the <strong>Bechdel test</strong> is satisfied by a movie whose conditions are as follows:</p>
+<ul>
+  <li>the movie has at least two women in it,</li>
+  <li>these two women talk to each other, and</li>
+  <li>the two women also talk about something other than a man.</li>
+</ul>
+
+<p>Furthermore, $\text{Figure 1}$ summarizes the three rules mentioned before.</p>
+
+<p>Suppose that we review a sample of $n$ recent movies and record $Y$, the number of movies that pass the Bechdel test. Considering $Y$ as the number of “successes” in a fixed number of independence trials, $Y$ can be specified as a Binomial model with $\pi$ as its parameter. Moreover, $\pi$ can also be described as Beta distribution with prior hyperparameters $\alpha$ and $\beta$:</p>
+
+\[\begin{align}
+    Y \mid \pi &amp;\sim \text{Bin}(n,\pi)  \\
+    \pi        &amp;\sim \text{Beta}(\alpha, \beta).
+\end{align}\]
+
+<p>Thus, the posterior of Beta-Binomial model of $\pi$ is given by</p>
+
+\[\begin{equation}
+    \pi \mid (Y = y) \sim \text{Beta}(\alpha + y, \beta + n - y). \tag{1}\label{eq:the-posterior}
+\end{equation}\]
+
+<p><strong>The Question:</strong></p>
+<blockquote>
+  <p>In the Beta-Binomial setting, show that we can write the posterior mode of $\pi$ as the weighted average of the prior mode and observed sample success rate:
+\(\begin{equation}
+    \text{Mode}(\pi \mid Y = y) = \frac{\alpha + \beta - 2}{\alpha + \beta + n - 2} \cdot \text{Mode}(\pi) + \frac{n}{\alpha + \beta + n - 2} \cdot \frac{y}{n} \tag{2}\label{eq:the-problem} 
+\end{equation}\)</p>
+</blockquote>
+
+<p><strong>Answer</strong>:   <br />
+Recall that mode of the prior is</p>
+
+\[\begin{equation}
+    \text{Mode}(\pi) = \frac{\alpha - 1}{\alpha + \beta - 2} \tag{3}\label{eq:mode-prior} 
+\end{equation}\]
+
+<p>and mode of the posterior is</p>
+
+\[\begin{equation}
+    \text{Mode}(\pi \mid Y = y) = \frac{\alpha + y - 1}{\alpha + \beta + n -2}. \tag{4}\label{eq:mode-posterior} 
+\end{equation}\]
+
+<p>Next, we show that Equation \eqref{eq:mode-posterior} can be written as Equation \eqref{eq:the-problem} as follows:</p>
+
+\[\begin{align}
+    \text{Mode}(\pi \mid Y = y) &amp;= \frac{\alpha + y - 1}{\alpha + \beta + n -2} \\
+                                &amp;= \frac{\alpha - 1}{\alpha + \beta + n - 2} + \frac{y}{\alpha + \beta + n - 2}  \\
+                                &amp;= \frac{\alpha - 1}{\alpha + \beta + n - 2} \cdot \frac{\alpha + \beta -2}{\alpha + \beta -2} + \frac{y}{\alpha + \beta + n - 2} \cdot \frac{n}{n} \\
+                                &amp;= \frac{\alpha + \beta -2}{\alpha + \beta + n - 2} \cdot \frac{\alpha - 1}{\alpha + \beta -2} + \frac{n}{\alpha + \beta + n - 2} \cdot \frac{y}{n}  &amp;&amp; \text{Rearrange the terms} \\
+                                &amp;= \frac{\alpha + \beta -2}{\alpha + \beta + n - 2} \cdot \text{Mode}(\pi) + \frac{n}{\alpha + \beta + n - 2} \cdot \frac{y}{n}. &amp;&amp; \text{Utilize Equation }\eqref{eq:mode-prior}
+\end{align}\]
+
+<p>At last, we have shown that Equation \eqref{eq:the-problem} is indeed true.</p>
+
+            </div>
+            <hr>
+            <div class="date">
+              Written on December 30, 2021
+            </div>
+            <br>
+            
+            
+            
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/data-science-2/The_Posterior_Mode_of_Beta/',
+		  'title': 'The Posterior Mode of Beta Distribution'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
