@@ -50,7 +50,7 @@ profiles:
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
-disqus: "hbunyamin-github-io"
+disqus: "jethroGIT-github-io"
 
 # Or enable Google+ comment
 google_plus: false
