@@ -156,27 +156,41 @@ Setelah paham teori IP Address, subnetting, dan DNS, sekarang waktunya praktek! 
 1. Klik Router > pilih tab CLI.
 2. Masukkan konfigurasi berikut:
 
-```bash
-Router> enable
-Router# configure terminal
-Router(config)# interface fastEthernet 0/0
-Router(config-if)# ip address 10.10.10.1 255.255.255.0
-Router(config-if)# no shutdown
-Router(config-if)# exit
-Router(config)# interface fastEthernet 0/1
-Router(config-if)# ip address 192.168.0.1 255.255.255.0
-Router(config-if)# no shutdown
-Router(config-if)# exit
-Router(config)# exit
-Router#
-```
+    ```bash
+    Router> enable
+    Router# configure terminal
+    Router(config)# interface fastEthernet 0/0
+    Router(config-if)# ip address 10.10.10.1 255.255.255.0
+    Router(config-if)# no shutdown
+    Router(config-if)# exit
+    Router(config)# interface fastEthernet 0/1
+    Router(config-if)# ip address 192.168.0.1 255.255.255.0
+    Router(config-if)# no shutdown
+    Router(config-if)# exit
+    Router(config)# exit
+    Router#
+    ```
 
-Setelah semua perangkat disetting, kamu bisa tes koneksi dengan perintah ping, misalnya:
+### 4. Menguji Koneksi
 
+Setelah semua IP, Gateway, dan DNS dikonfigurasi, sekarang **saatnya menguji apakah jaringan berfungsi dengan baik**.
+
+Ada dua cara sederhana untuk melakukannya:
+1. Ping alamat IP DNS Server
+
+    Buka Command Prompt pada PC atau Laptop, lalu ketik:
+    ```bash
     ping 10.10.10.10
+    ```
+    Jika muncul balasan (Reply from...), berarti koneksi ke server DNS berhasil.
 
-Jika berhasil maka PV akan menrima pesan balasan TTL
+2. Akses alamat URL
 
+    Masih dari PC atau Laptop, buka browser dan akses:
+    ```bash
+    http://mangaden.com
+    ```
+    Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.
 
 #IDNBootcampCyber
 

@@ -310,29 +310,48 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
 
 <ol>
   <li>Klik Router &gt; pilih tab CLI.</li>
-  <li>Masukkan konfigurasi berikut:</li>
+  <li>
+    <p>Masukkan konfigurasi berikut:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Router&gt; <span class="nb">enable
+ </span>Router# configure terminal
+ Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/0</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 10.10.10.1 255.255.255.0</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
+ Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/1</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 192.168.0.1 255.255.255.0</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
+ Router<span class="o">(</span>config<span class="o">)</span><span class="c"># exit</span>
+ Router#
+</code></pre></div>    </div>
+  </li>
 </ol>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Router&gt; <span class="nb">enable
-</span>Router# configure terminal
-Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/0</span>
-Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 10.10.10.1 255.255.255.0</span>
-Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
-Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
-Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/1</span>
-Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 192.168.0.1 255.255.255.0</span>
-Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
-Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
-Router<span class="o">(</span>config<span class="o">)</span><span class="c"># exit</span>
-Router#
-</code></pre></div></div>
+<h3 id="4-menguji-koneksi">4. Menguji Koneksi</h3>
 
-<p>Setelah semua perangkat disetting, kamu bisa tes koneksi dengan perintah ping, misalnya:</p>
+<p>Setelah semua IP, Gateway, dan DNS dikonfigurasi, sekarang <strong>saatnya menguji apakah jaringan berfungsi dengan baik</strong>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping 10.10.10.10
-</code></pre></div></div>
+<p>Ada dua cara sederhana untuk melakukannya:</p>
+<ol>
+  <li>
+    <p>Ping alamat IP DNS Server</p>
 
-<p>Jika berhasil maka PV akan menrima pesan balasan TTL</p>
+    <p>Buka Command Prompt pada PC atau Laptop, lalu ketik:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ping 10.10.10.10
+</code></pre></div>    </div>
+    <p>Jika muncul balasan (Reply from…), berarti koneksi ke server DNS berhasil.</p>
+  </li>
+  <li>
+    <p>Akses alamat URL</p>
+
+    <p>Masih dari PC atau Laptop, buka browser dan akses:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> http://mangaden.com
+</code></pre></div>    </div>
+    <p>Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.</p>
+  </li>
+</ol>
 
 <p>#IDNBootcampCyber</p>
 
