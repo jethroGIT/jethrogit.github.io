@@ -9,6 +9,25 @@ description: Konsep Dasar Jaringan
 ## **Pengantar**
 Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.
 
+## 📌 Daftar Isi
+1. [Dasar-Dasar Jaringan Komputer](#dasar-dasar-jaringan-komputer)
+   - [1. Jenis-Jenis Jaringan](#1-jenis-jenis-jaringan)
+2. [Memahami IP Address dan Subnetting](#2-memahami-ip-address-dan-subnetting)
+   - [1. Apa Itu IP Address?](#apa-itu-ip-address)
+   - [2. Jenis-Jenis IP Address](#jenis-jenis-ip-address)
+   - [3. Subnetting: Memecah Jaringan Jadi Lebih Kecil](#subnetting-memecah-jaringan-jadi-lebih-kecil)
+   - [4. Tipe-Tipe Alamat dalam Subnet](#tipe-tipe-alamat-dalam-subnet)
+3. [Mengenal DNS: "Penerjemah Nama" di Internet](#3-mengenal-dns-penerjemah-nama-di-internet)
+   - [1. Apa itu DNS?](#apa-itu-dns)
+   - [2. Cara Kerja DNS (Simpelnya)](#cara-kerja-dns-simpelnya)
+   - [3. Kenapa DNS Penting?](#kenapa-dns-penting)
+4. [Praktik: Setting IP Address, Subnet Mask, dan Gateway](#4-praktik-setting-ip-address-subnet-mask-dan-gateway)
+   - [1. Unduh File Latihan](#-unduh-file-latihan)
+   - [2. Setting IP di PC](#1-setting-ip-di-pc)
+   - [3. Setting IP di Laptop](#2-setting-ip-di-laptop)
+   - [4. Setting IP Router](#3-setting-ip-router)
+   - [5. Menguji Koneksi](#4-menguji-koneksi)
+
 ## **Dasar-Dasar Jaringan Komputer**
 Sebelum masuk ke simulasi dan praktik menggunakan aplikasi seperti Cisco Packet Tracer, penting banget untuk memahami dulu dasar-dasar jaringan komputer. Jadi gini, ketika dua komputer atau lebih ingin “ngobrol” alias bertukar data, mereka butuh jalan atau media untuk mengirim dan menerima informasi. Nah, jaringan komputer inilah yang menjadi perantara komunikasi itu.
 
@@ -133,6 +152,10 @@ Setelah paham teori IP Address, subnetting, dan DNS, sekarang waktunya praktek! 
 
 [![img1]({{ site.baseurl }}/assets/images/topologi-dasar-jaringan.png){:class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;"}]({{ site.baseurl }}/assets/images/topologi-dasar-jaringan.png)
 
+### 📁 Unduh File Latihan
+
+Sebelum masuk ke sesi praktik, silakan unduh terlebih dahulu file latihan topologi jaringan yang akan kita gunakan: 👉 [Unduh file latihan: jaringan-dasar.pkt](/assets/file/jaringan-dasar/jaringan-dasar.pkt)
+
 ### 1. Setting IP di PC
 1. Klik PC (PC-PT).
 2. Buka tab **Desktop** -> pilih **IP Configuration**.
@@ -182,7 +205,11 @@ Ada dua cara sederhana untuk melakukannya:
     ```bash
     ping 10.10.10.10
     ```
+
     Jika muncul balasan (Reply from...), berarti koneksi ke server DNS berhasil.
+
+    [![img1]({{ site.baseurl }}/assets/images/tes-koneksi-ping.png){:class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;"}]({{ site.baseurl }}/assets/images/tes-koneksi-ping.png)
+
 
 2. Akses alamat URL
 
@@ -190,7 +217,10 @@ Ada dua cara sederhana untuk melakukannya:
     ```bash
     http://mangaden.com
     ```
+
     Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.
+    [![img1]({{ site.baseurl }}/assets/images/tes-koneksi-url.png){:class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;"}]({{ site.baseurl }}/assets/images/tes-koneksi-url.png)
+
 
 #IDNBootcampCyber
 

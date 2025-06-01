@@ -144,6 +144,39 @@ Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan prak
               <h2 id="pengantar"><strong>Pengantar</strong></h2>
 <p>Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.</p>
 
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+<ol>
+  <li><a href="#dasar-dasar-jaringan-komputer">Dasar-Dasar Jaringan Komputer</a>
+    <ul>
+      <li><a href="#1-jenis-jenis-jaringan">1. Jenis-Jenis Jaringan</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-memahami-ip-address-dan-subnetting">Memahami IP Address dan Subnetting</a>
+    <ul>
+      <li><a href="#apa-itu-ip-address">1. Apa Itu IP Address?</a></li>
+      <li><a href="#jenis-jenis-ip-address">2. Jenis-Jenis IP Address</a></li>
+      <li><a href="#subnetting-memecah-jaringan-jadi-lebih-kecil">3. Subnetting: Memecah Jaringan Jadi Lebih Kecil</a></li>
+      <li><a href="#tipe-tipe-alamat-dalam-subnet">4. Tipe-Tipe Alamat dalam Subnet</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-mengenal-dns-penerjemah-nama-di-internet">Mengenal DNS: “Penerjemah Nama” di Internet</a>
+    <ul>
+      <li><a href="#apa-itu-dns">1. Apa itu DNS?</a></li>
+      <li><a href="#cara-kerja-dns-simpelnya">2. Cara Kerja DNS (Simpelnya)</a></li>
+      <li><a href="#kenapa-dns-penting">3. Kenapa DNS Penting?</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-praktik-setting-ip-address-subnet-mask-dan-gateway">Praktik: Setting IP Address, Subnet Mask, dan Gateway</a>
+    <ul>
+      <li><a href="#-unduh-file-latihan">1. Unduh File Latihan</a></li>
+      <li><a href="#1-setting-ip-di-pc">2. Setting IP di PC</a></li>
+      <li><a href="#2-setting-ip-di-laptop">3. Setting IP di Laptop</a></li>
+      <li><a href="#3-setting-ip-router">4. Setting IP Router</a></li>
+      <li><a href="#4-menguji-koneksi">5. Menguji Koneksi</a></li>
+    </ul>
+  </li>
+</ol>
+
 <h2 id="dasar-dasar-jaringan-komputer"><strong>Dasar-Dasar Jaringan Komputer</strong></h2>
 <p>Sebelum masuk ke simulasi dan praktik menggunakan aplikasi seperti Cisco Packet Tracer, penting banget untuk memahami dulu dasar-dasar jaringan komputer. Jadi gini, ketika dua komputer atau lebih ingin “ngobrol” alias bertukar data, mereka butuh jalan atau media untuk mengirim dan menerima informasi. Nah, jaringan komputer inilah yang menjadi perantara komunikasi itu.</p>
 
@@ -278,6 +311,10 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
 
 <p><a href="/assets/images/topologi-dasar-jaringan.png"><img src="/assets/images/topologi-dasar-jaringan.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a></p>
 
+<h3 id="-unduh-file-latihan">📁 Unduh File Latihan</h3>
+
+<p>Sebelum masuk ke sesi praktik, silakan unduh terlebih dahulu file latihan topologi jaringan yang akan kita gunakan: 👉 <a href="/assets/file/jaringan-dasar/jaringan-dasar.pkt">Unduh file latihan: jaringan-dasar.pkt</a></p>
+
 <h3 id="1-setting-ip-di-pc">1. Setting IP di PC</h3>
 <ol>
   <li>Klik PC (PC-PT).</li>
@@ -341,7 +378,10 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
     <p>Buka Command Prompt pada PC atau Laptop, lalu ketik:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ping 10.10.10.10
 </code></pre></div>    </div>
+
     <p>Jika muncul balasan (Reply from…), berarti koneksi ke server DNS berhasil.</p>
+
+    <p><a href="/assets/images/tes-koneksi-ping.png"><img src="/assets/images/tes-koneksi-ping.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a></p>
   </li>
   <li>
     <p>Akses alamat URL</p>
@@ -349,7 +389,9 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
     <p>Masih dari PC atau Laptop, buka browser dan akses:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> http://mangaden.com
 </code></pre></div>    </div>
-    <p>Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.</p>
+
+    <p>Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.
+ <a href="/assets/images/tes-koneksi-url.png"><img src="/assets/images/tes-koneksi-url.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a></p>
   </li>
 </ol>
 
