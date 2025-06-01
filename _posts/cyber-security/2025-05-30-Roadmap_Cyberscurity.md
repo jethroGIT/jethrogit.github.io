@@ -8,9 +8,6 @@ tags: [cybersecurity, roadmap, karir, karier, career]
 ---
 
 
-[![img1]({{ site.baseurl }}/assets/images/infosec_job_titles_meme.jpg){:class="img-responsive" style="max-width: 350px; height: auto; display: block; margin: 0 auto;"}]({{ site.baseurl }}/assets/images/infosec_job_titles_meme.jpg)
-
-
 Halo! Nama saya Jethro, dan saya ingin berbagi sedikit cerita soal perjalanan saya mengejar karier di dunia cybersecurity. Dunia ini luas banget dan terus berkembang cepat, apalagi sekarang teknologi makin jadi bagian dari hidup kita sehari-hari. Ancaman digital juga makin canggih, jadi saya merasa tertantang buat mendalami bidang ini. Blog ini adalah roadmap pribadi saya—rencana lima tahun ke depan buat berkembang dari yang awalnya cuma penasaran sampai (semoga) bisa jadi profesional di bidang ini.
 
 
