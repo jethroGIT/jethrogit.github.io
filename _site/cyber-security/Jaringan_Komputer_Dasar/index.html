@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Mengenal Jaringan Komputer Dasar – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
+      <title>Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
 
         <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -9,16 +9,18 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="Hello WOrld
+    <meta name="description" content="Pengantar
+Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.
 " />
-    <meta property="og:description" content="Hello WOrld
+    <meta property="og:description" content="Pengantar
+Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.
 " />
     
     <meta name="author" content="Jethro Andersson Apriliano Ofe" />
 
     
-    <meta property="og:title" content="Mengenal Jaringan Komputer Dasar" />
-    <meta property="twitter:title" content="Mengenal Jaringan Komputer Dasar" />
+    <meta property="og:title" content="Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer" />
+    <meta property="twitter:title" content="Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer" />
     
 
     <!--[if lt IE 9]>
@@ -28,6 +30,8 @@
     <link rel="icon" href="/favicon.png" type="image/gif">
 
     <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" href="/assets/css/Jaringan_Komputer_Dasar/main.css">
+
     <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
@@ -125,19 +129,213 @@
               <div class=" col-lg-8   col-sm-12 col-xs-12">
   <div class="row grid-content"> 
       <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
-          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/cyber-security">cyber-security</a> / mengenal jaringan komputer dasar</span></p>
-          <h3>Mengenal Jaringan Komputer Dasar<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=&text=Jaringan Komputer Dasar">Tweet</a></small></h3> 
+          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/cyber-security">cyber-security</a> / mengenal dasar jaringan komputer dengan cisco packet tracer</span></p>
+          <h3>Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=&text=Konsep Dasar Jaringan">Tweet</a></small></h3> 
           <!-- <hr>
               <p class="text-center">
-               Mengenal Jaringan Komputer Dasar <br> 
-                  <span class="text-small">Jaringan Komputer Dasar</span> <br>
+               Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer <br> 
+                  <span class="text-small">Konsep Dasar Jaringan</span> <br>
                   
 
               </p>
               <hr> -->
 
             <div class="entry">
-              <p>Hello WOrld</p>
+              <h2 id="pengantar"><strong>Pengantar</strong></h2>
+<p>Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.</p>
+
+<h2 id="dasar-dasar-jaringan-komputer"><strong>Dasar-Dasar Jaringan Komputer</strong></h2>
+<p>Sebelum masuk ke simulasi dan praktik menggunakan aplikasi seperti Cisco Packet Tracer, penting banget untuk memahami dulu dasar-dasar jaringan komputer. Jadi gini, ketika dua komputer atau lebih ingin “ngobrol” alias bertukar data, mereka butuh jalan atau media untuk mengirim dan menerima informasi. Nah, jaringan komputer inilah yang menjadi perantara komunikasi itu.</p>
+
+<p>Komputer bisa saling terhubung melalui kabel, gelombang radio (Wi-Fi), atau serat optik. Tapi komunikasi antar komputer itu nggak sembarangan—ada aturan atau protokol yang mengatur bagaimana data dikirim dari satu titik ke titik lainnya, supaya nggak nyasar. Data yang dikirim juga dipaket-paketkan (makanya disebut packet), lalu dikirim lewat jalur yang paling efisien.</p>
+
+<p>Sekarang, mari kita bahas jenis-jenis jaringan berdasarkan cakupan areanya:</p>
+
+<hr />
+
+<h2 id="1-jenis-jenis-jaringan">1. Jenis-Jenis Jaringan</h2>
+
+<p><strong>🏠 LAN (Local Area Network)</strong></p>
+
+<p>LAN adalah jaringan kecil yang biasanya hanya mencakup satu lokasi, misalnya di rumah, kantor, atau laboratorium komputer. Dalam LAN, perangkat-perangkat seperti komputer, printer, atau router saling terhubung secara langsung dan bisa bertukar data dengan cepat. Contoh sederhana: komputer di lab kampus yang saling terkoneksi dan bisa saling sharing file atau printer.</p>
+
+<p><strong>🏢 MAN (Metropolitan Area Network)</strong></p>
+
+<p>MAN mencakup area yang lebih luas dibanding LAN, biasanya mencakup satu kota atau kawasan kampus yang terdiri dari banyak gedung. Jaringan ini sering digunakan oleh institusi besar, misalnya kampus atau pemerintahan kota, untuk menghubungkan beberapa lokasi yang berjauhan tapi masih dalam satu wilayah metropolitan.</p>
+
+<p><strong>🌍 WAN (Wide Area Network)</strong></p>
+
+<p>WAN adalah jaringan paling luas, bahkan bisa menghubungkan komputer di seluruh dunia. Internet adalah contoh nyata dari WAN. Karena jarak yang jauh, WAN sering menggunakan teknologi komunikasi seperti satelit atau jaringan fiber optik jarak jauh.</p>
+
+<hr />
+
+<h2 id="2-memahami-ip-address-dan-subnetting">2. Memahami IP Address dan Subnetting</h2>
+
+<p>Setelah tahu jenis-jenis jaringan, sekarang kita bahas gimana caranya komputer bisa saling “nemu” satu sama lain dalam jaringan. Di sinilah <strong>IP Address</strong> berperan penting.</p>
+
+<h3 id="apa-itu-ip-address">Apa Itu IP Address?</h3>
+<p>Bayangin kamu lagi kirim surat ke teman—tentu kamu butuh alamat tujuan, kan? Nah, IP Address itu ibarat alamat rumah bagi perangkat di jaringan. Setiap komputer, printer, bahkan HP kamu di jaringan punya IP unik, supaya bisa dikenali dan dihubungi.</p>
+
+<p>Contoh IP Address versi IPv4:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.10
+</code></pre></div></div>
+
+<p>IP Address terdiri dari dua bagian utama:</p>
+<ul>
+  <li><strong>Network ID:</strong> Menunjukkan alamat jaringan.</li>
+  <li><strong>Host ID:</strong> Menunjukkan perangkat tertentu dalam jaringan tersebut.</li>
+</ul>
+
+<h3 id="jenis-jenis-ip-address">Jenis-Jenis IP Address</h3>
+<ul>
+  <li><strong>IP Publik:</strong>Bisa diakses dari internet langsung. Biasanya digunakan oleh server.</li>
+  <li><strong>IP Private:</strong> Hanya digunakan dalam jaringan lokal (misal LAN). Contoh: <code class="language-plaintext highlighter-rouge">192.168.x.x</code>, <code class="language-plaintext highlighter-rouge">10.x.x.x.</code></li>
+</ul>
+
+<h3 id="subnetting-memecah-jaringan-jadi-lebih-kecil">Subnetting: Memecah Jaringan Jadi Lebih Kecil</h3>
+
+<p>Subnetting adalah teknik untuk <strong>membagi satu jaringan besar jadi beberapa jaringan kecil</strong>, supaya lalu lintas data lebih efisien dan lebih mudah dikelola. Setiap subnet punya jatah IP sendiri.</p>
+
+<p>Contoh:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Network: 192.168.1.0/24
+</code></pre></div></div>
+
+<p>Artinya:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">192.168.1.0</code> = Network address</li>
+  <li><code class="language-plaintext highlighter-rouge">/24</code> = Netmask (255.255.255.0), artinya ada 256 alamat (0–255)</li>
+  <li>Tapi… alamat pertama (0) adalah network address dan terakhir (255) adalah broadcast address, jadi yang bisa dipakai: 192.168.1.1 sampai 192.168.1.254</li>
+</ul>
+
+<h4 id="tipe-tipe-alamat-dalam-subnet">Tipe-Tipe Alamat dalam Subnet</h4>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Tipe Alamat</th>
+      <th>Contoh</th>
+      <th>Fungsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Network Address</td>
+      <td>192.168.1.0</td>
+      <td>Menandai alamat utama jaringan</td>
+    </tr>
+    <tr>
+      <td>Broadcast Address</td>
+      <td>192.168.1.255</td>
+      <td>Digunakan untuk mengirim ke semua host</td>
+    </tr>
+    <tr>
+      <td>Host Address</td>
+      <td>192.168.1.1 – 192.168.1.254</td>
+      <td>Digunakan oleh perangkat di jaringan</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="3-mengenal-dns-penerjemah-nama-di-internet">3. Mengenal DNS: “Penerjemah Nama” di Internet</h2>
+
+<p>Setelah kamu paham soal IP Address dan Subnetting, sekarang muncul satu pertanyaan:
+“Kalau setiap perangkat punya alamat IP, kenapa kita jarang banget mengetik angka-angka itu waktu browsing?”
+Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
+
+<h3 id="apa-itu-dns">Apa itu DNS?</h3>
+
+<p>Bayangin kamu mau ngunjungin rumah teman, tapi kamu cuma inget nama panggilannya, bukan alamat rumahnya. Di dunia internet, nama itu seperti youtube.com, sedangkan alamat rumahnya adalah alamat IP seperti <code class="language-plaintext highlighter-rouge">142.250.190.46</code>.</p>
+
+<p>DNS (Domain Name System) adalah sistem yang bertugas menerjemahkan nama domain (seperti youtube.com) menjadi IP address (seperti <code class="language-plaintext highlighter-rouge">142.250.190.46</code>). DNS bekerja menggunakan server yang tersebar di internet dan bekerja secara hirarki.</p>
+
+<h3 id="cara-kerja-dns-simpelnya">Cara Kerja DNS (Simpelnya):</h3>
+<ol>
+  <li>Kamu mengetik www.google.com di browser.</li>
+  <li>Komputer akan bertanya ke DNS: “IP Address dari www.google.com itu berapa ya?”</li>
+  <li>DNS menjawab: “Ini alamatnya: <code class="language-plaintext highlighter-rouge">142.250.190.78</code>”</li>
+  <li>Browser kemudian membuka koneksi ke alamat IP tersebut.</li>
+</ol>
+
+<h3 id="kenapa-dns-penting">Kenapa DNS Penting?</h3>
+<ul>
+  <li><strong>Mudah diingat:</strong> Lebih gampang ketik youtube.com daripada <code class="language-plaintext highlighter-rouge">142.250.190.46</code></li>
+  <li><strong>Fleksibel:</strong> Kalau Google ganti server, cukup ubah IP-nya di DNS tanpa mengubah nama domainnya</li>
+</ul>
+
+<p>Dengan penjelasan DNS ini, pembaca akan lebih paham ketika nanti diminta mengatur DNS server di simulator seperti Cisco Packet Tracer atau GNS3. DNS bukan cuma teori, tapi bagian nyata dari praktik jaringan komputer.</p>
+
+<p>Setelah tahu dasar DNS, barulah kita bisa lanjut ke bagian praktik: ngatur IP Address, subnet mask, dan DNS di simulator jaringan.</p>
+
+<hr />
+
+<h2 id="4-praktik-setting-ip-address-subnet-mask-dan-gateway">4. Praktik: Setting IP Address, Subnet Mask, dan Gateway</h2>
+
+<p>Setelah paham teori IP Address, subnetting, dan DNS, sekarang waktunya praktek! Kita akan setting konfigurasi IP pada masing-masing perangkat di topologi berikut:</p>
+
+<p><a href="/assets/images/topologi-dasar-jaringan.png"><img src="/assets/images/topologi-dasar-jaringan.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a></p>
+
+<h3 id="1-setting-ip-di-pc">1. Setting IP di PC</h3>
+<ol>
+  <li>Klik PC (PC-PT).</li>
+  <li>Buka tab <strong>Desktop</strong> -&gt; pilih <strong>IP Configuration</strong>.</li>
+  <li>Isi sebagai berikut:
+    <ul>
+      <li>IP Address: <code class="language-plaintext highlighter-rouge">192.168.0.10</code></li>
+      <li>Subnet Mask: <code class="language-plaintext highlighter-rouge">255.255.255.0</code> (otomatis terisi)</li>
+      <li>Default Gateway: <code class="language-plaintext highlighter-rouge">192.168.0.1</code> (alamat router Fa0/1)</li>
+      <li>DNS Server: <code class="language-plaintext highlighter-rouge">10.10.10.10</code> (alamat server DNS)</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="2-setting-ip-di-laptop">2. Setting IP di Laptop</h3>
+<ol>
+  <li>Klik Laptop (Laptop-PT).</li>
+  <li>Buka tab <strong>Desktop</strong> -&gt; pilih <strong>IP Configuration</strong>.</li>
+  <li>Isi sebagai berikut:
+    <ul>
+      <li>IP Address: <code class="language-plaintext highlighter-rouge">192.168.0.10</code></li>
+      <li>Subnet Mask: <code class="language-plaintext highlighter-rouge">255.255.255.0</code> (otomatis terisi)</li>
+      <li>Default Gateway: <code class="language-plaintext highlighter-rouge">192.168.0.1</code> (alamat router Fa0/1)</li>
+      <li>DNS Server: <code class="language-plaintext highlighter-rouge">10.10.10.10</code> (alamat server DNS)</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="3-setting-ip-router">3. Setting IP Router</h3>
+
+<ol>
+  <li>Klik Router &gt; pilih tab CLI.</li>
+  <li>Masukkan konfigurasi berikut:</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Router&gt; <span class="nb">enable
+</span>Router# configure terminal
+Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/0</span>
+Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 10.10.10.1 255.255.255.0</span>
+Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
+Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
+Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/1</span>
+Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 192.168.0.1 255.255.255.0</span>
+Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
+Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
+Router<span class="o">(</span>config<span class="o">)</span><span class="c"># exit</span>
+Router#
+</code></pre></div></div>
+
+<p>Setelah semua perangkat disetting, kamu bisa tes koneksi dengan perintah ping, misalnya:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping 10.10.10.10
+</code></pre></div></div>
+
+<p>Jika berhasil maka PV akan menrima pesan balasan TTL</p>
+
+<p>#IDNBootcampCyber</p>
+
 
             </div>
             <hr>
@@ -192,7 +390,7 @@
 		ga('create', 'UA-27831864-1', 'auto');
 		ga('send', 'pageview', {
 		  'page': '/cyber-security/Jaringan_Komputer_Dasar/',
-		  'title': 'Mengenal Jaringan Komputer Dasar'
+		  'title': 'Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer'
 		});
 	</script>
 	<!-- End Google Analytics -->

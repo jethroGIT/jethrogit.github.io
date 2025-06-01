@@ -1,0 +1,31 @@
+.table-terminal {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: monospace;
+  background-color: #1e1e1e; /* latar belakang hitam keabu-abuan */
+  color: #d4d4d4; /* teks abu-abu terang */
+  border: 1px solid #444; /* garis tepi tabel */
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.table-terminal th,
+.table-terminal td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #444;
+}
+
+.table-terminal th {
+  background-color: #2d2d30; /* warna heading lebih gelap */
+  color: #c586c0; /* warna ungu pastel seperti di VS Code */
+  text-align: left;
+  font-weight: bold;
+}
+
+.table-terminal tr:nth-child(even) {
+  background-color: #2a2a2a; /* garis genap warna berbeda */
+}
+
+.table-terminal tr:hover {
+  background-color: #333333; /* efek hover */
+}
