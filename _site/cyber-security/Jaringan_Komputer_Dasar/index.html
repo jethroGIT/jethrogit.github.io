@@ -168,13 +168,14 @@ Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan prak
   </li>
   <li><a href="#4-praktik-setting-ip-address-subnet-mask-dan-gateway">Praktik: Setting IP Address, Subnet Mask, dan Gateway</a>
     <ul>
-      <li><a href="#-unduh-file-latihan">1. Unduh File Latihan</a></li>
-      <li><a href="#1-setting-ip-di-pc">2. Setting IP di PC</a></li>
-      <li><a href="#2-setting-ip-di-laptop">3. Setting IP di Laptop</a></li>
-      <li><a href="#3-setting-ip-router">4. Setting IP Router</a></li>
-      <li><a href="#4-menguji-koneksi">5. Menguji Koneksi</a></li>
+      <li><a href="#-unduh-file-latihan">Unduh File Latihan</a></li>
+      <li><a href="#1-setting-ip-di-pc">1. Setting IP di PC</a></li>
+      <li><a href="#2-setting-ip-di-laptop">2. Setting IP di Laptop</a></li>
+      <li><a href="#3-setting-ip-router">3. Setting IP Router</a></li>
+      <li><a href="#4-menguji-koneksi">4. Menguji Koneksi</a></li>
     </ul>
   </li>
+  <li><a href="#penutup">Penutup</a></li>
 </ol>
 
 <h2 id="dasar-dasar-jaringan-komputer"><strong>Dasar-Dasar Jaringan Komputer</strong></h2>
@@ -204,10 +205,10 @@ Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan prak
 
 <h2 id="2-memahami-ip-address-dan-subnetting">2. Memahami IP Address dan Subnetting</h2>
 
-<p>Setelah tahu jenis-jenis jaringan, sekarang kita bahas gimana caranya komputer bisa saling “nemu” satu sama lain dalam jaringan. Di sinilah <strong>IP Address</strong> berperan penting.</p>
+<p>Setelah tahu jenis-jenis jaringan, sekarang kita bahas gimana caranya komputer bisa saling “bertemu” satu sama lain dalam jaringan. Di sinilah <strong>IP Address</strong> berperan penting.</p>
 
 <h3 id="apa-itu-ip-address">Apa Itu IP Address?</h3>
-<p>Bayangin kamu lagi kirim surat ke teman—tentu kamu butuh alamat tujuan, kan? Nah, IP Address itu ibarat alamat rumah bagi perangkat di jaringan. Setiap komputer, printer, bahkan HP kamu di jaringan punya IP unik, supaya bisa dikenali dan dihubungi.</p>
+<p>Bayangin kamu lagi kirim surat ke teman. Tentu kamu butuh <strong>alamat tujuan</strong>, kan? Nah, dalam jaringan <strong>IP Address</strong> (Internet Protocol Address) adalah <strong>alamat unik</strong> yang diberikan ke setiap perangkat entah itu komputer, printer, router, atau bahkan HP supaya bisa dikenali dan dihubungi.</p>
 
 <p>Contoh IP Address versi IPv4:</p>
 
@@ -220,17 +221,28 @@ Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan prak
   <li><strong>Host ID:</strong> Menunjukkan perangkat tertentu dalam jaringan tersebut.</li>
 </ul>
 
+<p>Contoh:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP Address : 192.168.1.10
+Subnet mask: 255.255.255.0
+</code></pre></div></div>
+
+<p>Di sini, <code class="language-plaintext highlighter-rouge">192.168.1</code> adalah Network ID, dan <code class="language-plaintext highlighter-rouge">10</code> adalah Host ID.</p>
+
 <h3 id="jenis-jenis-ip-address">Jenis-Jenis IP Address</h3>
+
+<p>Secara umum, IP Address terbagi jadi dua jenis:</p>
+
 <ul>
-  <li><strong>IP Publik:</strong>Bisa diakses dari internet langsung. Biasanya digunakan oleh server.</li>
-  <li><strong>IP Private:</strong> Hanya digunakan dalam jaringan lokal (misal LAN). Contoh: <code class="language-plaintext highlighter-rouge">192.168.x.x</code>, <code class="language-plaintext highlighter-rouge">10.x.x.x.</code></li>
+  <li><strong>IP Publik:</strong> Bisa diakses dari internet langsung. Biasanya digunakan oleh server, website, atau perangkat yang harus diakses dari luar jaringan lokal.</li>
+  <li><strong>IP Private:</strong> Hanya digunakan dalam jaringan lokal (LAN/WAN). Biasanya digunakan oleh komputer rumah, printer kantor, atau router Wi-Fi.</li>
 </ul>
 
 <h3 id="subnetting-memecah-jaringan-jadi-lebih-kecil">Subnetting: Memecah Jaringan Jadi Lebih Kecil</h3>
 
-<p>Subnetting adalah teknik untuk <strong>membagi satu jaringan besar jadi beberapa jaringan kecil</strong>, supaya lalu lintas data lebih efisien dan lebih mudah dikelola. Setiap subnet punya jatah IP sendiri.</p>
+<p>Subnetting adalah teknik untuk <strong>membagi satu jaringan besar jadi beberapa sub-jaringan (subnet) yang lebih kecil</strong>, supaya lalu lintas data lebih efisien dan lebih mudah dikelola. Setiap subnet punya jatah IP sendiri.</p>
 
-<p>Contoh:</p>
+<h4 id="contoh-subneting-sederhana">Contoh Subneting Sederhana</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Network: 192.168.1.0/24
 </code></pre></div></div>
@@ -271,35 +283,98 @@ Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan prak
   </tbody>
 </table>
 
+<h3 id="kenapa-subnetting-penting">Kenapa Subnetting Penting?</h3>
+
+<p>Bayangkan kamu sedang mengatur sekolah besar dengan 1.000 siswa, tapi semuanya hanya punya satu ruang kelas. Bisa dibayangkan betapa berisik dan kacau suasananya:</p>
+<ul>
+  <li>Semua murid bicara sekaligus.</li>
+  <li>Guru sulit fokus karena semua siswa saling bersahut-sahutan.</li>
+  <li>Kalau ada informasi penting, bisa tidak terdengar atau tertukar.</li>
+  <li>Mengelola dan mengawasi mereka jadi sangat sulit.</li>
+</ul>
+
+<p>Sekarang, bandingkan jika kamu membagi siswa ke dalam 20 kelas kecil, masing-masing dengan 50 orang:</p>
+<ul>
+  <li>Komunikasi jadi lebih terarah.</li>
+  <li>Informasi bisa disampaikan lebih efisien.</li>
+  <li>Masing-masing kelas bisa dikelola secara terpisah.</li>
+  <li>Kalau ada masalah di satu kelas, tidak mengganggu yang lain.</li>
+</ul>
+
+<p>Nah, subnetting di jaringan itu persis seperti membagi siswa ke dalam kelas-kelas kecil.
+<br />
+Dengan subnetting:</p>
+<ul>
+  <li>Lalu lintas data (traffic) di jaringan tidak saling tabrakan.</li>
+  <li>Broadcast (pengumuman dalam jaringan) tidak membanjiri semua perangkat.</li>
+  <li>Keamanan dan kontrol jadi lebih mudah.</li>
+  <li>IP Address bisa digunakan lebih hemat dan efisien.</li>
+</ul>
+
+<p>Dengan subnetting, kamu bisa memecah jaringan jadi lebih kecil. Misalnya dari:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Network: 192.168.1.0/24
+</code></pre></div></div>
+
+<p>menjadi:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">192.168.1.0/26</code> → 64 alamat (62 usable)</li>
+  <li><code class="language-plaintext highlighter-rouge">192.168.1.64/26</code> → 64 alamat lagi</li>
+  <li>dan seterusnya…</li>
+</ul>
+
 <hr />
 
 <h2 id="3-mengenal-dns-penerjemah-nama-di-internet">3. Mengenal DNS: “Penerjemah Nama” di Internet</h2>
 
 <p>Setelah kamu paham soal IP Address dan Subnetting, sekarang muncul satu pertanyaan:
-“Kalau setiap perangkat punya alamat IP, kenapa kita jarang banget mengetik angka-angka itu waktu browsing?”
-Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
+<i>“Kalau setiap perangkat punya alamat IP, kenapa kita jarang banget mengetik angka-angka itu waktu browsing?”</i>
+Jawabannya adalah: karena kita punya <strong>DNS</strong>!</p>
 
 <h3 id="apa-itu-dns">Apa itu DNS?</h3>
 
 <p>Bayangin kamu mau ngunjungin rumah teman, tapi kamu cuma inget nama panggilannya, bukan alamat rumahnya. Di dunia internet, nama itu seperti youtube.com, sedangkan alamat rumahnya adalah alamat IP seperti <code class="language-plaintext highlighter-rouge">142.250.190.46</code>.</p>
 
-<p>DNS (Domain Name System) adalah sistem yang bertugas menerjemahkan nama domain (seperti youtube.com) menjadi IP address (seperti <code class="language-plaintext highlighter-rouge">142.250.190.46</code>). DNS bekerja menggunakan server yang tersebar di internet dan bekerja secara hirarki.</p>
+<p>DNS (Domain Name System) adalah sistem yang bertugas menerjemahkan nama domain (seperti youtube.com) menjadi IP address (seperti <code class="language-plaintext highlighter-rouge">142.250.190.46</code>).</p>
 
 <h3 id="cara-kerja-dns-simpelnya">Cara Kerja DNS (Simpelnya):</h3>
 <ol>
   <li>Kamu mengetik www.google.com di browser.</li>
-  <li>Komputer akan bertanya ke DNS: “IP Address dari www.google.com itu berapa ya?”</li>
-  <li>DNS menjawab: “Ini alamatnya: <code class="language-plaintext highlighter-rouge">142.250.190.78</code>”</li>
-  <li>Browser kemudian membuka koneksi ke alamat IP tersebut.</li>
+  <li>Komputer akan bertanya ke DNS:
+    <blockquote>
+      <p>“IP Address dari www.google.com itu berapa ya?”</p>
+    </blockquote>
+  </li>
+  <li>DNS menjawab:
+    <blockquote>
+      <p>“Ini alamatnya: <code class="language-plaintext highlighter-rouge">142.250.190.78</code>”</p>
+    </blockquote>
+  </li>
+  <li>Browser kemudian membuka koneksi ke alamat IP tersebut dan menampilkan halaman Google.</li>
 </ol>
+
+<p>DNS ini bekerja lewat server-server yang tersebar di seluruh dunia dan terstruktur secara hirarki, mulai dari <strong>root DNS</strong>, <strong>TLD (Top-Level Domain) DNS</strong>, hingga <strong>authoritative DNS</strong> yang menyimpan jawaban akhirnya.</p>
 
 <h3 id="kenapa-dns-penting">Kenapa DNS Penting?</h3>
 <ul>
-  <li><strong>Mudah diingat:</strong> Lebih gampang ketik youtube.com daripada <code class="language-plaintext highlighter-rouge">142.250.190.46</code></li>
-  <li><strong>Fleksibel:</strong> Kalau Google ganti server, cukup ubah IP-nya di DNS tanpa mengubah nama domainnya</li>
+  <li>
+    <p><strong>Mudah Diingat</strong> 
+<br />
+Tentu lebih mudah mengingat youtube.com dibanding <code class="language-plaintext highlighter-rouge">142.250.190.46</code>, kan ?</p>
+  </li>
+  <li>
+    <p><strong>Fleksibel:</strong> 
+<br />
+Kalau sebuah situs pindah server (ganti IP Address), kamu <strong>tidak perlu tahu perubahan itu</strong>. DNS yang akan mengarahkannya ke alamat baru, tetap lewat nama yang sama.</p>
+  </li>
+  <li>
+    <p><strong>Efisien:</strong>
+<br />
+DNS juga menyimpan cache dari permintaan sebelumnya, jadi akses ke situs jadi <strong>lebih cepat</strong> setelah pertama kali dibuka.</p>
+  </li>
 </ul>
 
-<p>Dengan penjelasan DNS ini, pembaca akan lebih paham ketika nanti diminta mengatur DNS server di simulator seperti Cisco Packet Tracer atau GNS3. DNS bukan cuma teori, tapi bagian nyata dari praktik jaringan komputer.</p>
+<p>DNS adalah jembatan antara manusia dan mesin di dunia internet. DNS memungkinkan kita menggunakan nama-nama yang ramah di mata manusia, dan membiarkan komputer mengurus alamat IP-nya di balik layar.</p>
 
 <p>Setelah tahu dasar DNS, barulah kita bisa lanjut ke bagian praktik: ngatur IP Address, subnet mask, dan DNS di simulator jaringan.</p>
 
@@ -309,7 +384,8 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
 
 <p>Setelah paham teori IP Address, subnetting, dan DNS, sekarang waktunya praktek! Kita akan setting konfigurasi IP pada masing-masing perangkat di topologi berikut:</p>
 
-<p><a href="/assets/images/topologi-dasar-jaringan.png"><img src="/assets/images/topologi-dasar-jaringan.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a></p>
+<p><a href="/assets/images/topologi-dasar-jaringan.png"><img src="/assets/images/topologi-dasar-jaringan.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a>
+<em><center>$\pmb{\text{Figure 1}}$: Basic network topology showing the connection between a DNS Server, Router, Switch, PC, and Laptop. Topology created in <a href="https://www.netacad.com/cisco-packet-tracer"><b>Cisco Packet Tracer</b></a>, for educational use.</center></em></p>
 
 <h3 id="-unduh-file-latihan">📁 Unduh File Latihan</h3>
 
@@ -329,19 +405,25 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
   </li>
 </ol>
 
+<p><a href="/assets/images/PC-PT.png"><img src="/assets/images/PC-PT.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Figure 2}}$: Static IP configuration on PC-PT in Cisco Packet Tracer. The device is manually assigned an IP address of 192.168.0.10 with subnet mask 255.255.255.0, default gateway 192.168.0.1, and DNS server 10.10.10.10. This setup enables the PC to access external networks and resolve domain names via the DNS server.*</center></em></p>
+
 <h3 id="2-setting-ip-di-laptop">2. Setting IP di Laptop</h3>
 <ol>
   <li>Klik Laptop (Laptop-PT).</li>
   <li>Buka tab <strong>Desktop</strong> -&gt; pilih <strong>IP Configuration</strong>.</li>
   <li>Isi sebagai berikut:
     <ul>
-      <li>IP Address: <code class="language-plaintext highlighter-rouge">192.168.0.10</code></li>
+      <li>IP Address: <code class="language-plaintext highlighter-rouge">192.168.0.20</code></li>
       <li>Subnet Mask: <code class="language-plaintext highlighter-rouge">255.255.255.0</code> (otomatis terisi)</li>
       <li>Default Gateway: <code class="language-plaintext highlighter-rouge">192.168.0.1</code> (alamat router Fa0/1)</li>
       <li>DNS Server: <code class="language-plaintext highlighter-rouge">10.10.10.10</code> (alamat server DNS)</li>
     </ul>
   </li>
 </ol>
+
+<p><a href="/assets/images/Laptop-PT.png"><img src="/assets/images/Laptop-PT.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Figure 3}}$: Static IP configuration on Laptop-PT in Cisco Packet Tracer. The device is manually assigned an IP address of 192.168.0.20 with subnet mask 255.255.255.0, default gateway 192.168.0.1, and DNS server 10.10.10.10. This setup enables the PC to access external networks and resolve domain names via the DNS server.*</center></em></p>
 
 <h3 id="3-setting-ip-router">3. Setting IP Router</h3>
 
@@ -381,7 +463,8 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
 
     <p>Jika muncul balasan (Reply from…), berarti koneksi ke server DNS berhasil.</p>
 
-    <p><a href="/assets/images/tes-koneksi-ping.png"><img src="/assets/images/tes-koneksi-ping.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a></p>
+    <p><a href="/assets/images/tes-koneksi-ping.png"><img src="/assets/images/tes-koneksi-ping.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a>
+ <em><center>$\pmb{\text{Figure 4}}$: Ping test result from PC-PT to the DNS Server (IP: 10.10.10.10). All four packets were successfully sent and received with 0% loss, indicating a stable and functioning network connection between the PC and the server.*</center></em></p>
   </li>
   <li>
     <p>Akses alamat URL</p>
@@ -391,9 +474,15 @@ Nah, di sinilah DNS (Domain Name System) ambil peran.</p>
 </code></pre></div>    </div>
 
     <p>Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.
- <a href="/assets/images/tes-koneksi-url.png"><img src="/assets/images/tes-koneksi-url.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a></p>
+ <a href="/assets/images/tes-koneksi-url.png"><img src="/assets/images/tes-koneksi-url.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a>
+ <em><center>$\pmb{\text{Figure 5}}$: The PC-PT successfully accesses the domain `mangaden.com` through a web browser. This confirms that the DNS Server (10.10.10.10) correctly resolved the domain name to its associated IP address, allowing access to the website hosted on the server.*</center></em></p>
   </li>
 </ol>
+
+<hr />
+
+<h3 id="penutup">Penutup</h3>
+<p>Dengan memahami konsep dan praktik ini, teman teman telah menguasai fondasi penting dalam dunia jaringan komputer yang akan menjadi bekal kuat untuk belajar konfigurasi lanjutan di masa depan.</p>
 
 <p>#IDNBootcampCyber</p>
 
