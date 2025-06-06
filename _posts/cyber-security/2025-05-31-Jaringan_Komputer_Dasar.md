@@ -208,7 +208,8 @@ Setelah tahu dasar DNS, barulah kita bisa lanjut ke bagian praktik: ngatur IP Ad
 Setelah paham teori IP Address, subnetting, dan DNS, sekarang waktunya praktek! Kita akan setting konfigurasi IP pada masing-masing perangkat di topologi berikut:
 
 [![img1]({{ site.baseurl }}/assets/images/topologi-dasar-jaringan.png){:class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;"}]({{ site.baseurl }}/assets/images/topologi-dasar-jaringan.png)
-*<center>$\pmb{\text{Figure 1}}$: Basic network topology showing the connection between a DNS Server, Router, Switch, PC, and Laptop. Topology created in <a href="https://www.netacad.com/cisco-packet-tracer"><b>Cisco Packet Tracer</b></a>, for educational use.</center>*
+*<center>$\pmb{\text{Gambar 1}}$: Topologi dasar jaringan yang menunjukkan koneksi antara DNS Server, Router, Switch, PC, dan Laptop. Topologi dibuat menggunakan <a href="https://www.netacad.com/cisco-packet-tracer"><b>Cisco Packet Tracer</b></a> untuk keperluan edukasi.</center>*
+
 
 ### 📁 Unduh File Latihan
 
@@ -224,8 +225,7 @@ Sebelum masuk ke sesi praktik, silakan unduh terlebih dahulu file latihan topolo
 - DNS Server: `10.10.10.10` (alamat server DNS)
 
 [![img1]({{ site.baseurl }}/assets/images/PC-PT.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/PC-PT.png)
-*<center>$\pmb{\text{Figure 2}}$: Static IP configuration on PC-PT in Cisco Packet Tracer. The device is manually assigned an IP address of 192.168.0.10 with subnet mask 255.255.255.0, default gateway 192.168.0.1, and DNS server 10.10.10.10. This setup enables the PC to access external networks and resolve domain names via the DNS server.*</center>*
-
+*<center>$\pmb{\text{Gambar 2}}$: Konfigurasi IP statis pada PC-PT di Cisco Packet Tracer. Perangkat ini diberi alamat IP 192.168.0.10 secara manual, dengan subnet mask 255.255.255.0, default gateway 192.168.0.1, dan DNS server 10.10.10.10. Dengan pengaturan ini, PC dapat mengakses jaringan eksternal dan melakukan resolusi nama domain melalui DNS server.</center>*
 
 ### 2. Setting IP di Laptop
 1. Klik Laptop (Laptop-PT).
@@ -237,7 +237,7 @@ Sebelum masuk ke sesi praktik, silakan unduh terlebih dahulu file latihan topolo
 - DNS Server: `10.10.10.10` (alamat server DNS)
 
 [![img1]({{ site.baseurl }}/assets/images/Laptop-PT.png){:class="img-responsive"}]({{ site.baseurl }}/assets/images/Laptop-PT.png)
-*<center>$\pmb{\text{Figure 3}}$: Static IP configuration on Laptop-PT in Cisco Packet Tracer. The device is manually assigned an IP address of 192.168.0.20 with subnet mask 255.255.255.0, default gateway 192.168.0.1, and DNS server 10.10.10.10. This setup enables the PC to access external networks and resolve domain names via the DNS server.*</center>*
+*<center>$\pmb{\text{Gambar 3}}$: Konfigurasi IP statis pada Laptop-PT di Cisco Packet Tracer. Perangkat ini diberi alamat IP 192.168.0.20 secara manual, dengan subnet mask 255.255.255.0, default gateway 192.168.0.1, dan DNS server 10.10.10.10. Dengan pengaturan ini, laptop dapat mengakses jaringan eksternal dan melakukan resolusi nama domain melalui DNS server.</center>*
 
 
 ### 3. Setting IP Router
@@ -273,9 +273,9 @@ Ada dua cara sederhana untuk melakukannya:
     ```
 
     Jika muncul balasan (Reply from...), berarti koneksi ke server DNS berhasil.
-
     [![img1]({{ site.baseurl }}/assets/images/tes-koneksi-ping.png){:class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;"}]({{ site.baseurl }}/assets/images/tes-koneksi-ping.png)
-    *<center>$\pmb{\text{Figure 4}}$: Ping test result from PC-PT to the DNS Server (IP: 10.10.10.10). All four packets were successfully sent and received with 0% loss, indicating a stable and functioning network connection between the PC and the server.*</center>*
+    *<center>$\pmb{\text{Gambar 4}}$: Hasil pengujian koneksi menggunakan perintah ping dari PC-PT ke DNS Server (IP: 10.10.10.10). Keempat paket berhasil dikirim dan diterima tanpa kehilangan paket (0% loss), yang menunjukkan koneksi jaringan antara PC dan server berjalan dengan baik.</center>*
+
 
     
 
@@ -289,7 +289,7 @@ Ada dua cara sederhana untuk melakukannya:
 
     Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.
     [![img1]({{ site.baseurl }}/assets/images/tes-koneksi-url.png){:class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;"}]({{ site.baseurl }}/assets/images/tes-koneksi-url.png)
-    *<center>$\pmb{\text{Figure 5}}$: The PC-PT successfully accesses the domain `mangaden.com` through a web browser. This confirms that the DNS Server (10.10.10.10) correctly resolved the domain name to its associated IP address, allowing access to the website hosted on the server.*</center>*
+    *<center>$\pmb{\text{Gambar 5}}$: PC-PT berhasil mengakses domain <code>mangaden.com</code> melalui web browser. Hal ini menunjukkan bahwa DNS Server (10.10.10.10) berhasil melakukan resolusi nama domain ke alamat IP yang sesuai, sehingga PC dapat mengakses website yang dihosting di server.</center>*
 
 ---
 

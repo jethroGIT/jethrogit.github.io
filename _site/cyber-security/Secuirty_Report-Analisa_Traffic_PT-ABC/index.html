@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Pengantar
+" />
+    <meta property="og:description" content="Pengantar
+" />
+    
+    <meta name="author" content="Jethro Andersson Apriliano Ofe" />
+
+    
+    <meta property="og:title" content="Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC" />
+    <meta property="twitter:title" content="Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/cyber-security/main.css">
+
+    <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.jpg" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Jethro Andersson Apriliano Ofe <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Student at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://jethrogit.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="https://www.maranatha.edu/"><b>Student at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:jethro.andersson02@gmail.com" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/jethroGIT" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+<a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" class="color-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/jethroGIT"> github.com/jethroGIT</a>    <br />
+         
+
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="jethro.andersson02@gmail.com" target="_blank"> jethro.andersson02@gmail.com</a>
+        
+
+        
+
+        <br>
+
+        
+        <i class="fa fa-linkedin fw"></i><a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" target="_blank"> jethro-andersson-apriliano-ofe</a>
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div
+  class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content">
+    <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+      <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
+          / <a href="http://localhost:4000/cyber-security">cyber-security</a>
+          / analisis malware win32/koi stealer pada jaringan pt. abc</span></p>
+      <h3>Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC<small class="pull-right"><a href="/feed.xml" target="_blank"><i
+              class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?via=&text=Security Report">Tweet</a></small>
+      </h3>
+      <!-- <hr>
+              <p class="text-center">
+               Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC <br> 
+                  <span class="text-small">Security Report</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+      <div class="entry">
+        <h2 id="pengantar"><strong>Pengantar</strong></h2>
+
+<p>Pada artikel kali ini, saya akan membahas sebuah studi kasus nyata mengenai insiden keamanan jaringan berdasarkan hasil analisis log lalu lintas jaringan. Studi kasus ini merupakan bagian dari tugas yang diberikan dalam bootcamp Cybersecurity yang diselenggarakan oleh ID-Networkers.</p>
+
+<p>Peserta bootcamp diminta untuk menganalisis file log jaringan yang mencatat aktivitas mencurigakan, yang ternyata merupakan bagian dari serangan malware. Dari analisis tersebut, ditemukan bahwa salah satu host di jaringan internal PT. ABC telah terinfeksi oleh malware bernama Win32/Koi Stealer, yang aktif melakukan komunikasi ke server eksternal berbahaya.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#executive-summary">Executive Summary</a></li>
+  <li><a href="#indicator-of-compromise-ioc">Indicator of Compromise (IOC)</a></li>
+  <li><a href="#proof-of-concept-poc">Proof of Concept (POC)</a>
+    <ul>
+      <li><a href="#http-post-request">HTTP POST Request</a></li>
+      <li><a href="#user-agent-string">User-Agent String</a></li>
+      <li><a href="#indikasi-win32koi-stealer">Indikasi Win32/Koi Stealer</a></li>
+      <li><a href="#analisa-virustotal">Analisa VirusTotal</a></li>
+      <li><a href="#affected-host">Affected Host</a></li>
+      <li><a href="#security-alert">Security Alert</a></li>
+    </ul>
+  </li>
+  <li><a href="#url-generating-the-alert-traffic">URL Generating the Alert Traffic</a></li>
+  <li><a href="#risk-assesment">Risk Assessment</a></li>
+  <li><a href="#mitigation">Mitigation</a></li>
+  <li><a href="#references">References</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ol>
+
+<h2 id="executive-summary"><strong>EXECUTIVE SUMMARY</strong></h2>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Host Name</td>
+      <td>DESKTOP-RNV09AT</td>
+    </tr>
+    <tr>
+      <td>Client MAC Address</td>
+      <td>18:3d:a2:b6:8d:c4</td>
+    </tr>
+    <tr>
+      <td>Date/Time Detected</td>
+      <td>2024-09-04 17:35 UTC</td>
+    </tr>
+    <tr>
+      <td>Internal IP Address</td>
+      <td>172.17.0.99</td>
+    </tr>
+    <tr>
+      <td>External IP Address </td>
+      <td>79.124.78.197</td>
+    </tr>
+    <tr>
+      <td>Malware</td>
+      <td>Win32/Koi Stealer</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pada tanggal <strong>4 September 2024</strong>, beberapa host internal di jaringan PT. ABC menunjukkan aktivitas yang mencurigakan dalam lalu lintas jaringan, berdasarkan file PCAP yang dianalisis. Salah satu host dengan IP <code class="language-plaintext highlighter-rouge">172.17.0.99</code> terlihat cukup aktif melakukan komunikasi, baik dengan IP eksternal maupun internal, dan aktivitasnya terpantau cukup intensif.</p>
+
+<p>Dari hasil analisis lebih lanjut, host ini secara terus-menerus mengirimkan <strong>HTTP POST request</strong> ke <strong>file foots.php</strong> yang berada di IP eksternal <code class="language-plaintext highlighter-rouge">79.124.78.197</code>. Setelah dicek melalui layanan VirusTotal, IP tersebut dikategorikan sebagai berbahaya (malicious). Aktivitas ini mengindikasikan bahwa host <code class="language-plaintext highlighter-rouge">172.17.0.99</code> kemungkinan besar telah terinfeksi <strong>malware</strong>, dan sedang menjalankan operasi <strong>Command-and-Control (C2)</strong>.</p>
+
+<hr />
+
+<h2 id="indicator-of-compromise-ioc"><strong>INDICATOR OF COMPROMISE (IOC)</strong></h2>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Internal IP</strong></td>
+      <td>172.17.0.99</td>
+      <td>Host yang terinfeksi dan menjadi sumber komunikasi mencurigakan dalam jaringan.</td>
+    </tr>
+    <tr>
+      <td><strong>External IP</strong></td>
+      <td>79.124.78.197</td>
+      <td>Alamat IP tujuan dari aktivitas HTTP POST; dikategorikan sebagai malicious oleh VirusTotal.</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>http://79.124.78.197/foots.php</td>
+      <td>Endpoint command-and-control (C2) yang menerima request dari host terinfeksi.</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>http://79.124.78.197/index.php</td>
+      <td>Berisi token beacon C2 dari malware Win32/Koi Stealer.</td>
+    </tr>
+    <tr>
+      <td><strong>Malware</strong></td>
+      <td>Win32/Koi Stealer</td>
+      <td>Jenis malware yang terindikasi dari pola komunikasi dan token dalam traffic.</td>
+    </tr>
+    <tr>
+      <td><strong>HTTP Method</strong></td>
+      <td>POST</td>
+      <td>Metode permintaan yang digunakan malware untuk komunikasi dengan server eksternal.</td>
+    </tr>
+    <tr>
+      <td><strong>Content-Type</strong></td>
+      <td>application/octet-stream</td>
+      <td>Format data biner yang digunakan untuk mengirim command atau data curian.</td>
+    </tr>
+    <tr>
+      <td><strong>Content-Encoding</strong></td>
+      <td>binary</td>
+      <td>Encoding data POST—umum digunakan dalam komunikasi malware.</td>
+    </tr>
+    <tr>
+      <td><strong>User-Agent</strong></td>
+      <td>Mozilla/4.0 (MSIE 7.0; Windows NT 10.0; WOW64...)</td>
+      <td>String agen pengguna palsu dan usang, sering digunakan malware untuk menghindari deteksi.</td>
+    </tr>
+    <tr>
+      <td><strong>Token</strong></td>
+      <td>HckDcK0czXjqa48jVHNm|qIOuKk7U|http://79.124.78.197/index.php</td>
+      <td>Beacon C2 khas milik Koi Stealer, menunjukkan komunikasi awal antara malware dan server.</td>
+    </tr>
+    <tr>
+      <td><strong>MAC Address</strong></td>
+      <td>18:3d:a2:b6:8d:c4</td>
+      <td>Alamat fisik perangkat yang terinfeksi di jaringan PT. ABC.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="proof-of-concept-poc"><strong>PROOF OF CONCEPT (POC)</strong></h2>
+
+<h3 id="http-post-request">HTTP POST Request</h3>
+
+<p>Pada file 2024-09-04-traffic-analysis-exercise.pcap, terdeteksi permintaan <strong>HTTP POST</strong> dalam jumlah banyak dari host internal <code class="language-plaintext highlighter-rouge">172.17.0.99</code> ke IP eksternal <code class="language-plaintext highlighter-rouge">79.124.78.197</code> menuju endpoint <strong>/foots.php</strong>.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/HTTP-POST:79.124.78.197.png"><img src="/assets/images/log-analisis:PT_ABC/HTTP-POST:79.124.78.197.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 1}}$: Contoh HTTP POST request yang dikirim oleh host <code>172.17.0.99</code> ke server berbahaya <code>79.124.78.197</code>. Aktivitas ini terlihat jelas di file <code>2024-09-04-traffic-analysis-exercise.pcap</code> dan merupakan bagian dari komunikasi C2 yang dilakukan malware Win32/Koi Stealer.</center></em></p>
+
+<p>Permintaan yang dikirimkan oleh host <code class="language-plaintext highlighter-rouge">172.17.0.99</code> ke server eksternal menggunakan <strong>HTTP POST</strong> dengan header <strong>Content-Type: application/octet-stream</strong> dan <strong>Content-Encoding: binary</strong>. Format seperti ini umum digunakan dalam komunikasi <strong>Command-and-Control (C2)</strong> oleh malware, karena memungkinkan <strong>pengiriman data biner yang bisa berisi perintah dari server penyerang</strong> ataupun data yang dicuri dari sistem korban.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/HTTP-POST-Header.png"><img src="/assets/images/log-analisis:PT_ABC/HTTP-POST-Header.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 2}}$: Header dari HTTP POST request yang digunakan malware. Terlihat <code>Content-Type: application/octet-stream</code> dan <code>Content-Encoding: binary</code>, format yang umum dipakai malware untuk mengirim data biner atau menerima perintah dari server C2.</center></em></p>
+
+<p>Menariknya, permintaan ini ditujukan ke endpoint <strong>foots.php</strong>, yang ditulis menggunakan PHP. Penggunaan PHP sebagai endpoint merupakan taktik yang cukup umum dalam komunikasi malware atau web shell, karena PHP dapat dengan mudah menangani permintaan dan respons secara dinamis, baik untuk menerima perintah maupun mengirimkan hasil curian ke attacker.</p>
+
+<hr />
+
+<h3 id="user-agent-string">User-Agent String</h3>
+
+<p>Salah satu hal yang mencolok dari komunikasi mencurigakan ini adalah <strong>User-Agent string</strong> yang digunakan, yaitu:</p>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729)</code></p>
+</blockquote>
+
+<p>User-Agent ini tergolong usang dan tidak lazim ditemukan di lingkungan modern, terutama pada sistem dengan Windows 10. Hal ini menjadi indikator tambahan bahwa traffic tersebut kemungkinan berasal dari aplikasi yang dipalsukan atau digunakan oleh malware untuk menyamarkan diri agar terlihat seperti aplikasi lama dan sah.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/String-Agent.png"><img src="/assets/images/log-analisis:PT_ABC/String-Agent.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 3}}$: User-Agent string yang digunakan oleh malware di dalam request. String ini usang dan tidak wajar (<code>Mozilla/4.0 (MSIE 7.0; Windows NT 10.0; WOW64...)</code>), salah satu trik agar traffic malware terlihat seperti traffic normal dari aplikasi lama.</center></em></p>
+
+<h4 id="detail-user-string-agen">Detail User-String Agen</h4>
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MSIE 7.0</td>
+      <td>Menunjukkan penggunaan Internet Explorer 7, yang dirilis pada tahun 2006.</td>
+    </tr>
+    <tr>
+      <td>.NET CLR 2.0.50727</td>
+      <td>Menunjukan penggunaan .NET Framework 2.0, rilis tahun 2005.</td>
+    </tr>
+    <tr>
+      <td>Windows NT 10.0; WOW64</td>
+      <td>Mengindikasikan OS Windows 10 versi 64-bit.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Jika dilihat secara keseluruhan, kombinasi string ini tidak masuk akal secara teknis. Internet Explorer 7 dan .NET versi lama tidak wajar digunakan bersamaan dengan Windows 10, kecuali memang sengaja disusun untuk menyamarkan aktivitas malware. Ini adalah taktik umum malware, yaitu berpura-pura menjadi aplikasi atau browser lama agar lalu lintasnya tidak terlalu mencolok dalam sistem monitoring yang fokus pada signature modern. Selain itu, string seperti ini kadang digunakan untuk mengeksploitasi kerentanan lama pada server target yang masih rentan terhadap user-agent lawas.</p>
+
+<hr />
+
+<h3 id="indikasi-win32koi-stealer">Indikasi Win32/Koi Stealer</h3>
+
+<p>Pada log jaringan, terlihat adanya akses ke URL berikut:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://79.124.78.197/index.php
+</code></pre></div></div>
+
+<p>Ketika dianalisis lebih lanjut, file index.php mengandung sebuah token:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HckDcK0czXjqa48jVHNm|qIOuKk7U|http://79.124.78.197/index.php
+</code></pre></div></div>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Indikasi-Win32.png"><img src="/assets/images/log-analisis:PT_ABC/Indikasi-Win32.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 4}}$: Token yang ditemukan dalam komunikasi ke <code>http://79.124.78.197/index.php</code>. Pola token ini sangat mirip dengan beacon C2 yang digunakan oleh Win32/Koi Stealer saat pertama kali melakukan handshake dengan server C2.</center></em></p>
+
+<p>Token ini sangat mirip dengan pola <strong>C2 beacon</strong> (penanda komunikasi Command-and-Control) yang biasa digunakan oleh <strong>malware Koi Stealer</strong>. Beacon seperti ini biasanya digunakan untuk melakukan <strong>handshake</strong> awal antara malware yang sudah terpasang di host korban dengan server pengendali (attacker).</p>
+
+<p>Struktur token yang terdiri dari beberapa bagian dipisahkan oleh tanda <code class="language-plaintext highlighter-rouge">|</code> menunjukkan bahwa ada parameter identifikasi atau autentikasi yang dikirimkan oleh malware untuk memberitahu server bahwa infeksi berhasil. Biasanya, string seperti ini memuat ID unik, status sistem korban, atau URL callback yang akan digunakan untuk komunikasi selanjutnya.</p>
+
+<p>Fakta bahwa token ini muncul dalam komunikasi HTTP ke IP yang sudah dikonfirmasi berbahaya semakin memperkuat dugaan bahwa sistem telah terinfeksi Koi Stealer dan aktif menjalin koneksi dengan server penyerang untuk menerima perintah lanjutan atau mengirimkan data yang dicuri.</p>
+
+<hr />
+
+<h3 id="analisa-virustotal">Analisa VirusTotal</h3>
+
+<p>Untuk memperkuat analisis dan validasi terhadap aktivitas mencurigakan dari host <code class="language-plaintext highlighter-rouge">172.17.0.99</code>, dilakukan pengecekan reputasi terhadap IP tujuan utama <code class="language-plaintext highlighter-rouge">79.124.78.197</code> menggunakan layanan <strong>VirusTotal</strong> (<a href="www.virustotal.com">www.virustotal.com</a>).</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Analisa-VirusTotal.png"><img src="/assets/images/log-analisis:PT_ABC/Analisa-VirusTotal.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 5}}$: Hasil pengecekan reputasi IP <code>79.124.78.197</code> di VirusTotal. IP ini sudah ditandai sebagai malicious oleh beberapa vendor keamanan, yang semakin memperkuat dugaan bahwa IP ini memang dipakai untuk aktivitas C2 dan distribusi malware.</center></em></p>
+
+<p>Hasil pencarian menunjukkan bahwa IP tersebut telah ditandai sebagai <strong>malicious</strong> oleh sejumlah vendor keamanan yang kredibel seperti <strong>BitDefender</strong>, <strong>G-Data</strong>, <strong>CyRadar</strong>, dan <strong>alphaMountain.ai</strong> . Banyaknya deteksi positif dari berbagai engine keamanan menunjukkan bahwa IP ini memang telah terlibat dalam berbagai aktivitas berbahaya, seperti <strong>penyebaran malware</strong>, <strong>command-and-control server</strong>, hingga <strong>phishing</strong>.</p>
+
+<p>Berdasarkan hasil analisis teknis dan korelasi dengan reputasi IP, 79.124.78.197 kemungkinan besar berperan dalam satu atau lebih dari fungsi berikut dalam infrastruktur serangan:</p>
+
+<h4 id="1-server-command-and-control-c2">1. Server Command-and-Control (C2)</h4>
+
+<p>IP ini sangat mungkin digunakan oleh penyerang sebagai server Command-and-Control, yaitu pusat kendali yang digunakan untuk mengirim perintah ke sistem yang sudah terinfeksi—dalam hal ini, host 172.17.0.99. Komunikasi dilakukan melalui permintaan HTTP POST secara berulang ke endpoint /foots.php, yang merupakan pola umum dalam skenario C2. Server ini dapat menginstruksikan malware untuk melakukan berbagai aksi seperti mencuri kredensial, mengambil screenshot, hingga mengunduh file berbahaya lainnya.</p>
+
+<h4 id="2-titik-distribusi-malware">2. Titik Distribusi Malware</h4>
+
+<p>Walaupun tidak langsung terlihat pada log (PCAP) yang dianalisis, IP berbahaya seperti ini sering juga berfungsi sebagai host untuk menyebarkan payload malware. Dengan kata lain, selain mengontrol sistem yang terinfeksi, server ini bisa saja digunakan untuk menyebarkan file berbahaya yang dikamuflase sebagai installer, dokumen, atau aplikasi palsu kepada korban lain dalam kampanye serangan yang sama.</p>
+
+<h4 id="3-endpoint-eksfiltrasi-data">3. Endpoint Eksfiltrasi Data</h4>
+
+<p>IP ini juga sangat mungkin digunakan sebagai endpoint eksfiltrasi data. Malware yang aktif di host korban dapat mengumpulkan data sensitif seperti username/password, file penting, history browser, atau bahkan clipboard, lalu mengirimkannya dalam format binary menggunakan Content-Type: application/octet-stream. Fakta bahwa komunikasi ini terjadi secara terus-menerus (bukan hanya satu kali) menunjukkan bahwa infeksi bersifat persisten dan sedang dikendalikan secara aktif dari jarak jauh.</p>
+
+<hr />
+
+<h3 id="affected-host">Affected Host</h3>
+
+<p>Host ini merupakan perangkat internal dalam jaringan PT. ABC yang terdeteksi melakukan aktivitas mencurigakan berdasarkan hasil analisis file log 2024-09-04-traffic-analysis-exercise.pcap.</p>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>IP Address</strong></td>
+      <td>172.17.0.99</td>
+    </tr>
+    <tr>
+      <td><strong>MAC Address</strong></td>
+      <td>18:3d:a2:b6:8d:c4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Perangkat ini secara aktif melakukan komunikasi ke IP eksternal yang telah terverifikasi sebagai <strong>malicious</strong>, yaitu <code class="language-plaintext highlighter-rouge">79.124.78.197</code>. Komunikasi tersebut berupa <strong>HTTP POST</strong> dalam jumlah besar dengan pola yang khas digunakan oleh malware, yang mengindikasikan bahwa host ini telah terinfeksi dan kemungkinan menjadi bagian dari operasi <strong>Command-and-Control (C2)</strong>.</p>
+
+<p>MAC address 18:3d:a2:b6:8d:c4 mengidentifikasi secara unik perangkat ini di dalam jaringan lokal.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Affected-Host.png"><img src="/assets/images/log-analisis:PT_ABC/Affected-Host.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 6}}$: Informasi host yang terinfeksi. Host <code>172.17.0.99</code> dengan MAC address <code>18:3d:a2:b6:8d:c4</code> teridentifikasi sebagai sumber utama aktivitas komunikasi mencurigakan di jaringan PT. ABC.</center></em></p>
+
+<hr />
+
+<h3 id="security-alert">Security Alert</h3>
+
+<p>Alert ini berasal dari file 2024-09-04-traffic-analysis-exercise-alerts.txt, yang berisi hasil pemantauan lalu lintas jaringan oleh sistem deteksi intrusi (IDS). Alert ini mengindikasikan adanya aktivitas berbahaya dari host internal 172.17.0.99 yang mencoba melakukan komunikasi Command-and-Control (C2) dengan IP eksternal 79.124.78.197.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">------------------------------------------------------------------------</span>
+Count:48 Event#3.1504 First seen: 2024-09-04 17:35 UTC
+ETPRO TROJAN Win32/Koi Stealer CnC Checkin <span class="o">(</span>POST<span class="o">)</span> M2
+172.17.0.99 -&gt; 79.124.78.197
+<span class="nv">IPVer</span><span class="o">=</span>4 <span class="nv">hlen</span><span class="o">=</span>5 <span class="nv">tos</span><span class="o">=</span>0 <span class="nv">dlen</span><span class="o">=</span>429 <span class="nv">ID</span><span class="o">=</span>0 <span class="nv">flags</span><span class="o">=</span>0 <span class="nv">offset</span><span class="o">=</span>0 <span class="nv">ttl</span><span class="o">=</span>0 <span class="nv">chksum</span><span class="o">=</span>28310
+Protocol: 6 <span class="nv">sport</span><span class="o">=</span>49813 -&gt; <span class="nv">dport</span><span class="o">=</span>80
+
+<span class="nv">Seq</span><span class="o">=</span>0 <span class="nv">Ack</span><span class="o">=</span>0 <span class="nv">Off</span><span class="o">=</span>5 <span class="nv">Res</span><span class="o">=</span>0 <span class="nv">Flags</span><span class="o">=</span><span class="k">********</span> <span class="nv">Win</span><span class="o">=</span>0 <span class="nv">urp</span><span class="o">=</span>36144 <span class="nv">chksum</span><span class="o">=</span>0
+</code></pre></div></div>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Security-Alert.jpg"><img src="/assets/images/log-analisis:PT_ABC/Security-Alert.jpg" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 7}}$: Salah satu alert yang muncul di IDS berdasarkan file <code>2024-09-04-traffic-analysis-exercise-alerts.txt</code>. Alert ini mengonfirmasi adanya komunikasi C2 yang dilakukan oleh malware Win32/Koi Stealer dari host <code>172.17.0.99</code> ke server berbahaya.</center></em></p>
+
+<p>Signature alert:</p>
+<blockquote>
+  <p><strong>ETPRO TROJAN Win32/Koi Stealer CnC Checkin (POST) M2</strong></p>
+</blockquote>
+
+<p>Menunjukkan bahwa pola komunikasi yang terdeteksi sangat cocok dengan ciri khas malware Koi Stealer saat melakukan proses check-in ke server pengendali. Ini merupakan fase awal dari serangan, di mana malware memberitahukan kehadirannya ke attacker dan siap menerima instruksi lanjutan.</p>
+
+<hr />
+
+<h2 id="url-generating-the-alert-traffic"><strong>URL GENERATING THE ALERT TRAFFIC</strong></h2>
+
+<p>Daftar URL berikut merupakan endpoint yang digunakan oleh malware untuk berkomunikasi dengan server eksternal. Ketiga URL ini terekam dalam log dan alert keamanan, dan semuanya mengarah ke IP yang telah dikonfirmasi sebagai malicious (<code class="language-plaintext highlighter-rouge">79.124.78.197</code>):</p>
+
+<ul>
+  <li>http://79.124.78.197/index.php?id&amp;subid=qIOuKk7U</li>
+  <li>http://79.124.78.197/index.php</li>
+  <li>http://79.124.78.197/foots.php</li>
+</ul>
+
+<hr />
+
+<h2 id="risk-assesment"><strong>RISK ASSESMENT</strong></h2>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Penilaian</th>
+      <th>Keterangan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Kemungkinan Infeksi</strong></td>
+      <td>Dikonfirmasi</td>
+      <td>Host `172.17.0.99` mengirim HTTP POST ke IP eksternal berbahaya dan terdeteksi oleh signature malware Koi Stealer.</td>
+    </tr>
+    <tr>
+      <td><strong>Potensi Dampak</strong></td>
+      <td>Tinggi</td>
+      <td>Aktivitas C2 berpotensi menyebabkan pencurian data, kontrol penuh atas host, dan penyebaran ke sistem lain.</td>
+    </tr>
+    <tr>
+      <td><strong>Potensi Penyebaran</strong></td>
+      <td>Sedang</td>
+      <td>Ditemukan aktivitas SMB internal; potensi penyebaran tergantung hak akses dan konfigurasi sistem lain.</td>
+    </tr>
+    <tr>
+      <td><strong>Stealth Level</strong></td>
+      <td>Sedang</td>
+      <td>Koneksi menggunakan HTTP biasa dengan payload kecil dan endpoint generik (foots.php), tanpa enkripsi.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="mitigation"><strong>MITIGATION</strong></h2>
+
+<p>Host Terinfeksi (172.17.0.99):</p>
+<ul>
+  <li>Melakukan isolasi dari jaringan (untuk mencegah penyebaran malwere).</li>
+  <li>Melakukan pemindaian malware secara menyeluruh menggunakan antivirus (misalnya Windows Defender, Malwarebytes, atau toolkit forensik).</li>
+  <li>Membersihkan atau melakukan install ulang (re-image).</li>
+</ul>
+
+<p>Keamanan Jaringan:</p>
+<ul>
+  <li>Memblokir seluruh lalu lintas ke/dari IP <code class="language-plaintext highlighter-rouge">79.124.78.197</code>.</li>
+  <li>Mencari di log apakah ada mesin internal lain yang juga berkomunikasi dengan IP <code class="language-plaintext highlighter-rouge">79.124.78.197</code>.</li>
+  <li>Membatasi akses keluar (outbound traffic) dari jaringan hanya ke layanan atau domain yang sah.</li>
+</ul>
+
+<hr />
+
+<h2 id="references"><strong>REFERENCES</strong></h2>
+<ul>
+  <li>File PCAP: <a href="/assets/file/log-serangan/PT-ABC/2024-09-04-traffic-analysis-exercise.pcap">2024-09-04-traffic-analysis-exercise.pcap</a></li>
+  <li>IDS Alert Log: <a href="/assets/file/log-serangan/PT-ABC/2024-09-04-traffic-analysis-exercise-alerts.txt">2024-09-04-traffic-analysis-exercise-alerts.tx</a></li>
+  <li>VirusTotal IP Reputation: <a href="https://www.virustotal.com/gui/ip-address/79.124.78.197">https://www.virustotal.com/gui/ip-address/79.124.78.197</a></li>
+</ul>
+
+<hr />
+
+<h2 id="conclusion"><strong>CONCLUSION</strong></h2>
+
+<p>Berdasarkan analisis terhadap file PCAP dan alert IDS, dapat disimpulkan bahwa
+host 172.17.0.99 telah terinfeksi malware jenis Win32/Koi Stealer. Malware ini aktif melakukan komunikasi ke C2 server, menyalahgunakan protokol internal, serta menyusun domain palsu untuk aktivitas AD spoofing. Semua aktivitas telah tervalidasi melalui traffic analysis dan threat intelligence eksternal</p>
+
+<p>#IDNBootcampCyber</p>
+
+      </div>
+      <hr>
+      <div class="date">
+        Written on June  1, 2025
+      </div>
+      <br>
+
+      
+      
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+<div>
+  <button onclick="topFunction()" id="back-to-top" title="Back to Top">⬆️</button>
+
+  <script>
+    // Get the button
+    var mybutton = document.getElementById("back-to-top");
+
+    // When the user scrolls down 300px from the top, show the button
+    window.onscroll = function () { scrollFunction(); };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top smoothly
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</div>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/cyber-security/Secuirty_Report-Analisa_Traffic_PT-ABC/',
+		  'title': 'Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

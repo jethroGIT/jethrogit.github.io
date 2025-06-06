@@ -34,7 +34,7 @@ Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi matr
     <link rel="icon" href="/favicon.png" type="image/gif">
 
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link rel="stylesheet" href="/assets/css/Jaringan_Komputer_Dasar/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/cyber-security/main.css">
 
     <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
 
@@ -130,12 +130,18 @@ Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi matr
 
                 
               </div>
-              <div class=" col-lg-8   col-sm-12 col-xs-12">
-  <div class="row grid-content"> 
-      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
-          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/linear-algebra">linear-algebra</a> / contoh pembuktian ruang vektor dengan sangat detil</span></p>
-          <h3>Contoh Pembuktian Ruang Vektor dengan sangat Detil<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=&text=Pembuktikan ruang vektor">Tweet</a></small></h3> 
-          <!-- <hr>
+              <div
+  class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content">
+    <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+      <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
+          / <a href="http://localhost:4000/linear-algebra">linear-algebra</a>
+          / contoh pembuktian ruang vektor dengan sangat detil</span></p>
+      <h3>Contoh Pembuktian Ruang Vektor dengan sangat Detil<small class="pull-right"><a href="/feed.xml" target="_blank"><i
+              class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?via=&text=Pembuktikan ruang vektor">Tweet</a></small>
+      </h3>
+      <!-- <hr>
               <p class="text-center">
                Contoh Pembuktian Ruang Vektor dengan sangat Detil <br> 
                   <span class="text-small">Pembuktikan ruang vektor</span> <br>
@@ -144,8 +150,8 @@ Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi matr
               </p>
               <hr> -->
 
-            <div class="entry">
-              <p>Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> merupakan sebuah <strong>ruang vektor</strong>.</p>
+      <div class="entry">
+        <p>Tunjukkan bahwa himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> merupakan sebuah <strong>ruang vektor</strong>.</p>
 
 <p><strong>Bukti</strong>: <br />
 Misalkan himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> adalah $V$.</p>
@@ -307,15 +313,15 @@ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix}  \\
 <p>Karena $V$ memenuhi 10 aksioma dari definisi suatu ruang vektor, $V$ atau himpunan dari semua matriks berukuran $2 \times 3$ beserta operasi <em>matrix addition</em> dan <em>scalar multiplication</em> merupakan sebuah <strong>ruang vektor</strong>.   $\square$</p>
 
 
-            </div>
-            <hr>
-            <div class="date">
-              Written on March 22, 2019
-            </div>
-            <br>
-            
-            
-            
+      </div>
+      <hr>
+      <div class="date">
+        Written on March 22, 2024
+      </div>
+      <br>
+
+      
+      
 <div class="comments">
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
@@ -333,10 +339,34 @@ a_{21} &amp; a_{22} &amp; a_{23} \end{bmatrix}  \\
 </div>
 
 
-      </div>
+    </div>
   </div>
+</div>
 
+<div>
+  <button onclick="topFunction()" id="back-to-top" title="Back to Top">⬆️</button>
 
+  <script>
+    // Get the button
+    var mybutton = document.getElementById("back-to-top");
+
+    // When the user scrolls down 300px from the top, show the button
+    window.onscroll = function () { scrollFunction(); };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top smoothly
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</div>
         </div>
       </div>
     </div>

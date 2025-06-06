@@ -28,7 +28,7 @@
     <link rel="icon" href="/favicon.png" type="image/gif">
 
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link rel="stylesheet" href="/assets/css/Jaringan_Komputer_Dasar/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/cyber-security/main.css">
 
     <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
 
@@ -124,12 +124,18 @@
 
                 
               </div>
-              <div class=" col-lg-8   col-sm-12 col-xs-12">
-  <div class="row grid-content"> 
-      <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
-          <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey"> / <a href="http://localhost:4000/linear-algebra">linear-algebra</a> / one of many inverse theorems</span></p>
-          <h3>One of Many Inverse Theorems<small class="pull-right"><a href="/feed.xml" target="_blank"><i class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=&text=An inverse theorem">Tweet</a></small></h3> 
-          <!-- <hr>
+              <div
+  class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content">
+    <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+      <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
+          / <a href="http://localhost:4000/linear-algebra">linear-algebra</a>
+          / one of many inverse theorems</span></p>
+      <h3>One of Many Inverse Theorems<small class="pull-right"><a href="/feed.xml" target="_blank"><i
+              class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?via=&text=An inverse theorem">Tweet</a></small>
+      </h3>
+      <!-- <hr>
               <p class="text-center">
                One of Many Inverse Theorems <br> 
                   <span class="text-small">An inverse theorem</span> <br>
@@ -138,8 +144,8 @@
               </p>
               <hr> -->
 
-            <div class="entry">
-              <p>This article is inspired by <a href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html"><em>a website</em></a>, which is unfortunately has been down since around July 8, 2021. The website elaborately explained that both <strong>marginal distributions</strong> and <strong>conditional distributions</strong> of <em>subvector of multivariate normal random variables</em> given <em>the remaining elements</em> are indeed <strong>multivariate normal distributions</strong> as well. I feel obliged to write the content of the broken website in a blog which, hopefully, every learner can learn and benefit.</p>
+      <div class="entry">
+        <p>This article is inspired by <a href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html"><em>a website</em></a>, which is unfortunately has been down since around July 8, 2021. The website elaborately explained that both <strong>marginal distributions</strong> and <strong>conditional distributions</strong> of <em>subvector of multivariate normal random variables</em> given <em>the remaining elements</em> are indeed <strong>multivariate normal distributions</strong> as well. I feel obliged to write the content of the broken website in a blog which, hopefully, every learner can learn and benefit.</p>
 
 <p>Before we show the previous statement is indeed true, there is the inverse of a matrix theorem which needs explaining.</p>
 
@@ -192,15 +198,15 @@
 
 <p>Therefore, we have shown that this inverse theorem, Eq. \eqref{eq:the-theorem} is true.</p>
 
-            </div>
-            <hr>
-            <div class="date">
-              Written on July 10, 2021
-            </div>
-            <br>
-            
-            
-            
+      </div>
+      <hr>
+      <div class="date">
+        Written on July 10, 2024
+      </div>
+      <br>
+
+      
+      
 <div class="comments">
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
@@ -218,10 +224,34 @@
 </div>
 
 
-      </div>
+    </div>
   </div>
+</div>
 
+<div>
+  <button onclick="topFunction()" id="back-to-top" title="Back to Top">⬆️</button>
 
+  <script>
+    // Get the button
+    var mybutton = document.getElementById("back-to-top");
+
+    // When the user scrolls down 300px from the top, show the button
+    window.onscroll = function () { scrollFunction(); };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top smoothly
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</div>
         </div>
       </div>
     </div>
