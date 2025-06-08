@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Hardening SSH Service Ubuntu Server 20.04 LTS – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Pengantar
+" />
+    <meta property="og:description" content="Pengantar
+" />
+    
+    <meta name="author" content="Jethro Andersson Apriliano Ofe" />
+
+    
+    <meta property="og:title" content="Hardening SSH Service Ubuntu Server 20.04 LTS" />
+    <meta property="twitter:title" content="Hardening SSH Service Ubuntu Server 20.04 LTS" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/cyber-security/main.css">
+
+    <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.jpg" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Jethro Andersson Apriliano Ofe <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Student at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://jethrogit.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="https://www.maranatha.edu/"><b>Student at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:jethro.andersson02@gmail.com" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/jethroGIT" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+<a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" class="color-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/jethroGIT"> github.com/jethroGIT</a>    <br />
+         
+
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="jethro.andersson02@gmail.com" target="_blank"> jethro.andersson02@gmail.com</a>
+        
+
+        
+
+        <br>
+
+        
+        <i class="fa fa-linkedin fw"></i><a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" target="_blank"> jethro-andersson-apriliano-ofe</a>
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div
+  class=" col-lg-8   col-sm-12 col-xs-12">
+  <div class="row grid-content">
+    <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+      <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
+          / <a href="http://localhost:4000/cyber-security">cyber-security</a>
+          / hardening ssh service ubuntu server 20.04 lts</span></p>
+      <h3>Hardening SSH Service Ubuntu Server 20.04 LTS<small class="pull-right"><a href="/feed.xml" target="_blank"><i
+              class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?via=&text=Hardening Linux Security">Tweet</a></small>
+      </h3>
+      <!-- <hr>
+              <p class="text-center">
+               Hardening SSH Service Ubuntu Server 20.04 LTS <br> 
+                  <span class="text-small">Hardening Linux Security</span> <br>
+                  
+
+              </p>
+              <hr> -->
+
+      <div class="entry">
+        <h2 id="pengantar"><strong>Pengantar</strong></h2>
+
+<p>Pada artikel kali ini, saya akan membahas secara rinci tentang hardening SSH (Secure Shell) di sistem operasi Linux, mulai dari pengertian SSH, peran pentingnya dalam pengelolaan server jarak jauh, hingga berbagai teknik dan konfigurasi yang dapat diterapkan untuk memperkuat keamanannya. Selain itu, saya juga akan mengulas beberapa contoh praktik terbaik (best practice) serta potensi risiko keamanan jika konfigurasi SSH dibiarkan dalam kondisi default.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#apa-itu-ssh">Apa itu SSH?</a></li>
+  <li><a href="#kenapa-ssh-penting">Kenapa SSH Penting?</a></li>
+  <li><a href="#ancaman-umum-terhadap-ssh">Ancaman Umum terhadap SSH</a>
+    <ul>
+      <li><a href="#1-brute-force-attack">1. Brute-force Attack</a></li>
+      <li><a href="#2-credential-stuffing">2. Credential Stuffing</a></li>
+      <li><a href="#3-man-in-the-middle-mitm-attack">3. Man-in-the-Middle (MitM) Attack</a></li>
+      <li><a href="#4-penyalahgunaan-oleh-akun-internal">4. Penyalahgunaan oleh Akun Internal</a></li>
+    </ul>
+  </li>
+  <li><a href="#persiapan-awal">Persiapan Awal</a>
+    <ul>
+      <li><a href="#update-sistem">Update Sistem</a></li>
+      <li><a href="#backup-konfigurasi">Backup Konfigurasi</a></li>
+      <li><a href="#tools-yang-digunakan">Tools yang Digunakan</a></li>
+    </ul>
+  </li>
+  <li><a href="#konfigurasi-hardening-ssh">Konfigurasi Hardening SSH</a>
+    <ul>
+      <li><a href="#nonaktifkan-login-root">Nonaktifkan Login Root</a></li>
+      <li><a href="#gunakan-ssh-key-nonaktifkan-password-login">Gunakan SSH Key, Nonaktifkan Password Login</a></li>
+      <li><a href="#ganti-port-default-ssh">Ganti Port Default SSH</a></li>
+      <li><a href="batasi-akses-user-dan-ip">Batasi Akses User dan IP</a></li>
+      <li><a href="#konfigurasi-timeout--connection-settings">Konfigurasi Timeout &amp; Connection Settings</a></li>
+      <li><a href="#logging-ssh">Logging SSH</a></li>
+      <li><a href="#implementasi-fail2ban">Implementasi Fail2Ban</a></li>
+    </ul>
+  </li>
+  <li><a href="#uji-konfigurasi-ssh">Uji Konfigurasi SSH</a>
+    <ul>
+      <li><a href="#cek-syntax-config">Cek Syntax Config</a></li>
+      <li><a href="#restart-ssh-service">Restart SSH Service</a></li>
+      <li><a href="#tes-login-dengan-ssh-key">Tes Login dengan SSH Key</a></li>
+    </ul>
+  </li>
+  <li><a href="#kesimpulan">Kesimpulan</a>
+    <ul>
+      <li><a href="#pentingnya-hardening-ssh-sebagai-bagian-dari-hardening-sistem-linux-secara-umum">Pentingnya Hardening SSH Sebagai Bagian dari Hardening Sistem Linux Secara Umum</a></li>
+      <li><a href="#langkah-langkah-praktis-yang-sudah-dibahas">Langkah-Langkah Praktis yang Sudah Dibahas</a></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="apa-itu-ssh">Apa itu SSH?</h2>
+
+<p>SSH (Secure Shell) adalah protokol jaringan yang digunakan untuk mengakses dan mengelola sistem komputer secara remote melalui jaringan yang tidak aman, seperti internet. SSH memungkinkan pengguna untuk melakukan login ke server jarak jauh dan menjalankan perintah-perintah secara aman, berkat penggunaan enkripsi yang melindungi data yang ditransfer.</p>
+
+<p>Secara umum, SSH menggantikan protokol lama seperti Telnet atau rlogin, yang mentransmisikan data dalam bentuk <em>plain text</em> tanpa enkripsi. Dengan SSH, seluruh komunikasi (termasuk username, password, dan perintah yang dijalankan) dienkripsi sehingga jauh lebih aman.</p>
+
+<h2 id="kenapa-ssh-penting">Kenapa SSH Penting?</h2>
+
+<p>SSH sangat penting karena merupakan salah satu jalur utama yang digunakan untuk mengelola server Linux, baik di lingkungan pengembangan, staging, maupun produksi. Melalui SSH, administrator dapat melakukan berbagai tugas, seperti:</p>
+
+<ul>
+  <li>Memantau performa server</li>
+  <li>Mengelola file dan konfigurasi</li>
+  <li>Memasang atau memperbarui perangkat lunak</li>
+  <li>Menangani troubleshooting</li>
+</ul>
+
+<p>Karena fungsinya yang krusial ini, SSH hampir selalu dibuka di server yang dikelola jarak jauh, menjadikannya target utama bagi para penyerang. Oleh sebab itu, memastikan konfigurasi SSH aman (atau <em>di-hardening</em>) adalah langkah yang sangat penting dalam menjaga keamanan seluruh sistem.</p>
+
+<h2 id="ancaman-umum-terhadap-ssh">Ancaman Umum terhadap SSH</h2>
+
+<p>Meskipun SSH menggunakan enkripsi yang kuat, tetap ada sejumlah ancaman keamanan yang sering menyerang service SSH. Berikut beberapa ancaman yang umum:</p>
+
+<h3 id="1-brute-force-attack">1. Brute-force Attack</h3>
+
+<p>Serangan ini mencoba menebak username dan password SSH dengan mengirimkan ribuan (bahkan jutaan) kombinasi secara otomatis. Jika server SSH mengizinkan login password tanpa pembatasan, serangan ini dapat berhasil membuka akses.</p>
+
+<h3 id="2-credential-stuffing">2. Credential Stuffing</h3>
+
+<p>Jika attacker memiliki daftar username dan password hasil kebocoran data di situs lain, mereka dapat mencoba kombinasi tersebut pada server SSH. Teknik ini sering lebih efektif daripada brute-force karena menggunakan kredensial yang memang pernah valid.</p>
+
+<h3 id="3-man-in-the-middle-mitm-attack">3. Man-in-the-Middle (MitM) Attack</h3>
+
+<p>Dalam serangan ini, attacker mencegat lalu lintas SSH antara client dan server, berusaha untuk menyadap atau bahkan memanipulasi komunikasi. Walaupun SSH memiliki mekanisme perlindungan terhadap MitM (dengan verifikasi <em>host key</em>), serangan ini masih mungkin terjadi jika pengguna mengabaikan peringatan saat koneksi awal ke server.</p>
+
+<h3 id="4-penyalahgunaan-oleh-akun-internal">4. Penyalahgunaan oleh Akun Internal</h3>
+
+<p>Kadang, ancaman datang dari dalam: akun SSH yang tidak digunakan atau yang memiliki hak akses berlebihan dapat dimanfaatkan untuk serangan jika tidak dikelola dengan baik.</p>
+
+<h2 id="persiapan-awal">Persiapan Awal</h2>
+
+<p>Sebelum melakukan hardening SSH, ada beberapa langkah persiapan yang penting dilakukan. Langkah-langkah ini akan membantu memastikan proses hardening berjalan aman, serta memudahkan pemulihan jika terjadi kesalahan konfigurasi.</p>
+
+<h3 id="update-sistem">Update Sistem</h3>
+
+<p>Langkah pertama sebelum melakukan <em>hardening</em> adalah memastikan sistem operasi dan semua paket perangkat lunak berada dalam versi terbaru. Hal ini penting karena setiap update biasanya membawa perbaikan terhadap celah keamanan yang sudah diketahui.</p>
+
+<p>Khusus untuk service SSH, pembaruan OpenSSH sering mencakup patch terhadap kerentanan yang bisa dieksploitasi oleh penyerang.</p>
+
+<p><strong>Perintah untuk update sistem:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<h3 id="backup-konfigurasi">Backup Konfigurasi</h3>
+
+<p>Sebelum melakukan perubahan pada konfigurasi SSH, sangat disarankan untuk membuat backup file konfigurasi utama, yaitu /etc/ssh/sshd_config. Backup ini akan sangat berguna apabila terjadi kesalahan konfigurasi yang menyebabkan service SSH tidak dapat diakses.</p>
+
+<p>Dengan memiliki salinan konfigurasi awal, kita dapat dengan mudah mengembalikan pengaturan SSH ke kondisi semula, sehingga proses troubleshooting menjadi lebih cepat dan aman.</p>
+
+<p><strong>Contoh perintah untuk membuat backup:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+</code></pre></div></div>
+
+<h3 id="tools-yang-digunakan">Tools yang Digunakan</h3>
+
+<p>Untuk membantu proses hardening SSH dan meningkatkan perlindungan server, ada beberapa tools tambahan yang bisa kita manfaatkan. Beberapa di antaranya:</p>
+
+<ul>
+  <li>
+    <h4 id="fail2ban">Fail2Ban</h4>
+
+    <p>Tools ini berfungsi untuk memantau log SSH dan secara otomatis memblokir IP yang melakukan upaya login berulang (brute-force attack). Dengan Fail2Ban, kita dapat secara proaktif melindungi server dari serangan login yang tidak sah.</p>
+  </li>
+  <li>
+    <h4 id="ufw-uncomplicated-firewall">UFW (Uncomplicated Firewall)</h4>
+
+    <p>UFW adalah firewall yang mudah dikonfigurasi dan dapat digunakan untuk mengatur akses jaringan ke server. Dengan UFW, kita bisa membatasi akses ke port SSH hanya untuk IP tertentu atau subnet yang dipercaya.</p>
+  </li>
+  <li>
+    <h4 id="iptablesnftables">iptables/nftables</h4>
+
+    <p>Untuk kebutuhan konfigurasi firewall yang lebih kompleks, kita dapat menggunakan iptables atau nftables. Tools ini memungkinkan kita membuat aturan yang lebih detail dalam mengontrol lalu lintas jaringan, termasuk untuk proteksi SSH.</p>
+  </li>
+</ul>
+
+<p>Dengan mempersiapkan langkah-langkah awal di atas, kita akan lebih siap untuk melanjutkan ke tahap konfigurasi hardening SSH dengan aman dan terkontrol.</p>
+
+<h2 id="konfigurasi-hardening-ssh">Konfigurasi Hardening SSH</h2>
+
+<p>Setelah melakukan langkah-langkah persiapan awal, kita bisa melanjutkan ke tahap inti, yaitu konfigurasi hardening SSH. Pada bagian ini, kita akan mengubah beberapa pengaturan penting di file konfigurasi SSH untuk meningkatkan keamanannya. Setiap pengaturan yang akan kita ubah memiliki tujuan tertentu dalam memperkecil risiko serangan terhadap server.</p>
+
+<h3 id="nonaktifkan-login-root">Nonaktifkan Login Root</h3>
+
+<p>Salah satu pengaturan pertama yang sangat disarankan adalah menonaktifkan kemampuan login langsung sebagai root melalui SSH. Hal ini penting karena akun root biasanya menjadi target utama dalam serangan brute-force.</p>
+
+<p>Untuk menonaktifkan login root, kita bisa mengatur opsi berikut di file <code class="language-plaintext highlighter-rouge">/etc/ssh/sshd_config</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PermitRootLogin no
+</code></pre></div></div>
+
+<p>Dengan pengaturan ini, hanya user non-root yang diizinkan login via SSH. Jika perlu melakukan tugas administratif, kita bisa menggunakan perintah sudo setelah login.</p>
+
+<h3 id="gunakan-ssh-key-nonaktifkan-password-login">Gunakan SSH Key, Nonaktifkan Password Login</h3>
+
+<p>Penggunaan autentikasi berbasis password lebih rentan terhadap serangan brute-force atau credential stuffing. Oleh karena itu, lebih aman menggunakan SSH key pair.</p>
+
+<p>Cara membuat SSH key cukup mudah. Di sisi client, jalankan perintah:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpls41@linuxmint:~<span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+Generating public/private rsa key pair.
+Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/home/mpls41/.ssh/id_rsa<span class="o">)</span>: 
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpls41@linuxmint:~<span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+Generating public/private rsa key pair.
+Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/home/mpls41/.ssh/id_rsa<span class="o">)</span>: 
+Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: 
+Enter same passphrase again: 
+</code></pre></div></div>
+
+<p>Contoh output kesulurahan:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpls41@linuxmint:~<span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+Generating public/private rsa key pair.
+Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/home/mpls41/.ssh/id_rsa<span class="o">)</span>: 
+Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="k">in</span> /home/mpls41/.ssh/id_rsa
+Your public key has been saved <span class="k">in</span> /home/mpls41/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:fTtkLc1f2qZ7YDAcDS/NLUPHR61OTFxPQatF5x8zG8g mpls41@ubuntu-svr
+The key<span class="s1">'s randomart image is:
++---[RSA 4096]----+
+|            .+oBO|
+|            o=*=B|
+|           ..E*O=|
+|         .  +=*oB|
+|        S . =*+.o|
+|           + o++.|
+|            o...+|
+|             . o.|
+|              oo |
++----[SHA256]-----+
+</span></code></pre></div></div>
+
+<p>Kemudian, upload public key ke server dengan:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-copy-id username@server_ip
+</code></pre></div></div>
+
+<p>Setelah SSH key sudah terpasang, kita bisa menonaktifkan autentikasi password dengan mengatur opsi berikut di file konfigurasi:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PasswordAuthentication no
+</code></pre></div></div>
+
+<p>Dengan cara ini, hanya user dengan SSH key yang valid yang dapat login ke server.</p>
+
+<h3 id="ganti-port-default-ssh">Ganti Port Default SSH</h3>
+
+<p>Secara default, SSH berjalan di port 22. Banyak bot otomatis memindai port ini untuk mencari server yang rentan. Salah satu langkah sederhana untuk mengurangi risiko serangan otomatis adalah mengganti port SSH ke port lain.</p>
+
+<p>Namun, perlu diingat bahwa ini bukan solusi keamanan utama — hanya sebagai tambahan.</p>
+
+<p>Kelebihannya: mengurangi jumlah serangan otomatis.
+Kekurangannya: Anda perlu selalu mengingat port baru saat melakukan koneksi SSH.</p>
+
+<p>Contoh konfigurasi untuk mengganti port ke 2222:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Port 2222
+</code></pre></div></div>
+
+<p>Setelah mengubah port, pastikan firewall sudah diatur untuk mengizinkan port baru ini.</p>
+
+<h3 id="batasi-akses-user-dan-ip">Batasi Akses User dan IP</h3>
+
+<p>Untuk lebih memperketat akses SSH, kita bisa membatasi hanya user atau grup tertentu yang boleh login. Ini bisa dilakukan dengan menambahkan opsi berikut:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AllowUsers user1 user2
+</code></pre></div></div>
+
+<p>Atau, jika ingin menggunakan grup:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AllowGroups sshusers
+</code></pre></div></div>
+
+<p>Selain itu, kita juga bisa memfilter berdasarkan alamat IP dengan konfigurasi Match block. Contohnya:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Match Address 192.168.1.<span class="k">*</span>
+    AllowUsers user1
+</code></pre></div></div>
+
+<p>Dengan konfigurasi ini, hanya user tertentu dari IP tertentu yang boleh login.</p>
+
+<h3 id="konfigurasi-timeout--connection-settings">Konfigurasi Timeout &amp; Connection Settings</h3>
+
+<p>Agar koneksi SSH yang idle tidak dibiarkan terbuka terlalu lama (yang bisa meningkatkan risiko serangan), kita bisa mengatur timeout dan parameter lain yang berkaitan dengan koneksi.</p>
+
+<p>Agar koneksi SSH yang idle tidak dibiarkan terbuka terlalu lama (yang bisa meningkatkan risiko serangan), kita bisa mengatur timeout dan parameter lain yang berkaitan dengan koneksi.</p>
+
+<p>Beberapa pengaturan yang direkomendasikan:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ClientAliveInterval 300
+</code></pre></div></div>
+
+<p>Server akan mengirim sinyal ke client setiap 300 detik.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ClientAliveCountMax 0
+
+</code></pre></div></div>
+<p>Jika client tidak merespon, koneksi akan diputus.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LoginGraceTime 60
+</code></pre></div></div>
+
+<p>User hanya diberi waktu 60 detik untuk login, setelah itu koneksi akan ditutup.</p>
+
+<h3 id="logging-ssh">Logging SSH</h3>
+
+<p>Logging SSH sangat penting untuk memantau aktivitas login dan mendeteksi upaya serangan.</p>
+
+<p>Secara default, log SSH bisa ditemukan di:</p>
+
+<p><code class="language-plaintext highlighter-rouge">/var/log/auth.log</code> (Debian/Ubuntu)</p>
+
+<p><code class="language-plaintext highlighter-rouge">/var/log/secure</code> (RHEL/CentOS/Fedora)</p>
+
+<p>Kita bisa memantau log tersebut secara berkala menggunakan perintah seperti:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tail</span> <span class="nt">-f</span> /var/log/auth.log
+</code></pre></div></div>
+
+<p>Dengan memantau log, kita bisa segera mengetahui jika ada upaya login yang mencurigakan.</p>
+
+<h3 id="implementasi-fail2ban">Implementasi Fail2Ban</h3>
+
+<p>Selain konfigurasi manual, kita juga bisa memperkuat proteksi SSH dengan menggunakan tool tambahan seperti Fail2Ban.</p>
+
+<p>Fail2Ban berfungsi memantau log SSH, dan secara otomatis memblokir IP yang mencoba melakukan brute-force attack.</p>
+
+<p>Cara install Fail2Ban di Debian/Ubuntu:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>fail2ban
+</code></pre></div></div>
+
+<p>Setelah terpasang, kita bisa mengaktifkan konfigurasi default Fail2Ban untuk SSH. Biasanya cukup dengan membuat atau menyesuaikan file jail.local:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>sshd]
+enabled <span class="o">=</span> <span class="nb">true
+</span>port <span class="o">=</span> ssh
+filter <span class="o">=</span> sshd
+logpath <span class="o">=</span> /var/log/auth.log
+maxretry <span class="o">=</span> 5
+</code></pre></div></div>
+
+<p>Dengan pengaturan ini, IP yang gagal login sebanyak 5 kali akan otomatis diblokir untuk sementara waktu.</p>
+
+<hr />
+
+<p>Dengan menerapkan langkah-langkah hardening di atas, kita bisa secara signifikan meningkatkan keamanan service SSH di server Linux. Tentunya, hardening bukan proses sekali jalan — sebaiknya dilakukan review dan penyesuaian secara berkala untuk menghadapi ancaman yang terus berkembang.</p>
+
+<h2 id="uji-konfigurasi-ssh">Uji Konfigurasi SSH</h2>
+
+<p>Setelah kita melakukan konfigurasi hardening SSH, jangan lupa untuk melakukan pengujian terlebih dahulu sebelum benar-benar memberlakukan perubahan secara permanen. Ini penting untuk memastikan bahwa semua setting berjalan sesuai harapan, dan yang paling penting — kita tidak sampai terkunci keluar dari server.</p>
+
+<h3 id="cek-syntax-config">Cek Syntax Config</h3>
+
+<p>Langkah pertama sebelum me-restart service SSH adalah mengecek apakah file konfigurasi SSH yang baru kita ubah tidak mengandung kesalahan sintaks.
+Caranya:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>sshd <span class="nt">-t</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Jika tidak ada output → berarti konfigurasi valid.</li>
+  <li>Jika ada error → perbaiki terlebih dahulu sebelum melanjutkan.</li>
+</ul>
+
+<p>Langkah ini sangat penting, karena jika konfigurasi salah, service SSH bisa gagal start, dan kamu bisa kehilangan akses ke server.</p>
+
+<h3 id="restart-ssh-service">Restart SSH Service</h3>
+
+<p>Setelah memastikan konfigurasi valid, lanjutkan dengan me-restart service SSH agar perubahan diterapkan:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart ssh
+</code></pre></div></div>
+
+<h3 id="tes-login-dengan-ssh-key">Tes Login dengan SSH Key</h3>
+
+<p>Sekarang lakukan tes login dari client ke server menggunakan SSH key dan menggunakan port baru:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-p</span> 2222 username@server_ip
+</code></pre></div></div>
+
+<p>Jika proses hardening sudah benar, login akan berhasil menggunakan SSH key tanpa masalah.</p>
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<h3 id="pentingnya-hardening-ssh-sebagai-bagian-dari-hardening-sistem-linux-secara-umum">Pentingnya Hardening SSH Sebagai Bagian dari Hardening Sistem Linux Secara Umum</h3>
+
+<p>SSH adalah pintu utama akses ke server Linux, terutama server yang berjalan di lingkungan cloud atau public-facing. Oleh karena itu, memperkuat keamanan SSH merupakan bagian fundamental dari strategi hardening sistem secara keseluruhan.</p>
+
+<p>Tanpa hardening, service SSH bisa menjadi target empuk bagi berbagai jenis serangan seperti brute-force, credential stuffing, dan man-in-the-middle.</p>
+
+<h4 id="langkah-langkah-praktis-yang-sudah-dibahas">Langkah-Langkah Praktis yang Sudah Dibahas</h4>
+
+<p>Di artikel ini kita telah membahas langkah-langkah praktis untuk hardening SSH, mulai dari:</p>
+<ul>
+  <li>Menonaktifkan login root.</li>
+  <li>Menggunakan SSH key dan mematikan autentikasi password.</li>
+  <li>Mengganti port default SSH.</li>
+  <li>Membatasi user dan IP yang dapat login.</li>
+  <li>Mengatur timeout dan parameter koneksi.</li>
+  <li>Mengaktifkan logging.</li>
+  <li>Mengimplementasikan proteksi tambahan menggunakan Fail2Ban.</li>
+</ul>
+
+<p>Konfigurasi hardening bukan langkah sekali selesai. Ancaman keamanan terus berkembang, sehingga penting bagi kita untuk:</p>
+<ul>
+  <li>Selalu memperbarui sistem &amp; service SSH.</li>
+  <li>Secara berkala meninjau konfigurasi keamanan.</li>
+  <li>Memantau log aktivitas SSH.</li>
+  <li>Menerapkan prinsip least privilege — hanya memberikan akses SSH kepada user yang benar-benar membutuhkan.</li>
+</ul>
+
+<p>#IDNBootcampCyber</p>
+
+      </div>
+      <hr>
+      <div class="date">
+        Written on June  4, 2025
+      </div>
+      <br>
+
+      
+      
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+<div>
+  <button onclick="topFunction()" id="back-to-top" title="Back to Top">⬆️</button>
+
+  <script>
+    // Get the button
+    var mybutton = document.getElementById("back-to-top");
+
+    // When the user scrolls down 300px from the top, show the button
+    window.onscroll = function () { scrollFunction(); };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top smoothly
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</div>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/cyber-security/Hardening_Linux/',
+		  'title': 'Hardening SSH Service Ubuntu Server 20.04 LTS'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
