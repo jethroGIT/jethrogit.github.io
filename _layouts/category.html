@@ -15,7 +15,7 @@ layout: default
           <div class="row">
               <div class="col-md-12">
                   {% for posts in category %}
-                      {% for post in posts limit: 6 %}
+                      {% for post in posts %}
                           {% if post.lang != nil %}
                               
                                   <a class="link-grid" href="{{ site.baseurl }}{{ post.url }}">
