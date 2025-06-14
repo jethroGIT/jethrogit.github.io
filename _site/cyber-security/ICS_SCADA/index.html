@@ -25,13 +25,14 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="icon" href="/favicon.png" type="image/gif">
 
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/cyber-security/main.css">
 
     <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
-
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
@@ -124,30 +125,61 @@
 
                 
               </div>
-              <div
-  class=" col-lg-8   col-sm-12 col-xs-12">
+              <div class=" col-lg-8  col-sm-12 col-xs-12">
   <div class="row grid-content">
     <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
       <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
           / <a href="http://localhost:4000/cyber-security">cyber-security</a>
           / ics/scada</span></p>
-      <h3>ICS/SCADA<small class="pull-right"><a href="/feed.xml" target="_blank"><i
-              class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button"
-            href="https://twitter.com/intent/tweet?via=&text=Otak Dibalik Infrastruktur Modern">Tweet</a></small>
+      
+      <h3>ICS/SCADA
+        <div class="share-buttons">
+          <span class="share-text">Share:</span>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FICS_SCADA%2F&title=ICS%2FSCADA" 
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Share on LinkedIn">
+             <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FICS_SCADA%2F" 
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Share on Facebook">
+             <i class="fab fa-facebook"></i>
+          </a>
+          <a href="mailto:?subject=ICS%2FSCADA&body=Check this out: http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FICS_SCADA%2F" 
+             title="Share via Email">
+             <i class="fas fa-envelope"></i>
+          </a>
+        </div>
       </h3>
-      <!-- <hr>
-              <p class="text-center">
-               ICS/SCADA <br> 
-                  <span class="text-small">Otak Dibalik Infrastruktur Modern</span> <br>
-                  
-
-              </p>
-              <hr> -->
 
       <div class="entry">
         <h2 id="pengantar">Pengantar</h2>
 
 <p>Pada artikel kali ini, saya akan membahas secara rinci tentang ICS (Industrial Control Systems), mulai dari pengertian, jenis-jenis sistem yang termasuk ICS, cara kerja, contoh produk, penerapan di dunia nyata, hingga ancaman keamanan siber yang sering menimpa ICS. Selain itu, saya juga akan mengulas sebuah studi kasus nyata untuk memberikan gambaran bagaimana ancaman tersebut dapat terjadi dan berdampak serius pada sistem industri.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#apa-itu-ics">Apa itu ICS?</a></li>
+  <li><a href="#jenis-jenis-sistem-ics">Jenis-Jenis Sistem ICS</a></li>
+  <li><a href="#bagaimana-cara-ics-bekerja">Bagaimana Cara ICS Bekerja?</a></li>
+  <li><a href="#scada">SCADA</a>
+    <ul>
+      <li><a href="#komponen-utama-dalam-sistem-scada">Komponen Utama dalam Sistem SCADA</a></li>
+      <li><a href="#alur-kerja-scada-secara-umum">Alur Kerja SCADA Secara Umum</a></li>
+    </ul>
+  </li>
+  <li><a href="#ancaman-keamanan-siber-terhadap-ics-dan-contoh-kasus-nyata">Ancaman Keamanan Siber terhadap ICS dan Contoh Kasus Nyata</a>
+    <ul>
+      <li><a href="#studi-kasus-1-serangan-stuxnet">Studi Kasus 1: Serangan Stuxnet</a></li>
+      <li><a href="#studi-kasus-2-pemadaman-listrik-ukraina-2015">Studi Kasus 2: Pemadaman Listrik Ukraina (2015)</a></li>
+      <li><a href="#studi-kasus-3-serangan-tritontrisis-2017">Studi Kasus 3: Serangan Triton/Trisis (2017)</a></li>
+    </ul>
+  </li>
+  <li><a href="#kesimpulan">Kesimpulan</a></li>
+</ol>
 
 <hr />
 
@@ -156,6 +188,16 @@
 <p>ICS atau <strong>Industrial Control Systems</strong> adalah sistem kontrol yang digunakan untuk mengelola dan mengawasi proses industri dan infrastruktur penting seperti pembangkit listrik, pengolahan air, manufaktur, hingga transportasi. ICS menghubungkan perangkat keras dan perangkat lunak yang mengontrol peralatan fisik secara otomatis, sehingga memungkinkan proses berjalan secara efisien dan aman.</p>
 
 <p>Sistem ini memainkan peranan vital dalam menjaga kontinuitas operasional industri dan infrastruktur kritikal. Tanpa ICS, proses industri akan sulit dikontrol secara real-time dan berpotensi mengalami kegagalan besar.</p>
+
+<p>ICS digunakan dalam berbagai sektor industri, misalnya:</p>
+
+<ul>
+  <li><strong>Pembangkit Listrik:</strong> Mengontrol turbin, generator, dan sistem distribusi listrik.</li>
+  <li><strong>Pengolahan Air dan Limbah:</strong> Mengatur pompa, katup, dan proses filtrasi.</li>
+  <li><strong>Manufaktur Otomotif:</strong> Mengontrol lini produksi otomatis seperti perakitan kendaraan.</li>
+  <li><strong>Minyak dan Gas:</strong> Memantau dan mengatur aliran minyak dan gas di pipa dan kilang.</li>
+  <li><strong>Transportasi:</strong> Mengatur sinyal kereta api dan sistem lalu lintas.</li>
+</ul>
 
 <hr />
 
@@ -199,31 +241,54 @@ Perangkat yang digunakan untuk menghubungkan sensor dan aktuator di lokasi terpe
 
 <hr />
 
-<h2 id="contoh-produk-ics">Contoh Produk ICS</h2>
+<h2 id="scada">SCADA</h2>
 
-<p>Beberapa produk ICS yang umum digunakan antara lain:</p>
+<p>SCADA (Supervisory Control and Data Acquisition) adalah bagian penting dari sistem ICS yang dirancang untuk mengawasi dan mengontrol proses industri secara jarak jauh. Teknologi ini banyak digunakan di berbagai sektor vital seperti pembangkit listrik, pabrik manufaktur, pengolahan air, hingga distribusi gas. SCADA menggabungkan perangkat keras dan perangkat lunak untuk memastikan proses industri berjalan secara otomatis, efisien, dan dapat dipantau real-time dari pusat kendali.</p>
 
-<ul>
-  <li><strong>Siemens SIMATIC S7 (PLC)</strong></li>
-  <li><strong>Allen-Bradley ControlLogix (PLC) oleh Rockwell Automation</strong></li>
-  <li><strong>Schneider Electric Modicon (PLC)</strong></li>
-  <li><strong>GE iFIX (SCADA software)</strong></li>
-  <li><strong>Wonderware by AVEVA (SCADA software)</strong></li>
-</ul>
+<h3 id="komponen-utama-dalam-sistem-scada">Komponen Utama dalam Sistem SCADA</h3>
 
-<hr />
+<p>Agar sistem SCADA bisa bekerja sebagaimana mestinya, ada beberapa komponen utama yang saling terhubung dan menjalankan fungsi spesifiknya masing-masing:</p>
 
-<h2 id="penerapan-ics-di-dunia-nyata">Penerapan ICS di Dunia Nyata</h2>
+<ol>
+  <li>
+    <p><strong>RTU (Remote Terminal Unit)</strong><br />
+RTU adalah perangkat yang berfungsi sebagai pengumpul data dari sensor-sensor dan aktuator di lapangan. Ia juga bertugas mengeksekusi perintah yang dikirim dari pusat kontrol.</p>
 
-<p>ICS digunakan dalam berbagai sektor industri, misalnya:</p>
+    <p>Di lapangan, RTU menjadi “otak lokal” yang terus-menerus membaca data seperti tekanan, arus listrik, posisi katup, atau status motor. Data ini lalu dikirimkan ke SCADA Server agar operator dapat memantaunya lewat antarmuka HMI. Tak hanya menerima data, RTU juga dapat menerima perintah seperti mematikan pompa atau membuka katup, dan langsung mengeksekusinya ke perangkat fisik.</p>
 
-<ul>
-  <li><strong>Pembangkit Listrik:</strong> Mengontrol turbin, generator, dan sistem distribusi listrik.</li>
-  <li><strong>Pengolahan Air dan Limbah:</strong> Mengatur pompa, katup, dan proses filtrasi.</li>
-  <li><strong>Manufaktur Otomotif:</strong> Mengontrol lini produksi otomatis seperti perakitan kendaraan.</li>
-  <li><strong>Minyak dan Gas:</strong> Memantau dan mengatur aliran minyak dan gas di pipa dan kilang.</li>
-  <li><strong>Transportasi:</strong> Mengatur sinyal kereta api dan sistem lalu lintas.</li>
-</ul>
+    <p>Menariknya, RTU bisa diprogram menggunakan bahasa pemrograman seperti Basic atau C#, sehingga logika kontrol sederhana bisa langsung dijalankan di level perangkat tanpa selalu bergantung pada pusat.</p>
+  </li>
+  <li>
+    <p><strong>PLC (Programmable Logic Controller)</strong><br />
+PLC dirancang untuk menggantikan sistem kontrol berbasis relay yang rumit. Dengan PLC, logika kendali yang sebelumnya harus diatur lewat sambungan kabel kini bisa diatur melalui pemrograman. Ini membuat sistem lebih fleksibel, mudah dimodifikasi, dan tahan terhadap kondisi lingkungan industri yang keras.</p>
+  </li>
+  <li>
+    <p><strong>HMI (Human-Machine Interface)</strong><br />
+HMI adalah antarmuka visual yang digunakan operator untuk memantau kondisi sistem secara langsung. Di sinilah data dari RTU atau PLC ditampilkan dalam bentuk grafik, indikator, maupun kontrol interaktif.</p>
+
+    <p>HMI memungkinkan operator melihat alur proses, status alat, hingga alarm jika terjadi anomali. Antarmuka ini bisa diakses melalui panel kontrol, komputer di ruang kendali, atau bahkan perangkat mobile,</p>
+  </li>
+  <li>
+    <p><strong>SCADA Server (Master Station)</strong><br />
+SCADA Server adalah pusat dari seluruh sistem. Semua data yang dikumpulkan oleh RTU dan PLC dikirimkan ke sini untuk dianalisis, disimpan, dan ditampilkan.</p>
+
+    <p>Server ini menjalankan perangkat lunak SCADA yang memungkinkan operator melihat kondisi sistem secara keseluruhan, mengatur alarm, mencatat histori data, hingga mengirimkan perintah kembali ke lapangan. Karena perannya sangat penting, SCADA Server juga menjadi titik krusial dalam perlindungan siber infrastruktur industri.</p>
+  </li>
+</ol>
+
+<h3 id="alur-kerja-scada-secara-umum">Alur Kerja SCADA Secara Umum</h3>
+
+<p><a href="/assets/images/SCADA.png"><img src="/assets/images/SCADA.png" alt="img1" class="img-responsive" /></a></p>
+
+<p>Gambaran alur kerja sistem SCADA secara ringkas:</p>
+<ol>
+  <li>Sensor di lapangan membaca parameter fisik seperti suhu, tekanan, arus, atau status perangkat.</li>
+  <li>Data dikirim oleh RTU atau PLC ke SCADA Server melalui jaringan komunikasi seperti Ethernet, radio, atau jaringan serial.</li>
+  <li>SCADA Server memproses dan menampilkan data di HMI agar operator dapat memantau dan mengambil keputusan.</li>
+  <li>Jika diperlukan, operator mengirimkan perintah lewat HMI → perintah diteruskan ke RTU/PLC → perintah dieksekusi oleh perangkat fisik di lapangan.</li>
+</ol>
+
+<p>Dengan arsitektur seperti ini, SCADA memungkinkan industri untuk menjalankan proses secara efisien, real-time, dan dengan kendali penuh meskipun jarak antara pusat kendali dan lokasi fisik cukup jauh. Sistem ini adalah tulang punggung otomatisasi industri modern yang menjaga kelancaran dan keamanan operasi setiap harinya.</p>
 
 <hr />
 
@@ -271,6 +336,7 @@ Perangkat yang digunakan untuk menghubungkan sensor dan aktuator di lokasi terpe
 <p>#IDNBootcampCyber</p>
 
       </div>
+      
       <hr>
       <div class="date">
         Written on June  2, 2025
@@ -301,29 +367,99 @@ Perangkat yang digunakan untuk menghubungkan sensor dan aktuator di lokasi terpe
 </div>
 
 <div>
-  <button onclick="topFunction()" id="back-to-top" title="Back to Top">⬆️</button>
-
-  <script>
-    // Get the button
-    var mybutton = document.getElementById("back-to-top");
-
-    // When the user scrolls down 300px from the top, show the button
-    window.onscroll = function () { scrollFunction(); };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-
-    // When the user clicks on the button, scroll to the top smoothly
-    function topFunction() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+  <!-- Back to Top Button -->
+  <button onclick="topFunction()" id="back-to-top" title="Back to Top">
+    ↑
+  </button>
 </div>
+
+<style>
+  /* Share Buttons Styles */
+  .share-buttons {
+    float: right;
+  }
+  
+  .share-buttons a {
+    margin-left: 7px;
+    color: #666;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .share-buttons a:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  
+
+  .share-buttons .fa-linkedin:hover { color: #0077b5; }
+  .share-buttons .fa-facebook:hover { color: #3b5998; }
+  .share-buttons .fa-envelope:hover { color: #d44638; }
+
+  
+  .share-text {
+    margin-right: 1px;
+    color: #777;
+    font-size: 14px;
+    font-weight: normal;
+    vertical-align: middle;
+  }
+  
+  /* Back to Top Button */
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+  }
+  
+  #back-to-top:hover {
+    background-color: #555;
+    transform: translateY(-3px);
+  }
+</style>
+
+<script>
+  // Back to Top Functionality
+  const backToTopButton = document.getElementById("back-to-top");
+
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopButton.style.display = "flex";
+    } else {
+      backToTopButton.style.display = "none";
+    }
+  };
+
+  function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Add smooth scrolling to all links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
         </div>
       </div>
     </div>

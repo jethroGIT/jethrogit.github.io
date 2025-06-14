@@ -8,7 +8,7 @@ description: Simple Brute Force
 
 ## Pengantar
 
-Kalau denger kata “brute force,” mungkin yang kebayang langsung: hacker, kode rumit, dan film aksi. Padahal, prinsipnya sederhana banget. Brute force itu cuma teknik coba-coba—tebak password satu per satu sampai dapet yang benar.
+Kalau denger kata “brute force,” mungkin yang kebayang langsung: hacker, kode rumit, dan film aksi. Padahal, prinsipnya sederhana banget. Brute force itu cuma teknik coba-coba tebak password satu per satu sampai dapet yang benar.
 
 Di tutorial ini, kita akan belajar bikin tools brute force sendiri buat nyoba ngebuka file ZIP yang dikunci password. Tapi penting ya: ini bukan buat iseng buka file orang. Ini semata-mata buat belajar, biar kita makin paham gimana keamanan digital itu bekerja dari dalam.
 
@@ -45,7 +45,7 @@ Anggap aja ini kayak nyiapin bahan masakan sebelum mulai masak, biar gak ribet d
 
 ## Kode Program
 
-Nah, ini bagian utamanya. Kita akan bikin script Python yang bisa coba password satu per satu dari wordlist ke file ZIP. Gak perlu tqdm, gak perlu GUI—cukup pakai logika dasar dan zipfile dari Python.
+Nah, ini bagian utamanya. Kita akan bikin script Python yang bisa coba password satu per satu dari wordlist ke file ZIP. Gak perlu tqdm, gak perlu GUI, cukup pakai logika dasar dan zipfile dari Python.
 
 Simpelnya, ini kayak kamu nyoba kombinasi gembok satu-satu sampai kebuka. Bedanya, komputer yang nyoba. Dan pastinya, lebih cepet daripada tangan manusia.
 
@@ -118,9 +118,11 @@ Masukan Path WordList: rockyou.txt
 
 Setiap kali gagal, dia bakal kasih info password mana yang dicoba. Begitu nemu yang pas, dia langsung berhenti. Praktis dan to the point.
 
+---
+
 ## Kesimpulan
 
-Dari sini, kita belajar bahwa ngejalanin brute force itu bukan hal rumit—yang penting tahu tujuannya dan batasnya. Dengan modal Python dan logika sederhana, kita udah bisa bikin tool sendiri buat nyoba password file ZIP.
+Dari sini, kita belajar bahwa ngejalanin brute force itu bukan hal rumit, yang penting tahu tujuannya dan batasnya. Dengan modal Python dan logika sederhana, kita udah bisa bikin tool sendiri buat nyoba password file ZIP.
 
 Semoga setelah ini kamu bisa lebih ngeh: kenapa pakai password yang kuat itu penting, dan kenapa enkripsi itu bukan cuma aksesoris. Karena kalau bisa dibobol pakai wordlist seadanya, artinya ada yang perlu dibenerin dari sisi keamanan.
 

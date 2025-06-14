@@ -2,33 +2,39 @@
 layout: default
 ---
 
-<div
-  class="{% if site.left_bar %} col-lg-8 {% else %} col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 {% endif %}  col-sm-12 col-xs-12">
+<div class="{% if site.left_bar %} col-lg-8 {% else %} col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 {% endif %} col-sm-12 col-xs-12">
   <div class="row grid-content">
     <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
       <p class="hidden-xs hidden-sm"><a href="{{ site.url }}{{ site.baseurl }}/">Home</a> <span style="color:darkgrey">
           / <a href="{{ site.url }}{{ site.baseurl }}/{{ page.category | downcase }}">{{ page.category | downcase }}</a>
           / {{ page.title | downcase }}</span></p>
-      <h3>{{ page.title }}<small class="pull-right"><a href="{{ site.baseurl }}/feed.xml" target="_blank"><i
-              class="fa fa-rss-square rss"></i></a></small><small class="pull-right"><a class="twitter-share-button"
-            href="https://twitter.com/intent/tweet?via={{ site.twitter }}&text={{ page.description }}">Tweet</a></small>
+      
+      <h3>{{ page.title }}
+        <div class="share-buttons">
+          <span class="share-text">Share:</span>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" 
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Share on LinkedIn">
+             <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url | url_encode }}{{ page.url | url_encode }}" 
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Share on Facebook">
+             <i class="fab fa-facebook"></i>
+          </a>
+          <a href="mailto:?subject={{ page.title | url_encode }}&body=Check this out: {{ site.url | url_encode }}{{ page.url | url_encode }}" 
+             title="Share via Email">
+             <i class="fas fa-envelope"></i>
+          </a>
+        </div>
       </h3>
-      <!-- <hr>
-              <p class="text-center">
-               {{ page.title }} <br> 
-                  <span class="text-small">{{ page.description }}</span> <br>
-                  {% if page.github != nil  %}
-                    <a href="{{ page.github }}">{{ page.github }}</a>
-                  {% elsif page.url_site != nil %}
-                    <a href="{{ page.url_site }}">{{ page.url_site }}</a>
-                  {% endif %}
-
-              </p>
-              <hr> -->
 
       <div class="entry">
         {{ content }}
       </div>
+      
       <hr>
       <div class="date">
         Written on {{ page.date | date: "%B %e, %Y" }}
@@ -43,26 +49,96 @@ layout: default
 </div>
 
 <div>
-  <button onclick="topFunction()" id="back-to-top" title="Back to Top">⬆️</button>
-
-  <script>
-    // Get the button
-    var mybutton = document.getElementById("back-to-top");
-
-    // When the user scrolls down 300px from the top, show the button
-    window.onscroll = function () { scrollFunction(); };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-
-    // When the user clicks on the button, scroll to the top smoothly
-    function topFunction() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+  <!-- Back to Top Button -->
+  <button onclick="topFunction()" id="back-to-top" title="Back to Top">
+    ↑
+  </button>
 </div>
+
+<style>
+  /* Share Buttons Styles */
+  .share-buttons {
+    float: right;
+  }
+  
+  .share-buttons a {
+    margin-left: 7px;
+    color: #666;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .share-buttons a:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  
+
+  .share-buttons .fa-linkedin:hover { color: #0077b5; }
+  .share-buttons .fa-facebook:hover { color: #3b5998; }
+  .share-buttons .fa-envelope:hover { color: #d44638; }
+
+  
+  .share-text {
+    margin-right: 1px;
+    color: #777;
+    font-size: 14px;
+    font-weight: normal;
+    vertical-align: middle;
+  }
+  
+  /* Back to Top Button */
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+  }
+  
+  #back-to-top:hover {
+    background-color: #555;
+    transform: translateY(-3px);
+  }
+</style>
+
+<script>
+  // Back to Top Functionality
+  const backToTopButton = document.getElementById("back-to-top");
+
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopButton.style.display = "flex";
+    } else {
+      backToTopButton.style.display = "none";
+    }
+  };
+
+  function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Add smooth scrolling to all links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
