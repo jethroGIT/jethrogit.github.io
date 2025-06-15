@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Mengenal ECC dan Web3 Cryptography – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Pendahuluan
+" />
+    <meta property="og:description" content="Pendahuluan
+" />
+    
+    <meta name="author" content="Jethro Andersson Apriliano Ofe" />
+
+    
+    <meta property="og:title" content="Mengenal ECC dan Web3 Cryptography" />
+    <meta property="twitter:title" content="Mengenal ECC dan Web3 Cryptography" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="icon" href="/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/cyber-security/main.css">
+
+    <link rel="alternate" type="application/rss+xml" title="Jethro Andersson Apriliano Ofe - Forgiven sinner and Student at Maranatha Christian University" href="/feed.xml" />
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+    <div class="vertical-center"> 
+      <div class="container">
+        <div class="row">
+              <div id="left-bar">
+                
+                  <div class="col-lg-offset-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 left-bar border-right">
+
+    
+        <a href="http://localhost:4000/">
+            <img src="/assets/images/me-gullit-model.jpg" class="img-responsive hidden-xs hidden-sm hidden-md" alt=""/>
+        </a>
+    
+    <h3 class="text-center">Jethro Andersson Apriliano Ofe <small></small></h3>
+<!--    <p class="text-center" style="color: #707073;">Forgiven sinner and Student at Maranatha Christian University</p> -->
+        <p class="text-center" style="color: #707073;"><a href="https://jethrogit.github.io/sermons/Forgive_Sinner/"><b>A Forgiven Sinner</b></a> and <a href="https://www.maranatha.edu/"><b>Student at Maranatha Christian University</b></a></p> 
+    <div class="hidden-lg" style="margin-bottom:5px;">
+        <p class="text-center">
+            <a href="http://localhost:4000" class="color-icon" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a> - 
+            
+<a href="mailto:jethro.andersson02@gmail.com" class="color-icon"><i class="fa fa-envelope" title="Email"></i></a>
+
+
+<a href="https://github.com/jethroGIT" class="color-icon" title="Github"><i class="fa fa-github"></i></a>
+
+<a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" class="color-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+
+<!-- <a href="http://stackoverflow.com/users/1473726" class="color-icon" title="StacKoverflow"><i class="fa fa-stack-overflow"></i></a> -->
+
+
+
+
+        </p>
+    </div>
+    <div class="hidden-xs hidden-sm hidden-md" style="margin-bottom:5px;">
+        <hr >
+
+        
+        <i class="fa fa-github fw"></i><a href="https://github.com/jethroGIT"> github.com/jethroGIT</a>    <br />
+         
+
+        
+
+        
+
+        
+        <i class="fa fa-envelope fw"></i><a href="jethro.andersson02@gmail.com" target="_blank"> jethro.andersson02@gmail.com</a>
+        
+
+        
+
+        <br>
+
+        
+        <i class="fa fa-linkedin fw"></i><a href="https://www.linkedin.com/in/jethro-andersson-apriliano-ofe" target="_blank"> jethro-andersson-apriliano-ofe</a>
+        
+
+        
+
+        
+
+        
+
+<!--        
+        <hr >
+        <a href="https://stackoverflow.com/users/1473726?tab=profile">
+           <img src="https://stackoverflow.com/users/flair/1473726.png?theme=clean" width="208" height="58" alt="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for  at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        </a>
+        
+        <hr >
+        
+        <p>You may also want to check this profile:
+            <ul>
+                
+                  <li><a href=""></a></li>
+                
+            </ul>
+        </p>
+        
+-->        
+    </div>
+
+</div>
+
+                
+              </div>
+              <div
+  class=" col-lg-8  col-sm-12 col-xs-12">
+  <div class="row grid-content">
+    <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
+      <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
+          / <a href="http://localhost:4000/cyber-security">cyber-security</a>
+          / mengenal ecc dan web3 cryptography</span></p>
+
+      <h3>Mengenal ECC dan Web3 Cryptography
+        <div class="share-buttons">
+          <span class="share-text">Share:</span>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FECC_WEB3%2F&title=Mengenal+ECC+dan+Web3+Cryptography"
+            target="_blank" rel="noopener noreferrer" title="Share on LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FECC_WEB3%2F"
+            target="_blank" rel="noopener noreferrer" title="Share on Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="mailto:?subject=Mengenal+ECC+dan+Web3+Cryptography&body=Check this out: http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FECC_WEB3%2F"
+            title="Share via Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </h3>
+
+      <div class="entry">
+        <h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
+
+<h3 id="kenapa-kita-harus-peduli-sama-ecc-dan-web3-cryptography">Kenapa Kita Harus Peduli Sama ECC dan Web3 Cryptography?</h3>
+
+<p>Mungkin kamu mikir, “ECC? Web3 Cryptography? Kayak istilah teknis banget, ya?” Nggak salah sih. Tapi justru karena dunia makin digital, kriptografi itu makin relevan apalagi kalau kita ngomongin blockchain dan Web3.
+ECC (Elliptic Curve Cryptography) ini bukan sekadar alat enkripsi biasa. Dia tuh pahlawan diam-diam di balik keamanan dompet kripto kamu, transaksi blockchain, dan identitas digital. Jadi… penting nggak? Penting banget.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#cryptography">Cryptography</a>
+    <ul>
+      <li><a href="#kriptografi-itu-sebenarnya-apa-sih">Kriptografi Itu Sebenarnya Apa, Sih?</a></li>
+    </ul>
+  </li>
+  <li><a href="#web3-cryptography">Web3 Cryptography</a></li>
+  <li><a href="#ecc-elliptic-curve-cryptography">ECC (Elliptic Curve Cryptography)</a></li>
+  <li><a href="#peran-ecc-di-dunia-web3">Peran ECC di Dunia Web3</a></li>
+  <li><a href="#konsep-web3-cryptography-lainnya">Konsep Web3 Cryptography Lainnya</a></li>
+  <li><a href="#ancaman-dan-tantangan">Ancaman dan Tantangan</a>
+    <ul>
+      <li><a href="#kriptografi-aman-banget-tapi-emang-nggak-ada-celah">Kriptografi Aman Banget, Tapi Emang Nggak Ada Celah?</a></li>
+    </ul>
+  </li>
+  <li><a href="#mitigasi-dan-best-practices">Mitigasi dan Best Practices</a></li>
+  <li><a href="#masa-depan-kriptografi-di-web3">Masa Depan Kriptografi di Web3</a></li>
+  <li><a href="#kesimpulan">Kesimpulan</a></li>
+</ol>
+
+<hr />
+
+<h2 id="cryptography">Cryptography</h2>
+
+<h3 id="kriptografi-itu-sebenarnya-apa-sih">Kriptografi Itu Sebenarnya Apa, Sih?</h3>
+
+<p>Gampangnya, kriptografi adalah ilmu buat nyembunyiin pesan. Jadi kalau ada orang yang nggak berkepentingan, dia nggak bisa ngerti isi pesannya.
+Dari zaman dulu yang cuma pakai sandi sederhana, sekarang kriptografi udah berkembang jadi sistem yang super kompleks.</p>
+
+<p>Di era digital, kriptografi dipakai buat:</p>
+<ul>
+  <li>Menyembunyikan data (enkripsi),</li>
+  <li>Menjamin keaslian (digital signature),</li>
+  <li>Membuktikan identitas (authentication),</li>
+  <li>dan Menjaga integritas data (hashing).</li>
+</ul>
+
+<p>Jadi setiap kali login, transfer uang, atau kirim pesan di aplikasi terenkripsi, itu semua kerjaannya kriptografi. Makanya, fondasi keamanan digital ya ini!</p>
+
+<hr />
+
+<h2 id="web3-cryptography">Web3 Cryptography</h2>
+
+<p>Web3 itu visi internet generasi baru yang desentralisasi (nggak lagi dikontrol satu entitas kayak perusahaan raksasa).
+Tapi, biar sistemnya tetap aman dan bisa dipercaya, harus ada kriptografi sebagai pondasinya.</p>
+
+<p>Kriptografi di Web3 dipakai buat:</p>
+<ul>
+  <li>Digital identity: Biar orang bisa punya identitas unik tanpa harus daftarin ke pihak ketiga.</li>
+  <li>Wallet &amp; private key: Dompet kripto kamu cuma bisa diakses dengan private key yang dienkripsi.</li>
+  <li>Digital signature: Supaya transaksi kamu di blockchain valid dan nggak bisa dipalsuin.</li>
+  <li>Smart contract: Biar kode yang jalan otomatis di blockchain tetap aman dan bisa diverifikasi.</li>
+</ul>
+
+<p>Intinya tanpa kriptografi, Web3 cuma akan jadi mimpi, karena nggak ada trust dan security.</p>
+
+<hr />
+
+<h2 id="ecc-elliptic-curve-cryptography">ECC (Elliptic Curve Cryptography)</h2>
+
+<p>Jadi gini, ECC itu jenis kriptografi yang pakai matematika dari kurva eliptik. Kedengeran rumit? Iya, tapi manfaatnya nggak main-main.
+Dibanding RSA, ECC bisa kasih tingkat keamanan yang sama tapi dengan ukuran kunci yang lebih kecil. Artinya? Lebih hemat resource dan tetap aman.
+Makanya ECC cocok banget buat sistem yang butuh efisiensi tinggi kayak IoT atau sistem blockchain. Cepet, ringan, dan susah dibobol. Paket komplit, kan?</p>
+
+<h2 id="peran-ecc-di-dunia-web3">Peran ECC di Dunia Web3</h2>
+
+<p>Nah, kalau kamu pakai Bitcoin, Ethereum, atau dompet kripto… surprise! Kamu udah pakai ECC.
+ECC jadi fondasi buat digital signature yang ngejamin kalau transaksi kamu valid dan nggak bisa dipalsuin. Misalnya, Bitcoin pakai yang namanya secp256k1.
+ECC juga bantu ngebangun sistem identitas digital, wallet address, dan smart contract. Intinya, ECC bikin sistem Web3 tetap trustless tapi tetap aman. Tanpa ECC, Web3 bisa jadi kacau balau.</p>
+
+<hr />
+
+<h2 id="konsep-web3-cryptography-lainnya">Konsep Web3 Cryptography Lainnya</h2>
+
+<p>ECC emang populer, tapi dia bukan satu-satunya. Di Web3, kita juga kenal konsep keren kayak Zero Knowledge Proofs (ZKP), MPC, sampai threshold signatures.
+Misalnya ZKP, ini tuh metode buat buktiin sesuatu tanpa harus ngasih data detailnya. Keren banget buat privasi.
+Terus ada MPC buat ngelola kunci privat rame-rame (jadi nggak gampang dicuri), dan threshold signature buat ngebagi tanggung jawab tanda tangan.
+Gampangnya: ini semua bantu Web3 jadi lebih aman, scalable, dan tetap transparan.</p>
+
+<hr />
+
+<h2 id="ancaman-dan-tantangan">Ancaman dan Tantangan</h2>
+
+<h3 id="kriptografi-aman-banget-tapi-emang-nggak-ada-celah">Kriptografi Aman Banget, Tapi Emang Nggak Ada Celah?</h3>
+
+<p>Nah, ini dia bagian yang sering di-skip orang. Walaupun ECC itu canggih, dia bukan berarti anti-peluru.
+Ada ancaman nyata kayak Quantum Computing. Komputer kuantum bisa ngejalanin algoritma Shor buat nge-crack ECC. Walau belum kejadian sekarang, tapi kalau terjadi? Gawat.
+Terus ada juga serangan side channel (kayak analisis daya dan waktu proses), kebocoran kunci privat gara-gara random number generator yang jelek, sampai kode jahat di library palsu.
+Web3 juga rawan karena banyak user yang asal klik—fake wallet, phising, semua bisa jadi mimpi buruk.
+Jadi, jangan terlalu percaya diri ya walau sistem kamu udah pake ECC.</p>
+
+<hr />
+
+<h2 id="mitigasi-dan-best-practices">Mitigasi dan Best Practices</h2>
+
+<p>Gimana Cara Kita Tetap Aman di Tengah Ancaman Itu?
+Tenang, ada banyak cara buat tetap selamat di dunia Web3.
+Pertama, pastiin implementasi ECC kamu pakai library yang terpercaya—jangan comot sembarangan dari GitHub.
+Kedua, jangan pernah reuse private key atau pakai angka random seadanya. Entropy itu penting!
+Ketiga, selalu audit smart contract kamu. Sering kali celah ada di bagian kode yang kelihatan remeh.
+Dan terakhir, siap-siap buat masa depan post-quantum dengan pelan-pelan belajar lattice cryptography. Siapa tau, 5 tahun lagi jadi standar baru?</p>
+
+<hr />
+
+<h2 id="masa-depan-kriptografi-di-web3">Masa Depan Kriptografi di Web3</h2>
+
+<p>Apa yang Akan Terjadi Selanjutnya? ECC Masih Aman?
+Pertanyaan bagus! ECC kemungkinan masih akan dipakai beberapa tahun ke depan, tapi dunia kripto udah mulai ancang-ancang ke post-quantum cryptography.
+Teknologi kayak lattice-based dan hash-based cryptography jadi kandidat kuat buat gantiin ECC di masa depan.
+Kita juga akan lihat integrasi kriptografi dengan AI, sistem identitas terdesentralisasi, dan ekosistem blockchain yang makin kompleks.
+Web3 berkembang cepat, dan kriptografi adalah fondasi yang bikin semuanya tetap aman. Stay updated, stay secure!</p>
+
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<p>ECC dan kriptografi Web3 bukan cuma teori di buku. Mereka nyata, mereka dipakai, dan mereka krusial.
+Kalau kamu mau terjun ke dunia Web3 atau blockchain, ngerti kriptografi itu wajib. Dan jangan lupa: teknologi secanggih apa pun tetap punya celah kalau kita nggak hati-hati.
+So, yuk bareng-bareng jadi pengguna dan developer yang lebih aware sama keamanan digital.</p>
+
+<p>#IDNBootcampCyber</p>
+
+      </div>
+
+      <hr>
+      <div class="date">
+        Written on June  9, 2025
+      </div>
+      <br>
+
+      
+      
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'hbunyamin-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+<div>
+  <button onclick="topFunction()" id="back-to-top" title="Back to Top">
+    ↑
+  </button>
+</div>
+
+<script>
+  // Get the button
+  var mybutton = document.getElementById("back-to-top");
+
+  // When the user scrolls down 300px from the top, show the button
+  window.onscroll = function () { scrollFunction(); };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top smoothly
+  function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<style>
+  /* Share Buttons Styles */
+  .share-buttons {
+    float: right;
+  }
+
+  .share-buttons a {
+    margin-left: 7px;
+    color: #666;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  .share-buttons a:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+
+  .share-buttons .fa-linkedin:hover {
+    color: #0077b5;
+  }
+
+  .share-buttons .fa-facebook:hover {
+    color: #3b5998;
+  }
+
+  .share-buttons .fa-envelope:hover {
+    color: #d44638;
+  }
+
+
+  .share-text {
+    margin-right: 1px;
+    color: #777;
+    font-size: 14px;
+    font-weight: normal;
+    vertical-align: middle;
+  }
+
+  /* Back to Top Button */
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+  }
+
+  #back-to-top:hover {
+    background-color: #555;
+    transform: translateY(-3px);
+  }
+</style>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/twitter.js"></script>
+    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27831864-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/cyber-security/ECC_WEB3/',
+		  'title': 'Mengenal ECC dan Web3 Cryptography'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
