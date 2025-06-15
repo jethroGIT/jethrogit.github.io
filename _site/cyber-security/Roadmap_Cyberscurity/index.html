@@ -125,31 +125,28 @@
 
                 
               </div>
-              <div class=" col-lg-8  col-sm-12 col-xs-12">
+              <div
+  class=" col-lg-8  col-sm-12 col-xs-12">
   <div class="row grid-content">
     <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
       <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
           / <a href="http://localhost:4000/cyber-security">cyber-security</a>
           / roadmap 5 tahun karier di dunia cybersecurity</span></p>
-      
+
       <h3>Roadmap 5 Tahun Karier di Dunia Cybersecurity
         <div class="share-buttons">
           <span class="share-text">Share:</span>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FRoadmap_Cyberscurity%2F&title=Roadmap+5+Tahun+Karier+di+Dunia+Cybersecurity" 
-             target="_blank"
-             rel="noopener noreferrer"
-             title="Share on LinkedIn">
-             <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FRoadmap_Cyberscurity%2F&title=Roadmap+5+Tahun+Karier+di+Dunia+Cybersecurity"
+            target="_blank" rel="noopener noreferrer" title="Share on LinkedIn">
+            <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FRoadmap_Cyberscurity%2F" 
-             target="_blank"
-             rel="noopener noreferrer"
-             title="Share on Facebook">
-             <i class="fab fa-facebook"></i>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FRoadmap_Cyberscurity%2F"
+            target="_blank" rel="noopener noreferrer" title="Share on Facebook">
+            <i class="fab fa-facebook"></i>
           </a>
-          <a href="mailto:?subject=Roadmap+5+Tahun+Karier+di+Dunia+Cybersecurity&body=Check this out: http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FRoadmap_Cyberscurity%2F" 
-             title="Share via Email">
-             <i class="fas fa-envelope"></i>
+          <a href="mailto:?subject=Roadmap+5+Tahun+Karier+di+Dunia+Cybersecurity&body=Check this out: http%3A%2F%2Flocalhost%3A4000%2Fcyber-security%2FRoadmap_Cyberscurity%2F"
+            title="Share via Email">
+            <i class="fas fa-envelope"></i>
           </a>
         </div>
       </h3>
@@ -278,7 +275,7 @@
 <p>#IDNBootcampCyber</p>
 
       </div>
-      
+
       <hr>
       <div class="date">
         Written on May 30, 2025
@@ -309,18 +306,38 @@
 </div>
 
 <div>
-  <!-- Back to Top Button -->
   <button onclick="topFunction()" id="back-to-top" title="Back to Top">
     ↑
   </button>
 </div>
+
+<script>
+  // Get the button
+  var mybutton = document.getElementById("back-to-top");
+
+  // When the user scrolls down 300px from the top, show the button
+  window.onscroll = function () { scrollFunction(); };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top smoothly
+  function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 
 <style>
   /* Share Buttons Styles */
   .share-buttons {
     float: right;
   }
-  
+
   .share-buttons a {
     margin-left: 7px;
     color: #666;
@@ -328,18 +345,26 @@
     text-decoration: none;
     font-size: 20px;
   }
-  
+
   .share-buttons a:hover {
     transform: translateY(-2px);
     text-decoration: none;
   }
-  
 
-  .share-buttons .fa-linkedin:hover { color: #0077b5; }
-  .share-buttons .fa-facebook:hover { color: #3b5998; }
-  .share-buttons .fa-envelope:hover { color: #d44638; }
 
-  
+  .share-buttons .fa-linkedin:hover {
+    color: #0077b5;
+  }
+
+  .share-buttons .fa-facebook:hover {
+    color: #3b5998;
+  }
+
+  .share-buttons .fa-envelope:hover {
+    color: #d44638;
+  }
+
+
   .share-text {
     margin-right: 1px;
     color: #777;
@@ -347,7 +372,7 @@
     font-weight: normal;
     vertical-align: middle;
   }
-  
+
   /* Back to Top Button */
   #back-to-top {
     display: none;
@@ -369,39 +394,12 @@
     justify-content: center;
     z-index: 99;
   }
-  
+
   #back-to-top:hover {
     background-color: #555;
     transform: translateY(-3px);
   }
 </style>
-
-<script>
-  // Back to Top Functionality
-  const backToTopButton = document.getElementById("back-to-top");
-
-  window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      backToTopButton.style.display = "flex";
-    } else {
-      backToTopButton.style.display = "none";
-    }
-  };
-
-  function topFunction() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // Add smooth scrolling to all links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
         </div>
       </div>
     </div>

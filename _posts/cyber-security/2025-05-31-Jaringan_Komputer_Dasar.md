@@ -10,6 +10,7 @@ description: Konsep Dasar Jaringan
 Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.
 
 ## 📌 Daftar Isi
+
 1. [Dasar-Dasar Jaringan Komputer](#dasar-dasar-jaringan-komputer)
    - [1. Jenis-Jenis Jaringan](#1-jenis-jenis-jaringan)
 2. [Memahami IP Address dan Subnetting](#2-memahami-ip-address-dan-subnetting)
@@ -28,6 +29,7 @@ Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan prak
    - [3. Setting IP Router](#3-setting-ip-router)
    - [4. Menguji Koneksi](#4-menguji-koneksi)
 5. [Penutup](#penutup)
+
 
 ## **Dasar-Dasar Jaringan Komputer**
 Sebelum masuk ke simulasi dan praktik menggunakan aplikasi seperti Cisco Packet Tracer, penting banget untuk memahami dulu dasar-dasar jaringan komputer. Jadi gini, ketika dua komputer atau lebih ingin “ngobrol” alias bertukar data, mereka butuh jalan atau media untuk mengirim dan menerima informasi. Nah, jaringan komputer inilah yang menjadi perantara komunikasi itu.
