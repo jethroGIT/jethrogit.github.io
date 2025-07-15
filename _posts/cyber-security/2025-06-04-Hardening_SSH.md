@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hardening SSH Service Ubuntu Server 20.04 LTS
+title: Hardening SSH Service Ubuntu Server 22.04 LTS
 category: Cyber-Security
 lang: IN
 description: Hardening Linux Security
@@ -28,7 +28,7 @@ Pada artikel kali ini, saya akan membahas secara rinci tentang hardening SSH (Se
    - [Nonaktifkan Login Root](#nonaktifkan-login-root)
    - [Gunakan SSH Key, Nonaktifkan Password Login](#gunakan-ssh-key-nonaktifkan-password-login)
    - [Ganti Port Default SSH](#ganti-port-default-ssh)
-   - [Batasi Akses User dan IP](batasi-akses-user-dan-ip)
+   - [Batasi Akses User dan IP](#batasi-akses-user-dan-ip)
    - [Konfigurasi Timeout & Connection Settings](#konfigurasi-timeout--connection-settings)
    - [Logging SSH](#logging-ssh)
    - [Implementasi Fail2Ban](#implementasi-fail2ban)
@@ -132,17 +132,31 @@ Setelah melakukan langkah-langkah persiapan awal, kita bisa melanjutkan ke tahap
 
 Salah satu pengaturan pertama yang sangat disarankan adalah menonaktifkan kemampuan login langsung sebagai root melalui SSH. Hal ini penting karena akun root biasanya menjadi target utama dalam serangan brute-force.
 
-Untuk menonaktifkan login root, kita bisa mengatur opsi berikut di file `/etc/ssh/sshd_config`:
+Untuk menonaktifkan login root, kita bisa mengatur opsi berikut di file `/etc/ssh/sshd_config`. Buka file dengan teks editor, misalnya nano:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Lalu cari baris yang bertuliskan:
+
+```bash
+#PermitRootLogin prohibit-password
+```
+
+Ubah atau tambahkan menjadi:
 
 ```bash
 PermitRootLogin no
 ```
 
+Jika sudah, simpan perubahan dengan menekan `Ctrl + X`, lalu tekan `Y` untuk menyetujui penyimpanan, dan Enter untuk keluar dari editor.
+
 Dengan pengaturan ini, hanya user non-root yang diizinkan login via SSH. Jika perlu melakukan tugas administratif, kita bisa menggunakan perintah sudo setelah login.
 
 ### Gunakan SSH Key, Nonaktifkan Password Login
 
-Penggunaan autentikasi berbasis password lebih rentan terhadap serangan brute-force atau credential stuffing. Oleh karena itu, lebih aman menggunakan SSH key pair.
+Penggunaan autentikasi berbasis password lebih rentan terhadap serangan brute-force atau credential stuffing. Oleh karena itu, cara yang lebih aman dan direkomendasikan adalah menggunakan SSH key pair untuk autentikasi.
 
 Cara membuat SSH key cukup mudah. Di sisi client, jalankan perintah:
 
@@ -150,21 +164,8 @@ Cara membuat SSH key cukup mudah. Di sisi client, jalankan perintah:
 ssh-keygen -t rsa -b 4096
 ```
 
-```bash
-mpls41@linuxmint:~$ ssh-keygen -t rsa -b 4096
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/mpls41/.ssh/id_rsa): 
-```
+Contoh proses lengkapnya:
 
-```bash
-mpls41@linuxmint:~$ ssh-keygen -t rsa -b 4096
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/mpls41/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-```
-
-Contoh output kesulurahan:
 ```bash
 mpls41@linuxmint:~$ ssh-keygen -t rsa -b 4096
 Generating public/private rsa key pair.
@@ -189,40 +190,97 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-Kemudian, upload public key ke server dengan:
+Setelah key pair dibuat, upload public key ke server dengan perintah:
 
 ```bash
 ssh-copy-id username@server_ip
 ```
 
-Setelah SSH key sudah terpasang, kita bisa menonaktifkan autentikasi password dengan mengatur opsi berikut di file konfigurasi:
+Public key akan otomatis ditambahkan ke file `~/.ssh/authorized_keys` milik user di server
+
+**(Opsional) Menonaktifkan Autentikasi Password**
+
+Jika semua user yang diperbolehkan login ke server sudah menggunakan SSH key, kita bisa meningkatkan keamanan lebih jauh dengan menonaktifkan login menggunakan password.
+
+Untuk melakukannya, buka file konfigurasi SSH:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Lalu ubah atau tambahkan baris berikut:
 
 ```bash
 PasswordAuthentication no
 ```
 
-Dengan cara ini, hanya user dengan SSH key yang valid yang dapat login ke server.
+Setelah selesai, simpan perubahan dengan menekan `Ctrl + X`, lalu `Y`, kemudian Enter.
+
+> ⚠️ Catatan penting: Menonaktifkan autentikasi password bersifat opsional, dan sebaiknya hanya dilakukan jika sudah memastikan semua user memiliki SSH key yang valid. Jika tidak, user bisa kehilangan akses ke server.
+
+Dengan langkah ini, server hanya akan menerima login dari user yang memiliki SSH key yang cocok dengan yang ada di server.
 
 ### Ganti Port Default SSH 
 
 Secara default, SSH berjalan di port 22. Banyak bot otomatis memindai port ini untuk mencari server yang rentan. Salah satu langkah sederhana untuk mengurangi risiko serangan otomatis adalah mengganti port SSH ke port lain.
 
-Namun, perlu diingat bahwa ini bukan solusi keamanan utama — hanya sebagai tambahan.
+Namun, perlu diingat bahwa ini **bukan solusi keamanan utama**, melainkan tambahan untuk menyulitkan pemindaian otomatis (obfuscation).
 
-Kelebihannya: mengurangi jumlah serangan otomatis.
-Kekurangannya: Anda perlu selalu mengingat port baru saat melakukan koneksi SSH.
+Untuk melakukannya, buka file konfigurasi SSH:
 
-Contoh konfigurasi untuk mengganti port ke 2222:
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Cari baris berikut:
+
+```bash
+#Port 22
+```
+
+Lalu ubah atau tambahkan baris berikut:
 
 ```bash
 Port 2222
 ```
 
-Setelah mengubah port, pastikan firewall sudah diatur untuk mengizinkan port baru ini.
+Ganti 2222 dengan nomor port yang diinginkan (pastikan belum digunakan oleh service lain dan tidak termasuk port terlarang).
+
+Setelah selesai, simpan perubahan dengan menekan `Ctrl + X`, lalu `Y`, kemudian Enter.
+
+> ⚠️ Catatan penting: Setelah mengganti port, pastikan port baru tersebut diizinkan oleh firewall agar tidak memblokir koneksi SSH. Jika menggunakan UFW, jalankan perintah:
+```bash
+sudo ufw allow 2222/tcp
+```
+
+Setelah semuanya siap, restart service SSH agar perubahan diterapkan:
+
+```bash
+sudo systemctl restart ssh
+```
+
+Untuk login ke server setelah mengganti port, jangan lupa menambahkan opsi -p saat koneksi SSH:
+
+```bash
+ssh -p 2222 username@server_ip
+```
+
+Dengan langkah ini, port default SSH tidak lagi terbuka di port umum (22), sehingga dapat membantu mengurangi risiko serangan otomatis dari bot atau pemindai massal.
+
 
 ### Batasi Akses User dan IP
 
-Untuk lebih memperketat akses SSH, kita bisa membatasi hanya user atau grup tertentu yang boleh login. Ini bisa dilakukan dengan menambahkan opsi berikut:
+Untuk lebih memperketat akses SSH, kita bisa membatasi siapa saja yang diperbolehkan login ke server baik berdasarkan username, grup, maupun alamat IP. Teknik ini sangat efektif untuk memperkecil permukaan serangan, terutama jika hanya ada beberapa user yang memang perlu akses SSH.
+
+**Batasi Akses Berdasarkan Username atau Grup**
+
+Untuk melakukannya, buka file konfigurasi SSH:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Lalu tambahkan salah satu dari baris berikut (atau keduanya):
 
 ```bash
 AllowUsers user1 user2
@@ -234,6 +292,11 @@ Atau, jika ingin menggunakan grup:
 AllowGroups sshusers
 ```
 
+> Baris `AllowUsers` hanya mengizinkan user tertentu untuk login via SSH.
+Sementara `AllowGroups` mengizinkan semua user yang menjadi anggota grup tertentu.
+
+**Batasi Akses Berdasarkan IP**
+
 Selain itu, kita juga bisa memfilter berdasarkan alamat IP dengan konfigurasi Match block. Contohnya:
 
 ```bash
@@ -241,7 +304,15 @@ Match Address 192.168.1.*
     AllowUsers user1
 ```
 
-Dengan konfigurasi ini, hanya user tertentu dari IP tertentu yang boleh login.
+Dengan konfigurasi ini, hanya user1 dari IP di subnet 192.168.1.x yang bisa login ke server via SSH.
+
+> ⚠️ Catatan penting: Pastikan tidak secara sengaja memblokir akses untuk diri sendiri. Uji konfigurasi dengan membuka sesi SSH baru sebelum menutup sesi lama, agar bisa rollback jika diperlukan.
+
+Terakhir, restart SSH service agar perubahan diterapkan:
+
+```bash
+sudo systemctl restart ssh
+```
 
 ### Konfigurasi Timeout & Connection Settings
 
@@ -249,25 +320,37 @@ Agar koneksi SSH yang idle tidak dibiarkan terbuka terlalu lama (yang bisa menin
 
 Agar koneksi SSH yang idle tidak dibiarkan terbuka terlalu lama (yang bisa meningkatkan risiko serangan), kita bisa mengatur timeout dan parameter lain yang berkaitan dengan koneksi.
 
-Beberapa pengaturan yang direkomendasikan:
+Untuk melakukannya, buka file konfigurasi SSH:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Lalu tambahkan salah satu dari baris berikut (atau keduanya):
 
 ```bash
 ClientAliveInterval 300
-```
-
-Server akan mengirim sinyal ke client setiap 300 detik.
-
-```bash
 ClientAliveCountMax 0
-
-```
-Jika client tidak merespon, koneksi akan diputus.
-
-```bash
 LoginGraceTime 60
 ```
 
-User hanya diberi waktu 60 detik untuk login, setelah itu koneksi akan ditutup.
+**Penjelasan setiap parameter:**
+
+- **ClientAliveInterval 300:** Server akan mengirimkan sinyal (keep-alive message) ke client setiap 300 detik (5 menit). Jika tidak ada aktivitas dari sisi client, sinyal ini menjadi cara untuk memeriksa apakah koneksi masih aktif.
+
+- **ClientAliveCountMax 0:** Jika client tidak merespon sinyal tersebut, koneksi akan segera diputus tanpa peringatan. Nilai 0 berarti hanya satu kali percobaan (langsung putus jika gagal).
+
+- **LoginGraceTime 60:** Setelah membuka koneksi SSH, user hanya diberi waktu 60 detik untuk melakukan autentikasi (misalnya memasukkan password atau validasi key). Jika dalam waktu tersebut login belum selesai, koneksi akan ditutup.
+
+Setelah selesai, simpan perubahan dengan menekan `Ctrl + X`, lalu `Y`, kemudian Enter.
+
+Terakhir, restart service SSH untuk menerapkan konfigurasi:
+
+```bash
+sudo systemctl restart ssh
+```
+
+Dengan mengatur parameter timeout seperti ini, kita dapat mengurangi kemungkinan koneksi dibiarkan terbuka tanpa pengawasan dan meningkatkan postur keamanan server secara keseluruhan.
 
 ### Logging SSH
 
@@ -289,9 +372,7 @@ Dengan memantau log, kita bisa segera mengetahui jika ada upaya login yang mencu
 
 ### Implementasi Fail2Ban
 
-Selain konfigurasi manual, kita juga bisa memperkuat proteksi SSH dengan menggunakan tool tambahan seperti Fail2Ban.
-
-Fail2Ban berfungsi memantau log SSH, dan secara otomatis memblokir IP yang mencoba melakukan brute-force attack.
+Selain konfigurasi manual di file SSH, kita juga bisa memperkuat keamanan server dengan bantuan tool otomatis bernama Fail2Ban. Tools ini sangat efektif untuk mencegah brute-force attack karena dapat memantau file log dan secara otomatis memblokir IP yang gagal login berkali-kali.
 
 Cara install Fail2Ban di Debian/Ubuntu:
 
@@ -299,18 +380,58 @@ Cara install Fail2Ban di Debian/Ubuntu:
 sudo apt install fail2ban
 ```
 
-Setelah terpasang, kita bisa mengaktifkan konfigurasi default Fail2Ban untuk SSH. Biasanya cukup dengan membuat atau menyesuaikan file jail.local:
+Konfigurasi Fail2Ban disimpan dalam direktori:
+
+```bash
+/etc/fail2ban/
+```
+
+Alih-alih mengedit langsung file jail.conf (karena bisa ditimpa saat update), kita sebaiknya membuat salinan konfigurasi kustom di file jail.local.
+
+Untuk membuat atau mengedit file konfigurasi:
+
+```bash
+sudo nano /etc/fail2ban/jail.local
+```
+
+Kemudian tambahkan konfigurasi berikut:
 
 ```bash
 [sshd]
 enabled = true
-port = ssh
+port = 2222
+banaction = iptables-allports
 filter = sshd
 logpath = /var/log/auth.log
-maxretry = 5
+maxretry = 3
+bantime = 600
 ```
 
-Dengan pengaturan ini, IP yang gagal login sebanyak 5 kali akan otomatis diblokir untuk sementara waktu.
+**Penjelasan Parameter**
+
+- **port:** Sesuaikan dengan port SSH kamu, misalnya 2222 jika sudah diubah dari default 22.
+- **maxretry:** Jumlah maksimum upaya login gagal sebelum IP diblokir.
+- **bantime:** Lama waktu (dalam detik) IP akan diblokir (600 detik = 10 menit)
+- **findtime:** Waktu pencatatan percobaan login gagal (dalam detik).
+- **banaction:** Metode pemblokiran IP (gunakan iptables-multiport untuk proteksi lebih luas).
+- **logpath:** Lokasi file log yang dipantau, default di Ubuntu adalah /var/log/auth.log.
+
+
+Setelah selesai, simpan perubahan dengan menekan `Ctrl + X`, lalu `Y`, kemudian Enter.
+
+Terakhir, restart Fail2Ban untuk menerapkan konfigurasi:
+
+```bash
+sudo systemctl restart fail2ban
+```
+
+Untuk memastikan jail SSH sudah aktif, jalankan:
+```bash
+sudo fail2ban-client status sshd
+```
+
+Dengan mengaktifkan Fail2Ban, kita menambahkan lapisan pertahanan otomatis di atas konfigurasi manual SSH, yang secara efektif menolak serangan brute-force sebelum sempat masuk lebih jauh ke sistem.
+
 
 ---
 
