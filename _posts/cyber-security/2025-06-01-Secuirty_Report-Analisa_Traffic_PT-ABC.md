@@ -6,7 +6,7 @@ lang: IN
 description: Security Report
 ---
 
-## **Pengantar** 
+## Pengantar
 
 Pada artikel kali ini, saya akan membahas sebuah studi kasus nyata mengenai insiden keamanan jaringan berdasarkan hasil analisis log lalu lintas jaringan. Studi kasus ini merupakan bagian dari tugas yang diberikan dalam bootcamp Cybersecurity yang diselenggarakan oleh ID-Networkers.
 

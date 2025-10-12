@@ -6,7 +6,7 @@ lang: IN
 description: Hardening Linux Security
 ---
 
-## **Pengantar** 
+## Pengantar
 
 Pada artikel kali ini, saya akan membahas secara rinci tentang hardening SSH (Secure Shell) di sistem operasi Linux, mulai dari pengertian SSH, peran pentingnya dalam pengelolaan server jarak jauh, hingga berbagai teknik dan konfigurasi yang dapat diterapkan untuk memperkuat keamanannya. Selain itu, saya juga akan mengulas beberapa contoh praktik terbaik (best practice) serta potensi risiko keamanan jika konfigurasi SSH dibiarkan dalam kondisi default.
 

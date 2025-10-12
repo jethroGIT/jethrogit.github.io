@@ -6,7 +6,7 @@ lang: IN
 description: Konsep Dasar Jaringan
 ---
 
-## **Pengantar**
+## Pengantar
 Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.
 
 ## 📌 Daftar Isi
