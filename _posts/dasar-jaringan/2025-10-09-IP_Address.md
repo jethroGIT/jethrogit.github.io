@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pengertian IP Address dan Kelas IP Address
+title: Dasar IP Address
 category: Dasar-Jaringan
 lang: IN
 description: Pengenalan IP Address
@@ -77,13 +77,13 @@ Karna jumlah IPv4 hampir habis, dibuatlah penggantinya **IPv6** yang punya **128
 
 > 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 
-Nah, jumlah alamat yang hampir nggak terbatas, IPv6 ini dibuat untuk masa depan supaya semua perangkat IoT pun kebagian alamat!
+Nah, dengan jumlah alamat yang hampir nggak terbatas, IPv6 dibuat supaya semua perangkat dimasa depan termasuk IoT pun kebagian alamat!
 
 ---
 
 ## Kelas-Kelas IP Address
 
-Alamat IPv4 dibagi jadi beberapa **kelas** berdasarkan ukuran jaringan dan kebutuhan pengguna. Ini dikenal dengan istilah **Classful IP Addressing**.
+Alamat IPv4 dibagi jadi beberapa **kelas** berdasarkan kapasitas jaringan dan kebutuhan pengguna. Ini dikenal dengan istilah **Classful IP Addressing**.
 
 ### Kelas A
 
@@ -100,7 +100,7 @@ Kelas ini cocok buat **organisasi besar** yang butuh banyak alamat IP.
 * **Bit network:** 16 bit  
 * **Bit host:** 16 bit  
 * **Jumlah host:** ±65 ribu per jaringan  
-Biasanya dipakai oleh **universitas atau perusahaan menengah**.
+Biasanya dipakai untuk jaringan menengah kayak **universitas atau perusahaan menengah**.
 
 ### Kelas C
 
@@ -200,8 +200,13 @@ Contoh subnet mask:
 - **Kelas B:** 255.255.0.0  
 - **Kelas C:** 255.255.255.0  
 
-Dengan subnet mask, router jadi tahu bagian mana dari IP address yang menunjukkan jaringan / network id dan mana yang menunjukkan host id.
-Ini penting banget kalau kamu nanti belajar **VLSM (Variable Length Subnet Masking)** dan **routing**.
+Dengan subnet mask, router jadi tahu bagian mana dari IP address yang menunjukkan **network ID** dan mana yang menunjukkan **host ID**.
+
+Setiap jaringan memiliki dua alamat khusus, yaitu **Network Address** dan **Broadcast Address**. 
+- Network Address adalah IP Address yang digunakan untuk menandai area sebuah jaringan, 
+- Broadcast Address adalah IP Address digunakan untuk mengirim pesan/data secara broadcast ke semua host yang berada dalam satu jaringan yang sama. 
+
+Penjelasan lebih detail mengenai cara menghitung keduanya akan dibahas pada artikel berikutnya tentang Subnetting dan VLSM (Variable Length Subnet Masking).
 
 ---
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Pengertian IP Address dan Kelas IP Address – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
+      <title>Dasar IP Address – Jethro Andersson Apriliano Ofe – Forgiven sinner and Student at Maranatha Christian University</title>
 
         <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -15,8 +15,8 @@
     <meta name="author" content="Jethro Andersson Apriliano Ofe" />
 
     
-    <meta property="og:title" content="Pengertian IP Address dan Kelas IP Address" />
-    <meta property="twitter:title" content="Pengertian IP Address dan Kelas IP Address" />
+    <meta property="og:title" content="Dasar IP Address" />
+    <meta property="twitter:title" content="Dasar IP Address" />
     
 
     <!--[if lt IE 9]>
@@ -129,12 +129,12 @@
     <div class="col-md-12 col-xs-12 projet" style="margin-bottom:20px;">
       <p class="hidden-xs hidden-sm"><a href="http://localhost:4000/">Home</a> <span style="color:darkgrey">
           / <a href="http://localhost:4000/dasar-jaringan">dasar-jaringan</a>
-          / pengertian ip address dan kelas ip address</span></p>
+          / dasar ip address</span></p>
 
-      <h3>Pengertian IP Address dan Kelas IP Address
+      <h3>Dasar IP Address
         <div class="share-buttons">
           <span class="share-text">Share:</span>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdasar-jaringan%2FIP_Address%2F&title=Pengertian+IP+Address+dan+Kelas+IP+Address"
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdasar-jaringan%2FIP_Address%2F&title=Dasar+IP+Address"
             target="_blank" rel="noopener noreferrer" title="Share on LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
@@ -142,7 +142,7 @@
             target="_blank" rel="noopener noreferrer" title="Share on Facebook">
             <i class="fab fa-facebook"></i>
           </a>
-          <a href="mailto:?subject=Pengertian+IP+Address+dan+Kelas+IP+Address&body=Check this out: http%3A%2F%2Flocalhost%3A4000%2Fdasar-jaringan%2FIP_Address%2F"
+          <a href="mailto:?subject=Dasar+IP+Address&body=Check this out: http%3A%2F%2Flocalhost%3A4000%2Fdasar-jaringan%2FIP_Address%2F"
             title="Share via Email">
             <i class="fas fa-envelope"></i>
           </a>
@@ -239,13 +239,13 @@ IP address itu ibaratkan “alamat rumah” di dunia digital. Kalau alamatnya ga
   <p>2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
 </blockquote>
 
-<p>Nah, jumlah alamat yang hampir nggak terbatas, IPv6 ini dibuat untuk masa depan supaya semua perangkat IoT pun kebagian alamat!</p>
+<p>Nah, dengan jumlah alamat yang hampir nggak terbatas, IPv6 dibuat supaya semua perangkat dimasa depan termasuk IoT pun kebagian alamat!</p>
 
 <hr />
 
 <h2 id="kelas-kelas-ip-address">Kelas-Kelas IP Address</h2>
 
-<p>Alamat IPv4 dibagi jadi beberapa <strong>kelas</strong> berdasarkan ukuran jaringan dan kebutuhan pengguna. Ini dikenal dengan istilah <strong>Classful IP Addressing</strong>.</p>
+<p>Alamat IPv4 dibagi jadi beberapa <strong>kelas</strong> berdasarkan kapasitas jaringan dan kebutuhan pengguna. Ini dikenal dengan istilah <strong>Classful IP Addressing</strong>.</p>
 
 <h3 id="kelas-a">Kelas A</h3>
 
@@ -265,7 +265,7 @@ Kelas ini cocok buat <strong>organisasi besar</strong> yang butuh banyak alamat 
   <li><strong>Bit network:</strong> 16 bit</li>
   <li><strong>Bit host:</strong> 16 bit</li>
   <li><strong>Jumlah host:</strong> ±65 ribu per jaringan<br />
-Biasanya dipakai oleh <strong>universitas atau perusahaan menengah</strong>.</li>
+Biasanya dipakai untuk jaringan menengah kayak <strong>universitas atau perusahaan menengah</strong>.</li>
 </ul>
 
 <h3 id="kelas-c">Kelas C</h3>
@@ -376,8 +376,15 @@ Subnetting membagi jaringan besar jadi beberapa jaringan kecil (subnetwork) biar
   <li><strong>Kelas C:</strong> 255.255.255.0</li>
 </ul>
 
-<p>Dengan subnet mask, router jadi tahu bagian mana dari IP address yang menunjukkan jaringan / network id dan mana yang menunjukkan host id.
-Ini penting banget kalau kamu nanti belajar <strong>VLSM (Variable Length Subnet Masking)</strong> dan <strong>routing</strong>.</p>
+<p>Dengan subnet mask, router jadi tahu bagian mana dari IP address yang menunjukkan <strong>network ID</strong> dan mana yang menunjukkan <strong>host ID</strong>.</p>
+
+<p>Setiap jaringan memiliki dua alamat khusus, yaitu <strong>Network Address</strong> dan <strong>Broadcast Address</strong>.</p>
+<ul>
+  <li>Network Address adalah IP Address yang digunakan untuk menandai area sebuah jaringan,</li>
+  <li>Broadcast Address adalah IP Address digunakan untuk mengirim pesan/data secara broadcast ke semua host yang berada dalam satu jaringan yang sama.</li>
+</ul>
+
+<p>Penjelasan lebih detail mengenai cara menghitung keduanya akan dibahas pada artikel berikutnya tentang Subnetting dan VLSM (Variable Length Subnet Masking).</p>
 
 <hr />
 
@@ -537,7 +544,7 @@ Dengan paham konsep <strong>kelas IP, private/public IP</strong>, dan <strong>su
 		ga('create', 'UA-27831864-1', 'auto');
 		ga('send', 'pageview', {
 		  'page': '/dasar-jaringan/IP_Address/',
-		  'title': 'Pengertian IP Address dan Kelas IP Address'
+		  'title': 'Dasar IP Address'
 		});
 	</script>
 	<!-- End Google Analytics -->
