@@ -8,10 +8,10 @@ description: Pengenalan IP Address
 
 ## Pengantar
 
-Pernah nggak sih, kamu nyambung ke Wi-Fi tapi nggak bisa internetan? Nah, sering kali masalahnya bukan di koneksinya, tapi di pengaturan **IP address**.  
-IP address itu ibaratkan “alamat rumah” di dunia digital. Kalau alamatnya ga benar, perangkat kamu nggak bisa ngobrol sama perangkat lain di jaringan.
+Pernah nggak sih, teman teman nyambung ke Wi-Fi tapi nggak bisa internetan? Nah, sering kali masalahnya bukan di koneksinya, tapi di pengaturan **IP address**.  
+IP address itu ibaratkan “alamat rumah” di dunia digital. Kalau alamatnya ga benar, perangkat teman teman nggak bisa ngobrol sama perangkat lain didalam jaringan internet.
 
-Makanya, kalau kamu tertarik sama jaringan komputer atau lagi belajar dasar-dasar networking, paham konsep IP address itu **wajib hukumnya**. 
+Makanya, kalau teman teman tertarik sama jaringan komputer atau lagi belajar dasar-dasar networking, paham konsep IP address itu **wajib hukumnya**. 
 
 ## 📌 Daftar Isi  
 
@@ -55,7 +55,7 @@ Contoh:
 
 > 192.168.1.10 → [Network ID: 192.168.1] [Host ID: 10 ]
 
-Dengan struktur ini komputer jadi tahu “kamu dari jaringan mana” dan “perangkat mana yang mau diajak komunikasi”.
+Dengan struktur ini komputer jadi tahu “teman teman dari jaringan mana” dan “perangkat mana yang mau diajak komunikasi”.
 
 ---
 
@@ -186,13 +186,13 @@ Contoh **Private IP Address**:
 * Kelas B: 172.16.0.0 – 172.31.255.255  
 * Kelas C: 192.168.0.0 – 192.168.255.255  
 
-Kalau kamu lihat IP seperti 192.168.x.x itu tandanya kamu lagi di jaringan lokal, bukan langsung ke internet.
+Kalau teman teman lihat IP seperti 192.168.x.x itu tandanya teman teman lagi di jaringan lokal, bukan langsung ke internet.
 
 ---
 
 ## Subnet Mask dan Pembagian Jaringan
 
-Supaya IP bisa lebih efisien, dibuatlah konsep **subnetting**.  
+Supaya pembagaian alamat IP bisa lebih efisien, dibuatlah konsep **subnetting**.  
 Subnetting membagi jaringan besar jadi beberapa jaringan kecil (subnetwork) biar lebih hemat dan teratur.
 
 Contoh subnet mask:
@@ -213,6 +213,6 @@ Penjelasan lebih detail mengenai cara menghitung keduanya akan dibahas pada arti
 ## Kesimpulan
 
 IP address bukan cuma angka acak yang muncul di pengaturan jaringan, tapi sebagai identitas di dunia digital.  
-Dengan paham konsep **kelas IP, private/public IP**, dan **subnet mask**, kamu udah selangkah lebih dekat buat ngerti gimana internet dan jaringan bekerja di balik layar.
+Dengan paham konsep **kelas IP, private/public IP**, dan **subnet mask**, teman teman udah selangkah lebih dekat buat ngerti gimana internet dan jaringan bekerja di balik layar.
 
-Next step-nya? Kamu bisa lanjut ke topik **subnetting dan VLSM**, biar makin jago ngatur jaringan sendiri.  
+Next step-nya? teman teman bisa lanjut ke topik **subnetting dan VLSM**, biar makin jago ngatur jaringan sendiri.  
