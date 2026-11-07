@@ -6,7 +6,7 @@
 name: "Jethro Andersson Apriliano Ofe"
 
 # Surname of your site (displayed on the left bar and top bar)
-surname: 
+surname:
 
 # Short bio or description (displayed on the left bar an top bar)
 description: "Forgiven sinner and Student at Maranatha Christian University"
@@ -90,7 +90,7 @@ sass:
   style: :expanded # You might prefer to minify using :compressed
 
 # Use the following plug-ins
-gems:
+plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 

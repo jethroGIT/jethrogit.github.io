@@ -1,0 +1,2124 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-11-07T23:22:59+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jethro Andersson Apriliano Ofe</title><subtitle>Forgiven sinner and Student at Maranatha Christian University</subtitle><entry xml:lang="IN"><title type="html">Subeneting &amp;amp; VLSM</title><link href="http://localhost:4000/dasar-jaringan/Subneting_VLSM/" rel="alternate" type="text/html" title="Subeneting &amp;amp; VLSM" /><published>2025-10-21T00:00:00+07:00</published><updated>2025-10-21T00:00:00+07:00</updated><id>http://localhost:4000/dasar-jaringan/Subneting_VLSM</id><content type="html" xml:base="http://localhost:4000/dasar-jaringan/Subneting_VLSM/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+
+<p>Setelah memahami apa itu IP Address dan kelas-kelasnya, langkah berikutnya dalam pengelolaan jaringan adalah Subnetting dan VLSM (Variable Length Subnet Masking).
+Keduanya digunakan untuk membagi jaringan besar menjadi beberapa jaringan kecil (subnet) agar penggunaan alamat IP menjadi lebih efisien dan manajemen jaringan lebih mudah.</p>]]></content><author><name></name></author><category term="Dasar-Jaringan" /><summary type="html"><![CDATA[Pembagian Jaringan]]></summary></entry><entry xml:lang="IN"><title type="html">Dasar IP Address</title><link href="http://localhost:4000/dasar-jaringan/IP_Address/" rel="alternate" type="text/html" title="Dasar IP Address" /><published>2025-10-09T00:00:00+07:00</published><updated>2025-10-09T00:00:00+07:00</updated><id>http://localhost:4000/dasar-jaringan/IP_Address</id><content type="html" xml:base="http://localhost:4000/dasar-jaringan/IP_Address/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+
+<p>Pernah nggak sih, teman teman nyambung ke Wi-Fi tapi nggak bisa internetan? Nah, sering kali masalahnya bukan di koneksinya, tapi di pengaturan <strong>IP address</strong>.<br />
+IP address itu ibaratkan “alamat rumah” di dunia digital. Kalau alamatnya ga benar, perangkat teman teman nggak bisa ngobrol sama perangkat lain didalam jaringan internet.</p>
+
+<p>Makanya, kalau teman teman tertarik sama jaringan komputer atau lagi belajar dasar-dasar networking, paham konsep IP address itu <strong>wajib hukumnya</strong>.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#apa-itu-ip-address">Apa itu IP Address?</a></li>
+  <li><a href="#struktur-ip-address">Struktur IP Address</a></li>
+  <li><a href="#versi-ip-address-ipv4-dan-ipv6">Versi IP Address: IPv4 dan IPv6</a>
+    <ul>
+      <li><a href="#ipv4">IPv4</a></li>
+      <li><a href="#ipv6">IPv6</a></li>
+    </ul>
+  </li>
+  <li><a href="#kelas-kelas-ip-address">Kelas-Kelas IP Address</a>
+    <ul>
+      <li><a href="#kelas-a">Kelas A</a></li>
+      <li><a href="#kelas-b">Kelas B</a></li>
+      <li><a href="#kelas-c">Kelas C</a></li>
+      <li><a href="#kelas-d-dan-e">Kelas D dan E</a></li>
+    </ul>
+  </li>
+  <li><a href="#range--contoh-ip-tiap-kelas">Range &amp; Contoh IP Tiap Kelas</a></li>
+  <li><a href="#private-dan-public-ip-address">Private dan Public IP Address</a></li>
+  <li><a href="#subnet-mask-dan-pembagian-jaringan">Subnet Mask dan Pembagian Jaringan</a></li>
+  <li><a href="#kesimpulan">Kesimpulan</a></li>
+</ol>
+
+<hr />
+
+<h2 id="apa-itu-ip-address">Apa itu IP Address?</h2>
+
+<p>Gampangnya, <strong>IP Address (Internet Protocol Address)</strong> adalah identitas unik yang diberikan ke setiap perangkat yang terhubung ke jaringan, supaya bisa saling berkomunikasi.</p>
+
+<p>Bayangin aja kayak sistem pengantaran paket. Supaya paket bisa sampai ke tujuan, pengirim dan penerima harus punya alamat. Nah, sama halnya dengan komputer dan server di internet itu butuh IP buat kirim dan nerima data.</p>
+
+<p>Fungsi IP meliputi:</p>
+<ul>
+  <li><strong>Identifikasi perangkat:</strong> Setiap perangkat di jaringan punya IP yang beda.</li>
+  <li><strong>Komunikasi antar perangkat:</strong> IP jadi rute perjalanan buat ngirim data.</li>
+  <li><strong>Lokasi jaringan:</strong> IP bisa menunjukkan dari jaringan mana perangkat berasal.</li>
+</ul>
+
+<hr />
+
+<h2 id="struktur-ip-address">Struktur IP Address</h2>
+
+<p>Perlu teman teman ketahui kalau IP address itu terdiri dari dua bagian utama:</p>
+<ol>
+  <li><strong>Network ID</strong> - bagian ini menunjukkan jaringan tempat perangkat berada.</li>
+  <li><strong>Host ID</strong> - bagian ini menunjukkan perangkat spesifik di dalam jaringan itu.</li>
+</ol>
+
+<p>Contoh:</p>
+
+<blockquote>
+  <p>192.168.1.10 → [Network ID: 192.168.1] [Host ID: 10 ]</p>
+</blockquote>
+
+<p>Dengan struktur ini komputer jadi tahu “teman teman dari jaringan mana” dan “perangkat mana yang mau diajak komunikasi”.</p>
+
+<hr />
+
+<h2 id="versi-ip-address-ipv4-dan-ipv6">Versi IP Address: IPv4 dan IPv6</h2>
+
+<p>Ada dua versi IP yang umum dipakai:</p>
+
+<h3 id="ipv4">IPv4</h3>
+
+<p>Format klasik yang terdiri dari <strong>32 bit</strong> (4 oktet) dan biasanya ditulis seperti ini:</p>
+
+<blockquote>
+  <p>192.168.0.1</p>
+</blockquote>
+
+<p>Totalnya ada sekitar 4 miliar alamat, tapi sekarang udah hampir habis.</p>
+
+<h3 id="ipv6">IPv6</h3>
+
+<p>Karna jumlah IPv4 hampir habis, dibuatlah penggantinya <strong>IPv6</strong> yang punya <strong>128 bit</strong>. Contohnya:</p>
+
+<blockquote>
+  <p>2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
+</blockquote>
+
+<p>Nah, dengan jumlah alamat yang hampir nggak terbatas, IPv6 dibuat supaya semua perangkat dimasa depan termasuk IoT pun kebagian alamat!</p>
+
+<hr />
+
+<h2 id="kelas-kelas-ip-address">Kelas-Kelas IP Address</h2>
+
+<p>Alamat IPv4 dibagi jadi beberapa <strong>kelas</strong> berdasarkan kapasitas jaringan dan kebutuhan pengguna. Ini dikenal dengan istilah <strong>Classful IP Addressing</strong>.</p>
+
+<h3 id="kelas-a">Kelas A</h3>
+
+<ul>
+  <li><strong>Rentang:</strong> 1.0.0.0 – 126.255.255.255</li>
+  <li><strong>Bit network:</strong> 8 bit</li>
+  <li><strong>Bit host:</strong> 24 bit</li>
+  <li><strong>Jumlah host:</strong> ±16 juta per jaringan</li>
+  <li><strong>Awalan biner:</strong> 0<br />
+Kelas ini cocok buat <strong>organisasi besar</strong> yang butuh banyak alamat IP.</li>
+</ul>
+
+<h3 id="kelas-b">Kelas B</h3>
+
+<ul>
+  <li><strong>Rentang:</strong> 128.0.0.0 – 191.255.255.255</li>
+  <li><strong>Bit network:</strong> 16 bit</li>
+  <li><strong>Bit host:</strong> 16 bit</li>
+  <li><strong>Jumlah host:</strong> ±65 ribu per jaringan<br />
+Biasanya dipakai untuk jaringan menengah kayak <strong>universitas atau perusahaan menengah</strong>.</li>
+</ul>
+
+<h3 id="kelas-c">Kelas C</h3>
+
+<ul>
+  <li><strong>Rentang:</strong> 192.0.0.0 – 223.255.255.255</li>
+  <li><strong>Bit network:</strong> 24 bit</li>
+  <li><strong>Bit host:</strong> 8 bit</li>
+  <li><strong>Jumlah host:</strong> 254 per jaringan<br />
+Paling sering dipakai buat <strong>jaringan kecil</strong> kayak kantor atau rumah.</li>
+</ul>
+
+<h3 id="kelas-d-dan-e">Kelas D dan E</h3>
+
+<ul>
+  <li><strong>Kelas D (224.0.0.0 – 239.255.255.255):</strong> digunakan untuk <strong>multicast</strong> (ngirim data ke banyak perangkat sekaligus).</li>
+  <li><strong>Kelas E (240.0.0.0 – 255.255.255.255):</strong> dicadangkan untuk <strong>eksperimen atau riset</strong>.</li>
+</ul>
+
+<hr />
+
+<h2 id="range--contoh-ip-tiap-kelas">Range &amp; Contoh IP Tiap Kelas</h2>
+
+<table class="table-terminal">
+  <thead>
+
+    <tr>
+      <th>Kelas</th>
+      <th>Rentang IP</th>
+      <th>Jumlah Jaringan</th>
+      <th>Jumlah Host per Jaringan</th>
+      <th>Contoh</th>
+    </tr>
+
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>A</td>
+      <td>1.0.0.0 – 126.255.255.255</td>
+      <td>128</td>
+      <td>±16.777.214</td>
+      <td>10.0.0.1</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>128.0.0.0 – 191.255.255.255</td>
+      <td>16.384</td>
+      <td>±65.534</td>
+      <td>172.16.0.1</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>192.0.0.0 – 223.255.255.255</td>
+      <td>2.097.152</td>
+      <td>254</td>
+      <td>192.168.1.1</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>224.0.0.0 – 239.255.255.255</td>
+      <td>Multicast</td>
+      <td>-</td>
+      <td>224.0.0.1</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>240.0.0.0 – 255.255.255.255</td>
+      <td>Eksperimen</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="private-dan-public-ip-address">Private dan Public IP Address</h2>
+
+<p>Nggak semua IP bisa diakses dari internet. Ada dua jenis utama:</p>
+
+<ul>
+  <li><strong>Public IP:</strong> dipakai buat perangkat yang terhubung langsung ke internet (contohnya server web).</li>
+  <li><strong>Private IP:</strong> dipakai di jaringan lokal (LAN) dan nggak bisa diakses dari luar.</li>
+</ul>
+
+<p>Contoh <strong>Private IP Address</strong>:</p>
+<ul>
+  <li>Kelas A: 10.0.0.0 – 10.255.255.255</li>
+  <li>Kelas B: 172.16.0.0 – 172.31.255.255</li>
+  <li>Kelas C: 192.168.0.0 – 192.168.255.255</li>
+</ul>
+
+<p>Kalau teman teman lihat IP seperti 192.168.x.x itu tandanya teman teman lagi di jaringan lokal, bukan langsung ke internet.</p>
+
+<hr />
+
+<h2 id="subnet-mask-dan-pembagian-jaringan">Subnet Mask dan Pembagian Jaringan</h2>
+
+<p>Supaya pembagaian alamat IP bisa lebih efisien, dibuatlah konsep <strong>subnetting</strong>.<br />
+Subnetting membagi jaringan besar jadi beberapa jaringan kecil (subnetwork) biar lebih hemat dan teratur.</p>
+
+<p>Contoh subnet mask:</p>
+<ul>
+  <li><strong>Kelas A:</strong> 255.0.0.0</li>
+  <li><strong>Kelas B:</strong> 255.255.0.0</li>
+  <li><strong>Kelas C:</strong> 255.255.255.0</li>
+</ul>
+
+<p>Dengan subnet mask, router jadi tahu bagian mana dari IP address yang menunjukkan <strong>network ID</strong> dan mana yang menunjukkan <strong>host ID</strong>.</p>
+
+<p>Setiap jaringan memiliki dua alamat khusus, yaitu <strong>Network Address</strong> dan <strong>Broadcast Address</strong>.</p>
+<ul>
+  <li>Network Address adalah IP Address yang digunakan untuk menandai area sebuah jaringan,</li>
+  <li>Broadcast Address adalah IP Address digunakan untuk mengirim pesan/data secara broadcast ke semua host yang berada dalam satu jaringan yang sama.</li>
+</ul>
+
+<p>Penjelasan lebih detail mengenai cara menghitung keduanya akan dibahas pada artikel berikutnya tentang Subnetting dan VLSM (Variable Length Subnet Masking).</p>
+
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<p>IP address bukan cuma angka acak yang muncul di pengaturan jaringan, tapi sebagai identitas di dunia digital.<br />
+Dengan paham konsep <strong>kelas IP, private/public IP</strong>, dan <strong>subnet mask</strong>, teman teman udah selangkah lebih dekat buat ngerti gimana internet dan jaringan bekerja di balik layar.</p>
+
+<p>Next step-nya? teman teman bisa lanjut ke topik <strong>subnetting dan VLSM</strong>, biar makin jago ngatur jaringan sendiri.</p>]]></content><author><name></name></author><category term="Dasar-Jaringan" /><summary type="html"><![CDATA[Pengenalan IP Address]]></summary></entry><entry xml:lang="IN"><title type="html">Mengenal ECC dan Web3 Cryptography</title><link href="http://localhost:4000/cyber-security/ECC_WEB3/" rel="alternate" type="text/html" title="Mengenal ECC dan Web3 Cryptography" /><published>2025-06-09T00:00:00+07:00</published><updated>2025-06-09T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/ECC_WEB3</id><content type="html" xml:base="http://localhost:4000/cyber-security/ECC_WEB3/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+
+<h3 id="kenapa-kita-harus-peduli-sama-ecc-dan-web3-cryptography">Kenapa Kita Harus Peduli Sama ECC dan Web3 Cryptography?</h3>
+
+<p>Mungkin kamu mikir, “ECC? Web3 Cryptography? Kayak istilah teknis banget, ya?” Nggak salah sih. Tapi justru karena dunia makin digital, kriptografi itu makin relevan apalagi kalau kita ngomongin blockchain dan Web3.
+ECC (Elliptic Curve Cryptography) ini bukan sekadar alat enkripsi biasa. Dia tuh pahlawan diam-diam di balik keamanan dompet kripto kamu, transaksi blockchain, dan identitas digital. Jadi… penting nggak? Penting banget.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#cryptography">Cryptography</a>
+    <ul>
+      <li><a href="#kriptografi-itu-sebenarnya-apa-sih">Kriptografi Itu Sebenarnya Apa, Sih?</a></li>
+    </ul>
+  </li>
+  <li><a href="#web3-cryptography">Web3 Cryptography</a></li>
+  <li><a href="#ecc-elliptic-curve-cryptography">ECC (Elliptic Curve Cryptography)</a></li>
+  <li><a href="#peran-ecc-di-dunia-web3">Peran ECC di Dunia Web3</a></li>
+  <li><a href="#konsep-web3-cryptography-lainnya">Konsep Web3 Cryptography Lainnya</a></li>
+  <li><a href="#ancaman-dan-tantangan">Ancaman dan Tantangan</a>
+    <ul>
+      <li><a href="#kriptografi-aman-banget-tapi-emang-nggak-ada-celah">Kriptografi Aman Banget, Tapi Emang Nggak Ada Celah?</a></li>
+    </ul>
+  </li>
+  <li><a href="#mitigasi-dan-best-practices">Mitigasi dan Best Practices</a></li>
+  <li><a href="#masa-depan-kriptografi-di-web3">Masa Depan Kriptografi di Web3</a></li>
+  <li><a href="#kesimpulan">Kesimpulan</a></li>
+</ol>
+
+<hr />
+
+<h2 id="cryptography">Cryptography</h2>
+
+<h3 id="kriptografi-itu-sebenarnya-apa-sih">Kriptografi Itu Sebenarnya Apa, Sih?</h3>
+
+<p>Gampangnya, kriptografi adalah ilmu buat nyembunyiin pesan. Jadi kalau ada orang yang nggak berkepentingan, dia nggak bisa ngerti isi pesannya.
+Dari zaman dulu yang cuma pakai sandi sederhana, sekarang kriptografi udah berkembang jadi sistem yang super kompleks.</p>
+
+<p>Di era digital, kriptografi dipakai buat:</p>
+<ul>
+  <li>Menyembunyikan data (enkripsi),</li>
+  <li>Menjamin keaslian (digital signature),</li>
+  <li>Membuktikan identitas (authentication),</li>
+  <li>dan Menjaga integritas data (hashing).</li>
+</ul>
+
+<p>Jadi setiap kali login, transfer uang, atau kirim pesan di aplikasi terenkripsi, itu semua kerjaannya kriptografi. Makanya, fondasi keamanan digital ya ini!</p>
+
+<hr />
+
+<h2 id="web3-cryptography">Web3 Cryptography</h2>
+
+<p>Web3 itu visi internet generasi baru yang desentralisasi (nggak lagi dikontrol satu entitas kayak perusahaan raksasa).
+Tapi, biar sistemnya tetap aman dan bisa dipercaya, harus ada kriptografi sebagai pondasinya.</p>
+
+<p>Kriptografi di Web3 dipakai buat:</p>
+<ul>
+  <li>Digital identity: Biar orang bisa punya identitas unik tanpa harus daftarin ke pihak ketiga.</li>
+  <li>Wallet &amp; private key: Dompet kripto kamu cuma bisa diakses dengan private key yang dienkripsi.</li>
+  <li>Digital signature: Supaya transaksi kamu di blockchain valid dan nggak bisa dipalsuin.</li>
+  <li>Smart contract: Biar kode yang jalan otomatis di blockchain tetap aman dan bisa diverifikasi.</li>
+</ul>
+
+<p>Intinya tanpa kriptografi, Web3 cuma akan jadi mimpi, karena nggak ada trust dan security.</p>
+
+<hr />
+
+<h2 id="ecc-elliptic-curve-cryptography">ECC (Elliptic Curve Cryptography)</h2>
+
+<p>Jadi gini, ECC itu jenis kriptografi yang pakai matematika dari kurva eliptik. Kedengeran rumit? Iya, tapi manfaatnya nggak main-main.
+Dibanding RSA, ECC bisa kasih tingkat keamanan yang sama tapi dengan ukuran kunci yang lebih kecil. Artinya? Lebih hemat resource dan tetap aman.
+Makanya ECC cocok banget buat sistem yang butuh efisiensi tinggi kayak IoT atau sistem blockchain. Cepet, ringan, dan susah dibobol. Paket komplit, kan?</p>
+
+<h2 id="peran-ecc-di-dunia-web3">Peran ECC di Dunia Web3</h2>
+
+<p>Nah, kalau kamu pakai Bitcoin, Ethereum, atau dompet kripto… surprise! Kamu udah pakai ECC.
+ECC jadi fondasi buat digital signature yang ngejamin kalau transaksi kamu valid dan nggak bisa dipalsuin. Misalnya, Bitcoin pakai yang namanya secp256k1.
+ECC juga bantu ngebangun sistem identitas digital, wallet address, dan smart contract. Intinya, ECC bikin sistem Web3 tetap trustless tapi tetap aman. Tanpa ECC, Web3 bisa jadi kacau balau.</p>
+
+<hr />
+
+<h2 id="konsep-web3-cryptography-lainnya">Konsep Web3 Cryptography Lainnya</h2>
+
+<p>ECC emang populer, tapi dia bukan satu-satunya. Di Web3, kita juga kenal konsep keren kayak Zero Knowledge Proofs (ZKP), MPC, sampai threshold signatures.
+Misalnya ZKP, ini tuh metode buat buktiin sesuatu tanpa harus ngasih data detailnya. Keren banget buat privasi.
+Terus ada MPC buat ngelola kunci privat rame-rame (jadi nggak gampang dicuri), dan threshold signature buat ngebagi tanggung jawab tanda tangan.
+Gampangnya: ini semua bantu Web3 jadi lebih aman, scalable, dan tetap transparan.</p>
+
+<hr />
+
+<h2 id="ancaman-dan-tantangan">Ancaman dan Tantangan</h2>
+
+<h3 id="kriptografi-aman-banget-tapi-emang-nggak-ada-celah">Kriptografi Aman Banget, Tapi Emang Nggak Ada Celah?</h3>
+
+<p>Nah, ini dia bagian yang sering di-skip orang. Walaupun ECC itu canggih, dia bukan berarti anti-peluru.
+Ada ancaman nyata kayak Quantum Computing. Komputer kuantum bisa ngejalanin algoritma Shor buat nge-crack ECC. Walau belum kejadian sekarang, tapi kalau terjadi? Gawat.
+Terus ada juga serangan side channel (kayak analisis daya dan waktu proses), kebocoran kunci privat gara-gara random number generator yang jelek, sampai kode jahat di library palsu.
+Web3 juga rawan karena banyak user yang asal klik—fake wallet, phising, semua bisa jadi mimpi buruk.
+Jadi, jangan terlalu percaya diri ya walau sistem kamu udah pake ECC.</p>
+
+<hr />
+
+<h2 id="mitigasi-dan-best-practices">Mitigasi dan Best Practices</h2>
+
+<p>Gimana Cara Kita Tetap Aman di Tengah Ancaman Itu?
+Tenang, ada banyak cara buat tetap selamat di dunia Web3.
+Pertama, pastiin implementasi ECC kamu pakai library yang terpercaya—jangan comot sembarangan dari GitHub.
+Kedua, jangan pernah reuse private key atau pakai angka random seadanya. Entropy itu penting!
+Ketiga, selalu audit smart contract kamu. Sering kali celah ada di bagian kode yang kelihatan remeh.
+Dan terakhir, siap-siap buat masa depan post-quantum dengan pelan-pelan belajar lattice cryptography. Siapa tau, 5 tahun lagi jadi standar baru?</p>
+
+<hr />
+
+<h2 id="masa-depan-kriptografi-di-web3">Masa Depan Kriptografi di Web3</h2>
+
+<p>Apa yang Akan Terjadi Selanjutnya? ECC Masih Aman?
+Pertanyaan bagus! ECC kemungkinan masih akan dipakai beberapa tahun ke depan, tapi dunia kripto udah mulai ancang-ancang ke post-quantum cryptography.
+Teknologi kayak lattice-based dan hash-based cryptography jadi kandidat kuat buat gantiin ECC di masa depan.
+Kita juga akan lihat integrasi kriptografi dengan AI, sistem identitas terdesentralisasi, dan ekosistem blockchain yang makin kompleks.
+Web3 berkembang cepat, dan kriptografi adalah fondasi yang bikin semuanya tetap aman. Stay updated, stay secure!</p>
+
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<p>ECC dan kriptografi Web3 bukan cuma teori di buku. Mereka nyata, mereka dipakai, dan mereka krusial.
+Kalau kamu mau terjun ke dunia Web3 atau blockchain, ngerti kriptografi itu wajib. Dan jangan lupa: teknologi secanggih apa pun tetap punya celah kalau kita nggak hati-hati.
+So, yuk bareng-bareng jadi pengguna dan developer yang lebih aware sama keamanan digital.</p>
+
+<p>#IDNBootcampCyber</p>]]></content><author><name></name></author><category term="Cyber-Security" /><summary type="html"><![CDATA[Penjelasan singkat ECC dan Cryptography]]></summary></entry><entry xml:lang="IN"><title type="html">Brute Force File ZIP</title><link href="http://localhost:4000/cyber-security/Brute_Force_ZIP_File/" rel="alternate" type="text/html" title="Brute Force File ZIP" /><published>2025-06-05T00:00:00+07:00</published><updated>2025-06-05T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/Brute_Force_ZIP_File</id><content type="html" xml:base="http://localhost:4000/cyber-security/Brute_Force_ZIP_File/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+
+<p>Kalau denger kata “brute force,” mungkin yang kebayang langsung: hacker, kode rumit, dan film aksi. Padahal, prinsipnya sederhana banget. Brute force itu cuma teknik coba-coba tebak password satu per satu sampai dapet yang benar.</p>
+
+<p>Di tutorial ini, kita akan belajar bikin tools brute force sendiri buat nyoba ngebuka file ZIP yang dikunci password. Tapi penting ya: ini bukan buat iseng buka file orang. Ini semata-mata buat belajar, biar kita makin paham gimana keamanan digital itu bekerja dari dalam.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+<ol>
+  <li><a href="#persiapan">Persiapan</a></li>
+  <li><a href="#kode-program">Kode Program</a>
+    <ul>
+      <li><a href="#script-brute-force">Script Brute Force</a></li>
+    </ul>
+  </li>
+  <li><a href="#cara-menjalankan-script">Cara Menjalankan Script</a></li>
+  <li><a href="#kesimpulan">Kesimpulan</a></li>
+</ol>
+
+<hr />
+
+<p>Jadi, kenapa kita belajar ini? Karena kadang, biar paham cara ngelindungi sesuatu, kita juga harus ngerti cara nyerangnya. Brute force adalah salah satu serangan paling basic dalam dunia keamanan siber. Meskipun kelihatan simpel, teknik ini bisa jadi ancaman kalau sistem gak dilindungi dengan baik—contohnya kalau password-nya gampang ditebak.</p>
+
+<p>Dalam kasus kita, kita akan coba buka file ZIP yang dilindungi password. File ZIP ini biasa banget dipake buat kompres data atau kirim file lewat email. Dan percaya deh, banyak orang masih suka pake password kayak “123456” atau “admin”. Nah, di situlah brute force bisa jadi efektif.</p>
+
+<h2 id="persiapan">Persiapan</h2>
+
+<p>Sebelum mulai ngoding, ada beberapa hal yang perlu disiapkan. Gak ribet kok:</p>
+<ol>
+  <li>
+    <p>File ZIP yang dikunci password.</p>
+
+    <p><a href="/assets/file/brute-force-zip/protected.zip">Unduh file zip: protected.zip</a></p>
+  </li>
+  <li>
+    <p>File wordlist. Isinya daftar password yang mau kita coba satu-satu.</p>
+
+    <p><a href="/assets/file/brute-force-zip/rockyou.txt">Unduh file wordlist: rockyou.txt</a></p>
+  </li>
+  <li>Python 3. Gak perlu install library aneh-aneh, karena kita pakai modul bawaan.</li>
+  <li>Text editor buat nulis script-nya. Mau pakai VSCode, Nano, atau Notepad juga boleh.</li>
+</ol>
+
+<p>Anggap aja ini kayak nyiapin bahan masakan sebelum mulai masak, biar gak ribet di tengah jalan.</p>
+
+<hr />
+
+<h2 id="kode-program">Kode Program</h2>
+
+<p>Nah, ini bagian utamanya. Kita akan bikin script Python yang bisa coba password satu per satu dari wordlist ke file ZIP. Gak perlu tqdm, gak perlu GUI, cukup pakai logika dasar dan zipfile dari Python.</p>
+
+<p>Simpelnya, ini kayak kamu nyoba kombinasi gembok satu-satu sampai kebuka. Bedanya, komputer yang nyoba. Dan pastinya, lebih cepet daripada tangan manusia.</p>
+
+<p>Kodenya nanti akan ngebaca file ZIP, buka wordlist, terus nyobain semua password sampai nemu yang cocok. Kalau cocok, tadaa! Password ketemu. Kalau gak? Ya kita tau bahwa wordlist-nya belum cukup kuat.</p>
+
+<h3 id="script-brute-force">Script Brute Force:</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import zipfile
+
+def brute_force_zip<span class="o">(</span>zip_path, wordlist_path<span class="o">)</span>:
+    try:
+        zip_file <span class="o">=</span> zipfile.ZipFile<span class="o">(</span>zip_path<span class="o">)</span>
+    except FileNotFoundError:
+        print<span class="o">(</span>f<span class="s2">"[!] File ZIP tidak ditemukan: {zip_path}"</span><span class="o">)</span>
+        <span class="k">return
+    </span>except zipfile.BadZipFile:
+        print<span class="o">(</span>f<span class="s2">"[!] File ZIP rusak atau tidak valid: {zip_path}"</span><span class="o">)</span>
+        <span class="k">return
+
+    </span>try:
+        with open<span class="o">(</span>wordlist_path, <span class="s1">'r'</span>, <span class="nv">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="o">)</span> as wordlist:
+            <span class="k">for </span>line <span class="k">in </span>wordlist:
+                password <span class="o">=</span> line.strip<span class="o">()</span>
+                try:
+                    zip_file.extractall<span class="o">(</span><span class="nb">pwd</span><span class="o">=</span>password.encode<span class="o">(</span><span class="s1">'utf-8'</span><span class="o">))</span>
+                    print<span class="o">(</span>f<span class="s2">"[+] Password ditemukan: '{password}'"</span><span class="o">)</span>
+                    <span class="k">return
+                </span>except RuntimeError:
+                    print<span class="o">(</span>f<span class="s2">"[-] Gagal dengan password: '{password}'"</span><span class="o">)</span>
+                except Exception as e:
+                    print<span class="o">(</span>f<span class="s2">"[!] Error tak terduga: {e}"</span><span class="o">)</span>
+    except FileNotFoundError:
+        print<span class="o">(</span>f<span class="s2">"[!] Wordlist tidak ditemukan: {wordlist_path}"</span><span class="o">)</span>
+
+    print<span class="o">(</span><span class="s2">"[-] Password tidak ditemukan dalam wordlist."</span><span class="o">)</span>
+
+def main<span class="o">()</span>:
+	zip_path <span class="o">=</span> str<span class="o">(</span>input<span class="o">(</span><span class="s2">"Masukan Path File: "</span><span class="o">))</span>
+	wordlist_path <span class="o">=</span> str<span class="o">(</span>input<span class="o">(</span><span class="s2">"Masukan Path WordList: "</span><span class="o">))</span>
+	brute_force_zip<span class="o">(</span>zip_path, wordlist_path<span class="o">)</span>
+<span class="k">if </span>__name__ <span class="o">==</span> <span class="s2">"__main__"</span>:
+    main<span class="o">()</span>
+</code></pre></div></div>
+
+<h2 id="cara-menjalankan-script">Cara Menjalankan Script</h2>
+
+<p>Setelah semua disiapin dan script-nya udah ditulis, cara makainya juga simpel banget.</p>
+<ol>
+  <li>Simpan script Python-nya, misalnya dengan nama brute_force_zip.py.</li>
+  <li>Pastikan file ZIP dan wordlist ada di folder yang sama.</li>
+  <li>
+    <p>Jalankan lewat terminal:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python3 brute_force_zip.py
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Nanti akan muncul di layar password apa aja yang dicoba, dan bakal ada notifikasi begitu password-nya berhasil.</p>
+
+<p>Ini kayak main tebak-tebakan yang dicatat langsung sama komputer.</p>
+
+<p>Output dari script-nya mirip kayak ini:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Masukan Path File: protected.zip
+Masukan Path WordList: rockyou.txt
+<span class="o">[</span>-] Gagal dengan password: <span class="s1">'123456'</span>
+<span class="o">[</span>-] Gagal dengan password: <span class="s1">'password'</span>
+<span class="o">[</span>-] Gagal dengan password: <span class="s1">'admin'</span>
+<span class="o">[</span>-] Gagal dengan password: <span class="s1">'letmein'</span>
+<span class="o">[</span>+] Password ditemukan: <span class="s1">'qwerty'</span>
+</code></pre></div></div>
+
+<p>Setiap kali gagal, dia bakal kasih info password mana yang dicoba. Begitu nemu yang pas, dia langsung berhenti. Praktis dan to the point.</p>
+
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<p>Dari sini, kita belajar bahwa ngejalanin brute force itu bukan hal rumit, yang penting tahu tujuannya dan batasnya. Dengan modal Python dan logika sederhana, kita udah bisa bikin tool sendiri buat nyoba password file ZIP.</p>
+
+<p>Semoga setelah ini kamu bisa lebih ngeh: kenapa pakai password yang kuat itu penting, dan kenapa enkripsi itu bukan cuma aksesoris. Karena kalau bisa dibobol pakai wordlist seadanya, artinya ada yang perlu dibenerin dari sisi keamanan.</p>
+
+<p>#IDNBootcampCyber</p>]]></content><author><name></name></author><category term="Cyber-Security" /><summary type="html"><![CDATA[Simple Brute Force]]></summary></entry><entry xml:lang="IN"><title type="html">Hardening SSH Service Ubuntu Server 22.04 LTS</title><link href="http://localhost:4000/cyber-security/Hardening_SSH/" rel="alternate" type="text/html" title="Hardening SSH Service Ubuntu Server 22.04 LTS" /><published>2025-06-04T00:00:00+07:00</published><updated>2025-06-04T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/Hardening_SSH</id><content type="html" xml:base="http://localhost:4000/cyber-security/Hardening_SSH/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+
+<p>Pada artikel kali ini, saya akan membahas secara rinci tentang hardening SSH (Secure Shell) di sistem operasi Linux, mulai dari pengertian SSH, peran pentingnya dalam pengelolaan server jarak jauh, hingga berbagai teknik dan konfigurasi yang dapat diterapkan untuk memperkuat keamanannya. Selain itu, saya juga akan mengulas beberapa contoh praktik terbaik (best practice) serta potensi risiko keamanan jika konfigurasi SSH dibiarkan dalam kondisi default.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#apa-itu-ssh">Apa itu SSH?</a></li>
+  <li><a href="#kenapa-ssh-penting">Kenapa SSH Penting?</a></li>
+  <li><a href="#ancaman-umum-terhadap-ssh">Ancaman Umum terhadap SSH</a>
+    <ul>
+      <li><a href="#1-brute-force-attack">1. Brute-force Attack</a></li>
+      <li><a href="#2-credential-stuffing">2. Credential Stuffing</a></li>
+      <li><a href="#3-man-in-the-middle-mitm-attack">3. Man-in-the-Middle (MitM) Attack</a></li>
+      <li><a href="#4-penyalahgunaan-oleh-akun-internal">4. Penyalahgunaan oleh Akun Internal</a></li>
+    </ul>
+  </li>
+  <li><a href="#persiapan-awal">Persiapan Awal</a>
+    <ul>
+      <li><a href="#update-sistem">Update Sistem</a></li>
+      <li><a href="#backup-konfigurasi">Backup Konfigurasi</a></li>
+      <li><a href="#tools-yang-digunakan">Tools yang Digunakan</a></li>
+    </ul>
+  </li>
+  <li><a href="#konfigurasi-hardening-ssh">Konfigurasi Hardening SSH</a>
+    <ul>
+      <li><a href="#nonaktifkan-login-root">Nonaktifkan Login Root</a></li>
+      <li><a href="#gunakan-ssh-key-nonaktifkan-password-login">Gunakan SSH Key, Nonaktifkan Password Login</a></li>
+      <li><a href="#ganti-port-default-ssh">Ganti Port Default SSH</a></li>
+      <li><a href="#batasi-akses-user-dan-ip">Batasi Akses User dan IP</a></li>
+      <li><a href="#konfigurasi-timeout--connection-settings">Konfigurasi Timeout &amp; Connection Settings</a></li>
+      <li><a href="#logging-ssh">Logging SSH</a></li>
+      <li><a href="#implementasi-fail2ban">Implementasi Fail2Ban</a></li>
+    </ul>
+  </li>
+  <li><a href="#uji-konfigurasi-ssh">Uji Konfigurasi SSH</a>
+    <ul>
+      <li><a href="#cek-syntax-config">Cek Syntax Config</a></li>
+      <li><a href="#restart-ssh-service">Restart SSH Service</a></li>
+      <li><a href="#tes-login-dengan-ssh-key">Tes Login dengan SSH Key</a></li>
+    </ul>
+  </li>
+  <li><a href="#kesimpulan">Kesimpulan</a>
+    <ul>
+      <li><a href="#pentingnya-hardening-ssh-sebagai-bagian-dari-hardening-sistem-linux-secara-umum">Pentingnya Hardening SSH Sebagai Bagian dari Hardening Sistem Linux Secara Umum</a></li>
+      <li><a href="#langkah-langkah-praktis-yang-sudah-dibahas">Langkah-Langkah Praktis yang Sudah Dibahas</a></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="apa-itu-ssh">Apa itu SSH?</h2>
+
+<p>SSH (Secure Shell) adalah protokol jaringan yang digunakan untuk mengakses dan mengelola sistem komputer secara remote melalui jaringan yang tidak aman, seperti internet. SSH memungkinkan pengguna untuk melakukan login ke server jarak jauh dan menjalankan perintah-perintah secara aman, berkat penggunaan enkripsi yang melindungi data yang ditransfer.</p>
+
+<p>Secara umum, SSH menggantikan protokol lama seperti Telnet atau rlogin, yang mentransmisikan data dalam bentuk <em>plain text</em> tanpa enkripsi. Dengan SSH, seluruh komunikasi (termasuk username, password, dan perintah yang dijalankan) dienkripsi sehingga jauh lebih aman.</p>
+
+<h2 id="kenapa-ssh-penting">Kenapa SSH Penting?</h2>
+
+<p>SSH sangat penting karena merupakan salah satu jalur utama yang digunakan untuk mengelola server Linux, baik di lingkungan pengembangan, staging, maupun produksi. Melalui SSH, administrator dapat melakukan berbagai tugas, seperti:</p>
+
+<ul>
+  <li>Memantau performa server</li>
+  <li>Mengelola file dan konfigurasi</li>
+  <li>Memasang atau memperbarui perangkat lunak</li>
+  <li>Menangani troubleshooting</li>
+</ul>
+
+<p>Karena fungsinya yang krusial ini, SSH hampir selalu dibuka di server yang dikelola jarak jauh, menjadikannya target utama bagi para penyerang. Oleh sebab itu, memastikan konfigurasi SSH aman (atau <em>di-hardening</em>) adalah langkah yang sangat penting dalam menjaga keamanan seluruh sistem.</p>
+
+<h2 id="ancaman-umum-terhadap-ssh">Ancaman Umum terhadap SSH</h2>
+
+<p>Meskipun SSH menggunakan enkripsi yang kuat, tetap ada sejumlah ancaman keamanan yang sering menyerang service SSH. Berikut beberapa ancaman yang umum:</p>
+
+<h3 id="1-brute-force-attack">1. Brute-force Attack</h3>
+
+<p>Serangan ini mencoba menebak username dan password SSH dengan mengirimkan ribuan (bahkan jutaan) kombinasi secara otomatis. Jika server SSH mengizinkan login password tanpa pembatasan, serangan ini dapat berhasil membuka akses.</p>
+
+<h3 id="2-credential-stuffing">2. Credential Stuffing</h3>
+
+<p>Jika attacker memiliki daftar username dan password hasil kebocoran data di situs lain, mereka dapat mencoba kombinasi tersebut pada server SSH. Teknik ini sering lebih efektif daripada brute-force karena menggunakan kredensial yang memang pernah valid.</p>
+
+<h3 id="3-man-in-the-middle-mitm-attack">3. Man-in-the-Middle (MitM) Attack</h3>
+
+<p>Dalam serangan ini, attacker mencegat lalu lintas SSH antara client dan server, berusaha untuk menyadap atau bahkan memanipulasi komunikasi. Walaupun SSH memiliki mekanisme perlindungan terhadap MitM (dengan verifikasi <em>host key</em>), serangan ini masih mungkin terjadi jika pengguna mengabaikan peringatan saat koneksi awal ke server.</p>
+
+<h3 id="4-penyalahgunaan-oleh-akun-internal">4. Penyalahgunaan oleh Akun Internal</h3>
+
+<p>Kadang, ancaman datang dari dalam: akun SSH yang tidak digunakan atau yang memiliki hak akses berlebihan dapat dimanfaatkan untuk serangan jika tidak dikelola dengan baik.</p>
+
+<h2 id="persiapan-awal">Persiapan Awal</h2>
+
+<p>Sebelum melakukan hardening SSH, ada beberapa langkah persiapan yang penting dilakukan. Langkah-langkah ini akan membantu memastikan proses hardening berjalan aman, serta memudahkan pemulihan jika terjadi kesalahan konfigurasi.</p>
+
+<h3 id="update-sistem">Update Sistem</h3>
+
+<p>Langkah pertama sebelum melakukan <em>hardening</em> adalah memastikan sistem operasi dan semua paket perangkat lunak berada dalam versi terbaru. Hal ini penting karena setiap update biasanya membawa perbaikan terhadap celah keamanan yang sudah diketahui.</p>
+
+<p>Khusus untuk service SSH, pembaruan OpenSSH sering mencakup patch terhadap kerentanan yang bisa dieksploitasi oleh penyerang.</p>
+
+<p><strong>Perintah untuk update sistem:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<h3 id="backup-konfigurasi">Backup Konfigurasi</h3>
+
+<p>Sebelum melakukan perubahan pada konfigurasi SSH, sangat disarankan untuk membuat backup file konfigurasi utama, yaitu /etc/ssh/sshd_config. Backup ini akan sangat berguna apabila terjadi kesalahan konfigurasi yang menyebabkan service SSH tidak dapat diakses.</p>
+
+<p>Dengan memiliki salinan konfigurasi awal, kita dapat dengan mudah mengembalikan pengaturan SSH ke kondisi semula, sehingga proses troubleshooting menjadi lebih cepat dan aman.</p>
+
+<p><strong>Contoh perintah untuk membuat backup:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+</code></pre></div></div>
+
+<h3 id="tools-yang-digunakan">Tools yang Digunakan</h3>
+
+<p>Untuk membantu proses hardening SSH dan meningkatkan perlindungan server, ada beberapa tools tambahan yang bisa kita manfaatkan. Beberapa di antaranya:</p>
+
+<ul>
+  <li>
+    <h4 id="fail2ban">Fail2Ban</h4>
+
+    <p>Tools ini berfungsi untuk memantau log SSH dan secara otomatis memblokir IP yang melakukan upaya login berulang (brute-force attack). Dengan Fail2Ban, kita dapat secara proaktif melindungi server dari serangan login yang tidak sah.</p>
+  </li>
+  <li>
+    <h4 id="ufw-uncomplicated-firewall">UFW (Uncomplicated Firewall)</h4>
+
+    <p>UFW adalah firewall yang mudah dikonfigurasi dan dapat digunakan untuk mengatur akses jaringan ke server. Dengan UFW, kita bisa membatasi akses ke port SSH hanya untuk IP tertentu atau subnet yang dipercaya.</p>
+  </li>
+  <li>
+    <h4 id="iptablesnftables">iptables/nftables</h4>
+
+    <p>Untuk kebutuhan konfigurasi firewall yang lebih kompleks, kita dapat menggunakan iptables atau nftables. Tools ini memungkinkan kita membuat aturan yang lebih detail dalam mengontrol lalu lintas jaringan, termasuk untuk proteksi SSH.</p>
+  </li>
+</ul>
+
+<p>Dengan mempersiapkan langkah-langkah awal di atas, kita akan lebih siap untuk melanjutkan ke tahap konfigurasi hardening SSH dengan aman dan terkontrol.</p>
+
+<h2 id="konfigurasi-hardening-ssh">Konfigurasi Hardening SSH</h2>
+
+<p>Setelah melakukan langkah-langkah persiapan awal, kita bisa melanjutkan ke tahap inti, yaitu konfigurasi hardening SSH. Pada bagian ini, kita akan mengubah beberapa pengaturan penting di file konfigurasi SSH untuk meningkatkan keamanannya. Setiap pengaturan yang akan kita ubah memiliki tujuan tertentu dalam memperkecil risiko serangan terhadap server.</p>
+
+<h3 id="nonaktifkan-login-root">Nonaktifkan Login Root</h3>
+
+<p>Salah satu pengaturan pertama yang sangat disarankan adalah menonaktifkan kemampuan login langsung sebagai root melalui SSH. Hal ini penting karena akun root biasanya menjadi target utama dalam serangan brute-force.</p>
+
+<p>Untuk menonaktifkan login root, kita bisa mengatur opsi berikut di file <code class="language-plaintext highlighter-rouge">/etc/ssh/sshd_config</code>. Buka file dengan teks editor, misalnya nano:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/ssh/sshd_config
+</code></pre></div></div>
+
+<p>Lalu cari baris yang bertuliskan:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#PermitRootLogin prohibit-password</span>
+</code></pre></div></div>
+
+<p>Ubah atau tambahkan menjadi:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PermitRootLogin no
+</code></pre></div></div>
+
+<p>Jika sudah, simpan perubahan dengan menekan <code class="language-plaintext highlighter-rouge">Ctrl + X</code>, lalu tekan <code class="language-plaintext highlighter-rouge">Y</code> untuk menyetujui penyimpanan, dan Enter untuk keluar dari editor.</p>
+
+<p>Dengan pengaturan ini, hanya user non-root yang diizinkan login via SSH. Jika perlu melakukan tugas administratif, kita bisa menggunakan perintah sudo setelah login.</p>
+
+<h3 id="gunakan-ssh-key-nonaktifkan-password-login">Gunakan SSH Key, Nonaktifkan Password Login</h3>
+
+<p>Penggunaan autentikasi berbasis password lebih rentan terhadap serangan brute-force atau credential stuffing. Oleh karena itu, cara yang lebih aman dan direkomendasikan adalah menggunakan SSH key pair untuk autentikasi.</p>
+
+<p>Cara membuat SSH key cukup mudah. Di sisi client, jalankan perintah:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+</code></pre></div></div>
+
+<p>Contoh proses lengkapnya:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpls41@linuxmint:~<span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+Generating public/private rsa key pair.
+Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/home/mpls41/.ssh/id_rsa<span class="o">)</span>: 
+Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="k">in</span> /home/mpls41/.ssh/id_rsa
+Your public key has been saved <span class="k">in</span> /home/mpls41/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:fTtkLc1f2qZ7YDAcDS/NLUPHR61OTFxPQatF5x8zG8g mpls41@ubuntu-svr
+The key<span class="s1">'s randomart image is:
++---[RSA 4096]----+
+|            .+oBO|
+|            o=*=B|
+|           ..E*O=|
+|         .  +=*oB|
+|        S . =*+.o|
+|           + o++.|
+|            o...+|
+|             . o.|
+|              oo |
++----[SHA256]-----+
+</span></code></pre></div></div>
+
+<p>Setelah key pair dibuat, upload public key ke server dengan perintah:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-copy-id username@server_ip
+</code></pre></div></div>
+
+<p>Public key akan otomatis ditambahkan ke file <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code> milik user di server</p>
+
+<p><strong>(Opsional) Menonaktifkan Autentikasi Password</strong></p>
+
+<p>Jika semua user yang diperbolehkan login ke server sudah menggunakan SSH key, kita bisa meningkatkan keamanan lebih jauh dengan menonaktifkan login menggunakan password.</p>
+
+<p>Untuk melakukannya, buka file konfigurasi SSH:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/ssh/sshd_config
+</code></pre></div></div>
+
+<p>Lalu ubah atau tambahkan baris berikut:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PasswordAuthentication no
+</code></pre></div></div>
+
+<p>Setelah selesai, simpan perubahan dengan menekan <code class="language-plaintext highlighter-rouge">Ctrl + X</code>, lalu <code class="language-plaintext highlighter-rouge">Y</code>, kemudian Enter.</p>
+
+<blockquote>
+  <p>⚠️ Catatan penting: Menonaktifkan autentikasi password bersifat opsional, dan sebaiknya hanya dilakukan jika sudah memastikan semua user memiliki SSH key yang valid. Jika tidak, user bisa kehilangan akses ke server.</p>
+</blockquote>
+
+<p>Dengan langkah ini, server hanya akan menerima login dari user yang memiliki SSH key yang cocok dengan yang ada di server.</p>
+
+<h3 id="ganti-port-default-ssh">Ganti Port Default SSH</h3>
+
+<p>Secara default, SSH berjalan di port 22. Banyak bot otomatis memindai port ini untuk mencari server yang rentan. Salah satu langkah sederhana untuk mengurangi risiko serangan otomatis adalah mengganti port SSH ke port lain.</p>
+
+<p>Namun, perlu diingat bahwa ini <strong>bukan solusi keamanan utama</strong>, melainkan tambahan untuk menyulitkan pemindaian otomatis (obfuscation).</p>
+
+<p>Untuk melakukannya, buka file konfigurasi SSH:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/ssh/sshd_config
+</code></pre></div></div>
+
+<p>Cari baris berikut:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Port 22</span>
+</code></pre></div></div>
+
+<p>Lalu ubah atau tambahkan baris berikut:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Port 2222
+</code></pre></div></div>
+
+<p>Ganti 2222 dengan nomor port yang diinginkan (pastikan belum digunakan oleh service lain dan tidak termasuk port terlarang).</p>
+
+<p>Setelah selesai, simpan perubahan dengan menekan <code class="language-plaintext highlighter-rouge">Ctrl + X</code>, lalu <code class="language-plaintext highlighter-rouge">Y</code>, kemudian Enter.</p>
+
+<blockquote>
+  <p>⚠️ Catatan penting: Setelah mengganti port, pastikan port baru tersebut diizinkan oleh firewall agar tidak memblokir koneksi SSH. Jika menggunakan UFW, jalankan perintah:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ufw allow 2222/tcp
+</code></pre></div>  </div>
+</blockquote>
+
+<p>Setelah semuanya siap, restart service SSH agar perubahan diterapkan:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart ssh
+</code></pre></div></div>
+
+<p>Untuk login ke server setelah mengganti port, jangan lupa menambahkan opsi -p saat koneksi SSH:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-p</span> 2222 username@server_ip
+</code></pre></div></div>
+
+<p>Dengan langkah ini, port default SSH tidak lagi terbuka di port umum (22), sehingga dapat membantu mengurangi risiko serangan otomatis dari bot atau pemindai massal.</p>
+
+<h3 id="batasi-akses-user-dan-ip">Batasi Akses User dan IP</h3>
+
+<p>Untuk lebih memperketat akses SSH, kita bisa membatasi siapa saja yang diperbolehkan login ke server baik berdasarkan username, grup, maupun alamat IP. Teknik ini sangat efektif untuk memperkecil permukaan serangan, terutama jika hanya ada beberapa user yang memang perlu akses SSH.</p>
+
+<p><strong>Batasi Akses Berdasarkan Username atau Grup</strong></p>
+
+<p>Untuk melakukannya, buka file konfigurasi SSH:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/ssh/sshd_config
+</code></pre></div></div>
+
+<p>Lalu tambahkan salah satu dari baris berikut (atau keduanya):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AllowUsers user1 user2
+</code></pre></div></div>
+
+<p>Atau, jika ingin menggunakan grup:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AllowGroups sshusers
+</code></pre></div></div>
+
+<blockquote>
+  <p>Baris <code class="language-plaintext highlighter-rouge">AllowUsers</code> hanya mengizinkan user tertentu untuk login via SSH.
+Sementara <code class="language-plaintext highlighter-rouge">AllowGroups</code> mengizinkan semua user yang menjadi anggota grup tertentu.</p>
+</blockquote>
+
+<p><strong>Batasi Akses Berdasarkan IP</strong></p>
+
+<p>Selain itu, kita juga bisa memfilter berdasarkan alamat IP dengan konfigurasi Match block. Contohnya:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Match Address 192.168.1.<span class="k">*</span>
+    AllowUsers user1
+</code></pre></div></div>
+
+<p>Dengan konfigurasi ini, hanya user1 dari IP di subnet 192.168.1.x yang bisa login ke server via SSH.</p>
+
+<blockquote>
+  <p>⚠️ Catatan penting: Pastikan tidak secara sengaja memblokir akses untuk diri sendiri. Uji konfigurasi dengan membuka sesi SSH baru sebelum menutup sesi lama, agar bisa rollback jika diperlukan.</p>
+</blockquote>
+
+<p>Terakhir, restart SSH service agar perubahan diterapkan:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart ssh
+</code></pre></div></div>
+
+<h3 id="konfigurasi-timeout--connection-settings">Konfigurasi Timeout &amp; Connection Settings</h3>
+
+<p>Agar koneksi SSH yang idle tidak dibiarkan terbuka terlalu lama (yang bisa meningkatkan risiko serangan), kita bisa mengatur timeout dan parameter lain yang berkaitan dengan koneksi.</p>
+
+<p>Agar koneksi SSH yang idle tidak dibiarkan terbuka terlalu lama (yang bisa meningkatkan risiko serangan), kita bisa mengatur timeout dan parameter lain yang berkaitan dengan koneksi.</p>
+
+<p>Untuk melakukannya, buka file konfigurasi SSH:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/ssh/sshd_config
+</code></pre></div></div>
+
+<p>Lalu tambahkan salah satu dari baris berikut (atau keduanya):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ClientAliveInterval 300
+ClientAliveCountMax 0
+LoginGraceTime 60
+</code></pre></div></div>
+
+<p><strong>Penjelasan setiap parameter:</strong></p>
+
+<ul>
+  <li>
+    <p><strong>ClientAliveInterval 300:</strong> Server akan mengirimkan sinyal (keep-alive message) ke client setiap 300 detik (5 menit). Jika tidak ada aktivitas dari sisi client, sinyal ini menjadi cara untuk memeriksa apakah koneksi masih aktif.</p>
+  </li>
+  <li>
+    <p><strong>ClientAliveCountMax 0:</strong> Jika client tidak merespon sinyal tersebut, koneksi akan segera diputus tanpa peringatan. Nilai 0 berarti hanya satu kali percobaan (langsung putus jika gagal).</p>
+  </li>
+  <li>
+    <p><strong>LoginGraceTime 60:</strong> Setelah membuka koneksi SSH, user hanya diberi waktu 60 detik untuk melakukan autentikasi (misalnya memasukkan password atau validasi key). Jika dalam waktu tersebut login belum selesai, koneksi akan ditutup.</p>
+  </li>
+</ul>
+
+<p>Setelah selesai, simpan perubahan dengan menekan <code class="language-plaintext highlighter-rouge">Ctrl + X</code>, lalu <code class="language-plaintext highlighter-rouge">Y</code>, kemudian Enter.</p>
+
+<p>Terakhir, restart service SSH untuk menerapkan konfigurasi:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart ssh
+</code></pre></div></div>
+
+<p>Dengan mengatur parameter timeout seperti ini, kita dapat mengurangi kemungkinan koneksi dibiarkan terbuka tanpa pengawasan dan meningkatkan postur keamanan server secara keseluruhan.</p>
+
+<h3 id="logging-ssh">Logging SSH</h3>
+
+<p>Logging SSH sangat penting untuk memantau aktivitas login dan mendeteksi upaya serangan.</p>
+
+<p>Secara default, log SSH bisa ditemukan di:</p>
+
+<p><code class="language-plaintext highlighter-rouge">/var/log/auth.log</code> (Debian/Ubuntu)</p>
+
+<p><code class="language-plaintext highlighter-rouge">/var/log/secure</code> (RHEL/CentOS/Fedora)</p>
+
+<p>Kita bisa memantau log tersebut secara berkala menggunakan perintah seperti:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tail</span> <span class="nt">-f</span> /var/log/auth.log
+</code></pre></div></div>
+
+<p>Dengan memantau log, kita bisa segera mengetahui jika ada upaya login yang mencurigakan.</p>
+
+<h3 id="implementasi-fail2ban">Implementasi Fail2Ban</h3>
+
+<p>Selain konfigurasi manual di file SSH, kita juga bisa memperkuat keamanan server dengan bantuan tool otomatis bernama Fail2Ban. Tools ini sangat efektif untuk mencegah brute-force attack karena dapat memantau file log dan secara otomatis memblokir IP yang gagal login berkali-kali.</p>
+
+<p>Cara install Fail2Ban di Debian/Ubuntu:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>fail2ban
+</code></pre></div></div>
+
+<p>Konfigurasi Fail2Ban disimpan dalam direktori:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/fail2ban/
+</code></pre></div></div>
+
+<p>Alih-alih mengedit langsung file jail.conf (karena bisa ditimpa saat update), kita sebaiknya membuat salinan konfigurasi kustom di file jail.local.</p>
+
+<p>Untuk membuat atau mengedit file konfigurasi:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/fail2ban/jail.local
+</code></pre></div></div>
+
+<p>Kemudian tambahkan konfigurasi berikut:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>sshd]
+enabled <span class="o">=</span> <span class="nb">true
+</span>port <span class="o">=</span> 2222
+banaction <span class="o">=</span> iptables-allports
+filter <span class="o">=</span> sshd
+logpath <span class="o">=</span> /var/log/auth.log
+maxretry <span class="o">=</span> 3
+bantime <span class="o">=</span> 600
+</code></pre></div></div>
+
+<p><strong>Penjelasan Parameter</strong></p>
+
+<ul>
+  <li><strong>port:</strong> Sesuaikan dengan port SSH kamu, misalnya 2222 jika sudah diubah dari default 22.</li>
+  <li><strong>maxretry:</strong> Jumlah maksimum upaya login gagal sebelum IP diblokir.</li>
+  <li><strong>bantime:</strong> Lama waktu (dalam detik) IP akan diblokir (600 detik = 10 menit)</li>
+  <li><strong>findtime:</strong> Waktu pencatatan percobaan login gagal (dalam detik).</li>
+  <li><strong>banaction:</strong> Metode pemblokiran IP (gunakan iptables-multiport untuk proteksi lebih luas).</li>
+  <li><strong>logpath:</strong> Lokasi file log yang dipantau, default di Ubuntu adalah /var/log/auth.log.</li>
+</ul>
+
+<p>Setelah selesai, simpan perubahan dengan menekan <code class="language-plaintext highlighter-rouge">Ctrl + X</code>, lalu <code class="language-plaintext highlighter-rouge">Y</code>, kemudian Enter.</p>
+
+<p>Terakhir, restart Fail2Ban untuk menerapkan konfigurasi:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart fail2ban
+</code></pre></div></div>
+
+<p>Untuk memastikan jail SSH sudah aktif, jalankan:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>fail2ban-client status sshd
+</code></pre></div></div>
+
+<p>Dengan mengaktifkan Fail2Ban, kita menambahkan lapisan pertahanan otomatis di atas konfigurasi manual SSH, yang secara efektif menolak serangan brute-force sebelum sempat masuk lebih jauh ke sistem.</p>
+
+<hr />
+
+<p>Dengan menerapkan langkah-langkah hardening di atas, kita bisa secara signifikan meningkatkan keamanan service SSH di server Linux. Tentunya, hardening bukan proses sekali jalan — sebaiknya dilakukan review dan penyesuaian secara berkala untuk menghadapi ancaman yang terus berkembang.</p>
+
+<h2 id="uji-konfigurasi-ssh">Uji Konfigurasi SSH</h2>
+
+<p>Setelah kita melakukan konfigurasi hardening SSH, jangan lupa untuk melakukan pengujian terlebih dahulu sebelum benar-benar memberlakukan perubahan secara permanen. Ini penting untuk memastikan bahwa semua setting berjalan sesuai harapan, dan yang paling penting — kita tidak sampai terkunci keluar dari server.</p>
+
+<h3 id="cek-syntax-config">Cek Syntax Config</h3>
+
+<p>Langkah pertama sebelum me-restart service SSH adalah mengecek apakah file konfigurasi SSH yang baru kita ubah tidak mengandung kesalahan sintaks.
+Caranya:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>sshd <span class="nt">-t</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Jika tidak ada output → berarti konfigurasi valid.</li>
+  <li>Jika ada error → perbaiki terlebih dahulu sebelum melanjutkan.</li>
+</ul>
+
+<p>Langkah ini sangat penting, karena jika konfigurasi salah, service SSH bisa gagal start, dan kamu bisa kehilangan akses ke server.</p>
+
+<h3 id="restart-ssh-service">Restart SSH Service</h3>
+
+<p>Setelah memastikan konfigurasi valid, lanjutkan dengan me-restart service SSH agar perubahan diterapkan:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart ssh
+</code></pre></div></div>
+
+<h3 id="tes-login-dengan-ssh-key">Tes Login dengan SSH Key</h3>
+
+<p>Sekarang lakukan tes login dari client ke server menggunakan SSH key dan menggunakan port baru:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-p</span> 2222 username@server_ip
+</code></pre></div></div>
+
+<p>Jika proses hardening sudah benar, login akan berhasil menggunakan SSH key tanpa masalah.</p>
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<h3 id="pentingnya-hardening-ssh-sebagai-bagian-dari-hardening-sistem-linux-secara-umum">Pentingnya Hardening SSH Sebagai Bagian dari Hardening Sistem Linux Secara Umum</h3>
+
+<p>SSH adalah pintu utama akses ke server Linux, terutama server yang berjalan di lingkungan cloud atau public-facing. Oleh karena itu, memperkuat keamanan SSH merupakan bagian fundamental dari strategi hardening sistem secara keseluruhan.</p>
+
+<p>Tanpa hardening, service SSH bisa menjadi target empuk bagi berbagai jenis serangan seperti brute-force, credential stuffing, dan man-in-the-middle.</p>
+
+<h4 id="langkah-langkah-praktis-yang-sudah-dibahas">Langkah-Langkah Praktis yang Sudah Dibahas</h4>
+
+<p>Di artikel ini kita telah membahas langkah-langkah praktis untuk hardening SSH, mulai dari:</p>
+<ul>
+  <li>Menonaktifkan login root.</li>
+  <li>Menggunakan SSH key dan mematikan autentikasi password.</li>
+  <li>Mengganti port default SSH.</li>
+  <li>Membatasi user dan IP yang dapat login.</li>
+  <li>Mengatur timeout dan parameter koneksi.</li>
+  <li>Mengaktifkan logging.</li>
+  <li>Mengimplementasikan proteksi tambahan menggunakan Fail2Ban.</li>
+</ul>
+
+<p>Konfigurasi hardening bukan langkah sekali selesai. Ancaman keamanan terus berkembang, sehingga penting bagi kita untuk:</p>
+<ul>
+  <li>Selalu memperbarui sistem &amp; service SSH.</li>
+  <li>Secara berkala meninjau konfigurasi keamanan.</li>
+  <li>Memantau log aktivitas SSH.</li>
+  <li>Menerapkan prinsip least privilege — hanya memberikan akses SSH kepada user yang benar-benar membutuhkan.</li>
+</ul>
+
+<p>#IDNBootcampCyber</p>]]></content><author><name></name></author><category term="Cyber-Security" /><summary type="html"><![CDATA[Hardening Linux Security]]></summary></entry><entry xml:lang="IN"><title type="html">ICS/SCADA</title><link href="http://localhost:4000/cyber-security/ICS_SCADA/" rel="alternate" type="text/html" title="ICS/SCADA" /><published>2025-06-02T00:00:00+07:00</published><updated>2025-06-02T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/ICS_SCADA</id><content type="html" xml:base="http://localhost:4000/cyber-security/ICS_SCADA/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+
+<p>Pernahkah teman teman membayangkan bagaimana pembangkit listrik, sistem air bersih, atau pabrik besar bisa berjalan otomatis tanpa perlu campur tangan manusia setiap detik? Di balik semua itu, ada sistem cerdas bernama ICS (Industrial Control Systems) yang mengatur dan mengawasi jalannya proses industri.</p>
+
+<p>Pada artikel ini, saya akan membahas secara ringan tentang apa itu ICS dan SCADA, bagaimana cara kerjanya, di mana sistem ini digunakan, serta mengapa keamanan siber menjadi hal penting dalam teknologi ini. Tidak lupa, beberapa contoh serangan nyata juga akan kita bahas agar kamu bisa melihat seberapa besar dampaknya ketika sistem ini diserang.</p>
+
+<p>Yuk, kita mulai kenalan dengan “otak” di balik infrastruktur modern!</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#apa-itu-ics">Apa itu ICS?</a></li>
+  <li><a href="#jenis-jenis-sistem-ics">Jenis-Jenis Sistem ICS</a></li>
+  <li><a href="#bagaimana-cara-ics-bekerja">Bagaimana Cara ICS Bekerja?</a></li>
+  <li><a href="#scada">SCADA</a>
+    <ul>
+      <li><a href="#komponen-utama-dalam-sistem-scada">Komponen Utama dalam Sistem SCADA</a></li>
+      <li><a href="#alur-kerja-scada-secara-umum">Alur Kerja SCADA Secara Umum</a></li>
+    </ul>
+  </li>
+  <li><a href="#ancaman-keamanan-siber-terhadap-ics-dan-contoh-kasus-nyata">Ancaman Keamanan Siber terhadap ICS dan Contoh Kasus Nyata</a>
+    <ul>
+      <li><a href="#studi-kasus-1-serangan-stuxnet">Studi Kasus 1: Serangan Stuxnet</a></li>
+      <li><a href="#studi-kasus-2-pemadaman-listrik-ukraina-2015">Studi Kasus 2: Pemadaman Listrik Ukraina (2015)</a></li>
+      <li><a href="#studi-kasus-3-serangan-tritontrisis-2017">Studi Kasus 3: Serangan Triton/Trisis (2017)</a></li>
+    </ul>
+  </li>
+  <li><a href="#kesimpulan">Kesimpulan</a></li>
+</ol>
+
+<hr />
+
+<h2 id="apa-itu-ics">Apa itu ICS?</h2>
+
+<p>ICS atau <strong>Industrial Control Systems</strong> adalah sistem kontrol yang digunakan untuk mengelola dan mengawasi proses industri dan infrastruktur penting seperti pembangkit listrik, pengolahan air, manufaktur, hingga transportasi. ICS menghubungkan perangkat keras dan perangkat lunak yang mengontrol peralatan fisik secara otomatis, sehingga memungkinkan proses berjalan secara efisien dan aman.</p>
+
+<p>Sistem ini memainkan peranan vital dalam menjaga kontinuitas operasional industri dan infrastruktur kritikal. Tanpa ICS, proses industri akan sulit dikontrol secara real-time dan berpotensi mengalami kegagalan besar.</p>
+
+<p>ICS digunakan dalam berbagai sektor industri, misalnya:</p>
+
+<ul>
+  <li><strong>Pembangkit Listrik:</strong> Mengontrol turbin, generator, dan sistem distribusi listrik.</li>
+  <li><strong>Pengolahan Air dan Limbah:</strong> Mengatur pompa, katup, dan proses filtrasi.</li>
+  <li><strong>Manufaktur Otomotif:</strong> Mengontrol lini produksi otomatis seperti perakitan kendaraan.</li>
+  <li><strong>Minyak dan Gas:</strong> Memantau dan mengatur aliran minyak dan gas di pipa dan kilang.</li>
+  <li><strong>Transportasi:</strong> Mengatur sinyal kereta api dan sistem lalu lintas.</li>
+</ul>
+
+<hr />
+
+<h2 id="jenis-jenis-sistem-ics">Jenis-Jenis Sistem ICS</h2>
+
+<p>ICS sebenarnya mencakup beberapa jenis sistem yang masing-masing memiliki fungsi dan karakteristik berbeda, yaitu:</p>
+
+<ol>
+  <li>
+    <p><strong>SCADA (Supervisory Control and Data Acquisition)</strong><br />
+Sistem ini digunakan untuk mengawasi dan mengontrol proses industri yang tersebar secara geografis luas, misalnya jaringan listrik dan pengolahan air. SCADA mengumpulkan data sensor dan mengirimkan perintah dari pusat kontrol.</p>
+  </li>
+  <li>
+    <p><strong>DCS (Distributed Control System)</strong><br />
+Sistem kontrol terdistribusi yang umumnya digunakan dalam pabrik-pabrik manufaktur. DCS mengontrol proses secara lokal dan terdesentralisasi.</p>
+  </li>
+  <li>
+    <p><strong>PLC (Programmable Logic Controller)</strong><br />
+Perangkat keras yang diprogram untuk mengendalikan proses otomatis tertentu, seperti mengoperasikan mesin di jalur produksi.</p>
+  </li>
+  <li>
+    <p><strong>RTU (Remote Terminal Unit)</strong><br />
+Perangkat yang digunakan untuk menghubungkan sensor dan aktuator di lokasi terpencil ke pusat kontrol SCADA.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="bagaimana-cara-ics-bekerja">Bagaimana Cara ICS Bekerja?</h2>
+
+<p>ICS bekerja dengan menggabungkan berbagai komponen yang saling terhubung, yaitu:</p>
+
+<ul>
+  <li><strong>Sensor dan aktuator:</strong> Sensor mengukur variabel fisik seperti suhu, tekanan, atau aliran, sedangkan aktuator mengontrol perangkat fisik seperti katup dan motor.</li>
+  <li><strong>Controller (PLC, DCS):</strong> Menerima data dari sensor, memproses logika kontrol, lalu mengirimkan perintah ke aktuator.</li>
+  <li><strong>Sistem SCADA:</strong> Mengumpulkan data secara real-time dari controller, memonitor kondisi, dan memberikan antarmuka bagi operator manusia untuk melakukan pengawasan dan intervensi jika diperlukan.</li>
+  <li><strong>Jaringan komunikasi:</strong> Menghubungkan semua perangkat agar data dan perintah dapat dikirim secara cepat dan andal.</li>
+</ul>
+
+<p>Prosesnya secara singkat: sensor membaca kondisi fisik → data dikirim ke controller → controller memutuskan tindakan → perintah dikirim ke aktuator → sistem SCADA memantau seluruh proses.</p>
+
+<hr />
+
+<h2 id="scada">SCADA</h2>
+
+<p>SCADA (Supervisory Control and Data Acquisition) adalah bagian penting dari sistem ICS yang dirancang untuk mengawasi dan mengontrol proses industri secara jarak jauh. Teknologi ini banyak digunakan di berbagai sektor vital seperti pembangkit listrik, pabrik manufaktur, pengolahan air, hingga distribusi gas. SCADA menggabungkan perangkat keras dan perangkat lunak untuk memastikan proses industri berjalan secara otomatis, efisien, dan dapat dipantau real-time dari pusat kendali.</p>
+
+<h3 id="komponen-utama-dalam-sistem-scada">Komponen Utama dalam Sistem SCADA</h3>
+
+<p>Agar sistem SCADA bisa bekerja sebagaimana mestinya, ada beberapa komponen utama yang saling terhubung dan menjalankan fungsi spesifiknya masing-masing:</p>
+
+<ol>
+  <li>
+    <p><strong>RTU (Remote Terminal Unit)</strong><br />
+RTU adalah perangkat yang berfungsi sebagai pengumpul data dari sensor-sensor dan aktuator di lapangan. Ia juga bertugas mengeksekusi perintah yang dikirim dari pusat kontrol.</p>
+
+    <p>Di lapangan, RTU menjadi “otak lokal” yang terus-menerus membaca data seperti tekanan, arus listrik, posisi katup, atau status motor. Data ini lalu dikirimkan ke SCADA Server agar operator dapat memantaunya lewat antarmuka HMI. Tak hanya menerima data, RTU juga dapat menerima perintah seperti mematikan pompa atau membuka katup, dan langsung mengeksekusinya ke perangkat fisik.</p>
+
+    <p>Menariknya, RTU bisa diprogram menggunakan bahasa pemrograman seperti Basic atau C#, sehingga logika kontrol sederhana bisa langsung dijalankan di level perangkat tanpa selalu bergantung pada pusat.</p>
+  </li>
+  <li>
+    <p><strong>PLC (Programmable Logic Controller)</strong><br />
+PLC dirancang untuk menggantikan sistem kontrol berbasis relay yang rumit. Dengan PLC, logika kendali yang sebelumnya harus diatur lewat sambungan kabel kini bisa diatur melalui pemrograman. Ini membuat sistem lebih fleksibel, mudah dimodifikasi, dan tahan terhadap kondisi lingkungan industri yang keras.</p>
+  </li>
+  <li>
+    <p><strong>HMI (Human-Machine Interface)</strong><br />
+HMI adalah antarmuka visual yang digunakan operator untuk memantau kondisi sistem secara langsung. Di sinilah data dari RTU atau PLC ditampilkan dalam bentuk grafik, indikator, maupun kontrol interaktif.</p>
+
+    <p>HMI memungkinkan operator melihat alur proses, status alat, hingga alarm jika terjadi anomali. Antarmuka ini bisa diakses melalui panel kontrol, komputer di ruang kendali, atau bahkan perangkat mobile,</p>
+  </li>
+  <li>
+    <p><strong>SCADA Server (Master Station)</strong><br />
+SCADA Server adalah pusat dari seluruh sistem. Semua data yang dikumpulkan oleh RTU dan PLC dikirimkan ke sini untuk dianalisis, disimpan, dan ditampilkan.</p>
+
+    <p>Server ini menjalankan perangkat lunak SCADA yang memungkinkan operator melihat kondisi sistem secara keseluruhan, mengatur alarm, mencatat histori data, hingga mengirimkan perintah kembali ke lapangan. Karena perannya sangat penting, SCADA Server juga menjadi titik krusial dalam perlindungan siber infrastruktur industri.</p>
+  </li>
+</ol>
+
+<h3 id="alur-kerja-scada-secara-umum">Alur Kerja SCADA Secara Umum</h3>
+
+<p><a href="/assets/images/SCADA.png"><img src="/assets/images/SCADA.png" alt="img1" class="img-responsive" /></a></p>
+
+<p>Gambaran alur kerja sistem SCADA secara ringkas:</p>
+<ol>
+  <li>Sensor di lapangan membaca parameter fisik seperti suhu, tekanan, arus, atau status perangkat.</li>
+  <li>Data dikirim oleh RTU atau PLC ke SCADA Server melalui jaringan komunikasi seperti Ethernet, radio, atau jaringan serial.</li>
+  <li>SCADA Server memproses dan menampilkan data di HMI agar operator dapat memantau dan mengambil keputusan.</li>
+  <li>Jika diperlukan, operator mengirimkan perintah lewat HMI → perintah diteruskan ke RTU/PLC → perintah dieksekusi oleh perangkat fisik di lapangan.</li>
+</ol>
+
+<p>Dengan arsitektur seperti ini, SCADA memungkinkan industri untuk menjalankan proses secara efisien, real-time, dan dengan kendali penuh meskipun jarak antara pusat kendali dan lokasi fisik cukup jauh. Sistem ini adalah tulang punggung otomatisasi industri modern yang menjaga kelancaran dan keamanan operasi setiap harinya.</p>
+
+<hr />
+
+<h2 id="ancaman-keamanan-siber-terhadap-ics-dan-contoh-kasus-nyata">Ancaman Keamanan Siber terhadap ICS dan Contoh Kasus Nyata</h2>
+
+<p>ICS yang dulunya “terisolasi” kini semakin terhubung ke jaringan komputer dan internet, sehingga menjadi rentan terhadap serangan siber. Berikut ancaman yang sering muncul:</p>
+
+<ul>
+  <li><strong>Malware Khusus ICS:</strong> Contohnya Stuxnet, yang menyerang PLC untuk merusak centrifuge nuklir Iran dengan mengubah program kontrolnya secara diam-diam.</li>
+  <li><strong>Serangan Denial of Service (DoS):</strong> Membanjiri jaringan ICS sehingga sistem kontrol tidak bisa berfungsi.</li>
+  <li><strong>Akses Tidak Sah (Unauthorized Access):</strong> Penyerang mendapatkan akses ke sistem SCADA untuk mengubah konfigurasi.</li>
+  <li><strong>Manipulasi Data:</strong> Data sensor dipalsukan untuk menyesatkan operator.</li>
+</ul>
+
+<h3 id="studi-kasus-1-serangan-stuxnet">Studi Kasus 1: Serangan Stuxnet</h3>
+
+<p>Pada tahun 2010, malware bernama <strong>Stuxnet</strong> ditemukan menyerang fasilitas nuklir di Iran. Stuxnet secara khusus menargetkan PLC Siemens yang mengontrol centrifuge pemisahan uranium. Malware ini mampu mengubah kecepatan putaran centrifuge secara diam-diam, menyebabkan kerusakan fisik tanpa terdeteksi selama berbulan-bulan.</p>
+
+<p>Yang menarik, Stuxnet tidak hanya “menyabotase” secara fisik, tapi juga <strong>memanipulasi tampilan di sistem SCADA</strong>, sehingga operator melihat semua berjalan normal padahal sebenarnya alat-alat di dalam sudah rusak. Ini adalah serangan pertama yang diketahui secara luas menimbulkan kerusakan fisik melalui sistem ICS.</p>
+
+<hr />
+
+<h3 id="studi-kasus-2-pemadaman-listrik-ukraina-2015">Studi Kasus 2: Pemadaman Listrik Ukraina (2015)</h3>
+
+<p>Pada Desember 2015, serangan siber besar-besaran menargetkan infrastruktur listrik di Ukraina. Malware yang dikenal sebagai <strong>BlackEnergy</strong> digunakan untuk menginfeksi sistem SCADA di beberapa perusahaan energi.</p>
+
+<p>Akibat serangan ini, <strong>sekitar 225.000 orang kehilangan aliran listrik selama beberapa jam</strong> di tengah musim dingin. Selain mematikan listrik, penyerang juga melumpuhkan sistem telekomunikasi, sehingga operator tidak bisa menghubungi pusat kendali. Ini menjadi bukti nyata bahwa serangan terhadap ICS bisa berdampak langsung ke masyarakat luas.</p>
+
+<hr />
+
+<h3 id="studi-kasus-3-serangan-tritontrisis-2017">Studi Kasus 3: Serangan Triton/Trisis (2017)</h3>
+
+<p>Tahun 2017, ditemukan malware bernama <strong>Triton</strong> (juga dikenal sebagai <strong>Trisis</strong>) yang menyerang sistem keselamatan (Safety Instrumented System) di sebuah pabrik kimia di Timur Tengah.</p>
+
+<p>Sistem keselamatan ini dirancang untuk <strong>mematikan proses berbahaya secara otomatis</strong> jika terjadi kondisi tidak aman. Dengan menyerang sistem ini, penyerang berpotensi membuat proses berbahaya tetap berjalan tanpa perlindungan, yang bisa menyebabkan <strong>ledakan atau bencana kimia</strong>.</p>
+
+<p>Untungnya serangan ini berhasil terdeteksi sebelum terjadi kecelakaan besar, tapi menjadi pengingat bahwa ICS/SCADA tidak hanya mengontrol proses industri, tetapi juga menjadi <strong>garis pertahanan terakhir bagi keselamatan manusia dan lingkungan</strong>.</p>
+
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<p>ICS merupakan tulang punggung industri dan infrastruktur penting di dunia modern, dengan fungsi mengontrol dan mengawasi proses industri secara real-time. Namun, keterhubungan ICS dengan jaringan komputer modern membawa risiko keamanan siber yang serius. Ancaman seperti malware khusus ICS, serangan DoS, dan akses tidak sah dapat menyebabkan kerusakan fisik dan gangguan operasional besar. Oleh karena itu, keamanan ICS harus menjadi prioritas utama dengan menerapkan proteksi yang kuat dan monitoring yang terus-menerus.</p>
+
+<p>#IDNBootcampCyber</p>]]></content><author><name></name></author><category term="Cyber-Security" /><summary type="html"><![CDATA[Otak Dibalik Infrastruktur Modern]]></summary></entry><entry xml:lang="IN"><title type="html">Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC</title><link href="http://localhost:4000/cyber-security/Secuirty_Report-Analisa_Traffic_PT-ABC/" rel="alternate" type="text/html" title="Analisis Malware Win32/Koi Stealer pada Jaringan PT. ABC" /><published>2025-06-01T00:00:00+07:00</published><updated>2025-06-01T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/Secuirty_Report-Analisa_Traffic_PT-ABC</id><content type="html" xml:base="http://localhost:4000/cyber-security/Secuirty_Report-Analisa_Traffic_PT-ABC/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+
+<p>Pada artikel kali ini, saya akan membahas sebuah studi kasus nyata mengenai insiden keamanan jaringan berdasarkan hasil analisis log lalu lintas jaringan. Studi kasus ini merupakan bagian dari tugas yang diberikan dalam bootcamp Cybersecurity yang diselenggarakan oleh ID-Networkers.</p>
+
+<p>Peserta bootcamp diminta untuk menganalisis file log jaringan yang mencatat aktivitas mencurigakan, yang ternyata merupakan bagian dari serangan malware. Dari analisis tersebut, ditemukan bahwa salah satu host di jaringan internal PT. ABC telah terinfeksi oleh malware bernama Win32/Koi Stealer, yang aktif melakukan komunikasi ke server eksternal berbahaya.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#executive-summary">Executive Summary</a></li>
+  <li><a href="#indicator-of-compromise-ioc">Indicator of Compromise (IOC)</a></li>
+  <li><a href="#proof-of-concept-poc">Proof of Concept (POC)</a>
+    <ul>
+      <li><a href="#http-post-request">HTTP POST Request</a></li>
+      <li><a href="#user-agent-string">User-Agent String</a></li>
+      <li><a href="#indikasi-win32koi-stealer">Indikasi Win32/Koi Stealer</a></li>
+      <li><a href="#analisa-virustotal">Analisa VirusTotal</a></li>
+      <li><a href="#affected-host">Affected Host</a></li>
+      <li><a href="#security-alert">Security Alert</a></li>
+    </ul>
+  </li>
+  <li><a href="#url-generating-the-alert-traffic">URL Generating the Alert Traffic</a></li>
+  <li><a href="#risk-assesment">Risk Assessment</a></li>
+  <li><a href="#mitigation">Mitigation</a></li>
+  <li><a href="#references">References</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ol>
+
+<h2 id="executive-summary"><strong>EXECUTIVE SUMMARY</strong></h2>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Host Name</td>
+      <td>DESKTOP-RNV09AT</td>
+    </tr>
+    <tr>
+      <td>Client MAC Address</td>
+      <td>18:3d:a2:b6:8d:c4</td>
+    </tr>
+    <tr>
+      <td>Date/Time Detected</td>
+      <td>2024-09-04 17:35 UTC</td>
+    </tr>
+    <tr>
+      <td>Internal IP Address</td>
+      <td>172.17.0.99</td>
+    </tr>
+    <tr>
+      <td>External IP Address </td>
+      <td>79.124.78.197</td>
+    </tr>
+    <tr>
+      <td>Malware</td>
+      <td>Win32/Koi Stealer</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pada tanggal <strong>4 September 2024</strong>, beberapa host internal di jaringan PT. ABC menunjukkan aktivitas yang mencurigakan dalam lalu lintas jaringan, berdasarkan file PCAP yang dianalisis. Salah satu host dengan IP <code class="language-plaintext highlighter-rouge">172.17.0.99</code> terlihat cukup aktif melakukan komunikasi, baik dengan IP eksternal maupun internal, dan aktivitasnya terpantau cukup intensif.</p>
+
+<p>Dari hasil analisis lebih lanjut, host ini secara terus-menerus mengirimkan <strong>HTTP POST request</strong> ke <strong>file foots.php</strong> yang berada di IP eksternal <code class="language-plaintext highlighter-rouge">79.124.78.197</code>. Setelah dicek melalui layanan VirusTotal, IP tersebut dikategorikan sebagai berbahaya (malicious). Aktivitas ini mengindikasikan bahwa host <code class="language-plaintext highlighter-rouge">172.17.0.99</code> kemungkinan besar telah terinfeksi <strong>malware</strong>, dan sedang menjalankan operasi <strong>Command-and-Control (C2)</strong>.</p>
+
+<hr />
+
+<h2 id="indicator-of-compromise-ioc"><strong>INDICATOR OF COMPROMISE (IOC)</strong></h2>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Internal IP</strong></td>
+      <td>172.17.0.99</td>
+      <td>Host yang terinfeksi dan menjadi sumber komunikasi mencurigakan dalam jaringan.</td>
+    </tr>
+    <tr>
+      <td><strong>External IP</strong></td>
+      <td>79.124.78.197</td>
+      <td>Alamat IP tujuan dari aktivitas HTTP POST; dikategorikan sebagai malicious oleh VirusTotal.</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>http://79.124.78.197/foots.php</td>
+      <td>Endpoint command-and-control (C2) yang menerima request dari host terinfeksi.</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>http://79.124.78.197/index.php</td>
+      <td>Berisi token beacon C2 dari malware Win32/Koi Stealer.</td>
+    </tr>
+    <tr>
+      <td><strong>Malware</strong></td>
+      <td>Win32/Koi Stealer</td>
+      <td>Jenis malware yang terindikasi dari pola komunikasi dan token dalam traffic.</td>
+    </tr>
+    <tr>
+      <td><strong>HTTP Method</strong></td>
+      <td>POST</td>
+      <td>Metode permintaan yang digunakan malware untuk komunikasi dengan server eksternal.</td>
+    </tr>
+    <tr>
+      <td><strong>Content-Type</strong></td>
+      <td>application/octet-stream</td>
+      <td>Format data biner yang digunakan untuk mengirim command atau data curian.</td>
+    </tr>
+    <tr>
+      <td><strong>Content-Encoding</strong></td>
+      <td>binary</td>
+      <td>Encoding data POST—umum digunakan dalam komunikasi malware.</td>
+    </tr>
+    <tr>
+      <td><strong>User-Agent</strong></td>
+      <td>Mozilla/4.0 (MSIE 7.0; Windows NT 10.0; WOW64...)</td>
+      <td>String agen pengguna palsu dan usang, sering digunakan malware untuk menghindari deteksi.</td>
+    </tr>
+    <tr>
+      <td><strong>Token</strong></td>
+      <td>HckDcK0czXjqa48jVHNm|qIOuKk7U|http://79.124.78.197/index.php</td>
+      <td>Beacon C2 khas milik Koi Stealer, menunjukkan komunikasi awal antara malware dan server.</td>
+    </tr>
+    <tr>
+      <td><strong>MAC Address</strong></td>
+      <td>18:3d:a2:b6:8d:c4</td>
+      <td>Alamat fisik perangkat yang terinfeksi di jaringan PT. ABC.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="proof-of-concept-poc"><strong>PROOF OF CONCEPT (POC)</strong></h2>
+
+<h3 id="http-post-request">HTTP POST Request</h3>
+
+<p>Pada file 2024-09-04-traffic-analysis-exercise.pcap, terdeteksi permintaan <strong>HTTP POST</strong> dalam jumlah banyak dari host internal <code class="language-plaintext highlighter-rouge">172.17.0.99</code> ke IP eksternal <code class="language-plaintext highlighter-rouge">79.124.78.197</code> menuju endpoint <strong>/foots.php</strong>.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/HTTP-POST:79.124.78.197.png"><img src="/assets/images/log-analisis:PT_ABC/HTTP-POST:79.124.78.197.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 1}}$: Contoh HTTP POST request yang dikirim oleh host <code>172.17.0.99</code> ke server berbahaya <code>79.124.78.197</code>. Aktivitas ini terlihat jelas di file <code>2024-09-04-traffic-analysis-exercise.pcap</code> dan merupakan bagian dari komunikasi C2 yang dilakukan malware Win32/Koi Stealer.</center></em></p>
+
+<p>Permintaan yang dikirimkan oleh host <code class="language-plaintext highlighter-rouge">172.17.0.99</code> ke server eksternal menggunakan <strong>HTTP POST</strong> dengan header <strong>Content-Type: application/octet-stream</strong> dan <strong>Content-Encoding: binary</strong>. Format seperti ini umum digunakan dalam komunikasi <strong>Command-and-Control (C2)</strong> oleh malware, karena memungkinkan <strong>pengiriman data biner yang bisa berisi perintah dari server penyerang</strong> ataupun data yang dicuri dari sistem korban.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/HTTP-POST-Header.png"><img src="/assets/images/log-analisis:PT_ABC/HTTP-POST-Header.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 2}}$: Header dari HTTP POST request yang digunakan malware. Terlihat <code>Content-Type: application/octet-stream</code> dan <code>Content-Encoding: binary</code>, format yang umum dipakai malware untuk mengirim data biner atau menerima perintah dari server C2.</center></em></p>
+
+<p>Menariknya, permintaan ini ditujukan ke endpoint <strong>foots.php</strong>, yang ditulis menggunakan PHP. Penggunaan PHP sebagai endpoint merupakan taktik yang cukup umum dalam komunikasi malware atau web shell, karena PHP dapat dengan mudah menangani permintaan dan respons secara dinamis, baik untuk menerima perintah maupun mengirimkan hasil curian ke attacker.</p>
+
+<hr />
+
+<h3 id="user-agent-string">User-Agent String</h3>
+
+<p>Salah satu hal yang mencolok dari komunikasi mencurigakan ini adalah <strong>User-Agent string</strong> yang digunakan, yaitu:</p>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729)</code></p>
+</blockquote>
+
+<p>User-Agent ini tergolong usang dan tidak lazim ditemukan di lingkungan modern, terutama pada sistem dengan Windows 10. Hal ini menjadi indikator tambahan bahwa traffic tersebut kemungkinan berasal dari aplikasi yang dipalsukan atau digunakan oleh malware untuk menyamarkan diri agar terlihat seperti aplikasi lama dan sah.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/String-Agent.png"><img src="/assets/images/log-analisis:PT_ABC/String-Agent.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 3}}$: User-Agent string yang digunakan oleh malware di dalam request. String ini usang dan tidak wajar (<code>Mozilla/4.0 (MSIE 7.0; Windows NT 10.0; WOW64...)</code>), salah satu trik agar traffic malware terlihat seperti traffic normal dari aplikasi lama.</center></em></p>
+
+<h4 id="detail-user-string-agen">Detail User-String Agen</h4>
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MSIE 7.0</td>
+      <td>Menunjukkan penggunaan Internet Explorer 7, yang dirilis pada tahun 2006.</td>
+    </tr>
+    <tr>
+      <td>.NET CLR 2.0.50727</td>
+      <td>Menunjukan penggunaan .NET Framework 2.0, rilis tahun 2005.</td>
+    </tr>
+    <tr>
+      <td>Windows NT 10.0; WOW64</td>
+      <td>Mengindikasikan OS Windows 10 versi 64-bit.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Jika dilihat secara keseluruhan, kombinasi string ini tidak masuk akal secara teknis. Internet Explorer 7 dan .NET versi lama tidak wajar digunakan bersamaan dengan Windows 10, kecuali memang sengaja disusun untuk menyamarkan aktivitas malware. Ini adalah taktik umum malware, yaitu berpura-pura menjadi aplikasi atau browser lama agar lalu lintasnya tidak terlalu mencolok dalam sistem monitoring yang fokus pada signature modern. Selain itu, string seperti ini kadang digunakan untuk mengeksploitasi kerentanan lama pada server target yang masih rentan terhadap user-agent lawas.</p>
+
+<hr />
+
+<h3 id="indikasi-win32koi-stealer">Indikasi Win32/Koi Stealer</h3>
+
+<p>Pada log jaringan, terlihat adanya akses ke URL berikut:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://79.124.78.197/index.php
+</code></pre></div></div>
+
+<p>Ketika dianalisis lebih lanjut, file index.php mengandung sebuah token:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HckDcK0czXjqa48jVHNm|qIOuKk7U|http://79.124.78.197/index.php
+</code></pre></div></div>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Indikasi-Win32.png"><img src="/assets/images/log-analisis:PT_ABC/Indikasi-Win32.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 4}}$: Token yang ditemukan dalam komunikasi ke <code>http://79.124.78.197/index.php</code>. Pola token ini sangat mirip dengan beacon C2 yang digunakan oleh Win32/Koi Stealer saat pertama kali melakukan handshake dengan server C2.</center></em></p>
+
+<p>Token ini sangat mirip dengan pola <strong>C2 beacon</strong> (penanda komunikasi Command-and-Control) yang biasa digunakan oleh <strong>malware Koi Stealer</strong>. Beacon seperti ini biasanya digunakan untuk melakukan <strong>handshake</strong> awal antara malware yang sudah terpasang di host korban dengan server pengendali (attacker).</p>
+
+<p>Struktur token yang terdiri dari beberapa bagian dipisahkan oleh tanda <code class="language-plaintext highlighter-rouge">|</code> menunjukkan bahwa ada parameter identifikasi atau autentikasi yang dikirimkan oleh malware untuk memberitahu server bahwa infeksi berhasil. Biasanya, string seperti ini memuat ID unik, status sistem korban, atau URL callback yang akan digunakan untuk komunikasi selanjutnya.</p>
+
+<p>Fakta bahwa token ini muncul dalam komunikasi HTTP ke IP yang sudah dikonfirmasi berbahaya semakin memperkuat dugaan bahwa sistem telah terinfeksi Koi Stealer dan aktif menjalin koneksi dengan server penyerang untuk menerima perintah lanjutan atau mengirimkan data yang dicuri.</p>
+
+<hr />
+
+<h3 id="analisa-virustotal">Analisa VirusTotal</h3>
+
+<p>Untuk memperkuat analisis dan validasi terhadap aktivitas mencurigakan dari host <code class="language-plaintext highlighter-rouge">172.17.0.99</code>, dilakukan pengecekan reputasi terhadap IP tujuan utama <code class="language-plaintext highlighter-rouge">79.124.78.197</code> menggunakan layanan <strong>VirusTotal</strong> (<a href="www.virustotal.com">www.virustotal.com</a>).</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Analisa-VirusTotal.png"><img src="/assets/images/log-analisis:PT_ABC/Analisa-VirusTotal.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 5}}$: Hasil pengecekan reputasi IP <code>79.124.78.197</code> di VirusTotal. IP ini sudah ditandai sebagai malicious oleh beberapa vendor keamanan, yang semakin memperkuat dugaan bahwa IP ini memang dipakai untuk aktivitas C2 dan distribusi malware.</center></em></p>
+
+<p>Hasil pencarian menunjukkan bahwa IP tersebut telah ditandai sebagai <strong>malicious</strong> oleh sejumlah vendor keamanan yang kredibel seperti <strong>BitDefender</strong>, <strong>G-Data</strong>, <strong>CyRadar</strong>, dan <strong>alphaMountain.ai</strong> . Banyaknya deteksi positif dari berbagai engine keamanan menunjukkan bahwa IP ini memang telah terlibat dalam berbagai aktivitas berbahaya, seperti <strong>penyebaran malware</strong>, <strong>command-and-control server</strong>, hingga <strong>phishing</strong>.</p>
+
+<p>Berdasarkan hasil analisis teknis dan korelasi dengan reputasi IP, 79.124.78.197 kemungkinan besar berperan dalam satu atau lebih dari fungsi berikut dalam infrastruktur serangan:</p>
+
+<h4 id="1-server-command-and-control-c2">1. Server Command-and-Control (C2)</h4>
+
+<p>IP ini sangat mungkin digunakan oleh penyerang sebagai server Command-and-Control, yaitu pusat kendali yang digunakan untuk mengirim perintah ke sistem yang sudah terinfeksi—dalam hal ini, host 172.17.0.99. Komunikasi dilakukan melalui permintaan HTTP POST secara berulang ke endpoint /foots.php, yang merupakan pola umum dalam skenario C2. Server ini dapat menginstruksikan malware untuk melakukan berbagai aksi seperti mencuri kredensial, mengambil screenshot, hingga mengunduh file berbahaya lainnya.</p>
+
+<h4 id="2-titik-distribusi-malware">2. Titik Distribusi Malware</h4>
+
+<p>Walaupun tidak langsung terlihat pada log (PCAP) yang dianalisis, IP berbahaya seperti ini sering juga berfungsi sebagai host untuk menyebarkan payload malware. Dengan kata lain, selain mengontrol sistem yang terinfeksi, server ini bisa saja digunakan untuk menyebarkan file berbahaya yang dikamuflase sebagai installer, dokumen, atau aplikasi palsu kepada korban lain dalam kampanye serangan yang sama.</p>
+
+<h4 id="3-endpoint-eksfiltrasi-data">3. Endpoint Eksfiltrasi Data</h4>
+
+<p>IP ini juga sangat mungkin digunakan sebagai endpoint eksfiltrasi data. Malware yang aktif di host korban dapat mengumpulkan data sensitif seperti username/password, file penting, history browser, atau bahkan clipboard, lalu mengirimkannya dalam format binary menggunakan Content-Type: application/octet-stream. Fakta bahwa komunikasi ini terjadi secara terus-menerus (bukan hanya satu kali) menunjukkan bahwa infeksi bersifat persisten dan sedang dikendalikan secara aktif dari jarak jauh.</p>
+
+<hr />
+
+<h3 id="affected-host">Affected Host</h3>
+
+<p>Host ini merupakan perangkat internal dalam jaringan PT. ABC yang terdeteksi melakukan aktivitas mencurigakan berdasarkan hasil analisis file log 2024-09-04-traffic-analysis-exercise.pcap.</p>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>IP Address</strong></td>
+      <td>172.17.0.99</td>
+    </tr>
+    <tr>
+      <td><strong>MAC Address</strong></td>
+      <td>18:3d:a2:b6:8d:c4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Perangkat ini secara aktif melakukan komunikasi ke IP eksternal yang telah terverifikasi sebagai <strong>malicious</strong>, yaitu <code class="language-plaintext highlighter-rouge">79.124.78.197</code>. Komunikasi tersebut berupa <strong>HTTP POST</strong> dalam jumlah besar dengan pola yang khas digunakan oleh malware, yang mengindikasikan bahwa host ini telah terinfeksi dan kemungkinan menjadi bagian dari operasi <strong>Command-and-Control (C2)</strong>.</p>
+
+<p>MAC address 18:3d:a2:b6:8d:c4 mengidentifikasi secara unik perangkat ini di dalam jaringan lokal.</p>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Affected-Host.png"><img src="/assets/images/log-analisis:PT_ABC/Affected-Host.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 6}}$: Informasi host yang terinfeksi. Host <code>172.17.0.99</code> dengan MAC address <code>18:3d:a2:b6:8d:c4</code> teridentifikasi sebagai sumber utama aktivitas komunikasi mencurigakan di jaringan PT. ABC.</center></em></p>
+
+<hr />
+
+<h3 id="security-alert">Security Alert</h3>
+
+<p>Alert ini berasal dari file 2024-09-04-traffic-analysis-exercise-alerts.txt, yang berisi hasil pemantauan lalu lintas jaringan oleh sistem deteksi intrusi (IDS). Alert ini mengindikasikan adanya aktivitas berbahaya dari host internal 172.17.0.99 yang mencoba melakukan komunikasi Command-and-Control (C2) dengan IP eksternal 79.124.78.197.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">------------------------------------------------------------------------</span>
+Count:48 Event#3.1504 First seen: 2024-09-04 17:35 UTC
+ETPRO TROJAN Win32/Koi Stealer CnC Checkin <span class="o">(</span>POST<span class="o">)</span> M2
+172.17.0.99 -&gt; 79.124.78.197
+<span class="nv">IPVer</span><span class="o">=</span>4 <span class="nv">hlen</span><span class="o">=</span>5 <span class="nv">tos</span><span class="o">=</span>0 <span class="nv">dlen</span><span class="o">=</span>429 <span class="nv">ID</span><span class="o">=</span>0 <span class="nv">flags</span><span class="o">=</span>0 <span class="nv">offset</span><span class="o">=</span>0 <span class="nv">ttl</span><span class="o">=</span>0 <span class="nv">chksum</span><span class="o">=</span>28310
+Protocol: 6 <span class="nv">sport</span><span class="o">=</span>49813 -&gt; <span class="nv">dport</span><span class="o">=</span>80
+
+<span class="nv">Seq</span><span class="o">=</span>0 <span class="nv">Ack</span><span class="o">=</span>0 <span class="nv">Off</span><span class="o">=</span>5 <span class="nv">Res</span><span class="o">=</span>0 <span class="nv">Flags</span><span class="o">=</span><span class="k">********</span> <span class="nv">Win</span><span class="o">=</span>0 <span class="nv">urp</span><span class="o">=</span>36144 <span class="nv">chksum</span><span class="o">=</span>0
+</code></pre></div></div>
+
+<p><a href="/assets/images/log-analisis:PT_ABC/Security-Alert.jpg"><img src="/assets/images/log-analisis:PT_ABC/Security-Alert.jpg" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 7}}$: Salah satu alert yang muncul di IDS berdasarkan file <code>2024-09-04-traffic-analysis-exercise-alerts.txt</code>. Alert ini mengonfirmasi adanya komunikasi C2 yang dilakukan oleh malware Win32/Koi Stealer dari host <code>172.17.0.99</code> ke server berbahaya.</center></em></p>
+
+<p>Signature alert:</p>
+<blockquote>
+  <p><strong>ETPRO TROJAN Win32/Koi Stealer CnC Checkin (POST) M2</strong></p>
+</blockquote>
+
+<p>Menunjukkan bahwa pola komunikasi yang terdeteksi sangat cocok dengan ciri khas malware Koi Stealer saat melakukan proses check-in ke server pengendali. Ini merupakan fase awal dari serangan, di mana malware memberitahukan kehadirannya ke attacker dan siap menerima instruksi lanjutan.</p>
+
+<hr />
+
+<h2 id="url-generating-the-alert-traffic"><strong>URL GENERATING THE ALERT TRAFFIC</strong></h2>
+
+<p>Daftar URL berikut merupakan endpoint yang digunakan oleh malware untuk berkomunikasi dengan server eksternal. Ketiga URL ini terekam dalam log dan alert keamanan, dan semuanya mengarah ke IP yang telah dikonfirmasi sebagai malicious (<code class="language-plaintext highlighter-rouge">79.124.78.197</code>):</p>
+
+<ul>
+  <li>http://79.124.78.197/index.php?id&amp;subid=qIOuKk7U</li>
+  <li>http://79.124.78.197/index.php</li>
+  <li>http://79.124.78.197/foots.php</li>
+</ul>
+
+<hr />
+
+<h2 id="risk-assesment"><strong>RISK ASSESMENT</strong></h2>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Penilaian</th>
+      <th>Keterangan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Kemungkinan Infeksi</strong></td>
+      <td>Dikonfirmasi</td>
+      <td>Host `172.17.0.99` mengirim HTTP POST ke IP eksternal berbahaya dan terdeteksi oleh signature malware Koi Stealer.</td>
+    </tr>
+    <tr>
+      <td><strong>Potensi Dampak</strong></td>
+      <td>Tinggi</td>
+      <td>Aktivitas C2 berpotensi menyebabkan pencurian data, kontrol penuh atas host, dan penyebaran ke sistem lain.</td>
+    </tr>
+    <tr>
+      <td><strong>Potensi Penyebaran</strong></td>
+      <td>Sedang</td>
+      <td>Ditemukan aktivitas SMB internal; potensi penyebaran tergantung hak akses dan konfigurasi sistem lain.</td>
+    </tr>
+    <tr>
+      <td><strong>Stealth Level</strong></td>
+      <td>Sedang</td>
+      <td>Koneksi menggunakan HTTP biasa dengan payload kecil dan endpoint generik (foots.php), tanpa enkripsi.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="mitigation"><strong>MITIGATION</strong></h2>
+
+<p>Host Terinfeksi (172.17.0.99):</p>
+<ul>
+  <li>Melakukan isolasi dari jaringan (untuk mencegah penyebaran malwere).</li>
+  <li>Melakukan pemindaian malware secara menyeluruh menggunakan antivirus (misalnya Windows Defender, Malwarebytes, atau toolkit forensik).</li>
+  <li>Membersihkan atau melakukan install ulang (re-image).</li>
+</ul>
+
+<p>Keamanan Jaringan:</p>
+<ul>
+  <li>Memblokir seluruh lalu lintas ke/dari IP <code class="language-plaintext highlighter-rouge">79.124.78.197</code>.</li>
+  <li>Mencari di log apakah ada mesin internal lain yang juga berkomunikasi dengan IP <code class="language-plaintext highlighter-rouge">79.124.78.197</code>.</li>
+  <li>Membatasi akses keluar (outbound traffic) dari jaringan hanya ke layanan atau domain yang sah.</li>
+</ul>
+
+<hr />
+
+<h2 id="references"><strong>REFERENCES</strong></h2>
+<ul>
+  <li>File PCAP: <a href="/assets/file/log-serangan/PT-ABC/2024-09-04-traffic-analysis-exercise.pcap">2024-09-04-traffic-analysis-exercise.pcap</a></li>
+  <li>IDS Alert Log: <a href="/assets/file/log-serangan/PT-ABC/2024-09-04-traffic-analysis-exercise-alerts.txt">2024-09-04-traffic-analysis-exercise-alerts.tx</a></li>
+  <li>VirusTotal IP Reputation: <a href="https://www.virustotal.com/gui/ip-address/79.124.78.197">https://www.virustotal.com/gui/ip-address/79.124.78.197</a></li>
+</ul>
+
+<hr />
+
+<h2 id="conclusion"><strong>CONCLUSION</strong></h2>
+
+<p>Berdasarkan analisis terhadap file PCAP dan alert IDS, dapat disimpulkan bahwa
+host 172.17.0.99 telah terinfeksi malware jenis Win32/Koi Stealer. Malware ini aktif melakukan komunikasi ke C2 server, menyalahgunakan protokol internal, serta menyusun domain palsu untuk aktivitas AD spoofing. Semua aktivitas telah tervalidasi melalui traffic analysis dan threat intelligence eksternal</p>
+
+<p>#IDNBootcampCyber</p>]]></content><author><name></name></author><category term="Cyber-Security" /><summary type="html"><![CDATA[Security Report]]></summary></entry><entry xml:lang="IN"><title type="html">Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer</title><link href="http://localhost:4000/cyber-security/Jaringan_Komputer_Dasar/" rel="alternate" type="text/html" title="Mengenal Dasar Jaringan Komputer dengan Cisco Packet Tracer" /><published>2025-05-31T00:00:00+07:00</published><updated>2025-05-31T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/Jaringan_Komputer_Dasar</id><content type="html" xml:base="http://localhost:4000/cyber-security/Jaringan_Komputer_Dasar/"><![CDATA[<h2 id="pengantar">Pengantar</h2>
+<p>Pada artikel kali ini, saya akan membahas dasar-dasar jaringan komputer dan praktik penggunaannya menggunakan simulator jaringan, yaitu Cisco Packet Tracer. Artikel ini cocok bagi pemula yang ingin memahami konsep jaringan sekaligus mempraktikkannya secara langsung.</p>
+
+<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+
+<ol>
+  <li><a href="#dasar-dasar-jaringan-komputer">Dasar-Dasar Jaringan Komputer</a>
+    <ul>
+      <li><a href="#1-jenis-jenis-jaringan">1. Jenis-Jenis Jaringan</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-memahami-ip-address-dan-subnetting">Memahami IP Address dan Subnetting</a>
+    <ul>
+      <li><a href="#apa-itu-ip-address">1. Apa Itu IP Address?</a></li>
+      <li><a href="#jenis-jenis-ip-address">2. Jenis-Jenis IP Address</a></li>
+      <li><a href="#subnetting-memecah-jaringan-jadi-lebih-kecil">3. Subnetting: Memecah Jaringan Jadi Lebih Kecil</a></li>
+      <li><a href="#tipe-tipe-alamat-dalam-subnet">4. Tipe-Tipe Alamat dalam Subnet</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-mengenal-dns-penerjemah-nama-di-internet">Mengenal DNS: “Penerjemah Nama” di Internet</a>
+    <ul>
+      <li><a href="#apa-itu-dns">1. Apa itu DNS?</a></li>
+      <li><a href="#cara-kerja-dns-simpelnya">2. Cara Kerja DNS (Simpelnya)</a></li>
+      <li><a href="#kenapa-dns-penting">3. Kenapa DNS Penting?</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-praktik-setting-ip-address-subnet-mask-dan-gateway">Praktik: Setting IP Address, Subnet Mask, dan Gateway</a>
+    <ul>
+      <li><a href="#-unduh-file-latihan">Unduh File Latihan</a></li>
+      <li><a href="#1-setting-ip-di-pc">1. Setting IP di PC</a></li>
+      <li><a href="#2-setting-ip-di-laptop">2. Setting IP di Laptop</a></li>
+      <li><a href="#3-setting-ip-router">3. Setting IP Router</a></li>
+      <li><a href="#4-menguji-koneksi">4. Menguji Koneksi</a></li>
+    </ul>
+  </li>
+  <li><a href="#penutup">Penutup</a></li>
+</ol>
+
+<h2 id="dasar-dasar-jaringan-komputer"><strong>Dasar-Dasar Jaringan Komputer</strong></h2>
+<p>Sebelum masuk ke simulasi dan praktik menggunakan aplikasi seperti Cisco Packet Tracer, penting banget untuk memahami dulu dasar-dasar jaringan komputer. Jadi gini, ketika dua komputer atau lebih ingin “ngobrol” alias bertukar data, mereka butuh jalan atau media untuk mengirim dan menerima informasi. Nah, jaringan komputer inilah yang menjadi perantara komunikasi itu.</p>
+
+<p>Komputer bisa saling terhubung melalui kabel, gelombang radio (Wi-Fi), atau serat optik. Tapi komunikasi antar komputer itu nggak sembarangan—ada aturan atau protokol yang mengatur bagaimana data dikirim dari satu titik ke titik lainnya, supaya nggak nyasar. Data yang dikirim juga dipaket-paketkan (makanya disebut packet), lalu dikirim lewat jalur yang paling efisien.</p>
+
+<p>Sekarang, mari kita bahas jenis-jenis jaringan berdasarkan cakupan areanya:</p>
+
+<hr />
+
+<h2 id="1-jenis-jenis-jaringan">1. Jenis-Jenis Jaringan</h2>
+
+<p><strong>🏠 LAN (Local Area Network)</strong></p>
+
+<p>LAN adalah jaringan kecil yang biasanya hanya mencakup satu lokasi, misalnya di rumah, kantor, atau laboratorium komputer. Dalam LAN, perangkat-perangkat seperti komputer, printer, atau router saling terhubung secara langsung dan bisa bertukar data dengan cepat. Contoh sederhana: komputer di lab kampus yang saling terkoneksi dan bisa saling sharing file atau printer.</p>
+
+<p><strong>🏢 MAN (Metropolitan Area Network)</strong></p>
+
+<p>MAN mencakup area yang lebih luas dibanding LAN, biasanya mencakup satu kota atau kawasan kampus yang terdiri dari banyak gedung. Jaringan ini sering digunakan oleh institusi besar, misalnya kampus atau pemerintahan kota, untuk menghubungkan beberapa lokasi yang berjauhan tapi masih dalam satu wilayah metropolitan.</p>
+
+<p><strong>🌍 WAN (Wide Area Network)</strong></p>
+
+<p>WAN adalah jaringan paling luas, bahkan bisa menghubungkan komputer di seluruh dunia. Internet adalah contoh nyata dari WAN. Karena jarak yang jauh, WAN sering menggunakan teknologi komunikasi seperti satelit atau jaringan fiber optik jarak jauh.</p>
+
+<hr />
+
+<h2 id="2-memahami-ip-address-dan-subnetting">2. Memahami IP Address dan Subnetting</h2>
+
+<p>Setelah tahu jenis-jenis jaringan, sekarang kita bahas gimana caranya komputer bisa saling “bertemu” satu sama lain dalam jaringan. Di sinilah <strong>IP Address</strong> berperan penting.</p>
+
+<h3 id="apa-itu-ip-address">Apa Itu IP Address?</h3>
+<p>Bayangin kamu lagi kirim surat ke teman. Tentu kamu butuh <strong>alamat tujuan</strong>, kan? Nah, dalam jaringan <strong>IP Address</strong> (Internet Protocol Address) adalah <strong>alamat unik</strong> yang diberikan ke setiap perangkat entah itu komputer, printer, router, atau bahkan HP supaya bisa dikenali dan dihubungi.</p>
+
+<p>Contoh IP Address versi IPv4:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.10
+</code></pre></div></div>
+
+<p>IP Address terdiri dari dua bagian utama:</p>
+<ul>
+  <li><strong>Network ID:</strong> Menunjukkan alamat jaringan.</li>
+  <li><strong>Host ID:</strong> Menunjukkan perangkat tertentu dalam jaringan tersebut.</li>
+</ul>
+
+<p>Contoh:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP Address : 192.168.1.10
+Subnet mask: 255.255.255.0
+</code></pre></div></div>
+
+<p>Di sini, <code class="language-plaintext highlighter-rouge">192.168.1</code> adalah Network ID, dan <code class="language-plaintext highlighter-rouge">10</code> adalah Host ID.</p>
+
+<h3 id="jenis-jenis-ip-address">Jenis-Jenis IP Address</h3>
+
+<p>Secara umum, IP Address terbagi jadi dua jenis:</p>
+
+<ul>
+  <li><strong>IP Publik:</strong> Bisa diakses dari internet langsung. Biasanya digunakan oleh server, website, atau perangkat yang harus diakses dari luar jaringan lokal.</li>
+  <li><strong>IP Private:</strong> Hanya digunakan dalam jaringan lokal (LAN/WAN). Biasanya digunakan oleh komputer rumah, printer kantor, atau router Wi-Fi.</li>
+</ul>
+
+<h3 id="subnetting-memecah-jaringan-jadi-lebih-kecil">Subnetting: Memecah Jaringan Jadi Lebih Kecil</h3>
+
+<p>Subnetting adalah teknik untuk <strong>membagi satu jaringan besar jadi beberapa sub-jaringan (subnet) yang lebih kecil</strong>, supaya lalu lintas data lebih efisien dan lebih mudah dikelola. Setiap subnet punya jatah IP sendiri.</p>
+
+<h4 id="contoh-subneting-sederhana">Contoh Subneting Sederhana</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Network: 192.168.1.0/24
+</code></pre></div></div>
+
+<p>Artinya:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">192.168.1.0</code> = Network address</li>
+  <li><code class="language-plaintext highlighter-rouge">/24</code> = Netmask (255.255.255.0), artinya ada 256 alamat (0–255)</li>
+  <li>Tapi… alamat pertama (0) adalah network address dan terakhir (255) adalah broadcast address, jadi yang bisa dipakai: 192.168.1.1 sampai 192.168.1.254</li>
+</ul>
+
+<h4 id="tipe-tipe-alamat-dalam-subnet">Tipe-Tipe Alamat dalam Subnet</h4>
+
+<table class="table-terminal">
+  <thead>
+    <tr>
+      <th>Tipe Alamat</th>
+      <th>Contoh</th>
+      <th>Fungsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Network Address</td>
+      <td>192.168.1.0</td>
+      <td>Menandai alamat utama jaringan</td>
+    </tr>
+    <tr>
+      <td>Broadcast Address</td>
+      <td>192.168.1.255</td>
+      <td>Digunakan untuk mengirim ke semua host</td>
+    </tr>
+    <tr>
+      <td>Host Address</td>
+      <td>192.168.1.1 – 192.168.1.254</td>
+      <td>Digunakan oleh perangkat di jaringan</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kenapa-subnetting-penting">Kenapa Subnetting Penting?</h3>
+
+<p>Bayangkan kamu sedang mengatur sekolah besar dengan 1.000 siswa, tapi semuanya hanya punya satu ruang kelas. Bisa dibayangkan betapa berisik dan kacau suasananya:</p>
+<ul>
+  <li>Semua murid bicara sekaligus.</li>
+  <li>Guru sulit fokus karena semua siswa saling bersahut-sahutan.</li>
+  <li>Kalau ada informasi penting, bisa tidak terdengar atau tertukar.</li>
+  <li>Mengelola dan mengawasi mereka jadi sangat sulit.</li>
+</ul>
+
+<p>Sekarang, bandingkan jika kamu membagi siswa ke dalam 20 kelas kecil, masing-masing dengan 50 orang:</p>
+<ul>
+  <li>Komunikasi jadi lebih terarah.</li>
+  <li>Informasi bisa disampaikan lebih efisien.</li>
+  <li>Masing-masing kelas bisa dikelola secara terpisah.</li>
+  <li>Kalau ada masalah di satu kelas, tidak mengganggu yang lain.</li>
+</ul>
+
+<p>Nah, subnetting di jaringan itu persis seperti membagi siswa ke dalam kelas-kelas kecil.
+<br />
+Dengan subnetting:</p>
+<ul>
+  <li>Lalu lintas data (traffic) di jaringan tidak saling tabrakan.</li>
+  <li>Broadcast (pengumuman dalam jaringan) tidak membanjiri semua perangkat.</li>
+  <li>Keamanan dan kontrol jadi lebih mudah.</li>
+  <li>IP Address bisa digunakan lebih hemat dan efisien.</li>
+</ul>
+
+<p>Dengan subnetting, kamu bisa memecah jaringan jadi lebih kecil. Misalnya dari:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Network: 192.168.1.0/24
+</code></pre></div></div>
+
+<p>menjadi:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">192.168.1.0/26</code> → 64 alamat (62 usable)</li>
+  <li><code class="language-plaintext highlighter-rouge">192.168.1.64/26</code> → 64 alamat lagi</li>
+  <li>dan seterusnya…</li>
+</ul>
+
+<hr />
+
+<h2 id="3-mengenal-dns-penerjemah-nama-di-internet">3. Mengenal DNS: “Penerjemah Nama” di Internet</h2>
+
+<p>Setelah kamu paham soal IP Address dan Subnetting, sekarang muncul satu pertanyaan:
+<i>“Kalau setiap perangkat punya alamat IP, kenapa kita jarang banget mengetik angka-angka itu waktu browsing?”</i>
+Jawabannya adalah: karena kita punya <strong>DNS</strong>!</p>
+
+<h3 id="apa-itu-dns">Apa itu DNS?</h3>
+
+<p>Bayangin kamu mau ngunjungin rumah teman, tapi kamu cuma inget nama panggilannya, bukan alamat rumahnya. Di dunia internet, nama itu seperti youtube.com, sedangkan alamat rumahnya adalah alamat IP seperti <code class="language-plaintext highlighter-rouge">142.250.190.46</code>.</p>
+
+<p>DNS (Domain Name System) adalah sistem yang bertugas menerjemahkan nama domain (seperti youtube.com) menjadi IP address (seperti <code class="language-plaintext highlighter-rouge">142.250.190.46</code>).</p>
+
+<h3 id="cara-kerja-dns-simpelnya">Cara Kerja DNS (Simpelnya):</h3>
+<ol>
+  <li>Kamu mengetik www.google.com di browser.</li>
+  <li>Komputer akan bertanya ke DNS:
+    <blockquote>
+      <p>“IP Address dari www.google.com itu berapa ya?”</p>
+    </blockquote>
+  </li>
+  <li>DNS menjawab:
+    <blockquote>
+      <p>“Ini alamatnya: <code class="language-plaintext highlighter-rouge">142.250.190.78</code>”</p>
+    </blockquote>
+  </li>
+  <li>Browser kemudian membuka koneksi ke alamat IP tersebut dan menampilkan halaman Google.</li>
+</ol>
+
+<p>DNS ini bekerja lewat server-server yang tersebar di seluruh dunia dan terstruktur secara hirarki, mulai dari <strong>root DNS</strong>, <strong>TLD (Top-Level Domain) DNS</strong>, hingga <strong>authoritative DNS</strong> yang menyimpan jawaban akhirnya.</p>
+
+<h3 id="kenapa-dns-penting">Kenapa DNS Penting?</h3>
+<ul>
+  <li>
+    <p><strong>Mudah Diingat</strong> 
+<br />
+Tentu lebih mudah mengingat youtube.com dibanding <code class="language-plaintext highlighter-rouge">142.250.190.46</code>, kan ?</p>
+  </li>
+  <li>
+    <p><strong>Fleksibel:</strong> 
+<br />
+Kalau sebuah situs pindah server (ganti IP Address), kamu <strong>tidak perlu tahu perubahan itu</strong>. DNS yang akan mengarahkannya ke alamat baru, tetap lewat nama yang sama.</p>
+  </li>
+  <li>
+    <p><strong>Efisien:</strong>
+<br />
+DNS juga menyimpan cache dari permintaan sebelumnya, jadi akses ke situs jadi <strong>lebih cepat</strong> setelah pertama kali dibuka.</p>
+  </li>
+</ul>
+
+<p>DNS adalah jembatan antara manusia dan mesin di dunia internet. DNS memungkinkan kita menggunakan nama-nama yang ramah di mata manusia, dan membiarkan komputer mengurus alamat IP-nya di balik layar.</p>
+
+<p>Setelah tahu dasar DNS, barulah kita bisa lanjut ke bagian praktik: ngatur IP Address, subnet mask, dan DNS di simulator jaringan.</p>
+
+<hr />
+
+<h2 id="4-praktik-setting-ip-address-subnet-mask-dan-gateway">4. Praktik: Setting IP Address, Subnet Mask, dan Gateway</h2>
+
+<p>Setelah paham teori IP Address, subnetting, dan DNS, sekarang waktunya praktek! Kita akan setting konfigurasi IP pada masing-masing perangkat di topologi berikut:</p>
+
+<p><a href="/assets/images/topologi-dasar-jaringan.png"><img src="/assets/images/topologi-dasar-jaringan.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a>
+<em><center>$\pmb{\text{Gambar 1}}$: Topologi dasar jaringan yang menunjukkan koneksi antara DNS Server, Router, Switch, PC, dan Laptop. Topologi dibuat menggunakan <a href="https://www.netacad.com/cisco-packet-tracer"><b>Cisco Packet Tracer</b></a> untuk keperluan edukasi.</center></em></p>
+
+<h3 id="-unduh-file-latihan">📁 Unduh File Latihan</h3>
+
+<p>Sebelum masuk ke sesi praktik, silakan unduh terlebih dahulu file latihan topologi jaringan yang akan kita gunakan: 👉 <a href="/assets/file/jaringan-dasar/jaringan-dasar.pkt">Unduh file latihan: jaringan-dasar.pkt</a></p>
+
+<h3 id="1-setting-ip-di-pc">1. Setting IP di PC</h3>
+<ol>
+  <li>Klik PC (PC-PT).</li>
+  <li>Buka tab <strong>Desktop</strong> -&gt; pilih <strong>IP Configuration</strong>.</li>
+  <li>Isi sebagai berikut:
+    <ul>
+      <li>IP Address: <code class="language-plaintext highlighter-rouge">192.168.0.10</code></li>
+      <li>Subnet Mask: <code class="language-plaintext highlighter-rouge">255.255.255.0</code> (otomatis terisi)</li>
+      <li>Default Gateway: <code class="language-plaintext highlighter-rouge">192.168.0.1</code> (alamat router Fa0/1)</li>
+      <li>DNS Server: <code class="language-plaintext highlighter-rouge">10.10.10.10</code> (alamat server DNS)</li>
+    </ul>
+  </li>
+</ol>
+
+<p><a href="/assets/images/PC-PT.png"><img src="/assets/images/PC-PT.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 2}}$: Konfigurasi IP statis pada PC-PT di Cisco Packet Tracer. Perangkat ini diberi alamat IP 192.168.0.10 secara manual, dengan subnet mask 255.255.255.0, default gateway 192.168.0.1, dan DNS server 10.10.10.10. Dengan pengaturan ini, PC dapat mengakses jaringan eksternal dan melakukan resolusi nama domain melalui DNS server.</center></em></p>
+
+<h3 id="2-setting-ip-di-laptop">2. Setting IP di Laptop</h3>
+<ol>
+  <li>Klik Laptop (Laptop-PT).</li>
+  <li>Buka tab <strong>Desktop</strong> -&gt; pilih <strong>IP Configuration</strong>.</li>
+  <li>Isi sebagai berikut:
+    <ul>
+      <li>IP Address: <code class="language-plaintext highlighter-rouge">192.168.0.20</code></li>
+      <li>Subnet Mask: <code class="language-plaintext highlighter-rouge">255.255.255.0</code> (otomatis terisi)</li>
+      <li>Default Gateway: <code class="language-plaintext highlighter-rouge">192.168.0.1</code> (alamat router Fa0/1)</li>
+      <li>DNS Server: <code class="language-plaintext highlighter-rouge">10.10.10.10</code> (alamat server DNS)</li>
+    </ul>
+  </li>
+</ol>
+
+<p><a href="/assets/images/Laptop-PT.png"><img src="/assets/images/Laptop-PT.png" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 3}}$: Konfigurasi IP statis pada Laptop-PT di Cisco Packet Tracer. Perangkat ini diberi alamat IP 192.168.0.20 secara manual, dengan subnet mask 255.255.255.0, default gateway 192.168.0.1, dan DNS server 10.10.10.10. Dengan pengaturan ini, laptop dapat mengakses jaringan eksternal dan melakukan resolusi nama domain melalui DNS server.</center></em></p>
+
+<h3 id="3-setting-ip-router">3. Setting IP Router</h3>
+
+<ol>
+  <li>Klik Router &gt; pilih tab CLI.</li>
+  <li>
+    <p>Masukkan konfigurasi berikut:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Router&gt; <span class="nb">enable
+ </span>Router# configure terminal
+ Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/0</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 10.10.10.1 255.255.255.0</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
+ Router<span class="o">(</span>config<span class="o">)</span><span class="c"># interface fastEthernet 0/1</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># ip address 192.168.0.1 255.255.255.0</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># no shutdown</span>
+ Router<span class="o">(</span>config-if<span class="o">)</span><span class="c"># exit</span>
+ Router<span class="o">(</span>config<span class="o">)</span><span class="c"># exit</span>
+ Router#
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="4-menguji-koneksi">4. Menguji Koneksi</h3>
+
+<p>Setelah semua IP, Gateway, dan DNS dikonfigurasi, sekarang <strong>saatnya menguji apakah jaringan berfungsi dengan baik</strong>.</p>
+
+<p>Ada dua cara sederhana untuk melakukannya:</p>
+<ol>
+  <li>
+    <p>Ping alamat IP DNS Server</p>
+
+    <p>Buka Command Prompt pada PC atau Laptop, lalu ketik:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ping 10.10.10.10
+</code></pre></div>    </div>
+
+    <p>Jika muncul balasan (Reply from…), berarti koneksi ke server DNS berhasil.
+ <a href="/assets/images/tes-koneksi-ping.png"><img src="/assets/images/tes-koneksi-ping.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a>
+ <em><center>$\pmb{\text{Gambar 4}}$: Hasil pengujian koneksi menggunakan perintah ping dari PC-PT ke DNS Server (IP: 10.10.10.10). Keempat paket berhasil dikirim dan diterima tanpa kehilangan paket (0% loss), yang menunjukkan koneksi jaringan antara PC dan server berjalan dengan baik.</center></em></p>
+  </li>
+  <li>
+    <p>Akses alamat URL</p>
+
+    <p>Masih dari PC atau Laptop, buka browser dan akses:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> http://mangaden.com
+</code></pre></div>    </div>
+
+    <p>Jika website terbuka, berarti konfigurasi DNS juga sudah berhasil.
+ <a href="/assets/images/tes-koneksi-url.png"><img src="/assets/images/tes-koneksi-url.png" alt="img1" class="img-responsive" style="max-width: 400px; height: auto; display: block; margin: 0 auto;" /></a>
+ <em><center>$\pmb{\text{Gambar 5}}$: PC-PT berhasil mengakses domain <code>mangaden.com</code> melalui web browser. Hal ini menunjukkan bahwa DNS Server (10.10.10.10) berhasil melakukan resolusi nama domain ke alamat IP yang sesuai, sehingga PC dapat mengakses website yang dihosting di server.</center></em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="penutup">Penutup</h3>
+<p>Dengan memahami konsep dan praktik ini, teman teman telah menguasai fondasi penting dalam dunia jaringan komputer yang akan menjadi bekal kuat untuk belajar konfigurasi lanjutan di masa depan.</p>
+
+<p>#IDNBootcampCyber</p>]]></content><author><name></name></author><category term="Cyber-Security" /><summary type="html"><![CDATA[Konsep Dasar Jaringan]]></summary></entry><entry xml:lang="IN"><title type="html">Roadmap 5 Tahun Karier di Dunia Cybersecurity</title><link href="http://localhost:4000/cyber-security/Roadmap_Cyberscurity/" rel="alternate" type="text/html" title="Roadmap 5 Tahun Karier di Dunia Cybersecurity" /><published>2025-05-30T00:00:00+07:00</published><updated>2025-05-30T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/Roadmap_Cyberscurity</id><content type="html" xml:base="http://localhost:4000/cyber-security/Roadmap_Cyberscurity/"><![CDATA[<p><a href="/assets/images/infosec_job_titles_meme.jpg"><img src="/assets/images/infosec_job_titles_meme.jpg" alt="img1" class="img-responsive" style="max-width: 350px; height: auto; display: block; margin: 0 auto;" /></a></p>
+
+<p>Halo! Nama saya Jethro, dan saya ingin berbagi sedikit cerita soal perjalanan saya mengejar karier di dunia cybersecurity. Dunia ini luas banget dan terus berkembang cepat, apalagi sekarang teknologi makin jadi bagian dari hidup kita sehari-hari. Ancaman digital juga makin canggih, jadi saya merasa tertantang buat mendalami bidang ini. Blog ini adalah roadmap pribadi saya—rencana lima tahun ke depan buat berkembang dari yang awalnya cuma penasaran sampai (semoga) bisa jadi profesional di bidang ini.</p>
+
+<h2 id="daftar-isi">📌Daftar Isi</h2>
+<ol>
+  <li><a href="#tahun-1-membangun-fondasi-yang-kokoh">Tahun 1: Membangun Fondasi</a></li>
+  <li><a href="#tahun-2-menentukan-arah-spesialisasi">Tahun 2: Menentukan Spesialisasi</a></li>
+  <li><a href="#tahun-3-mendalami-keahlian-dan-menyusun-portofolio">Tahun 3: Mendalami Keahlian</a></li>
+  <li><a href="#tahun-4-menjadi-profesional">Tahun 4: Menjadi Profesional</a></li>
+  <li><a href="#tahun-5-menjadi-ahli-atau-spesialis-dalam-bidang-tertentu">Tahun 5: Menjadi Ahli</a></li>
+</ol>
+
+<h2 id="tahun-1-membangun-fondasi-yang-kokoh">Tahun 1: Membangun Fondasi yang Kokoh</h2>
+<p><strong>Fokus:</strong> Memahami dasar-dasar keamanan informasi dan jaringan</p>
+
+<p><strong>Topik yang dipelajari:</strong></p>
+<ul>
+  <li>Konsep dasar keamanan (CIA Triad, jenis-jenis serangan)</li>
+  <li>Dasar jaringan komputer dan protokol</li>
+  <li>Sistem operasi (Windows dan Linux)</li>
+</ul>
+
+<p><strong>Tools:</strong> Wireshark, Nmap, VirtualBox/VMware</p>
+
+<p><strong>Sertifikasi:</strong></p>
+<ul>
+  <li>CompTIA IT Fundamentals (ITF+)</li>
+  <li>CompTIA Security+</li>
+</ul>
+
+<p><strong>Aktivitas Tambahan:</strong></p>
+<ul>
+  <li>Bergabung dalam komunitas cybersecurity di Discord, Reddit, dsb.</li>
+  <li>Mulai ikut kursus online di platform seperti Cybrary, Udemy, atau TryHackMe.</li>
+</ul>
+
+<h2 id="tahun-2-menentukan-arah-spesialisasi">Tahun 2: Menentukan Arah Spesialisasi</h2>
+<p><strong>Fokus:</strong> Menjelajahi berbagai jalur karier dalam cybersecurity</p>
+
+<p><strong>Topik yang dipelajari:</strong></p>
+<ul>
+  <li>Blue Team (defensif): SOC Analyst, Incident Responder</li>
+  <li>Red Team (ofensif): Pentester, Ethical Hacker</li>
+  <li>GRC (Governance, Risk, Compliance)</li>
+  <li>Cloud Security, Application Security, Malware Analyst</li>
+</ul>
+
+<p><strong>Sertifikasi:</strong></p>
+<ul>
+  <li>CompTIA CySA+ (Blue Team)</li>
+  <li>eJPT/CEH (Red Team)</li>
+  <li>ISO/IEC 27001 Foundation (GRC)</li>
+</ul>
+
+<p><strong>Aktivitas Tambahan:</strong></p>
+<ul>
+  <li>Ikut pelatihan lab praktis seperti HackTheBox atau Blue Team Labs Online</li>
+  <li>Membangun portofolio dan menulis blog tentang pengalaman belajar.</li>
+</ul>
+
+<h2 id="tahun-3-mendalami-keahlian-dan-menyusun-portofolio">Tahun 3: Mendalami Keahlian dan Menyusun Portofolio</h2>
+<p><strong>Fokus:</strong> Menguasai tools dan teknik tingkat menengah hingga lanjutan</p>
+
+<p><strong>Tools:</strong> Splunk, Burp Suite, Metasploit, Suricata, OSQuery</p>
+
+<p><strong>Aktivitas:</strong></p>
+<ul>
+  <li>Proyek pribadi: membuat lab simulasi serangan/pertahanan.</li>
+  <li>Ikut CTF (Capture The Flag) secara aktif.</li>
+  <li>Menulis laporan atau dokumentasi dari proyek-proyek lab</li>
+</ul>
+
+<p><strong>Sertifikasi:</strong></p>
+<ul>
+  <li>Offensive Security Certified Professional (OSCP)</li>
+  <li>GIAC Security Essentials (GSEC)</li>
+</ul>
+
+<h2 id="tahun-4-menjadi-profesional">Tahun 4: Menjadi Profesional</h2>
+<p><strong>Fokus:</strong> Membangun pengalaman profesional melalui magang, pekerjaan, atau freelance</p>
+
+<p><strong>Aktivitas:</strong></p>
+<ul>
+  <li>Melamar posisi di perusahaan sebagai analyst, engineer, atau auditor</li>
+  <li>Ikut serta dalam bug bounty program (HackerOne, Bugcrowd)</li>
+  <li>Berkontribusi dalam proyek open-source security</li>
+</ul>
+
+<p><strong>Topik yang dipelajari:</strong> Secure DevOps, Threat Intelligence, Reverse Engineering</p>
+
+<p><strong>Sertifikasi:</strong></p>
+<ul>
+  <li>AWS/Azure Security Specialty</li>
+  <li>GIAC Certified Incident Handler (GCIH)</li>
+</ul>
+
+<h2 id="tahun-5-menjadi-ahli-atau-spesialis-dalam-bidang-tertentu">Tahun 5: Menjadi Ahli atau Spesialis dalam Bidang Tertentu</h2>
+<p><strong>Fokus:</strong> Memposisikan diri sebagai pemimpin teknis atau spesialis</p>
+
+<p><strong>Jalur Karier:</strong> Security Architect, Red Team Lead, SOC Manager, atau Consultant</p>
+
+<p><strong>Aktivitas:</strong></p>
+<ul>
+  <li>Berbicara di konferensi, mengajar atau membuat pelatihan</li>
+  <li>Menyusun strategi keamanan dan kebijakan di organisasi</li>
+</ul>
+
+<p><strong>Sertifikasi:</strong></p>
+<ul>
+  <li>CISSP (Certified Information Systems Security Professional)</li>
+  <li>CISM (Certified Information Security Manager)</li>
+</ul>
+
+<hr />
+
+<h2 id="penutup">Penutup</h2>
+
+<p>Cybersecurity itu bukan cuma soal teknologi, tapi juga soal mindset dan konsistensi. Jalan lima tahun ini bukan jaminan, tapi jadi panduan saya supaya tetap fokus dan nggak menyerah. Mungkin nanti arahnya bisa berubah, tapi saya tetap semangat ngejalanin prosesnya.</p>
+
+<p>#IDNBootcampCyber</p>]]></content><author><name></name></author><category term="Cyber-Security" /><category term="cybersecurity" /><category term="roadmap" /><category term="karir" /><category term="karier" /><category term="career" /><summary type="html"><![CDATA[Learning Path Karier Dunia Cybersecurity]]></summary></entry><entry xml:lang="IN"><title type="html">Mengenal CIA Triad`:` Fondasi Keamanan Siber</title><link href="http://localhost:4000/cyber-security/CIA_Triad/" rel="alternate" type="text/html" title="Mengenal CIA Triad`:` Fondasi Keamanan Siber" /><published>2025-05-29T00:00:00+07:00</published><updated>2025-05-29T00:00:00+07:00</updated><id>http://localhost:4000/cyber-security/CIA_Triad</id><content type="html" xml:base="http://localhost:4000/cyber-security/CIA_Triad/"><![CDATA[<h2 id="-daftar-isi">📌 Daftar Isi</h2>
+<ol>
+  <li><a href="#apa-itu-cia-triad-">Apa Itu CIA Triad?</a>
+    <ul>
+      <li><a href="#1-confidentiality-kerahasiaan">1. Confidentiality (Kerahasiaan)</a></li>
+      <li><a href="#2-integrity-integritas">2. Integrity (Integritas)</a></li>
+      <li><a href="#3-availability-ketersediaan">3. Availability (Ketersediaan)</a></li>
+    </ul>
+  </li>
+  <li><a href="#kenapa-cia-triad-itu-penting">Kenapa CIA Triad Itu Penting?</a>
+    <ul>
+      <li><a href="#1-jadi-fondasi-bikin-sistem-aman">1. Jadi Fondasi Bikin Sistem Aman</a></li>
+      <li><a href="#2-integrity-integritas-1">2. Integrity (Integritas)</a></li>
+      <li><a href="#3-dipake-di-standar-keamanan-global">3. Dipake di Standar Keamanan Global</a></li>
+    </ul>
+  </li>
+  <li><a href="#penutup">Penutup</a></li>
+</ol>
+
+<h2 id="apa-itu-cia-triad-">Apa Itu CIA Triad ?</h2>
+<p><strong>CIA Triad</strong> (Confidentiality, Integrity, Availability) adalah tiga pilar utama dalam dunia <strong>cybersecurity</strong>. Ketiganya saling melengkapi dan menjadi dasar dalam merancang sistem yang aman. Jika salah satu pilar ini terganggu, maka keamanan data dan sistem bisa terancam.</p>
+
+<p><a href="/assets/images/cia-triad.jpg"><img src="/assets/images/cia-triad.jpg" alt="img1" class="img-responsive" /></a>
+<em><center>$\pmb{\text{Gambar 1}}$: Ilustrasi CIA Triad: Confidentiality, Integrity, dan Availability adalah tiga pilar utama dalam keamanan informasi. Gambar diambil dari <a href="https://websitesecuritystore.com/blog/what-is-the-cia-triad/"><b>WEB SECURITY STORE</b> powered by DigiCert</a>, beberapa hak cipta dilindungi.</center></em></p>
+
+<p>Kita bisa menganggap CIA Triad sebagai dasar dari keamanan informasi. Ketika data bocor, sistem diretas, akun dibajak, atau situs web diserang, dapat dipastikan bahwa satu atau beberapa prinsip dari CIA Triad telah dilanggar.</p>
+
+<p>Mari kita lihat penjelasan rinci tentang setiap komponen dari triad CIA dan beberapa contoh di dunia nyata:</p>
+
+<h3 id="1-confidentiality-kerahasiaan">1. Confidentiality (Kerahasiaan)</h3>
+<p>Tujuan dari confidentiality adalah memastikan bahwa data hanya dapat diakses oleh pihak yang berwenang. Misalnya, data medis pasien hanya boleh diakses oleh dokter yang menangani — bukan oleh staf administrasi atau pihak luar. Mekanisme seperti enkripsi dan otentikasi pengguna digunakan untuk menjaga kerahasiaan ini.</p>
+<blockquote>
+  <p><strong>Singkatnya:</strong> hanya orang yang berhak yang boleh lihat data — sisanya ditolak mentah-mentah.</p>
+</blockquote>
+
+<h3 id="2-integrity-integritas">2. Integrity (Integritas)</h3>
+<p>Integritas berarti data harus tetap akurat dan utuh, tidak boleh diubah tanpa izin. Contohnya, jika seseorang berhasil memodifikasi laporan keuangan sebuah perusahaan tanpa terdeteksi, maka integritas data telah terganggu. Solusi seperti checksum, hash, dan kontrol akses digunakan untuk menjaga integritas data.</p>
+<blockquote>
+  <p><strong>Singkatnya:</strong> data nggak boleh disulap tanpa izin.</p>
+</blockquote>
+
+<h3 id="3-availability-ketersediaan">3. Availability (Ketersediaan)</h3>
+<p>Data dan sistem harus tersedia kapan pun dibutuhkan. Serangan DDoS (Distributed Denial of Service), misalnya, adalah bentuk ancaman terhadap aspek availability karena dapat membuat situs tidak bisa diakses. Oleh karena itu, sistem perlu dirancang dengan backup, redundansi, dan proteksi terhadap serangan.</p>
+<blockquote>
+  <p><strong>Singkatnya:</strong> sistem harus standby terus, jangan tepar pas dibutuhin.</p>
+</blockquote>
+
+<p>Nah, sekarang kamu udah kenal satu-satu tuh sama Confidentiality, Integrity, dan Availability.<br />
+Tapi pertanyaannya: <strong>seberapa penting sih tiga hal ini di dunia nyata?</strong><br />
+Yuk, lanjut ke bagian berikutnya!</p>
+
+<h2 id="kenapa-cia-triad-itu-penting">Kenapa CIA Triad Itu Penting?</h2>
+<p>Mungkin kamu bertanya-tanya, <i>“Oke, gue udah ngerti apa itu Confidentiality, Integrity, dan Availability. Tapi… emang sepenting itu ya?”</i> Jawabannya: iya banget.</p>
+
+<p>CIA Triad bukan cuma istilah keren di dunia keamanan siber, tapi jadi fondasi utama dalam ngebangun sistem yang aman dan tahan banting. Nah, ini dia beberapa alasan kenapa CIA Triad layak banget kamu kenal dan pahami:</p>
+
+<h3 id="1-jadi-fondasi-bikin-sistem-aman">1. Jadi Fondasi Bikin Sistem Aman</h3>
+<p>Setiap sistem yang kamu pakai entah itu aplikasi chatting, website toko online, atau sistem perbankan pasti (atau seharusnya) dirancang dengan prinsip CIA Triad. 
+Misalnya nih:</p>
+
+<ul>
+  <li><strong>Confidentiality</strong> → Data login kamu disimpan pake enkripsi biar nggak gampang dibobol.</li>
+  <li><strong>Integrity</strong> → Data transaksi dijaga biar nggak bisa diutak-atik orang iseng.</li>
+  <li><strong>Availability</strong> → Server-nya dijaga 24/7 biar kamu bisa akses kapan aja.</li>
+</ul>
+
+<p>Tanpa salah satunya? Wah, siap-siap aja kena masalah.</p>
+
+<h3 id="2-integrity-integritas-1">2. Integrity (Integritas)</h3>
+<p>Kalau ada masalah kayak:</p>
+
+<ul>
+  <li><strong>Data pelanggan bocor</strong> → itu artinya kerahasiaan bocor.</li>
+  <li><strong>Laporan keuangan tiba-tiba berubah</strong> → integritas terganggu.</li>
+  <li><strong>Aplikasi nggak bisa diakses semalaman</strong> → ketersediaan bermasalah.</li>
+</ul>
+
+<p>CIA Triad ini bisa jadi <strong>alat bantu buat deteksi masalah lebih cepat</strong>, dan nentuin harus fokus perbaiki bagian mana dulu.</p>
+
+<h3 id="3-dipake-di-standar-keamanan-global">3. Dipake di Standar Keamanan Global</h3>
+<p>Kamu pernah denger GDPR? ISO 27001? HIPAA?
+Itu semua standar keamanan yang dipakai perusahaan besar dan semuanya pakai prinsip CIA Triad sebagai dasar.</p>
+
+<hr />
+
+<h3 id="penutup">Penutup</h3>
+
+<p>Jadi, meskipun CIA Triad terdengar teknis, prinsipnya sebenarnya sangat dekat sama kehidupan digital kita sehari-hari. Mau itu urusan data pribadi, aplikasi, atau sistem besar. Semuanya butuh kerahasiaan, keutuhan, dan aksesibilitas.</p>]]></content><author><name></name></author><category term="Cyber-Security" /><summary type="html"><![CDATA[Pemahaman CIA Triad]]></summary></entry></feed>
