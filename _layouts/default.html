@@ -25,7 +25,7 @@
     <div class="vertical-center"> 
       <div class="container">
         <div class="row">
-              <div id="left-bar">
+              <div id="left-bar" class="{% if site.left_bar %}left-bar-sticky{% endif %}">
                 {% if site.left_bar %}
                   {% include left_bar.html %}
                 {% else %}
