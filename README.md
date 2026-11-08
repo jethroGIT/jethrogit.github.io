@@ -10,7 +10,6 @@
 - Latex syntax
 - RSS feed
 - Twitter button share
-- Google+ or Disqus comment
 - Fontawesome Icons
 
 ## Two themes
